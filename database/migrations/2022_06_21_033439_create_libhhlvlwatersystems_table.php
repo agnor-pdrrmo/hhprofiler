@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('libgradelvls', function (Blueprint $table) {
+        Schema::create('libhhlvlwatersystems', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->integer('lib_glcode')->unique();
-            $table->string('lib_glname');
+            $table->string('lib_hhwatersystemlvl');
+            $table->string('lib_hhlvldesc');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('libgradelvls');
+        Schema::dropIfExists('libhhlvlwatersystems');
     }
 };

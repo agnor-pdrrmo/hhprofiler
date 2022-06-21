@@ -14,6 +14,10 @@
     <link rel="stylesheet" href="{{asset('backend/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('backend/dist/css/adminlte.min.css')}}">
+
+    <!-- page specific css -->
+    @yield('pagespecificcss')
+
 </head>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
@@ -72,5 +76,9 @@
 <script src="{{asset('backend/dist/js/demo.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('/backend/dist/js/pages/dashboard2.js')}}"></script>
+
+<!-- page specific scripts -->
+@yield('pagespecificscripts')
+
 </body>
 </html>
