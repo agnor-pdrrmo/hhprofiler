@@ -13,14 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('households', function (Blueprint $table) {
+        Schema::create('libgenders', function (Blueprint $table) {
             $table->id();
-            $table->string('controlnumber');
-            $table->string('psgcmunicipality');
-            $table->string('psgcbarangay');
-            $table->string('purok');
-            $table->string('latitude');
-            $table->string('longitude');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('lib_gname');
             $table->timestamps();
         });
     }
@@ -32,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('households');
+        Schema::dropIfExists('libgenders');
     }
 };
