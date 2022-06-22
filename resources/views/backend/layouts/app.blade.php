@@ -39,6 +39,7 @@
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
         <!-- Control sidebar content goes here -->
+        {{}}
     </aside>
     <!-- /.control-sidebar -->
 
@@ -72,8 +73,7 @@
 <!-- ChartJS -->
 <script src="{{asset('backend/plugins/chart.js/Chart.min.js')}}"></script>
 
-<!-- AdminLTE for demo purposes -->
-<script src="{{asset('backend/dist/js/demo.js')}}"></script>
+
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('/backend/dist/js/pages/dashboard2.js')}}"></script>
 

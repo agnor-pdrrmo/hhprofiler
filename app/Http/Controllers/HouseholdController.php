@@ -17,7 +17,7 @@ class HouseholdController extends Controller
 
     public function maps()
     {
-        //dd(Household::all());
+        //dd(Household::whereNotNull('latitude','longitude'))->all()->latitude;
         return view('household.maps',[
             'households' => Household::all()
         ]);
