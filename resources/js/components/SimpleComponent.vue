@@ -1,21 +1,24 @@
 <template>
   <div class="simple">
     <div id="top_div" style="height: 100%">
-      <navitem />
+      <v-map :zoom="zoom" :center="center" style="height: 1000px; width: 1000px">
+        <v-tilelayer :url="url" :attribution="attribution"></v-tilelayer>
+        <v-marker :lat-lng="marker"></v-marker>       
+      </v-map>
     </div>
   </div>
 </template>
 
 <script>
 
-import navitem from './nav-item-component';
+import { LMap, LTileLayer, LMarker }  from 'vue2-leaflet';
 
 export default {
   name: 'simple',
    components: {
-     'navitem':navitem,
-    //  'v-tilelayer':v-tilelayer,
-    //  'v-marker':v-marker
+    'v-map': LMap,
+    'v-tilelayer' :LTileLayer,
+    'v-marker': LMarker
   },
   data () {
     return {

@@ -2268,7 +2268,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-Object(function webpackMissingModule() { var e = new Error("Cannot find module './nav-item-component'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var vue2_leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue2-leaflet */ "./node_modules/vue2-leaflet/dist/components/LMap.js");
+/* harmony import */ var vue2_leaflet__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue2-leaflet */ "./node_modules/vue2-leaflet/dist/components/LTileLayer.js");
+/* harmony import */ var vue2_leaflet__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue2-leaflet */ "./node_modules/vue2-leaflet/dist/components/LMarker.js");
+//
+//
+//
 //
 //
 //
@@ -2281,9 +2286,9 @@ Object(function webpackMissingModule() { var e = new Error("Cannot find module '
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'simple',
   components: {
-    'navitem': Object(function webpackMissingModule() { var e = new Error("Cannot find module './nav-item-component'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()) //  'v-tilelayer':v-tilelayer,
-    //  'v-marker':v-marker
-
+    'v-map': vue2_leaflet__WEBPACK_IMPORTED_MODULE_0__["default"],
+    'v-tilelayer': vue2_leaflet__WEBPACK_IMPORTED_MODULE_1__["default"],
+    'v-marker': vue2_leaflet__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
     return {
@@ -2306,9 +2311,6 @@ Object(function webpackMissingModule() { var e = new Error("Cannot find module '
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue2_leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue2-leaflet */ "./node_modules/vue2-leaflet/dist/components/LMap.js");
-/* harmony import */ var vue2_leaflet__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue2-leaflet */ "./node_modules/vue2-leaflet/dist/components/LTileLayer.js");
-/* harmony import */ var vue2_leaflet__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue2-leaflet */ "./node_modules/vue2-leaflet/dist/components/LMarker.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -2330,10 +2332,10 @@ window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js
 
 Vue.component('example-component', (__webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]));
 Vue.component('household-form-component', (__webpack_require__(/*! ./components/HouseholdformComponent.vue */ "./resources/js/components/HouseholdformComponent.vue")["default"]));
-Vue.component('nav-item-component', (__webpack_require__(/*! ./components/NavitemComponent.vue */ "./resources/js/components/NavitemComponent.vue")["default"]));
-Vue.component('v-map', vue2_leaflet__WEBPACK_IMPORTED_MODULE_0__["default"]);
-Vue.component('v-tilelayer', vue2_leaflet__WEBPACK_IMPORTED_MODULE_1__["default"]);
-Vue.component('v-marker', vue2_leaflet__WEBPACK_IMPORTED_MODULE_2__["default"]);
+Vue.component('nav-item-component', (__webpack_require__(/*! ./components/NavitemComponent.vue */ "./resources/js/components/NavitemComponent.vue")["default"])); //Vue.component('v-map',LMap);
+//Vue.component('v-tilelayer', LTileLayer);
+//Vue.component('v-marker', LMarker);
+
 Vue.component('simple-map-component', (__webpack_require__(/*! ./components/SimpleComponent.vue */ "./resources/js/components/SimpleComponent.vue")["default"]));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -52817,7 +52819,23 @@ var render = function () {
     _c(
       "div",
       { staticStyle: { height: "100%" }, attrs: { id: "top_div" } },
-      [_c("navitem")],
+      [
+        _c(
+          "v-map",
+          {
+            staticStyle: { height: "1000px", width: "1000px" },
+            attrs: { zoom: _vm.zoom, center: _vm.center },
+          },
+          [
+            _c("v-tilelayer", {
+              attrs: { url: _vm.url, attribution: _vm.attribution },
+            }),
+            _vm._v(" "),
+            _c("v-marker", { attrs: { "lat-lng": _vm.marker } }),
+          ],
+          1
+        ),
+      ],
       1
     ),
   ])

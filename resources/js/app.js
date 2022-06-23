@@ -8,7 +8,7 @@ require('./bootstrap');
 
 window.Vue = require('vue').default;
 
-import { LMap, LTileLayer, LMarker } from 'vue2-leaflet';
+import * as Vue2Leaflet from 'vue2-leaflet';
 
 /**
  * The following block of code may be used to automatically register your
@@ -24,9 +24,9 @@ import { LMap, LTileLayer, LMarker } from 'vue2-leaflet';
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('household-form-component', require('./components/HouseholdformComponent.vue').default);
 Vue.component('nav-item-component', require('./components/NavitemComponent.vue').default);
-Vue.component('v-map',LMap);
-Vue.component('v-tilelayer', LTileLayer);
-Vue.component('v-marker', LMarker);
+//Vue.component('v-map',LMap);
+//Vue.component('v-tilelayer', LTileLayer);
+//Vue.component('v-marker', LMarker);
 Vue.component('simple-map-component', require('./components/SimpleComponent.vue').default);
 
 /**
