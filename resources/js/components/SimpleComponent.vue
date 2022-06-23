@@ -8,14 +8,14 @@
 
 <script>
 
-import Vue2Leaflet from 'vue2-leaflet';
+import lmap from 'LMap';
 
 export default {
   name: 'simple',
   components: {
-    'v-map': Vue2Leaflet.Map,
-    'v-tilelayer' :Vue2Leaflet.TileLayer,
-    'v-marker': Vue2Leaflet.Marker
+    'v-map': lmap,
+    //'v-tilelayer' :Vue2Leaflet.TileLayer,
+    //'v-marker': Vue2Leaflet.Marker
   },
   data () {
     return {
