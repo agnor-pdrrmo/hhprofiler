@@ -2,6 +2,12 @@ window._ = require('lodash');
 
 try {
     require('bootstrap');
+    require('admin-lte');
+   // require('jquery.scrollbar');
+   // require('jquery-mousewheel');
+    //require('raphael');
+   // require('jquery-mapael');
+    //require('chart.js');
 } catch (e) {}
 
 /**
