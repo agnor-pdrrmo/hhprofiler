@@ -24,10 +24,10 @@ import { LMap, LTileLayer, LMarker } from 'vue2-leaflet';
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('household-form-component', require('./components/HouseholdformComponent.vue').default);
 Vue.component('nav-item-component', require('./components/NavitemComponent.vue').default);
-//Vue.component('v-map', require(LMap));
-//Vue.component('v-tilelayer', require(Vue2Leaflet.LTileLayer).default);
-//Vue.component('v-marker', require(Vue2Leaflet.LMarker).default);
-//Vue.component('simple-map-component', require('./components/SimpleComponent.vue').default);
+Vue.component('v-map',LMap);
+Vue.component('v-tilelayer', LTileLayer);
+Vue.component('v-marker', LMarker);
+Vue.component('simple-map-component', require('./components/SimpleComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
