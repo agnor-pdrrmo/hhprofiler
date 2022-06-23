@@ -27,4 +27,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/household',[HouseholdController::class,'index']);
-Route::get('/household/maps',[HouseholdController::class,'maps']);
+Route::get('/household/maps',[HouseholdController::class,'maps'])->name('maps');
+
+

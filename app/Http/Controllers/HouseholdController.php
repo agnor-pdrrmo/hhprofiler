@@ -10,9 +10,7 @@ class HouseholdController extends Controller
     //
     public function index()
     {
-        return view('household.index',[
-            'households' => Household::all()
-        ]);
+        return view('household.index');
     }
 
     public function maps()
@@ -21,5 +19,11 @@ class HouseholdController extends Controller
         return view('household.maps',[
             'households' => Household::all()
         ]);
+    }
+
+    public function vuemap()
+    {
+        $households = Household::all();
+        return response()->json($households);
     }
 }

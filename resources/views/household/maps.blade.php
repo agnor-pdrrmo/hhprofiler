@@ -35,9 +35,13 @@
         </div>
     
     </section>
-    </div>
 
-    @endsection
+    {{-- Household form component  --}}
+    <household-form-component />
+
+</div>
+
+@endsection
 
 
 @section('pagespecificcss')
