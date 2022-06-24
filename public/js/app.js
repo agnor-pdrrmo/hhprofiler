@@ -2284,7 +2284,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'simple',
   components: {
     'v-map': vue2_leaflet__WEBPACK_IMPORTED_MODULE_0__["default"],
     'v-tilelayer': vue2_leaflet__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -52823,7 +52822,11 @@ var render = function () {
         _c(
           "v-map",
           {
-            staticStyle: { height: "1000px", width: "1000px" },
+            staticStyle: {
+              height: "83vh",
+              width: "100%",
+              position: "relative",
+            },
             attrs: { zoom: _vm.zoom, center: _vm.center },
           },
           [

@@ -1,7 +1,7 @@
 <template>
   <div class="simple">
     <div id="top_div" style="height: 100%">
-      <v-map :zoom="zoom" :center="center" style="height: 1000px; width: 1000px">
+      <v-map :zoom="zoom" :center="center" style="height: 83vh; width: 100%; position: relative;  solid black; ">
         <v-tilelayer :url="url" :attribution="attribution"></v-tilelayer>
         <v-marker :lat-lng="marker"></v-marker>       
       </v-map>
@@ -14,7 +14,6 @@
 import { LMap, LTileLayer, LMarker }  from 'vue2-leaflet';
 
 export default {
-  name: 'simple',
    components: {
     'v-map': LMap,
     'v-tilelayer' :LTileLayer,
