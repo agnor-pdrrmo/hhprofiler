@@ -10,13 +10,21 @@
                 </div>         
             </div>
         </div>
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+            <div class="p-3">
+            <h5>household Information</h5>
+            <p>Sidebar content</p>
+            </div>
+        </aside>
     </section>
 </template>
 
 <script>
 
 import { LMap, LTileLayer, LMarker }  from 'vue2-leaflet';
-import Vue2LeafletGoogleMutant from 'vue2-leaflet-googlemutant'
+import Vue2LeafletGoogleMutant from 'vue2-leaflet-googlemutant';
+import $ from 'jquery'
 
 export default {
    components: {
@@ -47,7 +55,7 @@ export default {
   },
   methods: {
       gethouseholds: function(){
-          axios.get('/household/vue')
+          axios.get('/household')
                 .then((response)=>{
                   this.households = response.data;
                 })
@@ -60,6 +68,7 @@ export default {
       },
       opensidebar: function (controlnumber){
         this.household = this.households.filter(cn => cn.controlnumber == controlnumber);
+        $("#my-toggle-button").ControlSidebar('show');
       }
   },
     created() {

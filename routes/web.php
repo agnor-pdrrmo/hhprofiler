@@ -18,16 +18,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Temporary Route for development only 
 Route::get('/template', function () {
     return view('adminlte');
-});
+})->name('template');
+Route::get('/maps',[HouseholdController::class,'maps'])->name('maps');
+// Temporary Route for development only 
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home',[HouseholdController::class,'index'])->name('home');
+Route::get('/household',[HouseholdController::class,'index'])->name('gethouseholds');
 
-Route::get('/household',[HouseholdController::class,'index']);
-Route::get('/household/maps',[HouseholdController::class,'maps'])->name('maps');
-Route::get('/household/vue',[HouseholdController::class,'vuemap'])->name('vue');
 
 

@@ -12,8 +12,18 @@ class HouseholdController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        
+        // if(!$this->isLogin())
+        //     return Redirect::to('login');
+
+        if($request->ajax()) // This is check ajax request
+        {
+            $households = Household::all();
+            return response()->json($households);
+        }
+
         return view('household.index');
     }
 

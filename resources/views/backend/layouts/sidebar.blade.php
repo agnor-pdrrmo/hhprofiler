@@ -35,25 +35,29 @@
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
                 <li class="nav-item menu-open">
-                    <a href="/household" class="nav-link active">
+                    <a href="/home" class="nav-link {{ (Route::is('home')) ? "active" : "" }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
                         </p>
                     </a>
                 </li>
-
-                @if(auth()->user()->role == 'Admin')
-
-                <li class="nav-item">
-                    <a href="/household/maps" class="nav-link">
-                        <i class="nav-icon fas fa-globe"></i>
+                <li class="nav-item menu-open">
+                    <a href="/maps" class="nav-link {{ (Illuminate\Support\Facades\Route::is('maps')) ? "active" : "" }}">
+                        <i class="nav-icon fa fa-globe"></i>
                         <p>
-                            Maps                          
+                            Leaflet maps
                         </p>
                     </a>
                 </li>
-                @endif
+                <li class="nav-item menu-open">
+                    <a href="/template" class="nav-link {{ (Illuminate\Support\Facades\Route::is('template')) ? "active" : "" }}">
+                        <i class="nav-icon fas fa-spell-check"></i>
+                        <p>
+                            Template
+                        </p>
+                    </a>
+                </li>
 
                 <li class="nav-item">
                     <a class="dropdown-item" href="{{ route('logout') }}"                          
