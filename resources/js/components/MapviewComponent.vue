@@ -14,7 +14,7 @@
             <!-- Control sidebar content goes here -->
             <div class="p-3">
             <h5>household Information</h5>
-            <form-household></form-household>
+            <form-household v-bind:householddata="householdinfo"></form-household>
             </div>
         </aside>
     </section>
@@ -74,9 +74,14 @@ export default {
         $("#my-toggle-button").ControlSidebar('show');
       }
   },
-    created() {
-        this.gethouseholds();   
+  computed:{
+    householdinfo: function() {
+      return this.household;
     }
+  },
+  created() {
+      this.gethouseholds();   
+  }
 }
 </script>
 
