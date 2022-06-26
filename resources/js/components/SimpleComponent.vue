@@ -1,9 +1,9 @@
 <template>
   <div class="simple">
     <div id="top_div" style="height: 100%">
-      <v-map :zoom="zoom" :center="center" style="height: 83vh; width: 100%; position: relative;  solid black; ">
-        <v-tilelayer :url="url" :attribution="attribution"></v-tilelayer>
-        <v-marker :lat-lng="marker"></v-marker>       
+      <v-map :zoom="zoom" :center="center" style="height: 80vh; width: 100%; position: relative;  solid black; ">       
+        <v-tilelayer-googlemutant :apikey="apikey" :options="options"></v-tilelayer-googlemutant>
+        <v-marker :lat-lng="marker" :icon="icon"></v-marker>       
       </v-map>
     </div>
   </div>
@@ -12,22 +12,44 @@
 <script>
 
 import { LMap, LTileLayer, LMarker }  from 'vue2-leaflet';
+import Vue2LeafletGoogleMutant from 'vue2-leaflet-googlemutant'
 
 export default {
    components: {
     'v-map': LMap,
     'v-tilelayer' :LTileLayer,
-    'v-marker': LMarker
+    'v-marker': LMarker,
+    'v-tilelayer-googlemutant': Vue2LeafletGoogleMutant
   },
   data () {
-    return {
-        zoom: 13,
-        center: [47.413220, -1.219482],
-        url: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
-        attribution: '&copy; <a href="http://{s}.google.com/vt?lyrs=s&x={x}&y={y}&z={z}',
-        marker: L.latLng(47.413220, -1.219482),
+    let options = {
+        type: 'satellite'
     }
-  }
+    return {
+        options,
+        center: [9.112161, 125.560837],
+        zoom: 10,
+        apikey : 'AIzaSyB2MmppHGfdrSzVXgDSPWVmOUVH-rwkI6M',
+        marker: L.latLng(9.112161, 125.560837),
+        icon: L.icon({
+          iconUrl: 'images/icons8-red-circle-48.png',
+          iconSize:     [16, 16],
+          iconAnchor:   [16, 16]
+        })
+    }
+    
+  },
+  methods: {
+      getHouseholds(){
+          axios.get('/household/vue')
+                .then((response)=>{
+                  console.log(response);
+                })
+      }          
+  },
+    created() {
+        this.getHouseholds()
+    }
 }
 </script>
 

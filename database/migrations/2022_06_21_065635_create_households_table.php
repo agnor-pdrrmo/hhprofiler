@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('households', function (Blueprint $table) {
             $table->id();      
-            $table->string('controlnumber');
+            $table->string('controlnumber')->unique();
             $table->string('libmunicipalitie_psgccode');
             $table->foreign('libmunicipalitie_psgccode')->references('psgccode')->on('libmunicipalities')->onDelete('cascade');
             $table->string('libbarangay_psgccode');

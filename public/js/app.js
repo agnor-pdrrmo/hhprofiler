@@ -2268,9 +2268,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue2_leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue2-leaflet */ "./node_modules/vue2-leaflet/dist/components/LMap.js");
-/* harmony import */ var vue2_leaflet__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue2-leaflet */ "./node_modules/vue2-leaflet/dist/components/LTileLayer.js");
-/* harmony import */ var vue2_leaflet__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue2-leaflet */ "./node_modules/vue2-leaflet/dist/components/LMarker.js");
+/* harmony import */ var vue2_leaflet__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue2-leaflet */ "./node_modules/vue2-leaflet/dist/components/LMap.js");
+/* harmony import */ var vue2_leaflet__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue2-leaflet */ "./node_modules/vue2-leaflet/dist/components/LTileLayer.js");
+/* harmony import */ var vue2_leaflet__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue2-leaflet */ "./node_modules/vue2-leaflet/dist/components/LMarker.js");
+/* harmony import */ var vue2_leaflet_googlemutant__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue2-leaflet-googlemutant */ "./node_modules/vue2-leaflet-googlemutant/dist/Vue2LeafletGoogleMutant.js");
+/* harmony import */ var vue2_leaflet_googlemutant__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue2_leaflet_googlemutant__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -2283,20 +2285,40 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    'v-map': vue2_leaflet__WEBPACK_IMPORTED_MODULE_0__["default"],
-    'v-tilelayer': vue2_leaflet__WEBPACK_IMPORTED_MODULE_1__["default"],
-    'v-marker': vue2_leaflet__WEBPACK_IMPORTED_MODULE_2__["default"]
+    'v-map': vue2_leaflet__WEBPACK_IMPORTED_MODULE_1__["default"],
+    'v-tilelayer': vue2_leaflet__WEBPACK_IMPORTED_MODULE_2__["default"],
+    'v-marker': vue2_leaflet__WEBPACK_IMPORTED_MODULE_3__["default"],
+    'v-tilelayer-googlemutant': (vue2_leaflet_googlemutant__WEBPACK_IMPORTED_MODULE_0___default())
   },
   data: function data() {
-    return {
-      zoom: 13,
-      center: [47.413220, -1.219482],
-      url: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
-      attribution: '&copy; <a href="http://{s}.google.com/vt?lyrs=s&x={x}&y={y}&z={z}',
-      marker: L.latLng(47.413220, -1.219482)
+    var options = {
+      type: 'satellite'
     };
+    return {
+      options: options,
+      center: [9.112161, 125.560837],
+      zoom: 10,
+      apikey: 'AIzaSyB2MmppHGfdrSzVXgDSPWVmOUVH-rwkI6M',
+      marker: L.latLng(9.112161, 125.560837),
+      icon: L.icon({
+        iconUrl: 'images/icons8-red-circle-48.png',
+        iconSize: [16, 16],
+        iconAnchor: [16, 16]
+      })
+    };
+  },
+  methods: {
+    getHouseholds: function getHouseholds() {
+      axios.get('/household/vue').then(function (response) {
+        console.log(response);
+      });
+    }
+  },
+  created: function created() {
+    this.getHouseholds();
   }
 });
 
@@ -2388,6 +2410,57 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./node_modules/babel-runtime/core-js/symbol.js":
+/*!******************************************************!*\
+  !*** ./node_modules/babel-runtime/core-js/symbol.js ***!
+  \******************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = { "default": __webpack_require__(/*! core-js/library/fn/symbol */ "./node_modules/core-js/library/fn/symbol/index.js"), __esModule: true };
+
+/***/ }),
+
+/***/ "./node_modules/babel-runtime/core-js/symbol/iterator.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/babel-runtime/core-js/symbol/iterator.js ***!
+  \***************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = { "default": __webpack_require__(/*! core-js/library/fn/symbol/iterator */ "./node_modules/core-js/library/fn/symbol/iterator.js"), __esModule: true };
+
+/***/ }),
+
+/***/ "./node_modules/babel-runtime/helpers/typeof.js":
+/*!******************************************************!*\
+  !*** ./node_modules/babel-runtime/helpers/typeof.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _iterator = __webpack_require__(/*! ../core-js/symbol/iterator */ "./node_modules/babel-runtime/core-js/symbol/iterator.js");
+
+var _iterator2 = _interopRequireDefault(_iterator);
+
+var _symbol = __webpack_require__(/*! ../core-js/symbol */ "./node_modules/babel-runtime/core-js/symbol.js");
+
+var _symbol2 = _interopRequireDefault(_symbol);
+
+var _typeof = typeof _symbol2.default === "function" && typeof _iterator2.default === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof _symbol2.default === "function" && obj.constructor === _symbol2.default && obj !== _symbol2.default.prototype ? "symbol" : typeof obj; };
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports["default"] = typeof _symbol2.default === "function" && _typeof(_iterator2.default) === "symbol" ? function (obj) {
+  return typeof obj === "undefined" ? "undefined" : _typeof(obj);
+} : function (obj) {
+  return obj && typeof _symbol2.default === "function" && obj.constructor === _symbol2.default && obj !== _symbol2.default.prototype ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof(obj);
+};
 
 /***/ }),
 
@@ -6753,6 +6826,1587 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 }));
 //# sourceMappingURL=bootstrap.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/fn/symbol/index.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/core-js/library/fn/symbol/index.js ***!
+  \*********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+__webpack_require__(/*! ../../modules/es6.symbol */ "./node_modules/core-js/library/modules/es6.symbol.js");
+__webpack_require__(/*! ../../modules/es6.object.to-string */ "./node_modules/core-js/library/modules/es6.object.to-string.js");
+__webpack_require__(/*! ../../modules/es7.symbol.async-iterator */ "./node_modules/core-js/library/modules/es7.symbol.async-iterator.js");
+__webpack_require__(/*! ../../modules/es7.symbol.observable */ "./node_modules/core-js/library/modules/es7.symbol.observable.js");
+module.exports = __webpack_require__(/*! ../../modules/_core */ "./node_modules/core-js/library/modules/_core.js").Symbol;
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/fn/symbol/iterator.js":
+/*!************************************************************!*\
+  !*** ./node_modules/core-js/library/fn/symbol/iterator.js ***!
+  \************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+__webpack_require__(/*! ../../modules/es6.string.iterator */ "./node_modules/core-js/library/modules/es6.string.iterator.js");
+__webpack_require__(/*! ../../modules/web.dom.iterable */ "./node_modules/core-js/library/modules/web.dom.iterable.js");
+module.exports = (__webpack_require__(/*! ../../modules/_wks-ext */ "./node_modules/core-js/library/modules/_wks-ext.js").f)('iterator');
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_a-function.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_a-function.js ***!
+  \*************************************************************/
+/***/ ((module) => {
+
+module.exports = function (it) {
+  if (typeof it != 'function') throw TypeError(it + ' is not a function!');
+  return it;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_add-to-unscopables.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_add-to-unscopables.js ***!
+  \*********************************************************************/
+/***/ ((module) => {
+
+module.exports = function () { /* empty */ };
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_an-object.js":
+/*!************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_an-object.js ***!
+  \************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var isObject = __webpack_require__(/*! ./_is-object */ "./node_modules/core-js/library/modules/_is-object.js");
+module.exports = function (it) {
+  if (!isObject(it)) throw TypeError(it + ' is not an object!');
+  return it;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_array-includes.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_array-includes.js ***!
+  \*****************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+// false -> Array#indexOf
+// true  -> Array#includes
+var toIObject = __webpack_require__(/*! ./_to-iobject */ "./node_modules/core-js/library/modules/_to-iobject.js");
+var toLength = __webpack_require__(/*! ./_to-length */ "./node_modules/core-js/library/modules/_to-length.js");
+var toAbsoluteIndex = __webpack_require__(/*! ./_to-absolute-index */ "./node_modules/core-js/library/modules/_to-absolute-index.js");
+module.exports = function (IS_INCLUDES) {
+  return function ($this, el, fromIndex) {
+    var O = toIObject($this);
+    var length = toLength(O.length);
+    var index = toAbsoluteIndex(fromIndex, length);
+    var value;
+    // Array#includes uses SameValueZero equality algorithm
+    // eslint-disable-next-line no-self-compare
+    if (IS_INCLUDES && el != el) while (length > index) {
+      value = O[index++];
+      // eslint-disable-next-line no-self-compare
+      if (value != value) return true;
+    // Array#indexOf ignores holes, Array#includes - not
+    } else for (;length > index; index++) if (IS_INCLUDES || index in O) {
+      if (O[index] === el) return IS_INCLUDES || index || 0;
+    } return !IS_INCLUDES && -1;
+  };
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_cof.js":
+/*!******************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_cof.js ***!
+  \******************************************************/
+/***/ ((module) => {
+
+var toString = {}.toString;
+
+module.exports = function (it) {
+  return toString.call(it).slice(8, -1);
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_core.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_core.js ***!
+  \*******************************************************/
+/***/ ((module) => {
+
+var core = module.exports = { version: '2.6.12' };
+if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_ctx.js":
+/*!******************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_ctx.js ***!
+  \******************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+// optional / simple context binding
+var aFunction = __webpack_require__(/*! ./_a-function */ "./node_modules/core-js/library/modules/_a-function.js");
+module.exports = function (fn, that, length) {
+  aFunction(fn);
+  if (that === undefined) return fn;
+  switch (length) {
+    case 1: return function (a) {
+      return fn.call(that, a);
+    };
+    case 2: return function (a, b) {
+      return fn.call(that, a, b);
+    };
+    case 3: return function (a, b, c) {
+      return fn.call(that, a, b, c);
+    };
+  }
+  return function (/* ...args */) {
+    return fn.apply(that, arguments);
+  };
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_defined.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_defined.js ***!
+  \**********************************************************/
+/***/ ((module) => {
+
+// 7.2.1 RequireObjectCoercible(argument)
+module.exports = function (it) {
+  if (it == undefined) throw TypeError("Can't call method on  " + it);
+  return it;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_descriptors.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_descriptors.js ***!
+  \**************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+// Thank's IE8 for his funny defineProperty
+module.exports = !__webpack_require__(/*! ./_fails */ "./node_modules/core-js/library/modules/_fails.js")(function () {
+  return Object.defineProperty({}, 'a', { get: function () { return 7; } }).a != 7;
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_dom-create.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_dom-create.js ***!
+  \*************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var isObject = __webpack_require__(/*! ./_is-object */ "./node_modules/core-js/library/modules/_is-object.js");
+var document = (__webpack_require__(/*! ./_global */ "./node_modules/core-js/library/modules/_global.js").document);
+// typeof document.createElement is 'object' in old IE
+var is = isObject(document) && isObject(document.createElement);
+module.exports = function (it) {
+  return is ? document.createElement(it) : {};
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_enum-bug-keys.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_enum-bug-keys.js ***!
+  \****************************************************************/
+/***/ ((module) => {
+
+// IE 8- don't enum bug keys
+module.exports = (
+  'constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf'
+).split(',');
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_enum-keys.js":
+/*!************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_enum-keys.js ***!
+  \************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+// all enumerable object keys, includes symbols
+var getKeys = __webpack_require__(/*! ./_object-keys */ "./node_modules/core-js/library/modules/_object-keys.js");
+var gOPS = __webpack_require__(/*! ./_object-gops */ "./node_modules/core-js/library/modules/_object-gops.js");
+var pIE = __webpack_require__(/*! ./_object-pie */ "./node_modules/core-js/library/modules/_object-pie.js");
+module.exports = function (it) {
+  var result = getKeys(it);
+  var getSymbols = gOPS.f;
+  if (getSymbols) {
+    var symbols = getSymbols(it);
+    var isEnum = pIE.f;
+    var i = 0;
+    var key;
+    while (symbols.length > i) if (isEnum.call(it, key = symbols[i++])) result.push(key);
+  } return result;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_export.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_export.js ***!
+  \*********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var global = __webpack_require__(/*! ./_global */ "./node_modules/core-js/library/modules/_global.js");
+var core = __webpack_require__(/*! ./_core */ "./node_modules/core-js/library/modules/_core.js");
+var ctx = __webpack_require__(/*! ./_ctx */ "./node_modules/core-js/library/modules/_ctx.js");
+var hide = __webpack_require__(/*! ./_hide */ "./node_modules/core-js/library/modules/_hide.js");
+var has = __webpack_require__(/*! ./_has */ "./node_modules/core-js/library/modules/_has.js");
+var PROTOTYPE = 'prototype';
+
+var $export = function (type, name, source) {
+  var IS_FORCED = type & $export.F;
+  var IS_GLOBAL = type & $export.G;
+  var IS_STATIC = type & $export.S;
+  var IS_PROTO = type & $export.P;
+  var IS_BIND = type & $export.B;
+  var IS_WRAP = type & $export.W;
+  var exports = IS_GLOBAL ? core : core[name] || (core[name] = {});
+  var expProto = exports[PROTOTYPE];
+  var target = IS_GLOBAL ? global : IS_STATIC ? global[name] : (global[name] || {})[PROTOTYPE];
+  var key, own, out;
+  if (IS_GLOBAL) source = name;
+  for (key in source) {
+    // contains in native
+    own = !IS_FORCED && target && target[key] !== undefined;
+    if (own && has(exports, key)) continue;
+    // export native or passed
+    out = own ? target[key] : source[key];
+    // prevent global pollution for namespaces
+    exports[key] = IS_GLOBAL && typeof target[key] != 'function' ? source[key]
+    // bind timers to global for call from export context
+    : IS_BIND && own ? ctx(out, global)
+    // wrap global constructors for prevent change them in library
+    : IS_WRAP && target[key] == out ? (function (C) {
+      var F = function (a, b, c) {
+        if (this instanceof C) {
+          switch (arguments.length) {
+            case 0: return new C();
+            case 1: return new C(a);
+            case 2: return new C(a, b);
+          } return new C(a, b, c);
+        } return C.apply(this, arguments);
+      };
+      F[PROTOTYPE] = C[PROTOTYPE];
+      return F;
+    // make static versions for prototype methods
+    })(out) : IS_PROTO && typeof out == 'function' ? ctx(Function.call, out) : out;
+    // export proto methods to core.%CONSTRUCTOR%.methods.%NAME%
+    if (IS_PROTO) {
+      (exports.virtual || (exports.virtual = {}))[key] = out;
+      // export proto methods to core.%CONSTRUCTOR%.prototype.%NAME%
+      if (type & $export.R && expProto && !expProto[key]) hide(expProto, key, out);
+    }
+  }
+};
+// type bitmap
+$export.F = 1;   // forced
+$export.G = 2;   // global
+$export.S = 4;   // static
+$export.P = 8;   // proto
+$export.B = 16;  // bind
+$export.W = 32;  // wrap
+$export.U = 64;  // safe
+$export.R = 128; // real proto method for `library`
+module.exports = $export;
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_fails.js":
+/*!********************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_fails.js ***!
+  \********************************************************/
+/***/ ((module) => {
+
+module.exports = function (exec) {
+  try {
+    return !!exec();
+  } catch (e) {
+    return true;
+  }
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_global.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_global.js ***!
+  \*********************************************************/
+/***/ ((module) => {
+
+// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
+var global = module.exports = typeof window != 'undefined' && window.Math == Math
+  ? window : typeof self != 'undefined' && self.Math == Math ? self
+  // eslint-disable-next-line no-new-func
+  : Function('return this')();
+if (typeof __g == 'number') __g = global; // eslint-disable-line no-undef
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_has.js":
+/*!******************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_has.js ***!
+  \******************************************************/
+/***/ ((module) => {
+
+var hasOwnProperty = {}.hasOwnProperty;
+module.exports = function (it, key) {
+  return hasOwnProperty.call(it, key);
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_hide.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_hide.js ***!
+  \*******************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var dP = __webpack_require__(/*! ./_object-dp */ "./node_modules/core-js/library/modules/_object-dp.js");
+var createDesc = __webpack_require__(/*! ./_property-desc */ "./node_modules/core-js/library/modules/_property-desc.js");
+module.exports = __webpack_require__(/*! ./_descriptors */ "./node_modules/core-js/library/modules/_descriptors.js") ? function (object, key, value) {
+  return dP.f(object, key, createDesc(1, value));
+} : function (object, key, value) {
+  object[key] = value;
+  return object;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_html.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_html.js ***!
+  \*******************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var document = (__webpack_require__(/*! ./_global */ "./node_modules/core-js/library/modules/_global.js").document);
+module.exports = document && document.documentElement;
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_ie8-dom-define.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_ie8-dom-define.js ***!
+  \*****************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = !__webpack_require__(/*! ./_descriptors */ "./node_modules/core-js/library/modules/_descriptors.js") && !__webpack_require__(/*! ./_fails */ "./node_modules/core-js/library/modules/_fails.js")(function () {
+  return Object.defineProperty(__webpack_require__(/*! ./_dom-create */ "./node_modules/core-js/library/modules/_dom-create.js")('div'), 'a', { get: function () { return 7; } }).a != 7;
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_iobject.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_iobject.js ***!
+  \**********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+// fallback for non-array-like ES3 and non-enumerable old V8 strings
+var cof = __webpack_require__(/*! ./_cof */ "./node_modules/core-js/library/modules/_cof.js");
+// eslint-disable-next-line no-prototype-builtins
+module.exports = Object('z').propertyIsEnumerable(0) ? Object : function (it) {
+  return cof(it) == 'String' ? it.split('') : Object(it);
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_is-array.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_is-array.js ***!
+  \***********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+// 7.2.2 IsArray(argument)
+var cof = __webpack_require__(/*! ./_cof */ "./node_modules/core-js/library/modules/_cof.js");
+module.exports = Array.isArray || function isArray(arg) {
+  return cof(arg) == 'Array';
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_is-object.js":
+/*!************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_is-object.js ***!
+  \************************************************************/
+/***/ ((module) => {
+
+module.exports = function (it) {
+  return typeof it === 'object' ? it !== null : typeof it === 'function';
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_iter-create.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_iter-create.js ***!
+  \**************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var create = __webpack_require__(/*! ./_object-create */ "./node_modules/core-js/library/modules/_object-create.js");
+var descriptor = __webpack_require__(/*! ./_property-desc */ "./node_modules/core-js/library/modules/_property-desc.js");
+var setToStringTag = __webpack_require__(/*! ./_set-to-string-tag */ "./node_modules/core-js/library/modules/_set-to-string-tag.js");
+var IteratorPrototype = {};
+
+// 25.1.2.1.1 %IteratorPrototype%[@@iterator]()
+__webpack_require__(/*! ./_hide */ "./node_modules/core-js/library/modules/_hide.js")(IteratorPrototype, __webpack_require__(/*! ./_wks */ "./node_modules/core-js/library/modules/_wks.js")('iterator'), function () { return this; });
+
+module.exports = function (Constructor, NAME, next) {
+  Constructor.prototype = create(IteratorPrototype, { next: descriptor(1, next) });
+  setToStringTag(Constructor, NAME + ' Iterator');
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_iter-define.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_iter-define.js ***!
+  \**************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var LIBRARY = __webpack_require__(/*! ./_library */ "./node_modules/core-js/library/modules/_library.js");
+var $export = __webpack_require__(/*! ./_export */ "./node_modules/core-js/library/modules/_export.js");
+var redefine = __webpack_require__(/*! ./_redefine */ "./node_modules/core-js/library/modules/_redefine.js");
+var hide = __webpack_require__(/*! ./_hide */ "./node_modules/core-js/library/modules/_hide.js");
+var Iterators = __webpack_require__(/*! ./_iterators */ "./node_modules/core-js/library/modules/_iterators.js");
+var $iterCreate = __webpack_require__(/*! ./_iter-create */ "./node_modules/core-js/library/modules/_iter-create.js");
+var setToStringTag = __webpack_require__(/*! ./_set-to-string-tag */ "./node_modules/core-js/library/modules/_set-to-string-tag.js");
+var getPrototypeOf = __webpack_require__(/*! ./_object-gpo */ "./node_modules/core-js/library/modules/_object-gpo.js");
+var ITERATOR = __webpack_require__(/*! ./_wks */ "./node_modules/core-js/library/modules/_wks.js")('iterator');
+var BUGGY = !([].keys && 'next' in [].keys()); // Safari has buggy iterators w/o `next`
+var FF_ITERATOR = '@@iterator';
+var KEYS = 'keys';
+var VALUES = 'values';
+
+var returnThis = function () { return this; };
+
+module.exports = function (Base, NAME, Constructor, next, DEFAULT, IS_SET, FORCED) {
+  $iterCreate(Constructor, NAME, next);
+  var getMethod = function (kind) {
+    if (!BUGGY && kind in proto) return proto[kind];
+    switch (kind) {
+      case KEYS: return function keys() { return new Constructor(this, kind); };
+      case VALUES: return function values() { return new Constructor(this, kind); };
+    } return function entries() { return new Constructor(this, kind); };
+  };
+  var TAG = NAME + ' Iterator';
+  var DEF_VALUES = DEFAULT == VALUES;
+  var VALUES_BUG = false;
+  var proto = Base.prototype;
+  var $native = proto[ITERATOR] || proto[FF_ITERATOR] || DEFAULT && proto[DEFAULT];
+  var $default = $native || getMethod(DEFAULT);
+  var $entries = DEFAULT ? !DEF_VALUES ? $default : getMethod('entries') : undefined;
+  var $anyNative = NAME == 'Array' ? proto.entries || $native : $native;
+  var methods, key, IteratorPrototype;
+  // Fix native
+  if ($anyNative) {
+    IteratorPrototype = getPrototypeOf($anyNative.call(new Base()));
+    if (IteratorPrototype !== Object.prototype && IteratorPrototype.next) {
+      // Set @@toStringTag to native iterators
+      setToStringTag(IteratorPrototype, TAG, true);
+      // fix for some old engines
+      if (!LIBRARY && typeof IteratorPrototype[ITERATOR] != 'function') hide(IteratorPrototype, ITERATOR, returnThis);
+    }
+  }
+  // fix Array#{values, @@iterator}.name in V8 / FF
+  if (DEF_VALUES && $native && $native.name !== VALUES) {
+    VALUES_BUG = true;
+    $default = function values() { return $native.call(this); };
+  }
+  // Define iterator
+  if ((!LIBRARY || FORCED) && (BUGGY || VALUES_BUG || !proto[ITERATOR])) {
+    hide(proto, ITERATOR, $default);
+  }
+  // Plug for library
+  Iterators[NAME] = $default;
+  Iterators[TAG] = returnThis;
+  if (DEFAULT) {
+    methods = {
+      values: DEF_VALUES ? $default : getMethod(VALUES),
+      keys: IS_SET ? $default : getMethod(KEYS),
+      entries: $entries
+    };
+    if (FORCED) for (key in methods) {
+      if (!(key in proto)) redefine(proto, key, methods[key]);
+    } else $export($export.P + $export.F * (BUGGY || VALUES_BUG), NAME, methods);
+  }
+  return methods;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_iter-step.js":
+/*!************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_iter-step.js ***!
+  \************************************************************/
+/***/ ((module) => {
+
+module.exports = function (done, value) {
+  return { value: value, done: !!done };
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_iterators.js":
+/*!************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_iterators.js ***!
+  \************************************************************/
+/***/ ((module) => {
+
+module.exports = {};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_library.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_library.js ***!
+  \**********************************************************/
+/***/ ((module) => {
+
+module.exports = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_meta.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_meta.js ***!
+  \*******************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var META = __webpack_require__(/*! ./_uid */ "./node_modules/core-js/library/modules/_uid.js")('meta');
+var isObject = __webpack_require__(/*! ./_is-object */ "./node_modules/core-js/library/modules/_is-object.js");
+var has = __webpack_require__(/*! ./_has */ "./node_modules/core-js/library/modules/_has.js");
+var setDesc = (__webpack_require__(/*! ./_object-dp */ "./node_modules/core-js/library/modules/_object-dp.js").f);
+var id = 0;
+var isExtensible = Object.isExtensible || function () {
+  return true;
+};
+var FREEZE = !__webpack_require__(/*! ./_fails */ "./node_modules/core-js/library/modules/_fails.js")(function () {
+  return isExtensible(Object.preventExtensions({}));
+});
+var setMeta = function (it) {
+  setDesc(it, META, { value: {
+    i: 'O' + ++id, // object ID
+    w: {}          // weak collections IDs
+  } });
+};
+var fastKey = function (it, create) {
+  // return primitive with prefix
+  if (!isObject(it)) return typeof it == 'symbol' ? it : (typeof it == 'string' ? 'S' : 'P') + it;
+  if (!has(it, META)) {
+    // can't set metadata to uncaught frozen object
+    if (!isExtensible(it)) return 'F';
+    // not necessary to add metadata
+    if (!create) return 'E';
+    // add missing metadata
+    setMeta(it);
+  // return object ID
+  } return it[META].i;
+};
+var getWeak = function (it, create) {
+  if (!has(it, META)) {
+    // can't set metadata to uncaught frozen object
+    if (!isExtensible(it)) return true;
+    // not necessary to add metadata
+    if (!create) return false;
+    // add missing metadata
+    setMeta(it);
+  // return hash weak collections IDs
+  } return it[META].w;
+};
+// add metadata on freeze-family methods calling
+var onFreeze = function (it) {
+  if (FREEZE && meta.NEED && isExtensible(it) && !has(it, META)) setMeta(it);
+  return it;
+};
+var meta = module.exports = {
+  KEY: META,
+  NEED: false,
+  fastKey: fastKey,
+  getWeak: getWeak,
+  onFreeze: onFreeze
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_object-create.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_object-create.js ***!
+  \****************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+// 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
+var anObject = __webpack_require__(/*! ./_an-object */ "./node_modules/core-js/library/modules/_an-object.js");
+var dPs = __webpack_require__(/*! ./_object-dps */ "./node_modules/core-js/library/modules/_object-dps.js");
+var enumBugKeys = __webpack_require__(/*! ./_enum-bug-keys */ "./node_modules/core-js/library/modules/_enum-bug-keys.js");
+var IE_PROTO = __webpack_require__(/*! ./_shared-key */ "./node_modules/core-js/library/modules/_shared-key.js")('IE_PROTO');
+var Empty = function () { /* empty */ };
+var PROTOTYPE = 'prototype';
+
+// Create object with fake `null` prototype: use iframe Object with cleared prototype
+var createDict = function () {
+  // Thrash, waste and sodomy: IE GC bug
+  var iframe = __webpack_require__(/*! ./_dom-create */ "./node_modules/core-js/library/modules/_dom-create.js")('iframe');
+  var i = enumBugKeys.length;
+  var lt = '<';
+  var gt = '>';
+  var iframeDocument;
+  iframe.style.display = 'none';
+  (__webpack_require__(/*! ./_html */ "./node_modules/core-js/library/modules/_html.js").appendChild)(iframe);
+  iframe.src = 'javascript:'; // eslint-disable-line no-script-url
+  // createDict = iframe.contentWindow.Object;
+  // html.removeChild(iframe);
+  iframeDocument = iframe.contentWindow.document;
+  iframeDocument.open();
+  iframeDocument.write(lt + 'script' + gt + 'document.F=Object' + lt + '/script' + gt);
+  iframeDocument.close();
+  createDict = iframeDocument.F;
+  while (i--) delete createDict[PROTOTYPE][enumBugKeys[i]];
+  return createDict();
+};
+
+module.exports = Object.create || function create(O, Properties) {
+  var result;
+  if (O !== null) {
+    Empty[PROTOTYPE] = anObject(O);
+    result = new Empty();
+    Empty[PROTOTYPE] = null;
+    // add "__proto__" for Object.getPrototypeOf polyfill
+    result[IE_PROTO] = O;
+  } else result = createDict();
+  return Properties === undefined ? result : dPs(result, Properties);
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_object-dp.js":
+/*!************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_object-dp.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+var anObject = __webpack_require__(/*! ./_an-object */ "./node_modules/core-js/library/modules/_an-object.js");
+var IE8_DOM_DEFINE = __webpack_require__(/*! ./_ie8-dom-define */ "./node_modules/core-js/library/modules/_ie8-dom-define.js");
+var toPrimitive = __webpack_require__(/*! ./_to-primitive */ "./node_modules/core-js/library/modules/_to-primitive.js");
+var dP = Object.defineProperty;
+
+exports.f = __webpack_require__(/*! ./_descriptors */ "./node_modules/core-js/library/modules/_descriptors.js") ? Object.defineProperty : function defineProperty(O, P, Attributes) {
+  anObject(O);
+  P = toPrimitive(P, true);
+  anObject(Attributes);
+  if (IE8_DOM_DEFINE) try {
+    return dP(O, P, Attributes);
+  } catch (e) { /* empty */ }
+  if ('get' in Attributes || 'set' in Attributes) throw TypeError('Accessors not supported!');
+  if ('value' in Attributes) O[P] = Attributes.value;
+  return O;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_object-dps.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_object-dps.js ***!
+  \*************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var dP = __webpack_require__(/*! ./_object-dp */ "./node_modules/core-js/library/modules/_object-dp.js");
+var anObject = __webpack_require__(/*! ./_an-object */ "./node_modules/core-js/library/modules/_an-object.js");
+var getKeys = __webpack_require__(/*! ./_object-keys */ "./node_modules/core-js/library/modules/_object-keys.js");
+
+module.exports = __webpack_require__(/*! ./_descriptors */ "./node_modules/core-js/library/modules/_descriptors.js") ? Object.defineProperties : function defineProperties(O, Properties) {
+  anObject(O);
+  var keys = getKeys(Properties);
+  var length = keys.length;
+  var i = 0;
+  var P;
+  while (length > i) dP.f(O, P = keys[i++], Properties[P]);
+  return O;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_object-gopd.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_object-gopd.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+var pIE = __webpack_require__(/*! ./_object-pie */ "./node_modules/core-js/library/modules/_object-pie.js");
+var createDesc = __webpack_require__(/*! ./_property-desc */ "./node_modules/core-js/library/modules/_property-desc.js");
+var toIObject = __webpack_require__(/*! ./_to-iobject */ "./node_modules/core-js/library/modules/_to-iobject.js");
+var toPrimitive = __webpack_require__(/*! ./_to-primitive */ "./node_modules/core-js/library/modules/_to-primitive.js");
+var has = __webpack_require__(/*! ./_has */ "./node_modules/core-js/library/modules/_has.js");
+var IE8_DOM_DEFINE = __webpack_require__(/*! ./_ie8-dom-define */ "./node_modules/core-js/library/modules/_ie8-dom-define.js");
+var gOPD = Object.getOwnPropertyDescriptor;
+
+exports.f = __webpack_require__(/*! ./_descriptors */ "./node_modules/core-js/library/modules/_descriptors.js") ? gOPD : function getOwnPropertyDescriptor(O, P) {
+  O = toIObject(O);
+  P = toPrimitive(P, true);
+  if (IE8_DOM_DEFINE) try {
+    return gOPD(O, P);
+  } catch (e) { /* empty */ }
+  if (has(O, P)) return createDesc(!pIE.f.call(O, P), O[P]);
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_object-gopn-ext.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_object-gopn-ext.js ***!
+  \******************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+// fallback for IE11 buggy Object.getOwnPropertyNames with iframe and window
+var toIObject = __webpack_require__(/*! ./_to-iobject */ "./node_modules/core-js/library/modules/_to-iobject.js");
+var gOPN = (__webpack_require__(/*! ./_object-gopn */ "./node_modules/core-js/library/modules/_object-gopn.js").f);
+var toString = {}.toString;
+
+var windowNames = typeof window == 'object' && window && Object.getOwnPropertyNames
+  ? Object.getOwnPropertyNames(window) : [];
+
+var getWindowNames = function (it) {
+  try {
+    return gOPN(it);
+  } catch (e) {
+    return windowNames.slice();
+  }
+};
+
+module.exports.f = function getOwnPropertyNames(it) {
+  return windowNames && toString.call(it) == '[object Window]' ? getWindowNames(it) : gOPN(toIObject(it));
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_object-gopn.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_object-gopn.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+// 19.1.2.7 / 15.2.3.4 Object.getOwnPropertyNames(O)
+var $keys = __webpack_require__(/*! ./_object-keys-internal */ "./node_modules/core-js/library/modules/_object-keys-internal.js");
+var hiddenKeys = (__webpack_require__(/*! ./_enum-bug-keys */ "./node_modules/core-js/library/modules/_enum-bug-keys.js").concat)('length', 'prototype');
+
+exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O) {
+  return $keys(O, hiddenKeys);
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_object-gops.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_object-gops.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+exports.f = Object.getOwnPropertySymbols;
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_object-gpo.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_object-gpo.js ***!
+  \*************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+// 19.1.2.9 / 15.2.3.2 Object.getPrototypeOf(O)
+var has = __webpack_require__(/*! ./_has */ "./node_modules/core-js/library/modules/_has.js");
+var toObject = __webpack_require__(/*! ./_to-object */ "./node_modules/core-js/library/modules/_to-object.js");
+var IE_PROTO = __webpack_require__(/*! ./_shared-key */ "./node_modules/core-js/library/modules/_shared-key.js")('IE_PROTO');
+var ObjectProto = Object.prototype;
+
+module.exports = Object.getPrototypeOf || function (O) {
+  O = toObject(O);
+  if (has(O, IE_PROTO)) return O[IE_PROTO];
+  if (typeof O.constructor == 'function' && O instanceof O.constructor) {
+    return O.constructor.prototype;
+  } return O instanceof Object ? ObjectProto : null;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_object-keys-internal.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_object-keys-internal.js ***!
+  \***********************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var has = __webpack_require__(/*! ./_has */ "./node_modules/core-js/library/modules/_has.js");
+var toIObject = __webpack_require__(/*! ./_to-iobject */ "./node_modules/core-js/library/modules/_to-iobject.js");
+var arrayIndexOf = __webpack_require__(/*! ./_array-includes */ "./node_modules/core-js/library/modules/_array-includes.js")(false);
+var IE_PROTO = __webpack_require__(/*! ./_shared-key */ "./node_modules/core-js/library/modules/_shared-key.js")('IE_PROTO');
+
+module.exports = function (object, names) {
+  var O = toIObject(object);
+  var i = 0;
+  var result = [];
+  var key;
+  for (key in O) if (key != IE_PROTO) has(O, key) && result.push(key);
+  // Don't enum bug & hidden keys
+  while (names.length > i) if (has(O, key = names[i++])) {
+    ~arrayIndexOf(result, key) || result.push(key);
+  }
+  return result;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_object-keys.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_object-keys.js ***!
+  \**************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+// 19.1.2.14 / 15.2.3.14 Object.keys(O)
+var $keys = __webpack_require__(/*! ./_object-keys-internal */ "./node_modules/core-js/library/modules/_object-keys-internal.js");
+var enumBugKeys = __webpack_require__(/*! ./_enum-bug-keys */ "./node_modules/core-js/library/modules/_enum-bug-keys.js");
+
+module.exports = Object.keys || function keys(O) {
+  return $keys(O, enumBugKeys);
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_object-pie.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_object-pie.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+exports.f = {}.propertyIsEnumerable;
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_property-desc.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_property-desc.js ***!
+  \****************************************************************/
+/***/ ((module) => {
+
+module.exports = function (bitmap, value) {
+  return {
+    enumerable: !(bitmap & 1),
+    configurable: !(bitmap & 2),
+    writable: !(bitmap & 4),
+    value: value
+  };
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_redefine.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_redefine.js ***!
+  \***********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(/*! ./_hide */ "./node_modules/core-js/library/modules/_hide.js");
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_set-to-string-tag.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_set-to-string-tag.js ***!
+  \********************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var def = (__webpack_require__(/*! ./_object-dp */ "./node_modules/core-js/library/modules/_object-dp.js").f);
+var has = __webpack_require__(/*! ./_has */ "./node_modules/core-js/library/modules/_has.js");
+var TAG = __webpack_require__(/*! ./_wks */ "./node_modules/core-js/library/modules/_wks.js")('toStringTag');
+
+module.exports = function (it, tag, stat) {
+  if (it && !has(it = stat ? it : it.prototype, TAG)) def(it, TAG, { configurable: true, value: tag });
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_shared-key.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_shared-key.js ***!
+  \*************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var shared = __webpack_require__(/*! ./_shared */ "./node_modules/core-js/library/modules/_shared.js")('keys');
+var uid = __webpack_require__(/*! ./_uid */ "./node_modules/core-js/library/modules/_uid.js");
+module.exports = function (key) {
+  return shared[key] || (shared[key] = uid(key));
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_shared.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_shared.js ***!
+  \*********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var core = __webpack_require__(/*! ./_core */ "./node_modules/core-js/library/modules/_core.js");
+var global = __webpack_require__(/*! ./_global */ "./node_modules/core-js/library/modules/_global.js");
+var SHARED = '__core-js_shared__';
+var store = global[SHARED] || (global[SHARED] = {});
+
+(module.exports = function (key, value) {
+  return store[key] || (store[key] = value !== undefined ? value : {});
+})('versions', []).push({
+  version: core.version,
+  mode: __webpack_require__(/*! ./_library */ "./node_modules/core-js/library/modules/_library.js") ? 'pure' : 'global',
+  copyright: '© 2020 Denis Pushkarev (zloirock.ru)'
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_string-at.js":
+/*!************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_string-at.js ***!
+  \************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var toInteger = __webpack_require__(/*! ./_to-integer */ "./node_modules/core-js/library/modules/_to-integer.js");
+var defined = __webpack_require__(/*! ./_defined */ "./node_modules/core-js/library/modules/_defined.js");
+// true  -> String#at
+// false -> String#codePointAt
+module.exports = function (TO_STRING) {
+  return function (that, pos) {
+    var s = String(defined(that));
+    var i = toInteger(pos);
+    var l = s.length;
+    var a, b;
+    if (i < 0 || i >= l) return TO_STRING ? '' : undefined;
+    a = s.charCodeAt(i);
+    return a < 0xd800 || a > 0xdbff || i + 1 === l || (b = s.charCodeAt(i + 1)) < 0xdc00 || b > 0xdfff
+      ? TO_STRING ? s.charAt(i) : a
+      : TO_STRING ? s.slice(i, i + 2) : (a - 0xd800 << 10) + (b - 0xdc00) + 0x10000;
+  };
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_to-absolute-index.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_to-absolute-index.js ***!
+  \********************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var toInteger = __webpack_require__(/*! ./_to-integer */ "./node_modules/core-js/library/modules/_to-integer.js");
+var max = Math.max;
+var min = Math.min;
+module.exports = function (index, length) {
+  index = toInteger(index);
+  return index < 0 ? max(index + length, 0) : min(index, length);
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_to-integer.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_to-integer.js ***!
+  \*************************************************************/
+/***/ ((module) => {
+
+// 7.1.4 ToInteger
+var ceil = Math.ceil;
+var floor = Math.floor;
+module.exports = function (it) {
+  return isNaN(it = +it) ? 0 : (it > 0 ? floor : ceil)(it);
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_to-iobject.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_to-iobject.js ***!
+  \*************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+// to indexed object, toObject with fallback for non-array-like ES3 strings
+var IObject = __webpack_require__(/*! ./_iobject */ "./node_modules/core-js/library/modules/_iobject.js");
+var defined = __webpack_require__(/*! ./_defined */ "./node_modules/core-js/library/modules/_defined.js");
+module.exports = function (it) {
+  return IObject(defined(it));
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_to-length.js":
+/*!************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_to-length.js ***!
+  \************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+// 7.1.15 ToLength
+var toInteger = __webpack_require__(/*! ./_to-integer */ "./node_modules/core-js/library/modules/_to-integer.js");
+var min = Math.min;
+module.exports = function (it) {
+  return it > 0 ? min(toInteger(it), 0x1fffffffffffff) : 0; // pow(2, 53) - 1 == 9007199254740991
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_to-object.js":
+/*!************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_to-object.js ***!
+  \************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+// 7.1.13 ToObject(argument)
+var defined = __webpack_require__(/*! ./_defined */ "./node_modules/core-js/library/modules/_defined.js");
+module.exports = function (it) {
+  return Object(defined(it));
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_to-primitive.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_to-primitive.js ***!
+  \***************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+// 7.1.1 ToPrimitive(input [, PreferredType])
+var isObject = __webpack_require__(/*! ./_is-object */ "./node_modules/core-js/library/modules/_is-object.js");
+// instead of the ES6 spec version, we didn't implement @@toPrimitive case
+// and the second argument - flag - preferred type is a string
+module.exports = function (it, S) {
+  if (!isObject(it)) return it;
+  var fn, val;
+  if (S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it))) return val;
+  if (typeof (fn = it.valueOf) == 'function' && !isObject(val = fn.call(it))) return val;
+  if (!S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it))) return val;
+  throw TypeError("Can't convert object to primitive value");
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_uid.js":
+/*!******************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_uid.js ***!
+  \******************************************************/
+/***/ ((module) => {
+
+var id = 0;
+var px = Math.random();
+module.exports = function (key) {
+  return 'Symbol('.concat(key === undefined ? '' : key, ')_', (++id + px).toString(36));
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_wks-define.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_wks-define.js ***!
+  \*************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var global = __webpack_require__(/*! ./_global */ "./node_modules/core-js/library/modules/_global.js");
+var core = __webpack_require__(/*! ./_core */ "./node_modules/core-js/library/modules/_core.js");
+var LIBRARY = __webpack_require__(/*! ./_library */ "./node_modules/core-js/library/modules/_library.js");
+var wksExt = __webpack_require__(/*! ./_wks-ext */ "./node_modules/core-js/library/modules/_wks-ext.js");
+var defineProperty = (__webpack_require__(/*! ./_object-dp */ "./node_modules/core-js/library/modules/_object-dp.js").f);
+module.exports = function (name) {
+  var $Symbol = core.Symbol || (core.Symbol = LIBRARY ? {} : global.Symbol || {});
+  if (name.charAt(0) != '_' && !(name in $Symbol)) defineProperty($Symbol, name, { value: wksExt.f(name) });
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_wks-ext.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_wks-ext.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+exports.f = __webpack_require__(/*! ./_wks */ "./node_modules/core-js/library/modules/_wks.js");
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/_wks.js":
+/*!******************************************************!*\
+  !*** ./node_modules/core-js/library/modules/_wks.js ***!
+  \******************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var store = __webpack_require__(/*! ./_shared */ "./node_modules/core-js/library/modules/_shared.js")('wks');
+var uid = __webpack_require__(/*! ./_uid */ "./node_modules/core-js/library/modules/_uid.js");
+var Symbol = (__webpack_require__(/*! ./_global */ "./node_modules/core-js/library/modules/_global.js").Symbol);
+var USE_SYMBOL = typeof Symbol == 'function';
+
+var $exports = module.exports = function (name) {
+  return store[name] || (store[name] =
+    USE_SYMBOL && Symbol[name] || (USE_SYMBOL ? Symbol : uid)('Symbol.' + name));
+};
+
+$exports.store = store;
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/es6.array.iterator.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/es6.array.iterator.js ***!
+  \********************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var addToUnscopables = __webpack_require__(/*! ./_add-to-unscopables */ "./node_modules/core-js/library/modules/_add-to-unscopables.js");
+var step = __webpack_require__(/*! ./_iter-step */ "./node_modules/core-js/library/modules/_iter-step.js");
+var Iterators = __webpack_require__(/*! ./_iterators */ "./node_modules/core-js/library/modules/_iterators.js");
+var toIObject = __webpack_require__(/*! ./_to-iobject */ "./node_modules/core-js/library/modules/_to-iobject.js");
+
+// 22.1.3.4 Array.prototype.entries()
+// 22.1.3.13 Array.prototype.keys()
+// 22.1.3.29 Array.prototype.values()
+// 22.1.3.30 Array.prototype[@@iterator]()
+module.exports = __webpack_require__(/*! ./_iter-define */ "./node_modules/core-js/library/modules/_iter-define.js")(Array, 'Array', function (iterated, kind) {
+  this._t = toIObject(iterated); // target
+  this._i = 0;                   // next index
+  this._k = kind;                // kind
+// 22.1.5.2.1 %ArrayIteratorPrototype%.next()
+}, function () {
+  var O = this._t;
+  var kind = this._k;
+  var index = this._i++;
+  if (!O || index >= O.length) {
+    this._t = undefined;
+    return step(1);
+  }
+  if (kind == 'keys') return step(0, index);
+  if (kind == 'values') return step(0, O[index]);
+  return step(0, [index, O[index]]);
+}, 'values');
+
+// argumentsList[@@iterator] is %ArrayProto_values% (9.4.4.6, 9.4.4.7)
+Iterators.Arguments = Iterators.Array;
+
+addToUnscopables('keys');
+addToUnscopables('values');
+addToUnscopables('entries');
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/es6.object.to-string.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/es6.object.to-string.js ***!
+  \**********************************************************************/
+/***/ (() => {
+
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/es6.string.iterator.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/es6.string.iterator.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+var $at = __webpack_require__(/*! ./_string-at */ "./node_modules/core-js/library/modules/_string-at.js")(true);
+
+// 21.1.3.27 String.prototype[@@iterator]()
+__webpack_require__(/*! ./_iter-define */ "./node_modules/core-js/library/modules/_iter-define.js")(String, 'String', function (iterated) {
+  this._t = String(iterated); // target
+  this._i = 0;                // next index
+// 21.1.5.2.1 %StringIteratorPrototype%.next()
+}, function () {
+  var O = this._t;
+  var index = this._i;
+  var point;
+  if (index >= O.length) return { value: undefined, done: true };
+  point = $at(O, index);
+  this._i += point.length;
+  return { value: point, done: false };
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/es6.symbol.js":
+/*!************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/es6.symbol.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+// ECMAScript 6 symbols shim
+var global = __webpack_require__(/*! ./_global */ "./node_modules/core-js/library/modules/_global.js");
+var has = __webpack_require__(/*! ./_has */ "./node_modules/core-js/library/modules/_has.js");
+var DESCRIPTORS = __webpack_require__(/*! ./_descriptors */ "./node_modules/core-js/library/modules/_descriptors.js");
+var $export = __webpack_require__(/*! ./_export */ "./node_modules/core-js/library/modules/_export.js");
+var redefine = __webpack_require__(/*! ./_redefine */ "./node_modules/core-js/library/modules/_redefine.js");
+var META = (__webpack_require__(/*! ./_meta */ "./node_modules/core-js/library/modules/_meta.js").KEY);
+var $fails = __webpack_require__(/*! ./_fails */ "./node_modules/core-js/library/modules/_fails.js");
+var shared = __webpack_require__(/*! ./_shared */ "./node_modules/core-js/library/modules/_shared.js");
+var setToStringTag = __webpack_require__(/*! ./_set-to-string-tag */ "./node_modules/core-js/library/modules/_set-to-string-tag.js");
+var uid = __webpack_require__(/*! ./_uid */ "./node_modules/core-js/library/modules/_uid.js");
+var wks = __webpack_require__(/*! ./_wks */ "./node_modules/core-js/library/modules/_wks.js");
+var wksExt = __webpack_require__(/*! ./_wks-ext */ "./node_modules/core-js/library/modules/_wks-ext.js");
+var wksDefine = __webpack_require__(/*! ./_wks-define */ "./node_modules/core-js/library/modules/_wks-define.js");
+var enumKeys = __webpack_require__(/*! ./_enum-keys */ "./node_modules/core-js/library/modules/_enum-keys.js");
+var isArray = __webpack_require__(/*! ./_is-array */ "./node_modules/core-js/library/modules/_is-array.js");
+var anObject = __webpack_require__(/*! ./_an-object */ "./node_modules/core-js/library/modules/_an-object.js");
+var isObject = __webpack_require__(/*! ./_is-object */ "./node_modules/core-js/library/modules/_is-object.js");
+var toObject = __webpack_require__(/*! ./_to-object */ "./node_modules/core-js/library/modules/_to-object.js");
+var toIObject = __webpack_require__(/*! ./_to-iobject */ "./node_modules/core-js/library/modules/_to-iobject.js");
+var toPrimitive = __webpack_require__(/*! ./_to-primitive */ "./node_modules/core-js/library/modules/_to-primitive.js");
+var createDesc = __webpack_require__(/*! ./_property-desc */ "./node_modules/core-js/library/modules/_property-desc.js");
+var _create = __webpack_require__(/*! ./_object-create */ "./node_modules/core-js/library/modules/_object-create.js");
+var gOPNExt = __webpack_require__(/*! ./_object-gopn-ext */ "./node_modules/core-js/library/modules/_object-gopn-ext.js");
+var $GOPD = __webpack_require__(/*! ./_object-gopd */ "./node_modules/core-js/library/modules/_object-gopd.js");
+var $GOPS = __webpack_require__(/*! ./_object-gops */ "./node_modules/core-js/library/modules/_object-gops.js");
+var $DP = __webpack_require__(/*! ./_object-dp */ "./node_modules/core-js/library/modules/_object-dp.js");
+var $keys = __webpack_require__(/*! ./_object-keys */ "./node_modules/core-js/library/modules/_object-keys.js");
+var gOPD = $GOPD.f;
+var dP = $DP.f;
+var gOPN = gOPNExt.f;
+var $Symbol = global.Symbol;
+var $JSON = global.JSON;
+var _stringify = $JSON && $JSON.stringify;
+var PROTOTYPE = 'prototype';
+var HIDDEN = wks('_hidden');
+var TO_PRIMITIVE = wks('toPrimitive');
+var isEnum = {}.propertyIsEnumerable;
+var SymbolRegistry = shared('symbol-registry');
+var AllSymbols = shared('symbols');
+var OPSymbols = shared('op-symbols');
+var ObjectProto = Object[PROTOTYPE];
+var USE_NATIVE = typeof $Symbol == 'function' && !!$GOPS.f;
+var QObject = global.QObject;
+// Don't use setters in Qt Script, https://github.com/zloirock/core-js/issues/173
+var setter = !QObject || !QObject[PROTOTYPE] || !QObject[PROTOTYPE].findChild;
+
+// fallback for old Android, https://code.google.com/p/v8/issues/detail?id=687
+var setSymbolDesc = DESCRIPTORS && $fails(function () {
+  return _create(dP({}, 'a', {
+    get: function () { return dP(this, 'a', { value: 7 }).a; }
+  })).a != 7;
+}) ? function (it, key, D) {
+  var protoDesc = gOPD(ObjectProto, key);
+  if (protoDesc) delete ObjectProto[key];
+  dP(it, key, D);
+  if (protoDesc && it !== ObjectProto) dP(ObjectProto, key, protoDesc);
+} : dP;
+
+var wrap = function (tag) {
+  var sym = AllSymbols[tag] = _create($Symbol[PROTOTYPE]);
+  sym._k = tag;
+  return sym;
+};
+
+var isSymbol = USE_NATIVE && typeof $Symbol.iterator == 'symbol' ? function (it) {
+  return typeof it == 'symbol';
+} : function (it) {
+  return it instanceof $Symbol;
+};
+
+var $defineProperty = function defineProperty(it, key, D) {
+  if (it === ObjectProto) $defineProperty(OPSymbols, key, D);
+  anObject(it);
+  key = toPrimitive(key, true);
+  anObject(D);
+  if (has(AllSymbols, key)) {
+    if (!D.enumerable) {
+      if (!has(it, HIDDEN)) dP(it, HIDDEN, createDesc(1, {}));
+      it[HIDDEN][key] = true;
+    } else {
+      if (has(it, HIDDEN) && it[HIDDEN][key]) it[HIDDEN][key] = false;
+      D = _create(D, { enumerable: createDesc(0, false) });
+    } return setSymbolDesc(it, key, D);
+  } return dP(it, key, D);
+};
+var $defineProperties = function defineProperties(it, P) {
+  anObject(it);
+  var keys = enumKeys(P = toIObject(P));
+  var i = 0;
+  var l = keys.length;
+  var key;
+  while (l > i) $defineProperty(it, key = keys[i++], P[key]);
+  return it;
+};
+var $create = function create(it, P) {
+  return P === undefined ? _create(it) : $defineProperties(_create(it), P);
+};
+var $propertyIsEnumerable = function propertyIsEnumerable(key) {
+  var E = isEnum.call(this, key = toPrimitive(key, true));
+  if (this === ObjectProto && has(AllSymbols, key) && !has(OPSymbols, key)) return false;
+  return E || !has(this, key) || !has(AllSymbols, key) || has(this, HIDDEN) && this[HIDDEN][key] ? E : true;
+};
+var $getOwnPropertyDescriptor = function getOwnPropertyDescriptor(it, key) {
+  it = toIObject(it);
+  key = toPrimitive(key, true);
+  if (it === ObjectProto && has(AllSymbols, key) && !has(OPSymbols, key)) return;
+  var D = gOPD(it, key);
+  if (D && has(AllSymbols, key) && !(has(it, HIDDEN) && it[HIDDEN][key])) D.enumerable = true;
+  return D;
+};
+var $getOwnPropertyNames = function getOwnPropertyNames(it) {
+  var names = gOPN(toIObject(it));
+  var result = [];
+  var i = 0;
+  var key;
+  while (names.length > i) {
+    if (!has(AllSymbols, key = names[i++]) && key != HIDDEN && key != META) result.push(key);
+  } return result;
+};
+var $getOwnPropertySymbols = function getOwnPropertySymbols(it) {
+  var IS_OP = it === ObjectProto;
+  var names = gOPN(IS_OP ? OPSymbols : toIObject(it));
+  var result = [];
+  var i = 0;
+  var key;
+  while (names.length > i) {
+    if (has(AllSymbols, key = names[i++]) && (IS_OP ? has(ObjectProto, key) : true)) result.push(AllSymbols[key]);
+  } return result;
+};
+
+// 19.4.1.1 Symbol([description])
+if (!USE_NATIVE) {
+  $Symbol = function Symbol() {
+    if (this instanceof $Symbol) throw TypeError('Symbol is not a constructor!');
+    var tag = uid(arguments.length > 0 ? arguments[0] : undefined);
+    var $set = function (value) {
+      if (this === ObjectProto) $set.call(OPSymbols, value);
+      if (has(this, HIDDEN) && has(this[HIDDEN], tag)) this[HIDDEN][tag] = false;
+      setSymbolDesc(this, tag, createDesc(1, value));
+    };
+    if (DESCRIPTORS && setter) setSymbolDesc(ObjectProto, tag, { configurable: true, set: $set });
+    return wrap(tag);
+  };
+  redefine($Symbol[PROTOTYPE], 'toString', function toString() {
+    return this._k;
+  });
+
+  $GOPD.f = $getOwnPropertyDescriptor;
+  $DP.f = $defineProperty;
+  (__webpack_require__(/*! ./_object-gopn */ "./node_modules/core-js/library/modules/_object-gopn.js").f) = gOPNExt.f = $getOwnPropertyNames;
+  (__webpack_require__(/*! ./_object-pie */ "./node_modules/core-js/library/modules/_object-pie.js").f) = $propertyIsEnumerable;
+  $GOPS.f = $getOwnPropertySymbols;
+
+  if (DESCRIPTORS && !__webpack_require__(/*! ./_library */ "./node_modules/core-js/library/modules/_library.js")) {
+    redefine(ObjectProto, 'propertyIsEnumerable', $propertyIsEnumerable, true);
+  }
+
+  wksExt.f = function (name) {
+    return wrap(wks(name));
+  };
+}
+
+$export($export.G + $export.W + $export.F * !USE_NATIVE, { Symbol: $Symbol });
+
+for (var es6Symbols = (
+  // 19.4.2.2, 19.4.2.3, 19.4.2.4, 19.4.2.6, 19.4.2.8, 19.4.2.9, 19.4.2.10, 19.4.2.11, 19.4.2.12, 19.4.2.13, 19.4.2.14
+  'hasInstance,isConcatSpreadable,iterator,match,replace,search,species,split,toPrimitive,toStringTag,unscopables'
+).split(','), j = 0; es6Symbols.length > j;)wks(es6Symbols[j++]);
+
+for (var wellKnownSymbols = $keys(wks.store), k = 0; wellKnownSymbols.length > k;) wksDefine(wellKnownSymbols[k++]);
+
+$export($export.S + $export.F * !USE_NATIVE, 'Symbol', {
+  // 19.4.2.1 Symbol.for(key)
+  'for': function (key) {
+    return has(SymbolRegistry, key += '')
+      ? SymbolRegistry[key]
+      : SymbolRegistry[key] = $Symbol(key);
+  },
+  // 19.4.2.5 Symbol.keyFor(sym)
+  keyFor: function keyFor(sym) {
+    if (!isSymbol(sym)) throw TypeError(sym + ' is not a symbol!');
+    for (var key in SymbolRegistry) if (SymbolRegistry[key] === sym) return key;
+  },
+  useSetter: function () { setter = true; },
+  useSimple: function () { setter = false; }
+});
+
+$export($export.S + $export.F * !USE_NATIVE, 'Object', {
+  // 19.1.2.2 Object.create(O [, Properties])
+  create: $create,
+  // 19.1.2.4 Object.defineProperty(O, P, Attributes)
+  defineProperty: $defineProperty,
+  // 19.1.2.3 Object.defineProperties(O, Properties)
+  defineProperties: $defineProperties,
+  // 19.1.2.6 Object.getOwnPropertyDescriptor(O, P)
+  getOwnPropertyDescriptor: $getOwnPropertyDescriptor,
+  // 19.1.2.7 Object.getOwnPropertyNames(O)
+  getOwnPropertyNames: $getOwnPropertyNames,
+  // 19.1.2.8 Object.getOwnPropertySymbols(O)
+  getOwnPropertySymbols: $getOwnPropertySymbols
+});
+
+// Chrome 38 and 39 `Object.getOwnPropertySymbols` fails on primitives
+// https://bugs.chromium.org/p/v8/issues/detail?id=3443
+var FAILS_ON_PRIMITIVES = $fails(function () { $GOPS.f(1); });
+
+$export($export.S + $export.F * FAILS_ON_PRIMITIVES, 'Object', {
+  getOwnPropertySymbols: function getOwnPropertySymbols(it) {
+    return $GOPS.f(toObject(it));
+  }
+});
+
+// 24.3.2 JSON.stringify(value [, replacer [, space]])
+$JSON && $export($export.S + $export.F * (!USE_NATIVE || $fails(function () {
+  var S = $Symbol();
+  // MS Edge converts symbol values to JSON as {}
+  // WebKit converts symbol values to JSON as null
+  // V8 throws on boxed symbols
+  return _stringify([S]) != '[null]' || _stringify({ a: S }) != '{}' || _stringify(Object(S)) != '{}';
+})), 'JSON', {
+  stringify: function stringify(it) {
+    var args = [it];
+    var i = 1;
+    var replacer, $replacer;
+    while (arguments.length > i) args.push(arguments[i++]);
+    $replacer = replacer = args[1];
+    if (!isObject(replacer) && it === undefined || isSymbol(it)) return; // IE8 returns string on undefined
+    if (!isArray(replacer)) replacer = function (key, value) {
+      if (typeof $replacer == 'function') value = $replacer.call(this, key, value);
+      if (!isSymbol(value)) return value;
+    };
+    args[1] = replacer;
+    return _stringify.apply($JSON, args);
+  }
+});
+
+// 19.4.3.4 Symbol.prototype[@@toPrimitive](hint)
+$Symbol[PROTOTYPE][TO_PRIMITIVE] || __webpack_require__(/*! ./_hide */ "./node_modules/core-js/library/modules/_hide.js")($Symbol[PROTOTYPE], TO_PRIMITIVE, $Symbol[PROTOTYPE].valueOf);
+// 19.4.3.5 Symbol.prototype[@@toStringTag]
+setToStringTag($Symbol, 'Symbol');
+// 20.2.1.9 Math[@@toStringTag]
+setToStringTag(Math, 'Math', true);
+// 24.3.3 JSON[@@toStringTag]
+setToStringTag(global.JSON, 'JSON', true);
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/es7.symbol.async-iterator.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/es7.symbol.async-iterator.js ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+__webpack_require__(/*! ./_wks-define */ "./node_modules/core-js/library/modules/_wks-define.js")('asyncIterator');
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/es7.symbol.observable.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/es7.symbol.observable.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+__webpack_require__(/*! ./_wks-define */ "./node_modules/core-js/library/modules/_wks-define.js")('observable');
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/modules/web.dom.iterable.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/core-js/library/modules/web.dom.iterable.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+__webpack_require__(/*! ./es6.array.iterator */ "./node_modules/core-js/library/modules/es6.array.iterator.js");
+var global = __webpack_require__(/*! ./_global */ "./node_modules/core-js/library/modules/_global.js");
+var hide = __webpack_require__(/*! ./_hide */ "./node_modules/core-js/library/modules/_hide.js");
+var Iterators = __webpack_require__(/*! ./_iterators */ "./node_modules/core-js/library/modules/_iterators.js");
+var TO_STRING_TAG = __webpack_require__(/*! ./_wks */ "./node_modules/core-js/library/modules/_wks.js")('toStringTag');
+
+var DOMIterables = ('CSSRuleList,CSSStyleDeclaration,CSSValueList,ClientRectList,DOMRectList,DOMStringList,' +
+  'DOMTokenList,DataTransferItemList,FileList,HTMLAllCollection,HTMLCollection,HTMLFormElement,HTMLSelectElement,' +
+  'MediaList,MimeTypeArray,NamedNodeMap,NodeList,PaintRequestList,Plugin,PluginArray,SVGLengthList,SVGNumberList,' +
+  'SVGPathSegList,SVGPointList,SVGStringList,SVGTransformList,SourceBufferList,StyleSheetList,TextTrackCueList,' +
+  'TextTrackList,TouchList').split(',');
+
+for (var i = 0; i < DOMIterables.length; i++) {
+  var NAME = DOMIterables[i];
+  var Collection = global[NAME];
+  var proto = Collection && Collection.prototype;
+  if (proto && !proto[TO_STRING_TAG]) hide(proto, TO_STRING_TAG, NAME);
+  Iterators[NAME] = Iterators.Array;
+}
 
 
 /***/ }),
@@ -17862,6 +19516,499 @@ module.exports = function (url, options) {
 
   return url;
 };
+
+/***/ }),
+
+/***/ "./node_modules/leaflet.gridlayer.googlemutant/Leaflet.GoogleMutant.js":
+/*!*****************************************************************************!*\
+  !*** ./node_modules/leaflet.gridlayer.googlemutant/Leaflet.GoogleMutant.js ***!
+  \*****************************************************************************/
+/***/ (() => {
+
+// Based on https://github.com/shramov/leaflet-plugins
+// GridLayer like https://avinmathew.com/leaflet-and-google-maps/ , but using MutationObserver instead of jQuery
+
+
+// 🍂class GridLayer.GoogleMutant
+// 🍂extends GridLayer
+L.GridLayer.GoogleMutant = L.GridLayer.extend({
+	options: {
+		minZoom: 0,
+		maxZoom: 23,
+		tileSize: 256,
+		subdomains: 'abc',
+		errorTileUrl: '',
+		attribution: '',	// The mutant container will add its own attribution anyways.
+		opacity: 1,
+		continuousWorld: false,
+		noWrap: false,
+		// 🍂option type: String = 'roadmap'
+		// Google's map type. Valid values are 'roadmap', 'satellite' or 'terrain'. 'hybrid' is not really supported.
+		type: 'roadmap',
+		maxNativeZoom: 21
+	},
+
+	initialize: function (options) {
+		L.GridLayer.prototype.initialize.call(this, options);
+
+		this._ready = !!window.google && !!window.google.maps && !!window.google.maps.Map;
+
+		this._GAPIPromise = this._ready ? Promise.resolve(window.google) : new Promise(function (resolve, reject) {
+			var checkCounter = 0;
+			var intervalId = null;
+			intervalId = setInterval(function () {
+				if (checkCounter >= 10) {
+					clearInterval(intervalId);
+					return reject(new Error('window.google not found after 10 attempts'));
+				}
+				if (!!window.google && !!window.google.maps && !!window.google.maps.Map) {
+					clearInterval(intervalId);
+					return resolve(window.google);
+				}
+				checkCounter++;
+			}, 500);
+		});
+
+		// Couple data structures indexed by tile key
+		this._tileCallbacks = {};	// Callbacks for promises for tiles that are expected
+		this._freshTiles = {};	// Tiles from the mutant which haven't been requested yet
+
+		this._imagesPerTile = (this.options.type === 'hybrid') ? 2 : 1;
+
+		this._boundOnMutatedImage = this._onMutatedImage.bind(this);
+	},
+
+	onAdd: function (map) {
+		L.GridLayer.prototype.onAdd.call(this, map);
+		this._initMutantContainer();
+
+		this._GAPIPromise.then(function () {
+			this._ready = true;
+			this._map = map;
+
+			this._initMutant();
+
+			map.on('viewreset', this._reset, this);
+			if (this.options.updateWhenIdle) {
+				map.on('moveend', this._update, this);
+			} else {
+				map.on('move', this._update, this);
+			}
+			map.on('zoomend', this._handleZoomAnim, this);
+			map.on('resize', this._resize, this);
+
+			//handle layer being added to a map for which there are no Google tiles at the given zoom
+			google.maps.event.addListenerOnce(this._mutant, 'idle', function () {
+				this._checkZoomLevels();
+				this._mutantIsReady = true;
+			}.bind(this));
+
+			//20px instead of 1em to avoid a slight overlap with google's attribution
+			map._controlCorners.bottomright.style.marginBottom = '20px';
+			map._controlCorners.bottomleft.style.marginBottom = '20px';
+
+			this._reset();
+			this._update();
+
+			if (this._subLayers) {
+				//restore previously added google layers
+				for (var layerName in this._subLayers) {
+					this._subLayers[layerName].setMap(this._mutant);
+				}
+			}
+		}.bind(this));
+	},
+
+	onRemove: function (map) {
+		L.GridLayer.prototype.onRemove.call(this, map);
+		this._observer.disconnect();
+		map._container.removeChild(this._mutantContainer);
+
+		google.maps.event.clearListeners(map, 'idle');
+		google.maps.event.clearListeners(this._mutant, 'idle');
+		map.off('viewreset', this._reset, this);
+		map.off('move', this._update, this);
+		map.off('moveend', this._update, this);
+		map.off('zoomend', this._handleZoomAnim, this);
+		map.off('resize', this._resize, this);
+
+		if (map._controlCorners) {
+			map._controlCorners.bottomright.style.marginBottom = '0em';
+			map._controlCorners.bottomleft.style.marginBottom = '0em';
+		}
+	},
+
+	getAttribution: function () {
+		return this.options.attribution;
+	},
+
+	setElementSize: function (e, size) {
+		e.style.width = size.x + 'px';
+		e.style.height = size.y + 'px';
+	},
+
+
+	addGoogleLayer: function (googleLayerName, options) {
+		if (!this._subLayers) this._subLayers = {};
+		return this._GAPIPromise.then(function () {
+			var Constructor = google.maps[googleLayerName];
+			var googleLayer = new Constructor(options);
+			googleLayer.setMap(this._mutant);
+			this._subLayers[googleLayerName] = googleLayer;
+			return googleLayer;
+		}.bind(this));
+	},
+
+	removeGoogleLayer: function (googleLayerName) {
+		var googleLayer = this._subLayers && this._subLayers[googleLayerName];
+		if (!googleLayer) return;
+
+		googleLayer.setMap(null);
+		delete this._subLayers[googleLayerName];
+	},
+
+
+	_initMutantContainer: function () {
+		if (!this._mutantContainer) {
+			this._mutantContainer = L.DomUtil.create('div', 'leaflet-google-mutant leaflet-top leaflet-left');
+			this._mutantContainer.id = '_MutantContainer_' + L.Util.stamp(this._mutantContainer);
+			this._mutantContainer.style.zIndex = '800'; //leaflet map pane at 400, controls at 1000
+			this._mutantContainer.style.pointerEvents = 'none';
+			
+			L.DomEvent.off(this._mutantContainer);
+
+		}
+		this._map.getContainer().appendChild(this._mutantContainer);
+
+		this.setOpacity(this.options.opacity);
+		this.setElementSize(this._mutantContainer, this._map.getSize());
+
+		this._attachObserver(this._mutantContainer);
+	},
+
+	_initMutant: function () {
+		if (!this._ready || !this._mutantContainer) return;
+
+		if (this._mutant) {
+			// reuse old _mutant, just make sure it has the correct size
+			this._resize();
+			return;
+		}
+
+		this._mutantCenter = new google.maps.LatLng(0, 0);
+
+		var map = new google.maps.Map(this._mutantContainer, {
+			center: this._mutantCenter,
+			zoom: 0,
+			tilt: 0,
+			mapTypeId: this.options.type,
+			disableDefaultUI: true,
+			keyboardShortcuts: false,
+			draggable: false,
+			disableDoubleClickZoom: true,
+			scrollwheel: false,
+			streetViewControl: false,
+			styles: this.options.styles || {},
+			backgroundColor: 'transparent'
+		});
+
+		this._mutant = map;
+
+		google.maps.event.addListenerOnce(map, 'idle', function () {
+			var nodes = this._mutantContainer.querySelectorAll('a');
+			for (var i = 0; i < nodes.length; i++) {
+				nodes[i].style.pointerEvents = 'auto';
+			}
+		}.bind(this));
+
+		// 🍂event spawned
+		// Fired when the mutant has been created.
+		this.fire('spawned', {mapObject: map});
+	},
+
+	_attachObserver: function _attachObserver (node) {
+// 		console.log('Gonna observe', node);
+
+		if (!this._observer)
+			this._observer = new MutationObserver(this._onMutations.bind(this));
+
+		// pass in the target node, as well as the observer options
+		this._observer.observe(node, { childList: true, subtree: true });
+
+		// if we are reusing an old _mutantContainer, we must manually detect
+		// all existing tiles in it
+		Array.prototype.forEach.call(
+			node.querySelectorAll('img'),
+			this._boundOnMutatedImage
+		);
+	},
+
+	_onMutations: function _onMutations (mutations) {
+		for (var i = 0; i < mutations.length; ++i) {
+			var mutation = mutations[i];
+			for (var j = 0; j < mutation.addedNodes.length; ++j) {
+				var node = mutation.addedNodes[j];
+
+				if (node instanceof HTMLImageElement) {
+					this._onMutatedImage(node);
+				} else if (node instanceof HTMLElement) {
+					Array.prototype.forEach.call(
+						node.querySelectorAll('img'),
+						this._boundOnMutatedImage
+					);
+
+					// Check for, and remove, the "Google Maps can't load correctly" div.
+					// You *are* loading correctly, you dumbwit.
+					if (node.style.backgroundColor === 'white') {
+						L.DomUtil.remove(node);
+					}
+                    
+					// Check for, and remove, the "For development purposes only" divs on the aerial/hybrid tiles.
+					if (node.textContent.indexOf('For development purposes only') === 0) {
+						L.DomUtil.remove(node);
+					}
+                    
+					// Check for, and remove, the "Sorry, we have no imagery here"
+					// empty <div>s. The [style*="text-align: center"] selector
+					// avoids matching the attribution notice.
+					// This empty div doesn't have a reference to the tile
+					// coordinates, so it's not possible to mark the tile as
+					// failed.
+					Array.prototype.forEach.call(
+						node.querySelectorAll('div[draggable=false][style*="text-align: center"]'),
+						L.DomUtil.remove
+					);
+				}
+			}
+		}
+	},
+
+	// Only images which 'src' attrib match this will be considered for moving around.
+	// Looks like some kind of string-based protobuf, maybe??
+	// Only the roads (and terrain, and vector-based stuff) match this pattern
+	_roadRegexp: /!1i(\d+)!2i(\d+)!3i(\d+)!/,
+
+	// On the other hand, raster imagery matches this other pattern
+	_satRegexp: /x=(\d+)&y=(\d+)&z=(\d+)/,
+
+	// On small viewports, when zooming in/out, a static image is requested
+	// This will not be moved around, just removed from the DOM.
+	_staticRegExp: /StaticMapService\.GetMapImage/,
+
+	_onMutatedImage: function _onMutatedImage (imgNode) {
+// 		if (imgNode.src) {
+// 			console.log('caught mutated image: ', imgNode.src);
+// 		}
+
+		var coords;
+		var match = imgNode.src.match(this._roadRegexp);
+		var sublayer = 0;
+
+		if (match) {
+			coords = {
+				z: match[1],
+				x: match[2],
+				y: match[3]
+			};
+			if (this._imagesPerTile > 1) { 
+				imgNode.style.zIndex = 1;
+				sublayer = 1;
+			}
+		} else {
+			match = imgNode.src.match(this._satRegexp);
+			if (match) {
+				coords = {
+					x: match[1],
+					y: match[2],
+					z: match[3]
+				};
+			}
+// 			imgNode.style.zIndex = 0;
+			sublayer = 0;
+		}
+
+		if (coords) {
+			var tileKey = this._tileCoordsToKey(coords);
+			imgNode.style.position = 'absolute';
+			imgNode.style.visibility = 'hidden';
+
+			var key = tileKey + '/' + sublayer;
+			// console.log('mutation for tile', key)
+			//store img so it can also be used in subsequent tile requests
+			this._freshTiles[key] = imgNode;
+
+			if (key in this._tileCallbacks && this._tileCallbacks[key]) {
+// console.log('Fullfilling callback ', key);
+				//fullfill most recent tileCallback because there maybe callbacks that will never get a 
+				//corresponding mutation (because map moved to quickly...)
+				this._tileCallbacks[key].pop()(imgNode); 
+				if (!this._tileCallbacks[key].length) { delete this._tileCallbacks[key]; }
+			} else {
+				if (this._tiles[tileKey]) {
+					//we already have a tile in this position (mutation is probably a google layer being added)
+					//replace it
+					var c = this._tiles[tileKey].el;
+					var oldImg = (sublayer === 0) ? c.firstChild : c.firstChild.nextSibling;
+					var cloneImgNode = this._clone(imgNode);
+					c.replaceChild(cloneImgNode, oldImg);
+				}
+			}
+		} else if (imgNode.src.match(this._staticRegExp)) {
+			imgNode.style.visibility = 'hidden';
+		}
+	},
+
+
+	createTile: function (coords, done) {
+		var key = this._tileCoordsToKey(coords);
+
+		var tileContainer = L.DomUtil.create('div');
+		tileContainer.dataset.pending = this._imagesPerTile;
+		done = done.bind(this, null, tileContainer);
+
+		for (var i = 0; i < this._imagesPerTile; i++) {
+			var key2 = key + '/' + i;
+			if (key2 in this._freshTiles) {
+				var imgNode = this._freshTiles[key2];
+				tileContainer.appendChild(this._clone(imgNode));
+				tileContainer.dataset.pending--;
+// 				console.log('Got ', key2, ' from _freshTiles');
+			} else {
+				this._tileCallbacks[key2] = this._tileCallbacks[key2] || [];
+				this._tileCallbacks[key2].push( (function (c/*, k2*/) {
+					return function (imgNode) {
+						c.appendChild(this._clone(imgNode));
+						c.dataset.pending--;
+						if (!parseInt(c.dataset.pending)) { done(); }
+// 						console.log('Sent ', k2, ' to _tileCallbacks, still ', c.dataset.pending, ' images to go');
+					}.bind(this);
+				}.bind(this))(tileContainer/*, key2*/) );
+			}
+		}
+
+		if (!parseInt(tileContainer.dataset.pending)) {
+			L.Util.requestAnimFrame(done);
+		}
+		return tileContainer;
+	},
+
+	_clone: function (imgNode) {
+		var clonedImgNode = imgNode.cloneNode(true);
+		clonedImgNode.style.visibility = 'visible';
+		return clonedImgNode;
+	},
+
+	_checkZoomLevels: function () {
+		//setting the zoom level on the Google map may result in a different zoom level than the one requested
+		//(it won't go beyond the level for which they have data).
+		var zoomLevel = this._map.getZoom();
+		var gMapZoomLevel = this._mutant.getZoom();
+		if (!zoomLevel || !gMapZoomLevel) return;
+
+
+		if ((gMapZoomLevel !== zoomLevel) || //zoom levels are out of sync, Google doesn't have data
+			(gMapZoomLevel > this.options.maxNativeZoom)) { //at current location, Google does have data (contrary to maxNativeZoom)
+			//Update maxNativeZoom
+			this._setMaxNativeZoom(gMapZoomLevel);
+		}
+	},
+
+	_setMaxNativeZoom: function (zoomLevel) {
+		if (zoomLevel != this.options.maxNativeZoom) {
+			this.options.maxNativeZoom = zoomLevel;
+			this._resetView();
+		}
+	},
+
+	_reset: function () {
+		this._initContainer();
+	},
+
+	_update: function () {
+		// zoom level check needs to happen before super's implementation (tile addition/creation)
+		// otherwise tiles may be missed if maxNativeZoom is not yet correctly determined
+		if (this._mutant) {
+			var center = this._map.getCenter();
+			var _center = new google.maps.LatLng(center.lat, center.lng);
+
+			this._mutant.setCenter(_center);
+			var zoom = this._map.getZoom();
+			var fractionalLevel = zoom !== Math.round(zoom);
+			var mutantZoom = this._mutant.getZoom();
+
+			//ignore fractional zoom levels
+			if (!fractionalLevel && (zoom != mutantZoom)) {
+				this._mutant.setZoom(zoom);
+							
+				if (this._mutantIsReady) this._checkZoomLevels();
+				//else zoom level check will be done later by 'idle' handler
+			}
+		}
+
+		L.GridLayer.prototype._update.call(this);
+	},
+
+	_resize: function () {
+		var size = this._map.getSize();
+		if (this._mutantContainer.style.width === size.x &&
+			this._mutantContainer.style.height === size.y)
+			return;
+		this.setElementSize(this._mutantContainer, size);
+		if (!this._mutant) return;
+		google.maps.event.trigger(this._mutant, 'resize');
+	},
+
+	_handleZoomAnim: function () {
+		if (!this._mutant) return;
+		var center = this._map.getCenter();
+		var _center = new google.maps.LatLng(center.lat, center.lng);
+
+		this._mutant.setCenter(_center);
+		this._mutant.setZoom(Math.round(this._map.getZoom()));
+	},
+
+	// Agressively prune _freshtiles when a tile with the same key is removed,
+	// this prevents a problem where Leaflet keeps a loaded tile longer than
+	// GMaps, so that GMaps makes two requests but Leaflet only consumes one,
+	// polluting _freshTiles with stale data.
+	_removeTile: function (key) {
+		if (!this._mutant) return;
+
+		//give time for animations to finish before checking it tile should be pruned
+		setTimeout(this._pruneTile.bind(this, key), 1000);
+
+
+		return L.GridLayer.prototype._removeTile.call(this, key);
+	},
+
+	_pruneTile: function (key) {
+		var gZoom = this._mutant.getZoom();
+		var tileZoom = key.split(':')[2];
+		var googleBounds = this._mutant.getBounds();
+		var sw = googleBounds.getSouthWest();
+		var ne = googleBounds.getNorthEast();
+		var gMapBounds = L.latLngBounds([[sw.lat(), sw.lng()], [ne.lat(), ne.lng()]]);
+
+		for (var i=0; i<this._imagesPerTile; i++) {
+			var key2 = key + '/' + i;
+			if (key2 in this._freshTiles) { 
+				var tileBounds = this._map && this._keyToBounds(key);
+				var stillVisible = this._map && tileBounds.overlaps(gMapBounds) && (tileZoom == gZoom);
+
+				if (!stillVisible) delete this._freshTiles[key2]; 
+//				console.log('Prunning of ', key, (!stillVisible))
+			}
+		}
+	}
+});
+
+
+// 🍂factory gridLayer.googleMutant(options)
+// Returns a new `GridLayer.GoogleMutant` given its options
+L.gridLayer.googleMutant = function (options) {
+	return new L.GridLayer.GoogleMutant(options);
+};
+
 
 /***/ }),
 
@@ -52823,18 +54970,20 @@ var render = function () {
           "v-map",
           {
             staticStyle: {
-              height: "83vh",
+              height: "80vh",
               width: "100%",
               position: "relative",
             },
             attrs: { zoom: _vm.zoom, center: _vm.center },
           },
           [
-            _c("v-tilelayer", {
-              attrs: { url: _vm.url, attribution: _vm.attribution },
+            _c("v-tilelayer-googlemutant", {
+              attrs: { apikey: _vm.apikey, options: _vm.options },
             }),
             _vm._v(" "),
-            _c("v-marker", { attrs: { "lat-lng": _vm.marker } }),
+            _c("v-marker", {
+              attrs: { "lat-lng": _vm.marker, icon: _vm.icon },
+            }),
           ],
           1
         ),
@@ -52959,6 +55108,5463 @@ function normalizeComponent (
     options: options
   }
 }
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet-googlemutant/dist/Vue2LeafletGoogleMutant.js":
+/*!********************************************************************************!*\
+  !*** ./node_modules/vue2-leaflet-googlemutant/dist/Vue2LeafletGoogleMutant.js ***!
+  \********************************************************************************/
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+(function(e,t){ true?module.exports=t(__webpack_require__(/*! babel-runtime/helpers/typeof */ "./node_modules/babel-runtime/helpers/typeof.js"),__webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js"),__webpack_require__(/*! leaflet.gridlayer.googlemutant */ "./node_modules/leaflet.gridlayer.googlemutant/Leaflet.GoogleMutant.js"),__webpack_require__(/*! vue2-leaflet */ "./node_modules/vue2-leaflet/dist/vue2-leaflet.es.js")):0})(this,function(e,t,r,n){return function(e){function t(n){if(r[n])return r[n].exports;var o=r[n]={i:n,l:!1,exports:{}};return e[n].call(o.exports,o,o.exports,t),o.l=!0,o.exports}var r={};return t.m=e,t.c=r,t.i=function(e){return e},t.d=function(e,r,n){t.o(e,r)||Object.defineProperty(e,r,{configurable:!1,enumerable:!0,get:n})},t.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(r,"a",r),r},t.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},t.p="/",t(t.s=8)}([function(e,t,r){var n=r(2)(r(1),r(3),null,null);e.exports=n.exports},function(e,t,r){"use strict";function n(e){return e&&e.__esModule?e:{default:e}}Object.defineProperty(t,"__esModule",{value:!0});var o=r(4),i=n(o),a=r(5),u=n(a);r(6);var l=r(7),f={options:{type:Object,default:function(){return{}}},apikey:{type:String,default:function(){return""}},lang:{type:String,default:null},region:{type:String,default:null},name:{type:String,default:""},layerType:{type:String,default:"base"},visible:{type:Boolean,default:!0}};t.default={props:f,data:function(){return{ready:!1}},mounted:function(){if(this.mapObject=u.default.gridLayer.googleMutant(this.options),u.default.DomEvent.on(this.mapObject,this.$listeners),(0,l.propsBinder)(this,this.mapObject,f),"object"!==("undefined"==typeof google?"undefined":(0,i.default)(google))||"object"!==(0,i.default)(google.maps)){var e=document.createElement("script"),t="https://maps.googleapis.com/maps/api/js?key="+this.apikey;t+=this.lang?"&language="+this.lang:"",t+=this.region?"&region="+this.region:"",e.setAttribute("src",t),document.head.appendChild(e)}this.ready=!0,this.parentContainer=(0,l.findRealParent)(this.$parent),this.parentContainer.addLayer(this,!this.visible)},beforeDestroy:function(){this.parentContainer.removeLayer(this)},methods:{addLayer:function(e,t){t||this.mapObject.addLayer(e.mapObject)},removeLayer:function(e,t){t||this.mapObject.removeLayer(e.mapObject)}}}},function(e,t){e.exports=function(e,t,r,n){var o,i=e=e||{},a=typeof e.default;"object"!==a&&"function"!==a||(o=e,i=e.default);var u="function"==typeof i?i.options:i;if(t&&(u.render=t.render,u.staticRenderFns=t.staticRenderFns),r&&(u._scopeId=r),n){var l=u.computed||(u.computed={});Object.keys(n).forEach(function(e){var t=n[e];l[e]=function(){return t}})}return{esModule:o,exports:i,options:u}}},function(e,t){e.exports={render:function(){var e=this,t=e.$createElement;return(e._self._c||t)("div",{staticStyle:{display:"none"}},[e.ready?e._t("default"):e._e()],2)},staticRenderFns:[]}},function(e,t){e.exports=__webpack_require__(/*! babel-runtime/helpers/typeof */ "./node_modules/babel-runtime/helpers/typeof.js")},function(e,t){e.exports=__webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js")},function(e,t){e.exports=__webpack_require__(/*! leaflet.gridlayer.googlemutant */ "./node_modules/leaflet.gridlayer.googlemutant/Leaflet.GoogleMutant.js")},function(e,t){e.exports=__webpack_require__(/*! vue2-leaflet */ "./node_modules/vue2-leaflet/dist/vue2-leaflet.es.js")},function(e,t,r){e.exports=r(0)}])});
+//# sourceMappingURL=Vue2LeafletGoogleMutant.js.map
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/components/LCircle.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/components/LCircle.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var capitalizeFirstLetter = function (string) {
+  if (!string || typeof string.charAt !== 'function') {
+    return string;
+  }
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+var propsBinder = function (vueElement, leafletElement, props, options) {
+  var loop = function ( key ) {
+    var setMethodName = 'set' + capitalizeFirstLetter(key);
+    var deepValue =
+      props[key].type === Object ||
+      props[key].type === Array ||
+      Array.isArray(props[key].type);
+    if (props[key].custom && vueElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          vueElement[setMethodName](newVal, oldVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (setMethodName === 'setOptions') {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.setOptions)(leafletElement, newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (leafletElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          leafletElement[setMethodName](newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    }
+  };
+
+  for (var key in props) loop( key );
+};
+
+var collectionCleaner = function (options) {
+  var result = {};
+  for (var key in options) {
+    var value = options[key];
+    if (value !== null && value !== undefined) {
+      result[key] = value;
+    }
+  }
+  return result;
+};
+
+var optionsMerger = function (props, instance) {
+  var options =
+    instance.options && instance.options.constructor === Object
+      ? instance.options
+      : {};
+  props = props && props.constructor === Object ? props : {};
+  var result = collectionCleaner(options);
+  props = collectionCleaner(props);
+  var defaultProps = instance.$options.props;
+  for (var key in props) {
+    var def = defaultProps[key]
+      ? defaultProps[key].default &&
+        typeof defaultProps[key].default === 'function'
+        ? defaultProps[key].default.call()
+        : defaultProps[key].default
+      : Symbol('unique');
+    var isEqual = false;
+    if (Array.isArray(def)) {
+      isEqual = JSON.stringify(def) === JSON.stringify(props[key]);
+    } else {
+      isEqual = def === props[key];
+    }
+    if (result[key] && !isEqual) {
+      console.warn(
+        (key + " props is overriding the value passed in the options props")
+      );
+      result[key] = props[key];
+    } else if (!result[key]) {
+      result[key] = props[key];
+    }
+  }
+  return result;
+};
+
+var findRealParent = function (firstVueParent) {
+  var found = false;
+  while (firstVueParent && !found) {
+    if (firstVueParent.mapObject === undefined) {
+      firstVueParent = firstVueParent.$parent;
+    } else {
+      found = true;
+    }
+  }
+  return firstVueParent;
+};
+
+var Layer = {
+  props: {
+    pane: {
+      type: String,
+      default: 'overlayPane',
+    },
+    attribution: {
+      type: String,
+      default: null,
+      custom: true,
+    },
+    name: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    layerType: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    visible: {
+      type: Boolean,
+      custom: true,
+      default: true,
+    },
+  },
+  mounted: function mounted() {
+    this.layerOptions = {
+      attribution: this.attribution,
+      pane: this.pane,
+    };
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.unbindPopup();
+    this.unbindTooltip();
+    this.parentContainer.removeLayer(this);
+  },
+  methods: {
+    setAttribution: function setAttribution(val, old) {
+      var attributionControl = this.$parent.mapObject.attributionControl;
+      attributionControl.removeAttribution(old).addAttribution(val);
+    },
+    setName: function setName() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setLayerType: function setLayerType() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setVisible: function setVisible(isVisible) {
+      if (this.mapObject) {
+        if (isVisible) {
+          this.parentContainer.addLayer(this);
+        } else {
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
+        }
+      }
+    },
+    unbindTooltip: function unbindTooltip() {
+      var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
+      if (tooltip) {
+        tooltip.unbindTooltip();
+      }
+    },
+    unbindPopup: function unbindPopup() {
+      var popup = this.mapObject ? this.mapObject.getPopup() : null;
+      if (popup) {
+        popup.unbindPopup();
+      }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      /**
+       * Triggers when the visible prop needs to be updated
+       * @type {boolean}
+       * @property {boolean} value - value of the visible property
+       */
+      this.$emit('update:visible', value);
+    },
+  },
+};
+
+var InteractiveLayer = {
+  props: {
+    interactive: {
+      type: Boolean,
+      default: true
+    },
+    bubblingMouseEvents: {
+      type: Boolean,
+      default: true
+    }
+  },
+  mounted: function mounted () {
+    this.interactiveLayerOptions = {
+      interactive: this.interactive,
+      bubblingMouseEvents: this.bubblingMouseEvents
+    };
+  }
+};
+
+var Path = {
+  mixins: [Layer, InteractiveLayer],
+  props: {
+    lStyle: {
+      type: Object,
+      custom: true,
+      default: null
+    },
+    stroke: {
+      type: Boolean,
+      custom: true,
+      default: true
+    },
+    color: {
+      type: String,
+      custom: true,
+      default: '#3388ff'
+    },
+    weight: {
+      type: Number,
+      custom: true,
+      default: 3
+    },
+    opacity: {
+      type: Number,
+      custom: true,
+      default: 1.0
+    },
+    lineCap: {
+      type: String,
+      custom: true,
+      default: 'round'
+    },
+    lineJoin: {
+      type: String,
+      custom: true,
+      default: 'round'
+    },
+    dashArray: {
+      type: String,
+      custom: true,
+      default: null
+    },
+    dashOffset: {
+      type: String,
+      custom: true,
+      default: null
+    },
+    fill: {
+      type: Boolean,
+      custom: true,
+      default: false
+    },
+    fillColor: {
+      type: String,
+      custom: true,
+      default: '#3388ff'
+    },
+    fillOpacity: {
+      type: Number,
+      custom: true,
+      default: 0.2
+    },
+    fillRule: {
+      type: String,
+      custom: true,
+      default: 'evenodd'
+    },
+    className: {
+      type: String,
+      custom: true,
+      default: null
+    }
+  },
+  mounted: function mounted () {
+    this.pathOptions = Object.assign({}, this.layerOptions,
+      this.interactiveLayerOptions,
+      {stroke: this.stroke,
+      color: this.color,
+      weight: this.weight,
+      opacity: this.opacity,
+      lineCap: this.lineCap,
+      lineJoin: this.lineJoin,
+      dashArray: this.dashArray,
+      dashOffset: this.dashOffset,
+      fill: this.fill,
+      fillColor: this.fillColor,
+      fillOpacity: this.fillOpacity,
+      fillRule: this.fillRule,
+      className: this.className});
+
+    if (this.lStyle) {
+      console.warn('lStyle is deprecated and is going to be removed in the next major version');
+      for (var style in this.lStyle) {
+        this.pathOptions[style] = this.lStyle[style];
+      }
+    }
+  },
+  beforeDestroy: function beforeDestroy () {
+    if (this.parentContainer) {
+      this.parentContainer.removeLayer(this);
+    } else {
+      console.error('Missing parent container');
+    }
+  },
+  methods: {
+    setLStyle: function setLStyle (newVal) {
+      this.mapObject.setStyle(newVal);
+    },
+    setStroke: function setStroke (newVal) {
+      this.mapObject.setStyle({ stroke: newVal });
+    },
+    setColor: function setColor (newVal) {
+      this.mapObject.setStyle({ color: newVal });
+    },
+    setWeight: function setWeight (newVal) {
+      this.mapObject.setStyle({ weight: newVal });
+    },
+    setOpacity: function setOpacity (newVal) {
+      this.mapObject.setStyle({ opacity: newVal });
+    },
+    setLineCap: function setLineCap (newVal) {
+      this.mapObject.setStyle({ lineCap: newVal });
+    },
+    setLineJoin: function setLineJoin (newVal) {
+      this.mapObject.setStyle({ lineJoin: newVal });
+    },
+    setDashArray: function setDashArray (newVal) {
+      this.mapObject.setStyle({ dashArray: newVal });
+    },
+    setDashOffset: function setDashOffset (newVal) {
+      this.mapObject.setStyle({ dashOffset: newVal });
+    },
+    setFill: function setFill (newVal) {
+      this.mapObject.setStyle({ fill: newVal });
+    },
+    setFillColor: function setFillColor (newVal) {
+      this.mapObject.setStyle({ fillColor: newVal });
+    },
+    setFillOpacity: function setFillOpacity (newVal) {
+      this.mapObject.setStyle({ fillOpacity: newVal });
+    },
+    setFillRule: function setFillRule (newVal) {
+      this.mapObject.setStyle({ fillRule: newVal });
+    },
+    setClassName: function setClassName (newVal) {
+      this.mapObject.setStyle({ className: newVal });
+    }
+  }
+};
+
+var CircleMixin = {
+  mixins: [Path],
+  props: {
+    fill: {
+      type: Boolean,
+      custom: true,
+      default: true
+    },
+    radius: {
+      type: Number,
+      default: null
+    }
+  },
+  mounted: function mounted () {
+    this.circleOptions = Object.assign({}, this.pathOptions,
+      {radius: this.radius});
+  }
+};
+
+var Options = {
+  props: {
+    /**
+     * Leaflet options to pass to the component constructor
+     */
+    options: {
+      type: Object,
+      default: function () { return ({}); }
+    }
+  }
+};
+
+//
+
+/**
+ * Draw a path in the shape of a circle around a center positioned at `latLng` coordinates
+ */
+var script = {
+  name: 'LCircle',
+  mixins: [CircleMixin, Options],
+  props: {
+    latLng: {
+      type: [Object, Array],
+      default: function () { return [0, 0]; },
+    },
+  },
+  data: function data() {
+    return {
+      ready: false,
+    };
+  },
+  mounted: function mounted() {
+    var this$1 = this;
+
+    var options = optionsMerger(this.circleOptions, this);
+    this.mapObject = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.circle)(this.latLng, options);
+    leaflet__WEBPACK_IMPORTED_MODULE_0__.DomEvent.on(this.mapObject, this.$listeners);
+    propsBinder(this, this.mapObject, this.$options.props);
+    this.ready = true;
+    this.parentContainer = findRealParent(this.$parent);
+    this.parentContainer.addLayer(this, !this.visible);
+    this.$nextTick(function () {
+      /**
+       * Triggers when the component is ready
+       * @type {object}
+       * @property {object} mapObject - reference to leaflet map object
+       */
+      this$1.$emit('ready', this$1.mapObject);
+    });
+  },
+  methods: {},
+};
+
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
+    }
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
+    }
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
+}
+
+/* script */
+var __vue_script__ = script;
+
+/* template */
+var __vue_render__ = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticStyle:{"display":"none"}},[(_vm.ready)?_vm._t("default"):_vm._e()],2)};
+var __vue_staticRenderFns__ = [];
+
+  /* style */
+  var __vue_inject_styles__ = undefined;
+  /* scoped */
+  var __vue_scope_id__ = undefined;
+  /* module identifier */
+  var __vue_module_identifier__ = undefined;
+  /* functional template */
+  var __vue_is_functional_template__ = false;
+  /* style inject */
+  
+  /* style inject SSR */
+  
+  /* style inject shadow dom */
+  
+
+  
+  var __vue_component__ = /*#__PURE__*/normalizeComponent(
+    { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
+    __vue_inject_styles__,
+    __vue_script__,
+    __vue_scope_id__,
+    __vue_is_functional_template__,
+    __vue_module_identifier__,
+    false,
+    undefined,
+    undefined,
+    undefined
+  );
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__vue_component__);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/components/LCircleMarker.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/components/LCircleMarker.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var capitalizeFirstLetter = function (string) {
+  if (!string || typeof string.charAt !== 'function') {
+    return string;
+  }
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+var propsBinder = function (vueElement, leafletElement, props, options) {
+  var loop = function ( key ) {
+    var setMethodName = 'set' + capitalizeFirstLetter(key);
+    var deepValue =
+      props[key].type === Object ||
+      props[key].type === Array ||
+      Array.isArray(props[key].type);
+    if (props[key].custom && vueElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          vueElement[setMethodName](newVal, oldVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (setMethodName === 'setOptions') {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.setOptions)(leafletElement, newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (leafletElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          leafletElement[setMethodName](newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    }
+  };
+
+  for (var key in props) loop( key );
+};
+
+var collectionCleaner = function (options) {
+  var result = {};
+  for (var key in options) {
+    var value = options[key];
+    if (value !== null && value !== undefined) {
+      result[key] = value;
+    }
+  }
+  return result;
+};
+
+var optionsMerger = function (props, instance) {
+  var options =
+    instance.options && instance.options.constructor === Object
+      ? instance.options
+      : {};
+  props = props && props.constructor === Object ? props : {};
+  var result = collectionCleaner(options);
+  props = collectionCleaner(props);
+  var defaultProps = instance.$options.props;
+  for (var key in props) {
+    var def = defaultProps[key]
+      ? defaultProps[key].default &&
+        typeof defaultProps[key].default === 'function'
+        ? defaultProps[key].default.call()
+        : defaultProps[key].default
+      : Symbol('unique');
+    var isEqual = false;
+    if (Array.isArray(def)) {
+      isEqual = JSON.stringify(def) === JSON.stringify(props[key]);
+    } else {
+      isEqual = def === props[key];
+    }
+    if (result[key] && !isEqual) {
+      console.warn(
+        (key + " props is overriding the value passed in the options props")
+      );
+      result[key] = props[key];
+    } else if (!result[key]) {
+      result[key] = props[key];
+    }
+  }
+  return result;
+};
+
+var findRealParent = function (firstVueParent) {
+  var found = false;
+  while (firstVueParent && !found) {
+    if (firstVueParent.mapObject === undefined) {
+      firstVueParent = firstVueParent.$parent;
+    } else {
+      found = true;
+    }
+  }
+  return firstVueParent;
+};
+
+var Layer = {
+  props: {
+    pane: {
+      type: String,
+      default: 'overlayPane',
+    },
+    attribution: {
+      type: String,
+      default: null,
+      custom: true,
+    },
+    name: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    layerType: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    visible: {
+      type: Boolean,
+      custom: true,
+      default: true,
+    },
+  },
+  mounted: function mounted() {
+    this.layerOptions = {
+      attribution: this.attribution,
+      pane: this.pane,
+    };
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.unbindPopup();
+    this.unbindTooltip();
+    this.parentContainer.removeLayer(this);
+  },
+  methods: {
+    setAttribution: function setAttribution(val, old) {
+      var attributionControl = this.$parent.mapObject.attributionControl;
+      attributionControl.removeAttribution(old).addAttribution(val);
+    },
+    setName: function setName() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setLayerType: function setLayerType() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setVisible: function setVisible(isVisible) {
+      if (this.mapObject) {
+        if (isVisible) {
+          this.parentContainer.addLayer(this);
+        } else {
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
+        }
+      }
+    },
+    unbindTooltip: function unbindTooltip() {
+      var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
+      if (tooltip) {
+        tooltip.unbindTooltip();
+      }
+    },
+    unbindPopup: function unbindPopup() {
+      var popup = this.mapObject ? this.mapObject.getPopup() : null;
+      if (popup) {
+        popup.unbindPopup();
+      }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      /**
+       * Triggers when the visible prop needs to be updated
+       * @type {boolean}
+       * @property {boolean} value - value of the visible property
+       */
+      this.$emit('update:visible', value);
+    },
+  },
+};
+
+var InteractiveLayer = {
+  props: {
+    interactive: {
+      type: Boolean,
+      default: true
+    },
+    bubblingMouseEvents: {
+      type: Boolean,
+      default: true
+    }
+  },
+  mounted: function mounted () {
+    this.interactiveLayerOptions = {
+      interactive: this.interactive,
+      bubblingMouseEvents: this.bubblingMouseEvents
+    };
+  }
+};
+
+var Path = {
+  mixins: [Layer, InteractiveLayer],
+  props: {
+    lStyle: {
+      type: Object,
+      custom: true,
+      default: null
+    },
+    stroke: {
+      type: Boolean,
+      custom: true,
+      default: true
+    },
+    color: {
+      type: String,
+      custom: true,
+      default: '#3388ff'
+    },
+    weight: {
+      type: Number,
+      custom: true,
+      default: 3
+    },
+    opacity: {
+      type: Number,
+      custom: true,
+      default: 1.0
+    },
+    lineCap: {
+      type: String,
+      custom: true,
+      default: 'round'
+    },
+    lineJoin: {
+      type: String,
+      custom: true,
+      default: 'round'
+    },
+    dashArray: {
+      type: String,
+      custom: true,
+      default: null
+    },
+    dashOffset: {
+      type: String,
+      custom: true,
+      default: null
+    },
+    fill: {
+      type: Boolean,
+      custom: true,
+      default: false
+    },
+    fillColor: {
+      type: String,
+      custom: true,
+      default: '#3388ff'
+    },
+    fillOpacity: {
+      type: Number,
+      custom: true,
+      default: 0.2
+    },
+    fillRule: {
+      type: String,
+      custom: true,
+      default: 'evenodd'
+    },
+    className: {
+      type: String,
+      custom: true,
+      default: null
+    }
+  },
+  mounted: function mounted () {
+    this.pathOptions = Object.assign({}, this.layerOptions,
+      this.interactiveLayerOptions,
+      {stroke: this.stroke,
+      color: this.color,
+      weight: this.weight,
+      opacity: this.opacity,
+      lineCap: this.lineCap,
+      lineJoin: this.lineJoin,
+      dashArray: this.dashArray,
+      dashOffset: this.dashOffset,
+      fill: this.fill,
+      fillColor: this.fillColor,
+      fillOpacity: this.fillOpacity,
+      fillRule: this.fillRule,
+      className: this.className});
+
+    if (this.lStyle) {
+      console.warn('lStyle is deprecated and is going to be removed in the next major version');
+      for (var style in this.lStyle) {
+        this.pathOptions[style] = this.lStyle[style];
+      }
+    }
+  },
+  beforeDestroy: function beforeDestroy () {
+    if (this.parentContainer) {
+      this.parentContainer.removeLayer(this);
+    } else {
+      console.error('Missing parent container');
+    }
+  },
+  methods: {
+    setLStyle: function setLStyle (newVal) {
+      this.mapObject.setStyle(newVal);
+    },
+    setStroke: function setStroke (newVal) {
+      this.mapObject.setStyle({ stroke: newVal });
+    },
+    setColor: function setColor (newVal) {
+      this.mapObject.setStyle({ color: newVal });
+    },
+    setWeight: function setWeight (newVal) {
+      this.mapObject.setStyle({ weight: newVal });
+    },
+    setOpacity: function setOpacity (newVal) {
+      this.mapObject.setStyle({ opacity: newVal });
+    },
+    setLineCap: function setLineCap (newVal) {
+      this.mapObject.setStyle({ lineCap: newVal });
+    },
+    setLineJoin: function setLineJoin (newVal) {
+      this.mapObject.setStyle({ lineJoin: newVal });
+    },
+    setDashArray: function setDashArray (newVal) {
+      this.mapObject.setStyle({ dashArray: newVal });
+    },
+    setDashOffset: function setDashOffset (newVal) {
+      this.mapObject.setStyle({ dashOffset: newVal });
+    },
+    setFill: function setFill (newVal) {
+      this.mapObject.setStyle({ fill: newVal });
+    },
+    setFillColor: function setFillColor (newVal) {
+      this.mapObject.setStyle({ fillColor: newVal });
+    },
+    setFillOpacity: function setFillOpacity (newVal) {
+      this.mapObject.setStyle({ fillOpacity: newVal });
+    },
+    setFillRule: function setFillRule (newVal) {
+      this.mapObject.setStyle({ fillRule: newVal });
+    },
+    setClassName: function setClassName (newVal) {
+      this.mapObject.setStyle({ className: newVal });
+    }
+  }
+};
+
+var CircleMixin = {
+  mixins: [Path],
+  props: {
+    fill: {
+      type: Boolean,
+      custom: true,
+      default: true
+    },
+    radius: {
+      type: Number,
+      default: null
+    }
+  },
+  mounted: function mounted () {
+    this.circleOptions = Object.assign({}, this.pathOptions,
+      {radius: this.radius});
+  }
+};
+
+var Options = {
+  props: {
+    /**
+     * Leaflet options to pass to the component constructor
+     */
+    options: {
+      type: Object,
+      default: function () { return ({}); }
+    }
+  }
+};
+
+//
+
+/**
+ * A marker in the shape of a circle
+ */
+var script = {
+  name: 'LCircleMarker',
+  mixins: [CircleMixin, Options],
+  props: {
+    latLng: {
+      type: [Object, Array],
+      default: function () { return [0, 0]; },
+    },
+    pane: {
+      type: String,
+      default: 'markerPane',
+    },
+  },
+  data: function data() {
+    return {
+      ready: false,
+    };
+  },
+  mounted: function mounted() {
+    var this$1 = this;
+
+    var options = optionsMerger(this.circleOptions, this);
+    this.mapObject = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.circleMarker)(this.latLng, options);
+    leaflet__WEBPACK_IMPORTED_MODULE_0__.DomEvent.on(this.mapObject, this.$listeners);
+    propsBinder(this, this.mapObject, this.$options.props);
+    this.ready = true;
+    this.parentContainer = findRealParent(this.$parent);
+    this.parentContainer.addLayer(this, !this.visible);
+    this.$nextTick(function () {
+      /**
+       * Triggers when the component is ready
+       * @type {object}
+       * @property {object} mapObject - reference to leaflet map object
+       */
+      this$1.$emit('ready', this$1.mapObject);
+    });
+  },
+};
+
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
+    }
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
+    }
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
+}
+
+/* script */
+var __vue_script__ = script;
+
+/* template */
+var __vue_render__ = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticStyle:{"display":"none"}},[(_vm.ready)?_vm._t("default"):_vm._e()],2)};
+var __vue_staticRenderFns__ = [];
+
+  /* style */
+  var __vue_inject_styles__ = undefined;
+  /* scoped */
+  var __vue_scope_id__ = undefined;
+  /* module identifier */
+  var __vue_module_identifier__ = undefined;
+  /* functional template */
+  var __vue_is_functional_template__ = false;
+  /* style inject */
+  
+  /* style inject SSR */
+  
+  /* style inject shadow dom */
+  
+
+  
+  var __vue_component__ = /*#__PURE__*/normalizeComponent(
+    { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
+    __vue_inject_styles__,
+    __vue_script__,
+    __vue_scope_id__,
+    __vue_is_functional_template__,
+    __vue_module_identifier__,
+    false,
+    undefined,
+    undefined,
+    undefined
+  );
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__vue_component__);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/components/LControl.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/components/LControl.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var capitalizeFirstLetter = function (string) {
+  if (!string || typeof string.charAt !== 'function') {
+    return string;
+  }
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+var propsBinder = function (vueElement, leafletElement, props, options) {
+  var loop = function ( key ) {
+    var setMethodName = 'set' + capitalizeFirstLetter(key);
+    var deepValue =
+      props[key].type === Object ||
+      props[key].type === Array ||
+      Array.isArray(props[key].type);
+    if (props[key].custom && vueElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          vueElement[setMethodName](newVal, oldVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (setMethodName === 'setOptions') {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.setOptions)(leafletElement, newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (leafletElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          leafletElement[setMethodName](newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    }
+  };
+
+  for (var key in props) loop( key );
+};
+
+var collectionCleaner = function (options) {
+  var result = {};
+  for (var key in options) {
+    var value = options[key];
+    if (value !== null && value !== undefined) {
+      result[key] = value;
+    }
+  }
+  return result;
+};
+
+var optionsMerger = function (props, instance) {
+  var options =
+    instance.options && instance.options.constructor === Object
+      ? instance.options
+      : {};
+  props = props && props.constructor === Object ? props : {};
+  var result = collectionCleaner(options);
+  props = collectionCleaner(props);
+  var defaultProps = instance.$options.props;
+  for (var key in props) {
+    var def = defaultProps[key]
+      ? defaultProps[key].default &&
+        typeof defaultProps[key].default === 'function'
+        ? defaultProps[key].default.call()
+        : defaultProps[key].default
+      : Symbol('unique');
+    var isEqual = false;
+    if (Array.isArray(def)) {
+      isEqual = JSON.stringify(def) === JSON.stringify(props[key]);
+    } else {
+      isEqual = def === props[key];
+    }
+    if (result[key] && !isEqual) {
+      console.warn(
+        (key + " props is overriding the value passed in the options props")
+      );
+      result[key] = props[key];
+    } else if (!result[key]) {
+      result[key] = props[key];
+    }
+  }
+  return result;
+};
+
+var findRealParent = function (firstVueParent) {
+  var found = false;
+  while (firstVueParent && !found) {
+    if (firstVueParent.mapObject === undefined) {
+      firstVueParent = firstVueParent.$parent;
+    } else {
+      found = true;
+    }
+  }
+  return firstVueParent;
+};
+
+var ControlMixin = {
+  props: {
+    position: {
+      type: String,
+      default: 'topright'
+    }
+  },
+  mounted: function mounted () {
+    this.controlOptions = {
+      position: this.position
+    };
+  },
+  beforeDestroy: function beforeDestroy () {
+    if (this.mapObject) {
+      this.mapObject.remove();
+    }
+  }
+};
+
+var Options = {
+  props: {
+    /**
+     * Leaflet options to pass to the component constructor
+     */
+    options: {
+      type: Object,
+      default: function () { return ({}); }
+    }
+  }
+};
+
+//
+
+/**
+ * Add any custom component as a leaflet control
+ */
+var script = {
+  name: 'LControl',
+  mixins: [ControlMixin, Options],
+  props: {
+    disableClickPropagation: {
+      type: Boolean,
+      custom: true,
+      default: true,
+    },
+    disableScrollPropagation: {
+      type: Boolean,
+      custom: true,
+      default: false,
+    }
+  },
+  mounted: function mounted() {
+    var this$1 = this;
+
+    var LControl = leaflet__WEBPACK_IMPORTED_MODULE_0__.Control.extend({
+      element: undefined,
+      onAdd: function onAdd() {
+        return this.element;
+      },
+      setElement: function setElement(el) {
+        this.element = el;
+      },
+    });
+    var options = optionsMerger(this.controlOptions, this);
+    this.mapObject = new LControl(options);
+    propsBinder(this, this.mapObject, this.$options.props);
+    this.parentContainer = findRealParent(this.$parent);
+    this.mapObject.setElement(this.$el);
+    if (this.disableClickPropagation) {
+      leaflet__WEBPACK_IMPORTED_MODULE_0__.DomEvent.disableClickPropagation(this.$el);
+    }
+    if (this.disableScrollPropagation) {
+      leaflet__WEBPACK_IMPORTED_MODULE_0__.DomEvent.disableScrollPropagation(this.$el);
+    }
+    this.mapObject.addTo(this.parentContainer.mapObject);
+    this.$nextTick(function () {
+      /**
+       * Triggers when the component is ready
+       * @type {object}
+       * @property {object} mapObject - reference to leaflet map object
+       */
+      this$1.$emit('ready', this$1.mapObject);
+    });
+  },
+};
+
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
+    }
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
+    }
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
+}
+
+/* script */
+var __vue_script__ = script;
+
+/* template */
+var __vue_render__ = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_vm._t("default")],2)};
+var __vue_staticRenderFns__ = [];
+
+  /* style */
+  var __vue_inject_styles__ = undefined;
+  /* scoped */
+  var __vue_scope_id__ = undefined;
+  /* module identifier */
+  var __vue_module_identifier__ = undefined;
+  /* functional template */
+  var __vue_is_functional_template__ = false;
+  /* style inject */
+  
+  /* style inject SSR */
+  
+  /* style inject shadow dom */
+  
+
+  
+  var __vue_component__ = /*#__PURE__*/normalizeComponent(
+    { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
+    __vue_inject_styles__,
+    __vue_script__,
+    __vue_scope_id__,
+    __vue_is_functional_template__,
+    __vue_module_identifier__,
+    false,
+    undefined,
+    undefined,
+    undefined
+  );
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__vue_component__);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/components/LControlAttribution.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/components/LControlAttribution.js ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var capitalizeFirstLetter = function (string) {
+  if (!string || typeof string.charAt !== 'function') {
+    return string;
+  }
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+var propsBinder = function (vueElement, leafletElement, props, options) {
+  var loop = function ( key ) {
+    var setMethodName = 'set' + capitalizeFirstLetter(key);
+    var deepValue =
+      props[key].type === Object ||
+      props[key].type === Array ||
+      Array.isArray(props[key].type);
+    if (props[key].custom && vueElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          vueElement[setMethodName](newVal, oldVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (setMethodName === 'setOptions') {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.setOptions)(leafletElement, newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (leafletElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          leafletElement[setMethodName](newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    }
+  };
+
+  for (var key in props) loop( key );
+};
+
+var collectionCleaner = function (options) {
+  var result = {};
+  for (var key in options) {
+    var value = options[key];
+    if (value !== null && value !== undefined) {
+      result[key] = value;
+    }
+  }
+  return result;
+};
+
+var optionsMerger = function (props, instance) {
+  var options =
+    instance.options && instance.options.constructor === Object
+      ? instance.options
+      : {};
+  props = props && props.constructor === Object ? props : {};
+  var result = collectionCleaner(options);
+  props = collectionCleaner(props);
+  var defaultProps = instance.$options.props;
+  for (var key in props) {
+    var def = defaultProps[key]
+      ? defaultProps[key].default &&
+        typeof defaultProps[key].default === 'function'
+        ? defaultProps[key].default.call()
+        : defaultProps[key].default
+      : Symbol('unique');
+    var isEqual = false;
+    if (Array.isArray(def)) {
+      isEqual = JSON.stringify(def) === JSON.stringify(props[key]);
+    } else {
+      isEqual = def === props[key];
+    }
+    if (result[key] && !isEqual) {
+      console.warn(
+        (key + " props is overriding the value passed in the options props")
+      );
+      result[key] = props[key];
+    } else if (!result[key]) {
+      result[key] = props[key];
+    }
+  }
+  return result;
+};
+
+var ControlMixin = {
+  props: {
+    position: {
+      type: String,
+      default: 'topright'
+    }
+  },
+  mounted: function mounted () {
+    this.controlOptions = {
+      position: this.position
+    };
+  },
+  beforeDestroy: function beforeDestroy () {
+    if (this.mapObject) {
+      this.mapObject.remove();
+    }
+  }
+};
+
+var Options = {
+  props: {
+    /**
+     * Leaflet options to pass to the component constructor
+     */
+    options: {
+      type: Object,
+      default: function () { return ({}); }
+    }
+  }
+};
+
+/**
+ * Add any custom component as a leaflet control-attribution
+ */
+var script = {
+  name: 'LControlAttribution',
+  mixins: [ControlMixin, Options],
+  props: {
+    prefix: {
+      type: [String, Boolean],
+      default: null,
+    },
+  },
+  mounted: function mounted() {
+    var this$1 = this;
+
+    var options = optionsMerger(
+      Object.assign({}, this.controlOptions,
+        {prefix: this.prefix}),
+      this
+    );
+    this.mapObject = leaflet__WEBPACK_IMPORTED_MODULE_0__.control.attribution(options);
+    propsBinder(this, this.mapObject, this.$options.props);
+    this.mapObject.addTo(this.$parent.mapObject);
+    this.$nextTick(function () {
+      /**
+       * Triggers when the component is ready
+       * @type {object}
+       * @property {object} mapObject - reference to leaflet map object
+       */
+      this$1.$emit('ready', this$1.mapObject);
+    });
+  },
+  render: function render() {
+    return null;
+  },
+};
+
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
+    }
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
+    }
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
+}
+
+/* script */
+var __vue_script__ = script;
+
+/* template */
+
+  /* style */
+  var __vue_inject_styles__ = undefined;
+  /* scoped */
+  var __vue_scope_id__ = undefined;
+  /* module identifier */
+  var __vue_module_identifier__ = undefined;
+  /* functional template */
+  var __vue_is_functional_template__ = undefined;
+  /* style inject */
+  
+  /* style inject SSR */
+  
+  /* style inject shadow dom */
+  
+
+  
+  var __vue_component__ = /*#__PURE__*/normalizeComponent(
+    {},
+    __vue_inject_styles__,
+    __vue_script__,
+    __vue_scope_id__,
+    __vue_is_functional_template__,
+    __vue_module_identifier__,
+    false,
+    undefined,
+    undefined,
+    undefined
+  );
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__vue_component__);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/components/LControlLayers.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/components/LControlLayers.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var capitalizeFirstLetter = function (string) {
+  if (!string || typeof string.charAt !== 'function') {
+    return string;
+  }
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+var propsBinder = function (vueElement, leafletElement, props, options) {
+  var loop = function ( key ) {
+    var setMethodName = 'set' + capitalizeFirstLetter(key);
+    var deepValue =
+      props[key].type === Object ||
+      props[key].type === Array ||
+      Array.isArray(props[key].type);
+    if (props[key].custom && vueElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          vueElement[setMethodName](newVal, oldVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (setMethodName === 'setOptions') {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.setOptions)(leafletElement, newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (leafletElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          leafletElement[setMethodName](newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    }
+  };
+
+  for (var key in props) loop( key );
+};
+
+var collectionCleaner = function (options) {
+  var result = {};
+  for (var key in options) {
+    var value = options[key];
+    if (value !== null && value !== undefined) {
+      result[key] = value;
+    }
+  }
+  return result;
+};
+
+var optionsMerger = function (props, instance) {
+  var options =
+    instance.options && instance.options.constructor === Object
+      ? instance.options
+      : {};
+  props = props && props.constructor === Object ? props : {};
+  var result = collectionCleaner(options);
+  props = collectionCleaner(props);
+  var defaultProps = instance.$options.props;
+  for (var key in props) {
+    var def = defaultProps[key]
+      ? defaultProps[key].default &&
+        typeof defaultProps[key].default === 'function'
+        ? defaultProps[key].default.call()
+        : defaultProps[key].default
+      : Symbol('unique');
+    var isEqual = false;
+    if (Array.isArray(def)) {
+      isEqual = JSON.stringify(def) === JSON.stringify(props[key]);
+    } else {
+      isEqual = def === props[key];
+    }
+    if (result[key] && !isEqual) {
+      console.warn(
+        (key + " props is overriding the value passed in the options props")
+      );
+      result[key] = props[key];
+    } else if (!result[key]) {
+      result[key] = props[key];
+    }
+  }
+  return result;
+};
+
+var ControlMixin = {
+  props: {
+    position: {
+      type: String,
+      default: 'topright'
+    }
+  },
+  mounted: function mounted () {
+    this.controlOptions = {
+      position: this.position
+    };
+  },
+  beforeDestroy: function beforeDestroy () {
+    if (this.mapObject) {
+      this.mapObject.remove();
+    }
+  }
+};
+
+var Options = {
+  props: {
+    /**
+     * Leaflet options to pass to the component constructor
+     */
+    options: {
+      type: Object,
+      default: function () { return ({}); }
+    }
+  }
+};
+
+/**
+ * Add any custom component as a leaflet control-layers
+ */
+var script = {
+  name: 'LControlLayers',
+  mixins: [ControlMixin, Options],
+  props: {
+    collapsed: {
+      type: Boolean,
+      default: true,
+    },
+    autoZIndex: {
+      type: Boolean,
+      default: true,
+    },
+    hideSingleBase: {
+      type: Boolean,
+      default: false,
+    },
+    sortLayers: {
+      type: Boolean,
+      default: false,
+    },
+    sortFunction: {
+      type: Function,
+      default: undefined,
+    },
+  },
+  mounted: function mounted() {
+    var this$1 = this;
+
+    var options = optionsMerger(
+      Object.assign({}, this.controlOptions,
+        {collapsed: this.collapsed,
+        autoZIndex: this.autoZIndex,
+        hideSingleBase: this.hideSingleBase,
+        sortLayers: this.sortLayers,
+        sortFunction: this.sortFunction}),
+      this
+    );
+    this.mapObject = leaflet__WEBPACK_IMPORTED_MODULE_0__.control.layers(null, null, options);
+    propsBinder(this, this.mapObject, this.$options.props);
+    this.$parent.registerLayerControl(this);
+    this.$nextTick(function () {
+      /**
+       * Triggers when the component is ready
+       * @type {object}
+       * @property {object} mapObject - reference to leaflet map object
+       */
+      this$1.$emit('ready', this$1.mapObject);
+    });
+  },
+  methods: {
+    addLayer: function addLayer(layer) {
+      if (layer.layerType === 'base') {
+        this.mapObject.addBaseLayer(layer.mapObject, layer.name);
+      } else if (layer.layerType === 'overlay') {
+        this.mapObject.addOverlay(layer.mapObject, layer.name);
+      }
+    },
+    removeLayer: function removeLayer(layer) {
+      this.mapObject.removeLayer(layer.mapObject);
+    },
+  },
+  render: function render() {
+    return null;
+  },
+};
+
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
+    }
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
+    }
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
+}
+
+/* script */
+var __vue_script__ = script;
+
+/* template */
+
+  /* style */
+  var __vue_inject_styles__ = undefined;
+  /* scoped */
+  var __vue_scope_id__ = undefined;
+  /* module identifier */
+  var __vue_module_identifier__ = undefined;
+  /* functional template */
+  var __vue_is_functional_template__ = undefined;
+  /* style inject */
+  
+  /* style inject SSR */
+  
+  /* style inject shadow dom */
+  
+
+  
+  var __vue_component__ = /*#__PURE__*/normalizeComponent(
+    {},
+    __vue_inject_styles__,
+    __vue_script__,
+    __vue_scope_id__,
+    __vue_is_functional_template__,
+    __vue_module_identifier__,
+    false,
+    undefined,
+    undefined,
+    undefined
+  );
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__vue_component__);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/components/LControlScale.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/components/LControlScale.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var capitalizeFirstLetter = function (string) {
+  if (!string || typeof string.charAt !== 'function') {
+    return string;
+  }
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+var propsBinder = function (vueElement, leafletElement, props, options) {
+  var loop = function ( key ) {
+    var setMethodName = 'set' + capitalizeFirstLetter(key);
+    var deepValue =
+      props[key].type === Object ||
+      props[key].type === Array ||
+      Array.isArray(props[key].type);
+    if (props[key].custom && vueElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          vueElement[setMethodName](newVal, oldVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (setMethodName === 'setOptions') {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.setOptions)(leafletElement, newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (leafletElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          leafletElement[setMethodName](newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    }
+  };
+
+  for (var key in props) loop( key );
+};
+
+var collectionCleaner = function (options) {
+  var result = {};
+  for (var key in options) {
+    var value = options[key];
+    if (value !== null && value !== undefined) {
+      result[key] = value;
+    }
+  }
+  return result;
+};
+
+var optionsMerger = function (props, instance) {
+  var options =
+    instance.options && instance.options.constructor === Object
+      ? instance.options
+      : {};
+  props = props && props.constructor === Object ? props : {};
+  var result = collectionCleaner(options);
+  props = collectionCleaner(props);
+  var defaultProps = instance.$options.props;
+  for (var key in props) {
+    var def = defaultProps[key]
+      ? defaultProps[key].default &&
+        typeof defaultProps[key].default === 'function'
+        ? defaultProps[key].default.call()
+        : defaultProps[key].default
+      : Symbol('unique');
+    var isEqual = false;
+    if (Array.isArray(def)) {
+      isEqual = JSON.stringify(def) === JSON.stringify(props[key]);
+    } else {
+      isEqual = def === props[key];
+    }
+    if (result[key] && !isEqual) {
+      console.warn(
+        (key + " props is overriding the value passed in the options props")
+      );
+      result[key] = props[key];
+    } else if (!result[key]) {
+      result[key] = props[key];
+    }
+  }
+  return result;
+};
+
+var ControlMixin = {
+  props: {
+    position: {
+      type: String,
+      default: 'topright'
+    }
+  },
+  mounted: function mounted () {
+    this.controlOptions = {
+      position: this.position
+    };
+  },
+  beforeDestroy: function beforeDestroy () {
+    if (this.mapObject) {
+      this.mapObject.remove();
+    }
+  }
+};
+
+var Options = {
+  props: {
+    /**
+     * Leaflet options to pass to the component constructor
+     */
+    options: {
+      type: Object,
+      default: function () { return ({}); }
+    }
+  }
+};
+
+/**
+ * Add any custom component as a leaflet control-scale
+ */
+var script = {
+  name: 'LControlScale',
+  mixins: [ControlMixin, Options],
+  props: {
+    maxWidth: {
+      type: Number,
+      default: 100,
+    },
+    metric: {
+      type: Boolean,
+      default: true,
+    },
+    imperial: {
+      type: Boolean,
+      default: true,
+    },
+    updateWhenIdle: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  mounted: function mounted() {
+    var this$1 = this;
+
+    var options = optionsMerger(
+      Object.assign({}, this.controlOptions,
+        {maxWidth: this.maxWidth,
+        metric: this.metric,
+        imperial: this.imperial,
+        updateWhenIdle: this.updateWhenIdle}),
+      this
+    );
+    this.mapObject = leaflet__WEBPACK_IMPORTED_MODULE_0__.control.scale(options);
+    propsBinder(this, this.mapObject, this.$options.props);
+    this.mapObject.addTo(this.$parent.mapObject);
+    this.$nextTick(function () {
+      /**
+       * Triggers when the component is ready
+       * @type {object}
+       * @property {object} mapObject - reference to leaflet map object
+       */
+      this$1.$emit('ready', this$1.mapObject);
+    });
+  },
+  render: function render() {
+    return null;
+  },
+};
+
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
+    }
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
+    }
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
+}
+
+/* script */
+var __vue_script__ = script;
+
+/* template */
+
+  /* style */
+  var __vue_inject_styles__ = undefined;
+  /* scoped */
+  var __vue_scope_id__ = undefined;
+  /* module identifier */
+  var __vue_module_identifier__ = undefined;
+  /* functional template */
+  var __vue_is_functional_template__ = undefined;
+  /* style inject */
+  
+  /* style inject SSR */
+  
+  /* style inject shadow dom */
+  
+
+  
+  var __vue_component__ = /*#__PURE__*/normalizeComponent(
+    {},
+    __vue_inject_styles__,
+    __vue_script__,
+    __vue_scope_id__,
+    __vue_is_functional_template__,
+    __vue_module_identifier__,
+    false,
+    undefined,
+    undefined,
+    undefined
+  );
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__vue_component__);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/components/LControlZoom.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/components/LControlZoom.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var capitalizeFirstLetter = function (string) {
+  if (!string || typeof string.charAt !== 'function') {
+    return string;
+  }
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+var propsBinder = function (vueElement, leafletElement, props, options) {
+  var loop = function ( key ) {
+    var setMethodName = 'set' + capitalizeFirstLetter(key);
+    var deepValue =
+      props[key].type === Object ||
+      props[key].type === Array ||
+      Array.isArray(props[key].type);
+    if (props[key].custom && vueElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          vueElement[setMethodName](newVal, oldVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (setMethodName === 'setOptions') {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.setOptions)(leafletElement, newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (leafletElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          leafletElement[setMethodName](newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    }
+  };
+
+  for (var key in props) loop( key );
+};
+
+var collectionCleaner = function (options) {
+  var result = {};
+  for (var key in options) {
+    var value = options[key];
+    if (value !== null && value !== undefined) {
+      result[key] = value;
+    }
+  }
+  return result;
+};
+
+var optionsMerger = function (props, instance) {
+  var options =
+    instance.options && instance.options.constructor === Object
+      ? instance.options
+      : {};
+  props = props && props.constructor === Object ? props : {};
+  var result = collectionCleaner(options);
+  props = collectionCleaner(props);
+  var defaultProps = instance.$options.props;
+  for (var key in props) {
+    var def = defaultProps[key]
+      ? defaultProps[key].default &&
+        typeof defaultProps[key].default === 'function'
+        ? defaultProps[key].default.call()
+        : defaultProps[key].default
+      : Symbol('unique');
+    var isEqual = false;
+    if (Array.isArray(def)) {
+      isEqual = JSON.stringify(def) === JSON.stringify(props[key]);
+    } else {
+      isEqual = def === props[key];
+    }
+    if (result[key] && !isEqual) {
+      console.warn(
+        (key + " props is overriding the value passed in the options props")
+      );
+      result[key] = props[key];
+    } else if (!result[key]) {
+      result[key] = props[key];
+    }
+  }
+  return result;
+};
+
+var ControlMixin = {
+  props: {
+    position: {
+      type: String,
+      default: 'topright'
+    }
+  },
+  mounted: function mounted () {
+    this.controlOptions = {
+      position: this.position
+    };
+  },
+  beforeDestroy: function beforeDestroy () {
+    if (this.mapObject) {
+      this.mapObject.remove();
+    }
+  }
+};
+
+var Options = {
+  props: {
+    /**
+     * Leaflet options to pass to the component constructor
+     */
+    options: {
+      type: Object,
+      default: function () { return ({}); }
+    }
+  }
+};
+
+/**
+ * Add any custom component as a leaflet control-zoom
+ */
+var script = {
+  name: 'LControlZoom',
+  mixins: [ControlMixin, Options],
+  props: {
+    zoomInText: {
+      type: String,
+      default: '+',
+    },
+    zoomInTitle: {
+      type: String,
+      default: 'Zoom in',
+    },
+    zoomOutText: {
+      type: String,
+      default: '-',
+    },
+    zoomOutTitle: {
+      type: String,
+      default: 'Zoom out',
+    },
+  },
+  mounted: function mounted() {
+    var this$1 = this;
+
+    var options = optionsMerger(
+      Object.assign({}, this.controlOptions,
+        {zoomInText: this.zoomInText,
+        zoomInTitle: this.zoomInTitle,
+        zoomOutText: this.zoomOutText,
+        zoomOutTitle: this.zoomOutTitle}),
+      this
+    );
+    this.mapObject = leaflet__WEBPACK_IMPORTED_MODULE_0__.control.zoom(options);
+    propsBinder(this, this.mapObject, this.$options.props);
+    this.mapObject.addTo(this.$parent.mapObject);
+    this.$nextTick(function () {
+      /**
+       * Triggers when the component is ready
+       * @type {object}
+       * @property {object} mapObject - reference to leaflet map object
+       */
+      this$1.$emit('ready', this$1.mapObject);
+    });
+  },
+  render: function render() {
+    return null;
+  },
+};
+
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
+    }
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
+    }
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
+}
+
+/* script */
+var __vue_script__ = script;
+
+/* template */
+
+  /* style */
+  var __vue_inject_styles__ = undefined;
+  /* scoped */
+  var __vue_scope_id__ = undefined;
+  /* module identifier */
+  var __vue_module_identifier__ = undefined;
+  /* functional template */
+  var __vue_is_functional_template__ = undefined;
+  /* style inject */
+  
+  /* style inject SSR */
+  
+  /* style inject shadow dom */
+  
+
+  
+  var __vue_component__ = /*#__PURE__*/normalizeComponent(
+    {},
+    __vue_inject_styles__,
+    __vue_script__,
+    __vue_scope_id__,
+    __vue_is_functional_template__,
+    __vue_module_identifier__,
+    false,
+    undefined,
+    undefined,
+    undefined
+  );
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__vue_component__);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/components/LFeatureGroup.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/components/LFeatureGroup.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var capitalizeFirstLetter = function (string) {
+  if (!string || typeof string.charAt !== 'function') {
+    return string;
+  }
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+var propsBinder = function (vueElement, leafletElement, props, options) {
+  var loop = function ( key ) {
+    var setMethodName = 'set' + capitalizeFirstLetter(key);
+    var deepValue =
+      props[key].type === Object ||
+      props[key].type === Array ||
+      Array.isArray(props[key].type);
+    if (props[key].custom && vueElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          vueElement[setMethodName](newVal, oldVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (setMethodName === 'setOptions') {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.setOptions)(leafletElement, newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (leafletElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          leafletElement[setMethodName](newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    }
+  };
+
+  for (var key in props) loop( key );
+};
+
+var findRealParent = function (firstVueParent) {
+  var found = false;
+  while (firstVueParent && !found) {
+    if (firstVueParent.mapObject === undefined) {
+      firstVueParent = firstVueParent.$parent;
+    } else {
+      found = true;
+    }
+  }
+  return firstVueParent;
+};
+
+var Layer = {
+  props: {
+    pane: {
+      type: String,
+      default: 'overlayPane',
+    },
+    attribution: {
+      type: String,
+      default: null,
+      custom: true,
+    },
+    name: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    layerType: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    visible: {
+      type: Boolean,
+      custom: true,
+      default: true,
+    },
+  },
+  mounted: function mounted() {
+    this.layerOptions = {
+      attribution: this.attribution,
+      pane: this.pane,
+    };
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.unbindPopup();
+    this.unbindTooltip();
+    this.parentContainer.removeLayer(this);
+  },
+  methods: {
+    setAttribution: function setAttribution(val, old) {
+      var attributionControl = this.$parent.mapObject.attributionControl;
+      attributionControl.removeAttribution(old).addAttribution(val);
+    },
+    setName: function setName() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setLayerType: function setLayerType() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setVisible: function setVisible(isVisible) {
+      if (this.mapObject) {
+        if (isVisible) {
+          this.parentContainer.addLayer(this);
+        } else {
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
+        }
+      }
+    },
+    unbindTooltip: function unbindTooltip() {
+      var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
+      if (tooltip) {
+        tooltip.unbindTooltip();
+      }
+    },
+    unbindPopup: function unbindPopup() {
+      var popup = this.mapObject ? this.mapObject.getPopup() : null;
+      if (popup) {
+        popup.unbindPopup();
+      }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      /**
+       * Triggers when the visible prop needs to be updated
+       * @type {boolean}
+       * @property {boolean} value - value of the visible property
+       */
+      this.$emit('update:visible', value);
+    },
+  },
+};
+
+var LayerGroupMixin = {
+  mixins: [Layer],
+  mounted: function mounted () {
+    this.layerGroupOptions = this.layerOptions;
+  },
+  methods: {
+    addLayer: function addLayer (layer, alreadyAdded) {
+      if (!alreadyAdded) {
+        this.mapObject.addLayer(layer.mapObject);
+      }
+      this.parentContainer.addLayer(layer, true);
+    },
+    removeLayer: function removeLayer (layer, alreadyRemoved) {
+      if (!alreadyRemoved) {
+        this.mapObject.removeLayer(layer.mapObject);
+      }
+      this.parentContainer.removeLayer(layer, true);
+    }
+  }
+};
+
+var Options = {
+  props: {
+    /**
+     * Leaflet options to pass to the component constructor
+     */
+    options: {
+      type: Object,
+      default: function () { return ({}); }
+    }
+  }
+};
+
+//
+
+/**
+ * Group together elements of the maps  including: markers, geoJSON, polylines and polygon, tooltip and popup.
+ */
+var script = {
+  name: 'LFeatureGroup',
+  mixins: [LayerGroupMixin, Options],
+  data: function data() {
+    return {
+      ready: false,
+    };
+  },
+  mounted: function mounted() {
+    var this$1 = this;
+
+    this.mapObject = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.featureGroup)();
+    propsBinder(this, this.mapObject, this.$options.props);
+    leaflet__WEBPACK_IMPORTED_MODULE_0__.DomEvent.on(this.mapObject, this.$listeners);
+    this.ready = true;
+    this.parentContainer = findRealParent(this.$parent);
+    if (this.visible) {
+      this.parentContainer.addLayer(this);
+    }
+    this.$nextTick(function () {
+      /**
+       * Triggers when the component is ready
+       * @type {object}
+       * @property {object} mapObject - reference to leaflet map object
+       */
+      this$1.$emit('ready', this$1.mapObject);
+    });
+  },
+};
+
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
+    }
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
+    }
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
+}
+
+/* script */
+var __vue_script__ = script;
+
+/* template */
+var __vue_render__ = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticStyle:{"display":"none"}},[(_vm.ready)?_vm._t("default"):_vm._e()],2)};
+var __vue_staticRenderFns__ = [];
+
+  /* style */
+  var __vue_inject_styles__ = undefined;
+  /* scoped */
+  var __vue_scope_id__ = undefined;
+  /* module identifier */
+  var __vue_module_identifier__ = undefined;
+  /* functional template */
+  var __vue_is_functional_template__ = false;
+  /* style inject */
+  
+  /* style inject SSR */
+  
+  /* style inject shadow dom */
+  
+
+  
+  var __vue_component__ = /*#__PURE__*/normalizeComponent(
+    { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
+    __vue_inject_styles__,
+    __vue_script__,
+    __vue_scope_id__,
+    __vue_is_functional_template__,
+    __vue_module_identifier__,
+    false,
+    undefined,
+    undefined,
+    undefined
+  );
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__vue_component__);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/components/LGeoJson.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/components/LGeoJson.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var capitalizeFirstLetter = function (string) {
+  if (!string || typeof string.charAt !== 'function') {
+    return string;
+  }
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+var propsBinder = function (vueElement, leafletElement, props, options) {
+  var loop = function ( key ) {
+    var setMethodName = 'set' + capitalizeFirstLetter(key);
+    var deepValue =
+      props[key].type === Object ||
+      props[key].type === Array ||
+      Array.isArray(props[key].type);
+    if (props[key].custom && vueElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          vueElement[setMethodName](newVal, oldVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (setMethodName === 'setOptions') {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.setOptions)(leafletElement, newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (leafletElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          leafletElement[setMethodName](newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    }
+  };
+
+  for (var key in props) loop( key );
+};
+
+var collectionCleaner = function (options) {
+  var result = {};
+  for (var key in options) {
+    var value = options[key];
+    if (value !== null && value !== undefined) {
+      result[key] = value;
+    }
+  }
+  return result;
+};
+
+var optionsMerger = function (props, instance) {
+  var options =
+    instance.options && instance.options.constructor === Object
+      ? instance.options
+      : {};
+  props = props && props.constructor === Object ? props : {};
+  var result = collectionCleaner(options);
+  props = collectionCleaner(props);
+  var defaultProps = instance.$options.props;
+  for (var key in props) {
+    var def = defaultProps[key]
+      ? defaultProps[key].default &&
+        typeof defaultProps[key].default === 'function'
+        ? defaultProps[key].default.call()
+        : defaultProps[key].default
+      : Symbol('unique');
+    var isEqual = false;
+    if (Array.isArray(def)) {
+      isEqual = JSON.stringify(def) === JSON.stringify(props[key]);
+    } else {
+      isEqual = def === props[key];
+    }
+    if (result[key] && !isEqual) {
+      console.warn(
+        (key + " props is overriding the value passed in the options props")
+      );
+      result[key] = props[key];
+    } else if (!result[key]) {
+      result[key] = props[key];
+    }
+  }
+  return result;
+};
+
+var findRealParent = function (firstVueParent) {
+  var found = false;
+  while (firstVueParent && !found) {
+    if (firstVueParent.mapObject === undefined) {
+      firstVueParent = firstVueParent.$parent;
+    } else {
+      found = true;
+    }
+  }
+  return firstVueParent;
+};
+
+var Layer = {
+  props: {
+    pane: {
+      type: String,
+      default: 'overlayPane',
+    },
+    attribution: {
+      type: String,
+      default: null,
+      custom: true,
+    },
+    name: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    layerType: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    visible: {
+      type: Boolean,
+      custom: true,
+      default: true,
+    },
+  },
+  mounted: function mounted() {
+    this.layerOptions = {
+      attribution: this.attribution,
+      pane: this.pane,
+    };
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.unbindPopup();
+    this.unbindTooltip();
+    this.parentContainer.removeLayer(this);
+  },
+  methods: {
+    setAttribution: function setAttribution(val, old) {
+      var attributionControl = this.$parent.mapObject.attributionControl;
+      attributionControl.removeAttribution(old).addAttribution(val);
+    },
+    setName: function setName() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setLayerType: function setLayerType() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setVisible: function setVisible(isVisible) {
+      if (this.mapObject) {
+        if (isVisible) {
+          this.parentContainer.addLayer(this);
+        } else {
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
+        }
+      }
+    },
+    unbindTooltip: function unbindTooltip() {
+      var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
+      if (tooltip) {
+        tooltip.unbindTooltip();
+      }
+    },
+    unbindPopup: function unbindPopup() {
+      var popup = this.mapObject ? this.mapObject.getPopup() : null;
+      if (popup) {
+        popup.unbindPopup();
+      }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      /**
+       * Triggers when the visible prop needs to be updated
+       * @type {boolean}
+       * @property {boolean} value - value of the visible property
+       */
+      this.$emit('update:visible', value);
+    },
+  },
+};
+
+var LayerGroup = {
+  mixins: [Layer],
+  mounted: function mounted () {
+    this.layerGroupOptions = this.layerOptions;
+  },
+  methods: {
+    addLayer: function addLayer (layer, alreadyAdded) {
+      if (!alreadyAdded) {
+        this.mapObject.addLayer(layer.mapObject);
+      }
+      this.parentContainer.addLayer(layer, true);
+    },
+    removeLayer: function removeLayer (layer, alreadyRemoved) {
+      if (!alreadyRemoved) {
+        this.mapObject.removeLayer(layer.mapObject);
+      }
+      this.parentContainer.removeLayer(layer, true);
+    }
+  }
+};
+
+var Options = {
+  props: {
+    /**
+     * Leaflet options to pass to the component constructor
+     */
+    options: {
+      type: Object,
+      default: function () { return ({}); }
+    }
+  }
+};
+
+/**
+ * Easily display a geo-json on the map
+ */
+var script = {
+  name: 'LGeoJson',
+  mixins: [LayerGroup, Options],
+  props: {
+    geojson: {
+      type: [Object, Array],
+      custom: true,
+      default: function () { return ({}); },
+    },
+    options: {
+      type: Object,
+      custom: true,
+      default: function () { return ({}); },
+    },
+    optionsStyle: {
+      type: [Object, Function],
+      custom: true,
+      default: null,
+    },
+  },
+  computed: {
+    mergedOptions: function mergedOptions() {
+      return optionsMerger(
+        Object.assign({}, this.layerGroupOptions,
+          {style: this.optionsStyle}),
+        this
+      );
+    },
+  },
+  mounted: function mounted() {
+    var this$1 = this;
+
+    this.mapObject = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.geoJSON)(this.geojson, this.mergedOptions);
+    leaflet__WEBPACK_IMPORTED_MODULE_0__.DomEvent.on(this.mapObject, this.$listeners);
+    propsBinder(this, this.mapObject, this.$options.props);
+    this.parentContainer = findRealParent(this.$parent);
+    this.parentContainer.addLayer(this, !this.visible);
+    this.$nextTick(function () {
+      /**
+       * Triggers when the component is ready
+       * @type {object}
+       * @property {object} mapObject - reference to leaflet map object
+       */
+      this$1.$emit('ready', this$1.mapObject);
+    });
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.parentContainer.mapObject.removeLayer(this.mapObject);
+  },
+  methods: {
+    setGeojson: function setGeojson(newVal) {
+      this.mapObject.clearLayers();
+      this.mapObject.addData(newVal);
+    },
+    getGeoJSONData: function getGeoJSONData() {
+      return this.mapObject.toGeoJSON();
+    },
+    getBounds: function getBounds() {
+      return this.mapObject.getBounds();
+    },
+    setOptions: function setOptions$1(newVal, oldVal) {
+      this.mapObject.clearLayers();
+      (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.setOptions)(this.mapObject, this.mergedOptions);
+      this.mapObject.addData(this.geojson);
+    },
+    setOptionsStyle: function setOptionsStyle(newVal, oldVal) {
+      this.mapObject.setStyle(newVal);
+    },
+  },
+  render: function render() {
+    return null;
+  },
+};
+
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
+    }
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
+    }
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
+}
+
+/* script */
+var __vue_script__ = script;
+
+/* template */
+
+  /* style */
+  var __vue_inject_styles__ = undefined;
+  /* scoped */
+  var __vue_scope_id__ = undefined;
+  /* module identifier */
+  var __vue_module_identifier__ = undefined;
+  /* functional template */
+  var __vue_is_functional_template__ = undefined;
+  /* style inject */
+  
+  /* style inject SSR */
+  
+  /* style inject shadow dom */
+  
+
+  
+  var __vue_component__ = /*#__PURE__*/normalizeComponent(
+    {},
+    __vue_inject_styles__,
+    __vue_script__,
+    __vue_scope_id__,
+    __vue_is_functional_template__,
+    __vue_module_identifier__,
+    false,
+    undefined,
+    undefined,
+    undefined
+  );
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__vue_component__);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/components/LGridLayer.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/components/LGridLayer.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
+
+
+
+var capitalizeFirstLetter = function (string) {
+  if (!string || typeof string.charAt !== 'function') {
+    return string;
+  }
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+var propsBinder = function (vueElement, leafletElement, props, options) {
+  var loop = function ( key ) {
+    var setMethodName = 'set' + capitalizeFirstLetter(key);
+    var deepValue =
+      props[key].type === Object ||
+      props[key].type === Array ||
+      Array.isArray(props[key].type);
+    if (props[key].custom && vueElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          vueElement[setMethodName](newVal, oldVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (setMethodName === 'setOptions') {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.setOptions)(leafletElement, newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (leafletElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          leafletElement[setMethodName](newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    }
+  };
+
+  for (var key in props) loop( key );
+};
+
+var collectionCleaner = function (options) {
+  var result = {};
+  for (var key in options) {
+    var value = options[key];
+    if (value !== null && value !== undefined) {
+      result[key] = value;
+    }
+  }
+  return result;
+};
+
+var optionsMerger = function (props, instance) {
+  var options =
+    instance.options && instance.options.constructor === Object
+      ? instance.options
+      : {};
+  props = props && props.constructor === Object ? props : {};
+  var result = collectionCleaner(options);
+  props = collectionCleaner(props);
+  var defaultProps = instance.$options.props;
+  for (var key in props) {
+    var def = defaultProps[key]
+      ? defaultProps[key].default &&
+        typeof defaultProps[key].default === 'function'
+        ? defaultProps[key].default.call()
+        : defaultProps[key].default
+      : Symbol('unique');
+    var isEqual = false;
+    if (Array.isArray(def)) {
+      isEqual = JSON.stringify(def) === JSON.stringify(props[key]);
+    } else {
+      isEqual = def === props[key];
+    }
+    if (result[key] && !isEqual) {
+      console.warn(
+        (key + " props is overriding the value passed in the options props")
+      );
+      result[key] = props[key];
+    } else if (!result[key]) {
+      result[key] = props[key];
+    }
+  }
+  return result;
+};
+
+var findRealParent = function (firstVueParent) {
+  var found = false;
+  while (firstVueParent && !found) {
+    if (firstVueParent.mapObject === undefined) {
+      firstVueParent = firstVueParent.$parent;
+    } else {
+      found = true;
+    }
+  }
+  return firstVueParent;
+};
+
+var Layer = {
+  props: {
+    pane: {
+      type: String,
+      default: 'overlayPane',
+    },
+    attribution: {
+      type: String,
+      default: null,
+      custom: true,
+    },
+    name: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    layerType: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    visible: {
+      type: Boolean,
+      custom: true,
+      default: true,
+    },
+  },
+  mounted: function mounted() {
+    this.layerOptions = {
+      attribution: this.attribution,
+      pane: this.pane,
+    };
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.unbindPopup();
+    this.unbindTooltip();
+    this.parentContainer.removeLayer(this);
+  },
+  methods: {
+    setAttribution: function setAttribution(val, old) {
+      var attributionControl = this.$parent.mapObject.attributionControl;
+      attributionControl.removeAttribution(old).addAttribution(val);
+    },
+    setName: function setName() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setLayerType: function setLayerType() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setVisible: function setVisible(isVisible) {
+      if (this.mapObject) {
+        if (isVisible) {
+          this.parentContainer.addLayer(this);
+        } else {
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
+        }
+      }
+    },
+    unbindTooltip: function unbindTooltip() {
+      var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
+      if (tooltip) {
+        tooltip.unbindTooltip();
+      }
+    },
+    unbindPopup: function unbindPopup() {
+      var popup = this.mapObject ? this.mapObject.getPopup() : null;
+      if (popup) {
+        popup.unbindPopup();
+      }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      /**
+       * Triggers when the visible prop needs to be updated
+       * @type {boolean}
+       * @property {boolean} value - value of the visible property
+       */
+      this.$emit('update:visible', value);
+    },
+  },
+};
+
+var GridLayerMixin = {
+  mixins: [Layer],
+  props: {
+    pane: {
+      type: String,
+      default: 'tilePane'
+    },
+    opacity: {
+      type: Number,
+      custom: false,
+      default: 1.0
+    },
+    zIndex: {
+      type: Number,
+      default: 1
+    },
+    tileSize: {
+      type: Number,
+      default: 256
+    },
+    noWrap: {
+      type: Boolean,
+      default: false
+    }
+  },
+  mounted: function mounted () {
+    this.gridLayerOptions = Object.assign({}, this.layerOptions,
+      {pane: this.pane,
+      opacity: this.opacity,
+      zIndex: this.zIndex,
+      tileSize: this.tileSize,
+      noWrap: this.noWrap});
+  }
+};
+
+var Options = {
+  props: {
+    /**
+     * Leaflet options to pass to the component constructor
+     */
+    options: {
+      type: Object,
+      default: function () { return ({}); }
+    }
+  }
+};
+
+//
+
+/**
+ * Creates a map layer where each tile is an instantiated Vue component.
+ * Each tile component is given `coords` props by `l-grid-layer` to indicate
+ * the zoom level and position of the tile
+ * (see https://leafletjs.com/examples/extending/extending-2-layers.html#lgridlayer-and-dom-elements).
+ */
+var script = {
+  name: 'LGridLayer',
+  mixins: [GridLayerMixin, Options],
+
+  props: {
+    tileComponent: {
+      type: Object,
+      custom: true,
+      required: true,
+    },
+  },
+
+  data: function data() {
+    return {
+      tileComponents: {},
+    };
+  },
+
+  computed: {
+    TileConstructor: function TileConstructor() {
+      return vue__WEBPACK_IMPORTED_MODULE_1__["default"].extend(this.tileComponent);
+    },
+  },
+
+  mounted: function mounted() {
+    var this$1 = this;
+
+    var GLayer = leaflet__WEBPACK_IMPORTED_MODULE_0__.GridLayer.extend({});
+    var options = optionsMerger(this.gridLayerOptions, this);
+    this.mapObject = new GLayer(options);
+    leaflet__WEBPACK_IMPORTED_MODULE_0__.DomEvent.on(this.mapObject, this.$listeners);
+    this.mapObject.on('tileunload', this.onUnload, this);
+    propsBinder(this, this.mapObject, this.$options.props);
+    this.mapObject.createTile = this.createTile;
+    this.parentContainer = findRealParent(this.$parent);
+    this.parentContainer.addLayer(this, !this.visible);
+    this.$nextTick(function () {
+      /**
+       * Triggers when the component is ready
+       * @type {object}
+       * @property {object} mapObject - reference to leaflet map object
+       */
+      this$1.$emit('ready', this$1.mapObject);
+    });
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.parentContainer.removeLayer(this.mapObject);
+    this.mapObject.off('tileunload', this.onUnload);
+    this.mapObject = null;
+  },
+
+  methods: {
+    createTile: function createTile(coords) {
+      var div = leaflet__WEBPACK_IMPORTED_MODULE_0__.DomUtil.create('div');
+      var dummy = leaflet__WEBPACK_IMPORTED_MODULE_0__.DomUtil.create('div');
+      div.appendChild(dummy);
+
+      var tileInstance = new this.TileConstructor({
+        el: dummy,
+        parent: this,
+        propsData: {
+          coords: coords,
+        },
+      });
+
+      var key = this.mapObject._tileCoordsToKey(coords);
+      this.tileComponents[key] = tileInstance;
+
+      return div;
+    },
+
+    onUnload: function onUnload(e) {
+      var key = this.mapObject._tileCoordsToKey(e.coords);
+      if (typeof this.tileComponents[key] !== 'undefined') {
+        this.tileComponents[key].$destroy();
+        this.tileComponents[key].$el.remove();
+        delete this.tileComponents[key];
+      }
+    },
+
+    setTileComponent: function setTileComponent(newVal) {
+      this.mapObject.redraw();
+    },
+  },
+};
+
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
+    }
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
+    }
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
+}
+
+/* script */
+var __vue_script__ = script;
+
+/* template */
+var __vue_render__ = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div')};
+var __vue_staticRenderFns__ = [];
+
+  /* style */
+  var __vue_inject_styles__ = undefined;
+  /* scoped */
+  var __vue_scope_id__ = undefined;
+  /* module identifier */
+  var __vue_module_identifier__ = undefined;
+  /* functional template */
+  var __vue_is_functional_template__ = false;
+  /* style inject */
+  
+  /* style inject SSR */
+  
+  /* style inject shadow dom */
+  
+
+  
+  var __vue_component__ = /*#__PURE__*/normalizeComponent(
+    { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
+    __vue_inject_styles__,
+    __vue_script__,
+    __vue_scope_id__,
+    __vue_is_functional_template__,
+    __vue_module_identifier__,
+    false,
+    undefined,
+    undefined,
+    undefined
+  );
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__vue_component__);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/components/LIcon.js":
+/*!************************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/components/LIcon.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var capitalizeFirstLetter = function (string) {
+  if (!string || typeof string.charAt !== 'function') {
+    return string;
+  }
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+var propsBinder = function (vueElement, leafletElement, props, options) {
+  var loop = function ( key ) {
+    var setMethodName = 'set' + capitalizeFirstLetter(key);
+    var deepValue =
+      props[key].type === Object ||
+      props[key].type === Array ||
+      Array.isArray(props[key].type);
+    if (props[key].custom && vueElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          vueElement[setMethodName](newVal, oldVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (setMethodName === 'setOptions') {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.setOptions)(leafletElement, newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (leafletElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          leafletElement[setMethodName](newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    }
+  };
+
+  for (var key in props) loop( key );
+};
+
+var collectionCleaner = function (options) {
+  var result = {};
+  for (var key in options) {
+    var value = options[key];
+    if (value !== null && value !== undefined) {
+      result[key] = value;
+    }
+  }
+  return result;
+};
+
+var optionsMerger = function (props, instance) {
+  var options =
+    instance.options && instance.options.constructor === Object
+      ? instance.options
+      : {};
+  props = props && props.constructor === Object ? props : {};
+  var result = collectionCleaner(options);
+  props = collectionCleaner(props);
+  var defaultProps = instance.$options.props;
+  for (var key in props) {
+    var def = defaultProps[key]
+      ? defaultProps[key].default &&
+        typeof defaultProps[key].default === 'function'
+        ? defaultProps[key].default.call()
+        : defaultProps[key].default
+      : Symbol('unique');
+    var isEqual = false;
+    if (Array.isArray(def)) {
+      isEqual = JSON.stringify(def) === JSON.stringify(props[key]);
+    } else {
+      isEqual = def === props[key];
+    }
+    if (result[key] && !isEqual) {
+      console.warn(
+        (key + " props is overriding the value passed in the options props")
+      );
+      result[key] = props[key];
+    } else if (!result[key]) {
+      result[key] = props[key];
+    }
+  }
+  return result;
+};
+
+var findRealParent = function (firstVueParent) {
+  var found = false;
+  while (firstVueParent && !found) {
+    if (firstVueParent.mapObject === undefined) {
+      firstVueParent = firstVueParent.$parent;
+    } else {
+      found = true;
+    }
+  }
+  return firstVueParent;
+};
+
+//
+
+/**
+ * Easy and reactive way to configure the icon of a marker
+ */
+var script = {
+  name: 'LIcon',
+  props: {
+    iconUrl: {
+      type: String,
+      custom: true,
+      default: null,
+    },
+    iconRetinaUrl: {
+      type: String,
+      custom: true,
+      default: null,
+    },
+    iconSize: {
+      type: [Object, Array],
+      custom: true,
+      default: null,
+    },
+    iconAnchor: {
+      type: [Object, Array],
+      custom: true,
+      default: null,
+    },
+    popupAnchor: {
+      type: [Object, Array],
+      custom: true,
+      default: function () { return [0, 0]; },
+    },
+    tooltipAnchor: {
+      type: [Object, Array],
+      custom: true,
+      default: function () { return [0, 0]; },
+    },
+    shadowUrl: {
+      type: String,
+      custom: true,
+      default: null,
+    },
+    shadowRetinaUrl: {
+      type: String,
+      custom: true,
+      default: null,
+    },
+    shadowSize: {
+      type: [Object, Array],
+      custom: true,
+      default: null,
+    },
+    shadowAnchor: {
+      type: [Object, Array],
+      custom: true,
+      default: null,
+    },
+    bgPos: {
+      type: [Object, Array],
+      custom: true,
+      default: function () { return [0, 0]; },
+    },
+    className: {
+      type: String,
+      custom: true,
+      default: '',
+    },
+    options: {
+      type: Object,
+      custom: true,
+      default: function () { return ({}); },
+    },
+  },
+
+  data: function data() {
+    return {
+      parentContainer: null,
+      observer: null,
+      recreationNeeded: false,
+      swapHtmlNeeded: false,
+    };
+  },
+
+  mounted: function mounted() {
+    var this$1 = this;
+
+    this.parentContainer = findRealParent(this.$parent);
+    if (!this.parentContainer) {
+      throw new Error('No parent container with mapObject found for LIcon');
+    }
+    propsBinder(this, this.parentContainer.mapObject, this.$options.props);
+
+    this.observer = new MutationObserver(function () {
+      this$1.scheduleHtmlSwap();
+    });
+    this.observer.observe(this.$el, {
+      attributes: true,
+      childList: true,
+      characterData: true,
+      subtree: true,
+    });
+    this.scheduleCreateIcon();
+  },
+
+  beforeDestroy: function beforeDestroy() {
+    if (this.parentContainer.mapObject) {
+      this.parentContainer.mapObject.setIcon(this.parentContainer.$props.icon);
+    }
+
+    this.observer.disconnect();
+  },
+
+  methods: {
+    scheduleCreateIcon: function scheduleCreateIcon() {
+      this.recreationNeeded = true;
+
+      this.$nextTick(this.createIcon);
+    },
+
+    scheduleHtmlSwap: function scheduleHtmlSwap() {
+      this.htmlSwapNeeded = true;
+
+      this.$nextTick(this.createIcon);
+    },
+
+    createIcon: function createIcon() {
+      // If only html of a divIcon changed, we can just replace the DOM without the need of recreating the whole icon
+      if (
+        this.htmlSwapNeeded &&
+        !this.recreationNeeded &&
+        this.iconObject &&
+        this.parentContainer.mapObject.getElement()
+      ) {
+        this.parentContainer.mapObject.getElement().innerHTML = this.$el.innerHTML;
+
+        this.htmlSwapNeeded = false;
+        return;
+      }
+
+      if (!this.recreationNeeded) {
+        return;
+      }
+
+      if (this.iconObject) {
+        leaflet__WEBPACK_IMPORTED_MODULE_0__.DomEvent.off(this.iconObject, this.$listeners);
+      }
+
+      var options = optionsMerger(
+        {
+          iconUrl: this.iconUrl,
+          iconRetinaUrl: this.iconRetinaUrl,
+          iconSize: this.iconSize,
+          iconAnchor: this.iconAnchor,
+          popupAnchor: this.popupAnchor,
+          tooltipAnchor: this.tooltipAnchor,
+          shadowUrl: this.shadowUrl,
+          shadowRetinaUrl: this.shadowRetinaUrl,
+          shadowSize: this.shadowSize,
+          shadowAnchor: this.shadowAnchor,
+          bgPos: this.bgPos,
+          className: this.className,
+          html: this.$el.innerHTML || this.html,
+        },
+        this
+      );
+
+      if (options.html) {
+        this.iconObject = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.divIcon)(options);
+      } else {
+        this.iconObject = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.icon)(options);
+      }
+
+      leaflet__WEBPACK_IMPORTED_MODULE_0__.DomEvent.on(this.iconObject, this.$listeners);
+
+      this.parentContainer.mapObject.setIcon(this.iconObject);
+
+      this.recreationNeeded = false;
+      this.htmlSwapNeeded = false;
+    },
+
+    setIconUrl: function setIconUrl() {
+      this.scheduleCreateIcon();
+    },
+    setIconRetinaUrl: function setIconRetinaUrl() {
+      this.scheduleCreateIcon();
+    },
+    setIconSize: function setIconSize() {
+      this.scheduleCreateIcon();
+    },
+    setIconAnchor: function setIconAnchor() {
+      this.scheduleCreateIcon();
+    },
+    setPopupAnchor: function setPopupAnchor() {
+      this.scheduleCreateIcon();
+    },
+    setTooltipAnchor: function setTooltipAnchor() {
+      this.scheduleCreateIcon();
+    },
+    setShadowUrl: function setShadowUrl() {
+      this.scheduleCreateIcon();
+    },
+    setShadowRetinaUrl: function setShadowRetinaUrl() {
+      this.scheduleCreateIcon();
+    },
+    setShadowAnchor: function setShadowAnchor() {
+      this.scheduleCreateIcon();
+    },
+    setBgPos: function setBgPos() {
+      this.scheduleCreateIcon();
+    },
+    setClassName: function setClassName() {
+      this.scheduleCreateIcon();
+    },
+    setHtml: function setHtml() {
+      this.scheduleCreateIcon();
+    },
+  },
+
+  render: function render() {
+    return null;
+  },
+};
+
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
+    }
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
+    }
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
+}
+
+/* script */
+var __vue_script__ = script;
+
+/* template */
+var __vue_render__ = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_vm._t("default")],2)};
+var __vue_staticRenderFns__ = [];
+
+  /* style */
+  var __vue_inject_styles__ = undefined;
+  /* scoped */
+  var __vue_scope_id__ = undefined;
+  /* module identifier */
+  var __vue_module_identifier__ = undefined;
+  /* functional template */
+  var __vue_is_functional_template__ = false;
+  /* style inject */
+  
+  /* style inject SSR */
+  
+  /* style inject shadow dom */
+  
+
+  
+  var __vue_component__ = /*#__PURE__*/normalizeComponent(
+    { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
+    __vue_inject_styles__,
+    __vue_script__,
+    __vue_scope_id__,
+    __vue_is_functional_template__,
+    __vue_module_identifier__,
+    false,
+    undefined,
+    undefined,
+    undefined
+  );
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__vue_component__);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/components/LIconDefault.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/components/LIconDefault.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var capitalizeFirstLetter = function (string) {
+  if (!string || typeof string.charAt !== 'function') {
+    return string;
+  }
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+var propsBinder = function (vueElement, leafletElement, props, options) {
+  var loop = function ( key ) {
+    var setMethodName = 'set' + capitalizeFirstLetter(key);
+    var deepValue =
+      props[key].type === Object ||
+      props[key].type === Array ||
+      Array.isArray(props[key].type);
+    if (props[key].custom && vueElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          vueElement[setMethodName](newVal, oldVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (setMethodName === 'setOptions') {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.setOptions)(leafletElement, newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (leafletElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          leafletElement[setMethodName](newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    }
+  };
+
+  for (var key in props) loop( key );
+};
+
+/**
+ * Set a default icon
+ * @deprecated since version 2.0
+ */
+var script = {
+  name: 'LIconDefault',
+  props: {
+    imagePath: {
+      type: String,
+      custom: true,
+      default: '',
+    },
+  },
+  mounted: function mounted() {
+    leaflet__WEBPACK_IMPORTED_MODULE_0__.Icon.Default.imagePath = this.imagePath;
+    propsBinder(this, {}, this.$options.props);
+  },
+  methods: {
+    setImagePath: function setImagePath(newVal) {
+      leaflet__WEBPACK_IMPORTED_MODULE_0__.Icon.Default.imagePath = newVal;
+    },
+  },
+  render: function render() {
+    return null;
+  },
+};
+
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
+    }
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
+    }
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
+}
+
+/* script */
+var __vue_script__ = script;
+
+/* template */
+
+  /* style */
+  var __vue_inject_styles__ = undefined;
+  /* scoped */
+  var __vue_scope_id__ = undefined;
+  /* module identifier */
+  var __vue_module_identifier__ = undefined;
+  /* functional template */
+  var __vue_is_functional_template__ = undefined;
+  /* style inject */
+  
+  /* style inject SSR */
+  
+  /* style inject shadow dom */
+  
+
+  
+  var __vue_component__ = /*#__PURE__*/normalizeComponent(
+    {},
+    __vue_inject_styles__,
+    __vue_script__,
+    __vue_scope_id__,
+    __vue_is_functional_template__,
+    __vue_module_identifier__,
+    false,
+    undefined,
+    undefined,
+    undefined
+  );
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__vue_component__);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/components/LImageOverlay.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/components/LImageOverlay.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var capitalizeFirstLetter = function (string) {
+  if (!string || typeof string.charAt !== 'function') {
+    return string;
+  }
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+var propsBinder = function (vueElement, leafletElement, props, options) {
+  var loop = function ( key ) {
+    var setMethodName = 'set' + capitalizeFirstLetter(key);
+    var deepValue =
+      props[key].type === Object ||
+      props[key].type === Array ||
+      Array.isArray(props[key].type);
+    if (props[key].custom && vueElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          vueElement[setMethodName](newVal, oldVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (setMethodName === 'setOptions') {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.setOptions)(leafletElement, newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (leafletElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          leafletElement[setMethodName](newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    }
+  };
+
+  for (var key in props) loop( key );
+};
+
+var collectionCleaner = function (options) {
+  var result = {};
+  for (var key in options) {
+    var value = options[key];
+    if (value !== null && value !== undefined) {
+      result[key] = value;
+    }
+  }
+  return result;
+};
+
+var optionsMerger = function (props, instance) {
+  var options =
+    instance.options && instance.options.constructor === Object
+      ? instance.options
+      : {};
+  props = props && props.constructor === Object ? props : {};
+  var result = collectionCleaner(options);
+  props = collectionCleaner(props);
+  var defaultProps = instance.$options.props;
+  for (var key in props) {
+    var def = defaultProps[key]
+      ? defaultProps[key].default &&
+        typeof defaultProps[key].default === 'function'
+        ? defaultProps[key].default.call()
+        : defaultProps[key].default
+      : Symbol('unique');
+    var isEqual = false;
+    if (Array.isArray(def)) {
+      isEqual = JSON.stringify(def) === JSON.stringify(props[key]);
+    } else {
+      isEqual = def === props[key];
+    }
+    if (result[key] && !isEqual) {
+      console.warn(
+        (key + " props is overriding the value passed in the options props")
+      );
+      result[key] = props[key];
+    } else if (!result[key]) {
+      result[key] = props[key];
+    }
+  }
+  return result;
+};
+
+var findRealParent = function (firstVueParent) {
+  var found = false;
+  while (firstVueParent && !found) {
+    if (firstVueParent.mapObject === undefined) {
+      firstVueParent = firstVueParent.$parent;
+    } else {
+      found = true;
+    }
+  }
+  return firstVueParent;
+};
+
+var Layer = {
+  props: {
+    pane: {
+      type: String,
+      default: 'overlayPane',
+    },
+    attribution: {
+      type: String,
+      default: null,
+      custom: true,
+    },
+    name: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    layerType: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    visible: {
+      type: Boolean,
+      custom: true,
+      default: true,
+    },
+  },
+  mounted: function mounted() {
+    this.layerOptions = {
+      attribution: this.attribution,
+      pane: this.pane,
+    };
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.unbindPopup();
+    this.unbindTooltip();
+    this.parentContainer.removeLayer(this);
+  },
+  methods: {
+    setAttribution: function setAttribution(val, old) {
+      var attributionControl = this.$parent.mapObject.attributionControl;
+      attributionControl.removeAttribution(old).addAttribution(val);
+    },
+    setName: function setName() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setLayerType: function setLayerType() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setVisible: function setVisible(isVisible) {
+      if (this.mapObject) {
+        if (isVisible) {
+          this.parentContainer.addLayer(this);
+        } else {
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
+        }
+      }
+    },
+    unbindTooltip: function unbindTooltip() {
+      var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
+      if (tooltip) {
+        tooltip.unbindTooltip();
+      }
+    },
+    unbindPopup: function unbindPopup() {
+      var popup = this.mapObject ? this.mapObject.getPopup() : null;
+      if (popup) {
+        popup.unbindPopup();
+      }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      /**
+       * Triggers when the visible prop needs to be updated
+       * @type {boolean}
+       * @property {boolean} value - value of the visible property
+       */
+      this.$emit('update:visible', value);
+    },
+  },
+};
+
+var InteractiveLayer = {
+  props: {
+    interactive: {
+      type: Boolean,
+      default: true
+    },
+    bubblingMouseEvents: {
+      type: Boolean,
+      default: true
+    }
+  },
+  mounted: function mounted () {
+    this.interactiveLayerOptions = {
+      interactive: this.interactive,
+      bubblingMouseEvents: this.bubblingMouseEvents
+    };
+  }
+};
+
+var ImageOverlayMixin = {
+  mixins: [Layer, InteractiveLayer],
+  props: {
+    url: {
+      type: String,
+      custom: true
+    },
+    bounds: {
+      custom: true
+    },
+    opacity: {
+      type: Number,
+      custom: true,
+      default: 1.0
+    },
+    alt: {
+      type: String,
+      default: ''
+    },
+    interactive: {
+      type: Boolean,
+      default: false
+    },
+    crossOrigin: {
+      type: Boolean,
+      default: false
+    },
+    errorOverlayUrl: {
+      type: String,
+      custom: true,
+      default: ''
+    },
+    zIndex: {
+      type: Number,
+      custom: true,
+      default: 1
+    },
+    className: {
+      type: String,
+      default: ''
+    }
+  },
+  mounted: function mounted () {
+    this.imageOverlayOptions = Object.assign({}, this.layerOptions,
+      this.interactiveLayerOptions,
+      {opacity: this.opacity,
+      alt: this.alt,
+      interactive: this.interactive,
+      crossOrigin: this.crossOrigin,
+      errorOverlayUrl: this.errorOverlayUrl,
+      zIndex: this.zIndex,
+      className: this.className});
+  },
+  methods: {
+    setOpacity: function setOpacity (opacity) {
+      return this.mapObject.setOpacity(opacity);
+    },
+    setUrl: function setUrl (url) {
+      return this.mapObject.setUrl(url);
+    },
+    setBounds: function setBounds (bounds) {
+      return this.mapObject.setBounds(bounds);
+    },
+    getBounds: function getBounds () {
+      return this.mapObject.getBounds();
+    },
+    getElement: function getElement () {
+      return this.mapObject.getElement();
+    },
+    bringToFront: function bringToFront () {
+      return this.mapObject.bringToFront();
+    },
+    bringToBack: function bringToBack () {
+      return this.mapObject.bringToBack();
+    }
+  },
+  render: function render () {
+    return null;
+  }
+};
+
+var Options = {
+  props: {
+    /**
+     * Leaflet options to pass to the component constructor
+     */
+    options: {
+      type: Object,
+      default: function () { return ({}); }
+    }
+  }
+};
+
+/**
+ * Easily display a image overlay.
+ */
+var script = {
+  name: 'LImageOverlay',
+  mixins: [ImageOverlayMixin, Options],
+  mounted: function mounted() {
+    var this$1 = this;
+
+    var options = optionsMerger(this.imageOverlayOptions, this);
+    this.mapObject = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.imageOverlay)(this.url, this.bounds, options);
+    leaflet__WEBPACK_IMPORTED_MODULE_0__.DomEvent.on(this.mapObject, this.$listeners);
+    propsBinder(this, this.mapObject, this.$options.props);
+    this.parentContainer = findRealParent(this.$parent);
+    this.parentContainer.addLayer(this, !this.visible);
+    this.$nextTick(function () {
+      /**
+       * Triggers when the component is ready
+       * @type {object}
+       * @property {object} mapObject - reference to leaflet map object
+       */
+      this$1.$emit('ready', this$1.mapObject);
+    });
+  },
+  render: function render() {
+    return null;
+  },
+};
+
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
+    }
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
+    }
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
+}
+
+/* script */
+var __vue_script__ = script;
+
+/* template */
+
+  /* style */
+  var __vue_inject_styles__ = undefined;
+  /* scoped */
+  var __vue_scope_id__ = undefined;
+  /* module identifier */
+  var __vue_module_identifier__ = undefined;
+  /* functional template */
+  var __vue_is_functional_template__ = undefined;
+  /* style inject */
+  
+  /* style inject SSR */
+  
+  /* style inject shadow dom */
+  
+
+  
+  var __vue_component__ = /*#__PURE__*/normalizeComponent(
+    {},
+    __vue_inject_styles__,
+    __vue_script__,
+    __vue_scope_id__,
+    __vue_is_functional_template__,
+    __vue_module_identifier__,
+    false,
+    undefined,
+    undefined,
+    undefined
+  );
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__vue_component__);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/components/LLayerGroup.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/components/LLayerGroup.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var capitalizeFirstLetter = function (string) {
+  if (!string || typeof string.charAt !== 'function') {
+    return string;
+  }
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+var propsBinder = function (vueElement, leafletElement, props, options) {
+  var loop = function ( key ) {
+    var setMethodName = 'set' + capitalizeFirstLetter(key);
+    var deepValue =
+      props[key].type === Object ||
+      props[key].type === Array ||
+      Array.isArray(props[key].type);
+    if (props[key].custom && vueElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          vueElement[setMethodName](newVal, oldVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (setMethodName === 'setOptions') {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.setOptions)(leafletElement, newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (leafletElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          leafletElement[setMethodName](newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    }
+  };
+
+  for (var key in props) loop( key );
+};
+
+var findRealParent = function (firstVueParent) {
+  var found = false;
+  while (firstVueParent && !found) {
+    if (firstVueParent.mapObject === undefined) {
+      firstVueParent = firstVueParent.$parent;
+    } else {
+      found = true;
+    }
+  }
+  return firstVueParent;
+};
+
+var Layer = {
+  props: {
+    pane: {
+      type: String,
+      default: 'overlayPane',
+    },
+    attribution: {
+      type: String,
+      default: null,
+      custom: true,
+    },
+    name: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    layerType: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    visible: {
+      type: Boolean,
+      custom: true,
+      default: true,
+    },
+  },
+  mounted: function mounted() {
+    this.layerOptions = {
+      attribution: this.attribution,
+      pane: this.pane,
+    };
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.unbindPopup();
+    this.unbindTooltip();
+    this.parentContainer.removeLayer(this);
+  },
+  methods: {
+    setAttribution: function setAttribution(val, old) {
+      var attributionControl = this.$parent.mapObject.attributionControl;
+      attributionControl.removeAttribution(old).addAttribution(val);
+    },
+    setName: function setName() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setLayerType: function setLayerType() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setVisible: function setVisible(isVisible) {
+      if (this.mapObject) {
+        if (isVisible) {
+          this.parentContainer.addLayer(this);
+        } else {
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
+        }
+      }
+    },
+    unbindTooltip: function unbindTooltip() {
+      var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
+      if (tooltip) {
+        tooltip.unbindTooltip();
+      }
+    },
+    unbindPopup: function unbindPopup() {
+      var popup = this.mapObject ? this.mapObject.getPopup() : null;
+      if (popup) {
+        popup.unbindPopup();
+      }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      /**
+       * Triggers when the visible prop needs to be updated
+       * @type {boolean}
+       * @property {boolean} value - value of the visible property
+       */
+      this.$emit('update:visible', value);
+    },
+  },
+};
+
+var LayerGroupMixin = {
+  mixins: [Layer],
+  mounted: function mounted () {
+    this.layerGroupOptions = this.layerOptions;
+  },
+  methods: {
+    addLayer: function addLayer (layer, alreadyAdded) {
+      if (!alreadyAdded) {
+        this.mapObject.addLayer(layer.mapObject);
+      }
+      this.parentContainer.addLayer(layer, true);
+    },
+    removeLayer: function removeLayer (layer, alreadyRemoved) {
+      if (!alreadyRemoved) {
+        this.mapObject.removeLayer(layer.mapObject);
+      }
+      this.parentContainer.removeLayer(layer, true);
+    }
+  }
+};
+
+var Options = {
+  props: {
+    /**
+     * Leaflet options to pass to the component constructor
+     */
+    options: {
+      type: Object,
+      default: function () { return ({}); }
+    }
+  }
+};
+
+//
+
+/**
+ * Group together elements of the maps  including: markers, geoJSON, polylines and polygon, tooltip and popup.
+ */
+var script = {
+  name: 'LLayerGroup',
+  mixins: [LayerGroupMixin, Options],
+  data: function data() {
+    return {
+      ready: false,
+    };
+  },
+  mounted: function mounted() {
+    var this$1 = this;
+
+    this.mapObject = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.layerGroup)();
+    propsBinder(this, this.mapObject, this.$options.props);
+    leaflet__WEBPACK_IMPORTED_MODULE_0__.DomEvent.on(this.mapObject, this.$listeners);
+    this.ready = true;
+    this.parentContainer = findRealParent(this.$parent);
+    this.parentContainer.addLayer(this, !this.visible);
+    this.$nextTick(function () {
+      /**
+       * Triggers when the component is ready
+       * @type {object}
+       * @property {object} mapObject - reference to leaflet map object
+       */
+      this$1.$emit('ready', this$1.mapObject);
+    });
+  },
+};
+
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
+    }
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
+    }
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
+}
+
+/* script */
+var __vue_script__ = script;
+
+/* template */
+var __vue_render__ = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticStyle:{"display":"none"}},[(_vm.ready)?_vm._t("default"):_vm._e()],2)};
+var __vue_staticRenderFns__ = [];
+
+  /* style */
+  var __vue_inject_styles__ = undefined;
+  /* scoped */
+  var __vue_scope_id__ = undefined;
+  /* module identifier */
+  var __vue_module_identifier__ = undefined;
+  /* functional template */
+  var __vue_is_functional_template__ = false;
+  /* style inject */
+  
+  /* style inject SSR */
+  
+  /* style inject shadow dom */
+  
+
+  
+  var __vue_component__ = /*#__PURE__*/normalizeComponent(
+    { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
+    __vue_inject_styles__,
+    __vue_script__,
+    __vue_scope_id__,
+    __vue_is_functional_template__,
+    __vue_module_identifier__,
+    false,
+    undefined,
+    undefined,
+    undefined
+  );
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__vue_component__);
 
 
 /***/ }),
@@ -54122,6 +61728,2130 @@ var __vue_script__ = script;
 
 /***/ }),
 
+/***/ "./node_modules/vue2-leaflet/dist/components/LPolygon.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/components/LPolygon.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var capitalizeFirstLetter = function (string) {
+  if (!string || typeof string.charAt !== 'function') {
+    return string;
+  }
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+var propsBinder = function (vueElement, leafletElement, props, options) {
+  var loop = function ( key ) {
+    var setMethodName = 'set' + capitalizeFirstLetter(key);
+    var deepValue =
+      props[key].type === Object ||
+      props[key].type === Array ||
+      Array.isArray(props[key].type);
+    if (props[key].custom && vueElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          vueElement[setMethodName](newVal, oldVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (setMethodName === 'setOptions') {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.setOptions)(leafletElement, newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (leafletElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          leafletElement[setMethodName](newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    }
+  };
+
+  for (var key in props) loop( key );
+};
+
+var collectionCleaner = function (options) {
+  var result = {};
+  for (var key in options) {
+    var value = options[key];
+    if (value !== null && value !== undefined) {
+      result[key] = value;
+    }
+  }
+  return result;
+};
+
+var optionsMerger = function (props, instance) {
+  var options =
+    instance.options && instance.options.constructor === Object
+      ? instance.options
+      : {};
+  props = props && props.constructor === Object ? props : {};
+  var result = collectionCleaner(options);
+  props = collectionCleaner(props);
+  var defaultProps = instance.$options.props;
+  for (var key in props) {
+    var def = defaultProps[key]
+      ? defaultProps[key].default &&
+        typeof defaultProps[key].default === 'function'
+        ? defaultProps[key].default.call()
+        : defaultProps[key].default
+      : Symbol('unique');
+    var isEqual = false;
+    if (Array.isArray(def)) {
+      isEqual = JSON.stringify(def) === JSON.stringify(props[key]);
+    } else {
+      isEqual = def === props[key];
+    }
+    if (result[key] && !isEqual) {
+      console.warn(
+        (key + " props is overriding the value passed in the options props")
+      );
+      result[key] = props[key];
+    } else if (!result[key]) {
+      result[key] = props[key];
+    }
+  }
+  return result;
+};
+
+var findRealParent = function (firstVueParent) {
+  var found = false;
+  while (firstVueParent && !found) {
+    if (firstVueParent.mapObject === undefined) {
+      firstVueParent = firstVueParent.$parent;
+    } else {
+      found = true;
+    }
+  }
+  return firstVueParent;
+};
+
+var Layer = {
+  props: {
+    pane: {
+      type: String,
+      default: 'overlayPane',
+    },
+    attribution: {
+      type: String,
+      default: null,
+      custom: true,
+    },
+    name: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    layerType: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    visible: {
+      type: Boolean,
+      custom: true,
+      default: true,
+    },
+  },
+  mounted: function mounted() {
+    this.layerOptions = {
+      attribution: this.attribution,
+      pane: this.pane,
+    };
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.unbindPopup();
+    this.unbindTooltip();
+    this.parentContainer.removeLayer(this);
+  },
+  methods: {
+    setAttribution: function setAttribution(val, old) {
+      var attributionControl = this.$parent.mapObject.attributionControl;
+      attributionControl.removeAttribution(old).addAttribution(val);
+    },
+    setName: function setName() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setLayerType: function setLayerType() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setVisible: function setVisible(isVisible) {
+      if (this.mapObject) {
+        if (isVisible) {
+          this.parentContainer.addLayer(this);
+        } else {
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
+        }
+      }
+    },
+    unbindTooltip: function unbindTooltip() {
+      var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
+      if (tooltip) {
+        tooltip.unbindTooltip();
+      }
+    },
+    unbindPopup: function unbindPopup() {
+      var popup = this.mapObject ? this.mapObject.getPopup() : null;
+      if (popup) {
+        popup.unbindPopup();
+      }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      /**
+       * Triggers when the visible prop needs to be updated
+       * @type {boolean}
+       * @property {boolean} value - value of the visible property
+       */
+      this.$emit('update:visible', value);
+    },
+  },
+};
+
+var InteractiveLayer = {
+  props: {
+    interactive: {
+      type: Boolean,
+      default: true
+    },
+    bubblingMouseEvents: {
+      type: Boolean,
+      default: true
+    }
+  },
+  mounted: function mounted () {
+    this.interactiveLayerOptions = {
+      interactive: this.interactive,
+      bubblingMouseEvents: this.bubblingMouseEvents
+    };
+  }
+};
+
+var Path = {
+  mixins: [Layer, InteractiveLayer],
+  props: {
+    lStyle: {
+      type: Object,
+      custom: true,
+      default: null
+    },
+    stroke: {
+      type: Boolean,
+      custom: true,
+      default: true
+    },
+    color: {
+      type: String,
+      custom: true,
+      default: '#3388ff'
+    },
+    weight: {
+      type: Number,
+      custom: true,
+      default: 3
+    },
+    opacity: {
+      type: Number,
+      custom: true,
+      default: 1.0
+    },
+    lineCap: {
+      type: String,
+      custom: true,
+      default: 'round'
+    },
+    lineJoin: {
+      type: String,
+      custom: true,
+      default: 'round'
+    },
+    dashArray: {
+      type: String,
+      custom: true,
+      default: null
+    },
+    dashOffset: {
+      type: String,
+      custom: true,
+      default: null
+    },
+    fill: {
+      type: Boolean,
+      custom: true,
+      default: false
+    },
+    fillColor: {
+      type: String,
+      custom: true,
+      default: '#3388ff'
+    },
+    fillOpacity: {
+      type: Number,
+      custom: true,
+      default: 0.2
+    },
+    fillRule: {
+      type: String,
+      custom: true,
+      default: 'evenodd'
+    },
+    className: {
+      type: String,
+      custom: true,
+      default: null
+    }
+  },
+  mounted: function mounted () {
+    this.pathOptions = Object.assign({}, this.layerOptions,
+      this.interactiveLayerOptions,
+      {stroke: this.stroke,
+      color: this.color,
+      weight: this.weight,
+      opacity: this.opacity,
+      lineCap: this.lineCap,
+      lineJoin: this.lineJoin,
+      dashArray: this.dashArray,
+      dashOffset: this.dashOffset,
+      fill: this.fill,
+      fillColor: this.fillColor,
+      fillOpacity: this.fillOpacity,
+      fillRule: this.fillRule,
+      className: this.className});
+
+    if (this.lStyle) {
+      console.warn('lStyle is deprecated and is going to be removed in the next major version');
+      for (var style in this.lStyle) {
+        this.pathOptions[style] = this.lStyle[style];
+      }
+    }
+  },
+  beforeDestroy: function beforeDestroy () {
+    if (this.parentContainer) {
+      this.parentContainer.removeLayer(this);
+    } else {
+      console.error('Missing parent container');
+    }
+  },
+  methods: {
+    setLStyle: function setLStyle (newVal) {
+      this.mapObject.setStyle(newVal);
+    },
+    setStroke: function setStroke (newVal) {
+      this.mapObject.setStyle({ stroke: newVal });
+    },
+    setColor: function setColor (newVal) {
+      this.mapObject.setStyle({ color: newVal });
+    },
+    setWeight: function setWeight (newVal) {
+      this.mapObject.setStyle({ weight: newVal });
+    },
+    setOpacity: function setOpacity (newVal) {
+      this.mapObject.setStyle({ opacity: newVal });
+    },
+    setLineCap: function setLineCap (newVal) {
+      this.mapObject.setStyle({ lineCap: newVal });
+    },
+    setLineJoin: function setLineJoin (newVal) {
+      this.mapObject.setStyle({ lineJoin: newVal });
+    },
+    setDashArray: function setDashArray (newVal) {
+      this.mapObject.setStyle({ dashArray: newVal });
+    },
+    setDashOffset: function setDashOffset (newVal) {
+      this.mapObject.setStyle({ dashOffset: newVal });
+    },
+    setFill: function setFill (newVal) {
+      this.mapObject.setStyle({ fill: newVal });
+    },
+    setFillColor: function setFillColor (newVal) {
+      this.mapObject.setStyle({ fillColor: newVal });
+    },
+    setFillOpacity: function setFillOpacity (newVal) {
+      this.mapObject.setStyle({ fillOpacity: newVal });
+    },
+    setFillRule: function setFillRule (newVal) {
+      this.mapObject.setStyle({ fillRule: newVal });
+    },
+    setClassName: function setClassName (newVal) {
+      this.mapObject.setStyle({ className: newVal });
+    }
+  }
+};
+
+var Polyline = {
+  mixins: [Path],
+  props: {
+    smoothFactor: {
+      type: Number,
+      custom: true,
+      default: 1.0
+    },
+    noClip: {
+      type: Boolean,
+      custom: true,
+      default: false
+    }
+  },
+  data: function data () {
+    return {
+      ready: false
+    };
+  },
+  mounted: function mounted () {
+    this.polyLineOptions = Object.assign({}, this.pathOptions,
+      {smoothFactor: this.smoothFactor,
+      noClip: this.noClip});
+  },
+  methods: {
+    setSmoothFactor: function setSmoothFactor (newVal) {
+      this.mapObject.setStyle({ smoothFactor: newVal });
+    },
+    setNoClip: function setNoClip (newVal) {
+      this.mapObject.setStyle({ noClip: newVal });
+    },
+    addLatLng: function addLatLng (value) {
+      this.mapObject.addLatLng(value);
+    }
+  }
+};
+
+var PolygonMixin = {
+  mixins: [Polyline],
+  props: {
+    fill: {
+      type: Boolean,
+      custom: true,
+      default: true
+    }
+  },
+  mounted: function mounted () {
+    this.polygonOptions = this.polyLineOptions;
+  },
+  methods: {
+    getGeoJSONData: function getGeoJSONData () {
+      return this.mapObject.toGeoJSON();
+    }
+  }
+};
+
+var Options = {
+  props: {
+    /**
+     * Leaflet options to pass to the component constructor
+     */
+    options: {
+      type: Object,
+      default: function () { return ({}); }
+    }
+  }
+};
+
+//
+
+/**
+ * Easily draw a polygon on the map
+ */
+var script = {
+  name: 'LPolygon',
+  mixins: [PolygonMixin, Options],
+  props: {
+    latLngs: {
+      type: Array,
+      default: function () { return []; },
+    },
+  },
+  data: function data() {
+    return {
+      ready: false,
+    };
+  },
+  mounted: function mounted() {
+    var this$1 = this;
+
+    var options = optionsMerger(this.polygonOptions, this);
+    this.mapObject = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.polygon)(this.latLngs, options);
+    leaflet__WEBPACK_IMPORTED_MODULE_0__.DomEvent.on(this.mapObject, this.$listeners);
+    propsBinder(this, this.mapObject, this.$options.props);
+    this.ready = true;
+    this.parentContainer = findRealParent(this.$parent);
+    this.parentContainer.addLayer(this, !this.visible);
+    this.$nextTick(function () {
+      /**
+       * Triggers when the component is ready
+       * @type {object}
+       * @property {object} mapObject - reference to leaflet map object
+       */
+      this$1.$emit('ready', this$1.mapObject);
+    });
+  },
+};
+
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
+    }
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
+    }
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
+}
+
+/* script */
+var __vue_script__ = script;
+
+/* template */
+var __vue_render__ = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticStyle:{"display":"none"}},[(_vm.ready)?_vm._t("default"):_vm._e()],2)};
+var __vue_staticRenderFns__ = [];
+
+  /* style */
+  var __vue_inject_styles__ = undefined;
+  /* scoped */
+  var __vue_scope_id__ = undefined;
+  /* module identifier */
+  var __vue_module_identifier__ = undefined;
+  /* functional template */
+  var __vue_is_functional_template__ = false;
+  /* style inject */
+  
+  /* style inject SSR */
+  
+  /* style inject shadow dom */
+  
+
+  
+  var __vue_component__ = /*#__PURE__*/normalizeComponent(
+    { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
+    __vue_inject_styles__,
+    __vue_script__,
+    __vue_scope_id__,
+    __vue_is_functional_template__,
+    __vue_module_identifier__,
+    false,
+    undefined,
+    undefined,
+    undefined
+  );
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__vue_component__);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/components/LPolyline.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/components/LPolyline.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var capitalizeFirstLetter = function (string) {
+  if (!string || typeof string.charAt !== 'function') {
+    return string;
+  }
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+var propsBinder = function (vueElement, leafletElement, props, options) {
+  var loop = function ( key ) {
+    var setMethodName = 'set' + capitalizeFirstLetter(key);
+    var deepValue =
+      props[key].type === Object ||
+      props[key].type === Array ||
+      Array.isArray(props[key].type);
+    if (props[key].custom && vueElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          vueElement[setMethodName](newVal, oldVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (setMethodName === 'setOptions') {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.setOptions)(leafletElement, newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (leafletElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          leafletElement[setMethodName](newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    }
+  };
+
+  for (var key in props) loop( key );
+};
+
+var collectionCleaner = function (options) {
+  var result = {};
+  for (var key in options) {
+    var value = options[key];
+    if (value !== null && value !== undefined) {
+      result[key] = value;
+    }
+  }
+  return result;
+};
+
+var optionsMerger = function (props, instance) {
+  var options =
+    instance.options && instance.options.constructor === Object
+      ? instance.options
+      : {};
+  props = props && props.constructor === Object ? props : {};
+  var result = collectionCleaner(options);
+  props = collectionCleaner(props);
+  var defaultProps = instance.$options.props;
+  for (var key in props) {
+    var def = defaultProps[key]
+      ? defaultProps[key].default &&
+        typeof defaultProps[key].default === 'function'
+        ? defaultProps[key].default.call()
+        : defaultProps[key].default
+      : Symbol('unique');
+    var isEqual = false;
+    if (Array.isArray(def)) {
+      isEqual = JSON.stringify(def) === JSON.stringify(props[key]);
+    } else {
+      isEqual = def === props[key];
+    }
+    if (result[key] && !isEqual) {
+      console.warn(
+        (key + " props is overriding the value passed in the options props")
+      );
+      result[key] = props[key];
+    } else if (!result[key]) {
+      result[key] = props[key];
+    }
+  }
+  return result;
+};
+
+var findRealParent = function (firstVueParent) {
+  var found = false;
+  while (firstVueParent && !found) {
+    if (firstVueParent.mapObject === undefined) {
+      firstVueParent = firstVueParent.$parent;
+    } else {
+      found = true;
+    }
+  }
+  return firstVueParent;
+};
+
+var Layer = {
+  props: {
+    pane: {
+      type: String,
+      default: 'overlayPane',
+    },
+    attribution: {
+      type: String,
+      default: null,
+      custom: true,
+    },
+    name: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    layerType: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    visible: {
+      type: Boolean,
+      custom: true,
+      default: true,
+    },
+  },
+  mounted: function mounted() {
+    this.layerOptions = {
+      attribution: this.attribution,
+      pane: this.pane,
+    };
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.unbindPopup();
+    this.unbindTooltip();
+    this.parentContainer.removeLayer(this);
+  },
+  methods: {
+    setAttribution: function setAttribution(val, old) {
+      var attributionControl = this.$parent.mapObject.attributionControl;
+      attributionControl.removeAttribution(old).addAttribution(val);
+    },
+    setName: function setName() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setLayerType: function setLayerType() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setVisible: function setVisible(isVisible) {
+      if (this.mapObject) {
+        if (isVisible) {
+          this.parentContainer.addLayer(this);
+        } else {
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
+        }
+      }
+    },
+    unbindTooltip: function unbindTooltip() {
+      var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
+      if (tooltip) {
+        tooltip.unbindTooltip();
+      }
+    },
+    unbindPopup: function unbindPopup() {
+      var popup = this.mapObject ? this.mapObject.getPopup() : null;
+      if (popup) {
+        popup.unbindPopup();
+      }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      /**
+       * Triggers when the visible prop needs to be updated
+       * @type {boolean}
+       * @property {boolean} value - value of the visible property
+       */
+      this.$emit('update:visible', value);
+    },
+  },
+};
+
+var InteractiveLayer = {
+  props: {
+    interactive: {
+      type: Boolean,
+      default: true
+    },
+    bubblingMouseEvents: {
+      type: Boolean,
+      default: true
+    }
+  },
+  mounted: function mounted () {
+    this.interactiveLayerOptions = {
+      interactive: this.interactive,
+      bubblingMouseEvents: this.bubblingMouseEvents
+    };
+  }
+};
+
+var Path = {
+  mixins: [Layer, InteractiveLayer],
+  props: {
+    lStyle: {
+      type: Object,
+      custom: true,
+      default: null
+    },
+    stroke: {
+      type: Boolean,
+      custom: true,
+      default: true
+    },
+    color: {
+      type: String,
+      custom: true,
+      default: '#3388ff'
+    },
+    weight: {
+      type: Number,
+      custom: true,
+      default: 3
+    },
+    opacity: {
+      type: Number,
+      custom: true,
+      default: 1.0
+    },
+    lineCap: {
+      type: String,
+      custom: true,
+      default: 'round'
+    },
+    lineJoin: {
+      type: String,
+      custom: true,
+      default: 'round'
+    },
+    dashArray: {
+      type: String,
+      custom: true,
+      default: null
+    },
+    dashOffset: {
+      type: String,
+      custom: true,
+      default: null
+    },
+    fill: {
+      type: Boolean,
+      custom: true,
+      default: false
+    },
+    fillColor: {
+      type: String,
+      custom: true,
+      default: '#3388ff'
+    },
+    fillOpacity: {
+      type: Number,
+      custom: true,
+      default: 0.2
+    },
+    fillRule: {
+      type: String,
+      custom: true,
+      default: 'evenodd'
+    },
+    className: {
+      type: String,
+      custom: true,
+      default: null
+    }
+  },
+  mounted: function mounted () {
+    this.pathOptions = Object.assign({}, this.layerOptions,
+      this.interactiveLayerOptions,
+      {stroke: this.stroke,
+      color: this.color,
+      weight: this.weight,
+      opacity: this.opacity,
+      lineCap: this.lineCap,
+      lineJoin: this.lineJoin,
+      dashArray: this.dashArray,
+      dashOffset: this.dashOffset,
+      fill: this.fill,
+      fillColor: this.fillColor,
+      fillOpacity: this.fillOpacity,
+      fillRule: this.fillRule,
+      className: this.className});
+
+    if (this.lStyle) {
+      console.warn('lStyle is deprecated and is going to be removed in the next major version');
+      for (var style in this.lStyle) {
+        this.pathOptions[style] = this.lStyle[style];
+      }
+    }
+  },
+  beforeDestroy: function beforeDestroy () {
+    if (this.parentContainer) {
+      this.parentContainer.removeLayer(this);
+    } else {
+      console.error('Missing parent container');
+    }
+  },
+  methods: {
+    setLStyle: function setLStyle (newVal) {
+      this.mapObject.setStyle(newVal);
+    },
+    setStroke: function setStroke (newVal) {
+      this.mapObject.setStyle({ stroke: newVal });
+    },
+    setColor: function setColor (newVal) {
+      this.mapObject.setStyle({ color: newVal });
+    },
+    setWeight: function setWeight (newVal) {
+      this.mapObject.setStyle({ weight: newVal });
+    },
+    setOpacity: function setOpacity (newVal) {
+      this.mapObject.setStyle({ opacity: newVal });
+    },
+    setLineCap: function setLineCap (newVal) {
+      this.mapObject.setStyle({ lineCap: newVal });
+    },
+    setLineJoin: function setLineJoin (newVal) {
+      this.mapObject.setStyle({ lineJoin: newVal });
+    },
+    setDashArray: function setDashArray (newVal) {
+      this.mapObject.setStyle({ dashArray: newVal });
+    },
+    setDashOffset: function setDashOffset (newVal) {
+      this.mapObject.setStyle({ dashOffset: newVal });
+    },
+    setFill: function setFill (newVal) {
+      this.mapObject.setStyle({ fill: newVal });
+    },
+    setFillColor: function setFillColor (newVal) {
+      this.mapObject.setStyle({ fillColor: newVal });
+    },
+    setFillOpacity: function setFillOpacity (newVal) {
+      this.mapObject.setStyle({ fillOpacity: newVal });
+    },
+    setFillRule: function setFillRule (newVal) {
+      this.mapObject.setStyle({ fillRule: newVal });
+    },
+    setClassName: function setClassName (newVal) {
+      this.mapObject.setStyle({ className: newVal });
+    }
+  }
+};
+
+var PolylineMixin = {
+  mixins: [Path],
+  props: {
+    smoothFactor: {
+      type: Number,
+      custom: true,
+      default: 1.0
+    },
+    noClip: {
+      type: Boolean,
+      custom: true,
+      default: false
+    }
+  },
+  data: function data () {
+    return {
+      ready: false
+    };
+  },
+  mounted: function mounted () {
+    this.polyLineOptions = Object.assign({}, this.pathOptions,
+      {smoothFactor: this.smoothFactor,
+      noClip: this.noClip});
+  },
+  methods: {
+    setSmoothFactor: function setSmoothFactor (newVal) {
+      this.mapObject.setStyle({ smoothFactor: newVal });
+    },
+    setNoClip: function setNoClip (newVal) {
+      this.mapObject.setStyle({ noClip: newVal });
+    },
+    addLatLng: function addLatLng (value) {
+      this.mapObject.addLatLng(value);
+    }
+  }
+};
+
+var Options = {
+  props: {
+    /**
+     * Leaflet options to pass to the component constructor
+     */
+    options: {
+      type: Object,
+      default: function () { return ({}); }
+    }
+  }
+};
+
+//
+
+/**
+ * Easily draw a polyline on the map
+ */
+var script = {
+  name: 'LPolyline',
+  mixins: [PolylineMixin, Options],
+  props: {
+    latLngs: {
+      type: Array,
+      default: function () { return []; },
+    },
+  },
+  data: function data() {
+    return {
+      ready: false,
+    };
+  },
+  mounted: function mounted() {
+    var this$1 = this;
+
+    var options = optionsMerger(this.polyLineOptions, this);
+    this.mapObject = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.polyline)(this.latLngs, options);
+    leaflet__WEBPACK_IMPORTED_MODULE_0__.DomEvent.on(this.mapObject, this.$listeners);
+    propsBinder(this, this.mapObject, this.$options.props);
+    this.ready = true;
+    this.parentContainer = findRealParent(this.$parent);
+    this.parentContainer.addLayer(this, !this.visible);
+    this.$nextTick(function () {
+      /**
+       * Triggers when the component is ready
+       * @type {object}
+       * @property {object} mapObject - reference to leaflet map object
+       */
+      this$1.$emit('ready', this$1.mapObject);
+    });
+  },
+};
+
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
+    }
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
+    }
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
+}
+
+/* script */
+var __vue_script__ = script;
+
+/* template */
+var __vue_render__ = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticStyle:{"display":"none"}},[(_vm.ready)?_vm._t("default"):_vm._e()],2)};
+var __vue_staticRenderFns__ = [];
+
+  /* style */
+  var __vue_inject_styles__ = undefined;
+  /* scoped */
+  var __vue_scope_id__ = undefined;
+  /* module identifier */
+  var __vue_module_identifier__ = undefined;
+  /* functional template */
+  var __vue_is_functional_template__ = false;
+  /* style inject */
+  
+  /* style inject SSR */
+  
+  /* style inject shadow dom */
+  
+
+  
+  var __vue_component__ = /*#__PURE__*/normalizeComponent(
+    { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
+    __vue_inject_styles__,
+    __vue_script__,
+    __vue_scope_id__,
+    __vue_is_functional_template__,
+    __vue_module_identifier__,
+    false,
+    undefined,
+    undefined,
+    undefined
+  );
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__vue_component__);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/components/LPopup.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/components/LPopup.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var capitalizeFirstLetter = function (string) {
+  if (!string || typeof string.charAt !== 'function') {
+    return string;
+  }
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+var propsBinder = function (vueElement, leafletElement, props, options) {
+  var loop = function ( key ) {
+    var setMethodName = 'set' + capitalizeFirstLetter(key);
+    var deepValue =
+      props[key].type === Object ||
+      props[key].type === Array ||
+      Array.isArray(props[key].type);
+    if (props[key].custom && vueElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          vueElement[setMethodName](newVal, oldVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (setMethodName === 'setOptions') {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.setOptions)(leafletElement, newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (leafletElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          leafletElement[setMethodName](newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    }
+  };
+
+  for (var key in props) loop( key );
+};
+
+var collectionCleaner = function (options) {
+  var result = {};
+  for (var key in options) {
+    var value = options[key];
+    if (value !== null && value !== undefined) {
+      result[key] = value;
+    }
+  }
+  return result;
+};
+
+var optionsMerger = function (props, instance) {
+  var options =
+    instance.options && instance.options.constructor === Object
+      ? instance.options
+      : {};
+  props = props && props.constructor === Object ? props : {};
+  var result = collectionCleaner(options);
+  props = collectionCleaner(props);
+  var defaultProps = instance.$options.props;
+  for (var key in props) {
+    var def = defaultProps[key]
+      ? defaultProps[key].default &&
+        typeof defaultProps[key].default === 'function'
+        ? defaultProps[key].default.call()
+        : defaultProps[key].default
+      : Symbol('unique');
+    var isEqual = false;
+    if (Array.isArray(def)) {
+      isEqual = JSON.stringify(def) === JSON.stringify(props[key]);
+    } else {
+      isEqual = def === props[key];
+    }
+    if (result[key] && !isEqual) {
+      console.warn(
+        (key + " props is overriding the value passed in the options props")
+      );
+      result[key] = props[key];
+    } else if (!result[key]) {
+      result[key] = props[key];
+    }
+  }
+  return result;
+};
+
+var findRealParent = function (firstVueParent) {
+  var found = false;
+  while (firstVueParent && !found) {
+    if (firstVueParent.mapObject === undefined) {
+      firstVueParent = firstVueParent.$parent;
+    } else {
+      found = true;
+    }
+  }
+  return firstVueParent;
+};
+
+var Popper = {
+  props: {
+    content: {
+      type: String,
+      default: null,
+      custom: true
+    }
+  },
+  mounted: function mounted () {
+    this.popperOptions = {};
+  },
+  methods: {
+    setContent: function setContent (newVal) {
+      if (this.mapObject && newVal !== null && newVal !== undefined) {
+        this.mapObject.setContent(newVal);
+      }
+    }
+  },
+  render: function render (h) {
+    if (this.$slots.default) {
+      return h('div', this.$slots.default);
+    }
+    return null;
+  }
+};
+
+var Options = {
+  props: {
+    /**
+     * Leaflet options to pass to the component constructor
+     */
+    options: {
+      type: Object,
+      default: function () { return ({}); }
+    }
+  }
+};
+
+/**
+ * Display a popup on the map
+ */
+var script = {
+  name: 'LPopup',
+  mixins: [Popper, Options],
+  props: {
+    latLng: {
+      type: [Object, Array],
+      default: function () { return []; },
+    },
+  },
+  mounted: function mounted() {
+    var this$1 = this;
+
+    var options = optionsMerger(this.popperOptions, this);
+    this.mapObject = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.popup)(options);
+    if (this.latLng !== undefined) {
+      this.mapObject.setLatLng(this.latLng);
+    }
+    leaflet__WEBPACK_IMPORTED_MODULE_0__.DomEvent.on(this.mapObject, this.$listeners);
+    propsBinder(this, this.mapObject, this.$options.props);
+    this.mapObject.setContent(this.content || this.$el);
+    this.parentContainer = findRealParent(this.$parent);
+    this.parentContainer.mapObject.bindPopup(this.mapObject);
+    this.$nextTick(function () {
+      /**
+       * Triggers when the component is ready
+       * @type {object}
+       * @property {object} mapObject - reference to leaflet map object
+       */
+      this$1.$emit('ready', this$1.mapObject);
+    });
+  },
+  beforeDestroy: function beforeDestroy() {
+    if (this.parentContainer) {
+      if (this.parentContainer.unbindPopup) {
+        this.parentContainer.unbindPopup();
+      } else if (
+        this.parentContainer.mapObject &&
+        this.parentContainer.mapObject.unbindPopup
+      ) {
+        this.parentContainer.mapObject.unbindPopup();
+      }
+    }
+  },
+};
+
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
+    }
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
+    }
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
+}
+
+/* script */
+var __vue_script__ = script;
+
+/* template */
+
+  /* style */
+  var __vue_inject_styles__ = undefined;
+  /* scoped */
+  var __vue_scope_id__ = undefined;
+  /* module identifier */
+  var __vue_module_identifier__ = undefined;
+  /* functional template */
+  var __vue_is_functional_template__ = undefined;
+  /* style inject */
+  
+  /* style inject SSR */
+  
+  /* style inject shadow dom */
+  
+
+  
+  var __vue_component__ = /*#__PURE__*/normalizeComponent(
+    {},
+    __vue_inject_styles__,
+    __vue_script__,
+    __vue_scope_id__,
+    __vue_is_functional_template__,
+    __vue_module_identifier__,
+    false,
+    undefined,
+    undefined,
+    undefined
+  );
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__vue_component__);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/components/LRectangle.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/components/LRectangle.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var capitalizeFirstLetter = function (string) {
+  if (!string || typeof string.charAt !== 'function') {
+    return string;
+  }
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+var propsBinder = function (vueElement, leafletElement, props, options) {
+  var loop = function ( key ) {
+    var setMethodName = 'set' + capitalizeFirstLetter(key);
+    var deepValue =
+      props[key].type === Object ||
+      props[key].type === Array ||
+      Array.isArray(props[key].type);
+    if (props[key].custom && vueElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          vueElement[setMethodName](newVal, oldVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (setMethodName === 'setOptions') {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.setOptions)(leafletElement, newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (leafletElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          leafletElement[setMethodName](newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    }
+  };
+
+  for (var key in props) loop( key );
+};
+
+var collectionCleaner = function (options) {
+  var result = {};
+  for (var key in options) {
+    var value = options[key];
+    if (value !== null && value !== undefined) {
+      result[key] = value;
+    }
+  }
+  return result;
+};
+
+var optionsMerger = function (props, instance) {
+  var options =
+    instance.options && instance.options.constructor === Object
+      ? instance.options
+      : {};
+  props = props && props.constructor === Object ? props : {};
+  var result = collectionCleaner(options);
+  props = collectionCleaner(props);
+  var defaultProps = instance.$options.props;
+  for (var key in props) {
+    var def = defaultProps[key]
+      ? defaultProps[key].default &&
+        typeof defaultProps[key].default === 'function'
+        ? defaultProps[key].default.call()
+        : defaultProps[key].default
+      : Symbol('unique');
+    var isEqual = false;
+    if (Array.isArray(def)) {
+      isEqual = JSON.stringify(def) === JSON.stringify(props[key]);
+    } else {
+      isEqual = def === props[key];
+    }
+    if (result[key] && !isEqual) {
+      console.warn(
+        (key + " props is overriding the value passed in the options props")
+      );
+      result[key] = props[key];
+    } else if (!result[key]) {
+      result[key] = props[key];
+    }
+  }
+  return result;
+};
+
+var findRealParent = function (firstVueParent) {
+  var found = false;
+  while (firstVueParent && !found) {
+    if (firstVueParent.mapObject === undefined) {
+      firstVueParent = firstVueParent.$parent;
+    } else {
+      found = true;
+    }
+  }
+  return firstVueParent;
+};
+
+var Layer = {
+  props: {
+    pane: {
+      type: String,
+      default: 'overlayPane',
+    },
+    attribution: {
+      type: String,
+      default: null,
+      custom: true,
+    },
+    name: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    layerType: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    visible: {
+      type: Boolean,
+      custom: true,
+      default: true,
+    },
+  },
+  mounted: function mounted() {
+    this.layerOptions = {
+      attribution: this.attribution,
+      pane: this.pane,
+    };
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.unbindPopup();
+    this.unbindTooltip();
+    this.parentContainer.removeLayer(this);
+  },
+  methods: {
+    setAttribution: function setAttribution(val, old) {
+      var attributionControl = this.$parent.mapObject.attributionControl;
+      attributionControl.removeAttribution(old).addAttribution(val);
+    },
+    setName: function setName() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setLayerType: function setLayerType() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setVisible: function setVisible(isVisible) {
+      if (this.mapObject) {
+        if (isVisible) {
+          this.parentContainer.addLayer(this);
+        } else {
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
+        }
+      }
+    },
+    unbindTooltip: function unbindTooltip() {
+      var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
+      if (tooltip) {
+        tooltip.unbindTooltip();
+      }
+    },
+    unbindPopup: function unbindPopup() {
+      var popup = this.mapObject ? this.mapObject.getPopup() : null;
+      if (popup) {
+        popup.unbindPopup();
+      }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      /**
+       * Triggers when the visible prop needs to be updated
+       * @type {boolean}
+       * @property {boolean} value - value of the visible property
+       */
+      this.$emit('update:visible', value);
+    },
+  },
+};
+
+var InteractiveLayer = {
+  props: {
+    interactive: {
+      type: Boolean,
+      default: true
+    },
+    bubblingMouseEvents: {
+      type: Boolean,
+      default: true
+    }
+  },
+  mounted: function mounted () {
+    this.interactiveLayerOptions = {
+      interactive: this.interactive,
+      bubblingMouseEvents: this.bubblingMouseEvents
+    };
+  }
+};
+
+var Path = {
+  mixins: [Layer, InteractiveLayer],
+  props: {
+    lStyle: {
+      type: Object,
+      custom: true,
+      default: null
+    },
+    stroke: {
+      type: Boolean,
+      custom: true,
+      default: true
+    },
+    color: {
+      type: String,
+      custom: true,
+      default: '#3388ff'
+    },
+    weight: {
+      type: Number,
+      custom: true,
+      default: 3
+    },
+    opacity: {
+      type: Number,
+      custom: true,
+      default: 1.0
+    },
+    lineCap: {
+      type: String,
+      custom: true,
+      default: 'round'
+    },
+    lineJoin: {
+      type: String,
+      custom: true,
+      default: 'round'
+    },
+    dashArray: {
+      type: String,
+      custom: true,
+      default: null
+    },
+    dashOffset: {
+      type: String,
+      custom: true,
+      default: null
+    },
+    fill: {
+      type: Boolean,
+      custom: true,
+      default: false
+    },
+    fillColor: {
+      type: String,
+      custom: true,
+      default: '#3388ff'
+    },
+    fillOpacity: {
+      type: Number,
+      custom: true,
+      default: 0.2
+    },
+    fillRule: {
+      type: String,
+      custom: true,
+      default: 'evenodd'
+    },
+    className: {
+      type: String,
+      custom: true,
+      default: null
+    }
+  },
+  mounted: function mounted () {
+    this.pathOptions = Object.assign({}, this.layerOptions,
+      this.interactiveLayerOptions,
+      {stroke: this.stroke,
+      color: this.color,
+      weight: this.weight,
+      opacity: this.opacity,
+      lineCap: this.lineCap,
+      lineJoin: this.lineJoin,
+      dashArray: this.dashArray,
+      dashOffset: this.dashOffset,
+      fill: this.fill,
+      fillColor: this.fillColor,
+      fillOpacity: this.fillOpacity,
+      fillRule: this.fillRule,
+      className: this.className});
+
+    if (this.lStyle) {
+      console.warn('lStyle is deprecated and is going to be removed in the next major version');
+      for (var style in this.lStyle) {
+        this.pathOptions[style] = this.lStyle[style];
+      }
+    }
+  },
+  beforeDestroy: function beforeDestroy () {
+    if (this.parentContainer) {
+      this.parentContainer.removeLayer(this);
+    } else {
+      console.error('Missing parent container');
+    }
+  },
+  methods: {
+    setLStyle: function setLStyle (newVal) {
+      this.mapObject.setStyle(newVal);
+    },
+    setStroke: function setStroke (newVal) {
+      this.mapObject.setStyle({ stroke: newVal });
+    },
+    setColor: function setColor (newVal) {
+      this.mapObject.setStyle({ color: newVal });
+    },
+    setWeight: function setWeight (newVal) {
+      this.mapObject.setStyle({ weight: newVal });
+    },
+    setOpacity: function setOpacity (newVal) {
+      this.mapObject.setStyle({ opacity: newVal });
+    },
+    setLineCap: function setLineCap (newVal) {
+      this.mapObject.setStyle({ lineCap: newVal });
+    },
+    setLineJoin: function setLineJoin (newVal) {
+      this.mapObject.setStyle({ lineJoin: newVal });
+    },
+    setDashArray: function setDashArray (newVal) {
+      this.mapObject.setStyle({ dashArray: newVal });
+    },
+    setDashOffset: function setDashOffset (newVal) {
+      this.mapObject.setStyle({ dashOffset: newVal });
+    },
+    setFill: function setFill (newVal) {
+      this.mapObject.setStyle({ fill: newVal });
+    },
+    setFillColor: function setFillColor (newVal) {
+      this.mapObject.setStyle({ fillColor: newVal });
+    },
+    setFillOpacity: function setFillOpacity (newVal) {
+      this.mapObject.setStyle({ fillOpacity: newVal });
+    },
+    setFillRule: function setFillRule (newVal) {
+      this.mapObject.setStyle({ fillRule: newVal });
+    },
+    setClassName: function setClassName (newVal) {
+      this.mapObject.setStyle({ className: newVal });
+    }
+  }
+};
+
+var Polyline = {
+  mixins: [Path],
+  props: {
+    smoothFactor: {
+      type: Number,
+      custom: true,
+      default: 1.0
+    },
+    noClip: {
+      type: Boolean,
+      custom: true,
+      default: false
+    }
+  },
+  data: function data () {
+    return {
+      ready: false
+    };
+  },
+  mounted: function mounted () {
+    this.polyLineOptions = Object.assign({}, this.pathOptions,
+      {smoothFactor: this.smoothFactor,
+      noClip: this.noClip});
+  },
+  methods: {
+    setSmoothFactor: function setSmoothFactor (newVal) {
+      this.mapObject.setStyle({ smoothFactor: newVal });
+    },
+    setNoClip: function setNoClip (newVal) {
+      this.mapObject.setStyle({ noClip: newVal });
+    },
+    addLatLng: function addLatLng (value) {
+      this.mapObject.addLatLng(value);
+    }
+  }
+};
+
+var Polygon = {
+  mixins: [Polyline],
+  props: {
+    fill: {
+      type: Boolean,
+      custom: true,
+      default: true
+    }
+  },
+  mounted: function mounted () {
+    this.polygonOptions = this.polyLineOptions;
+  },
+  methods: {
+    getGeoJSONData: function getGeoJSONData () {
+      return this.mapObject.toGeoJSON();
+    }
+  }
+};
+
+var Options = {
+  props: {
+    /**
+     * Leaflet options to pass to the component constructor
+     */
+    options: {
+      type: Object,
+      default: function () { return ({}); }
+    }
+  }
+};
+
+//
+
+/**
+ * Easily draw a rectangle on the map
+ */
+var script = {
+  name: 'LRectangle',
+  mixins: [Polygon, Options],
+  props: {
+    bounds: {
+      default: function () { return [[0,0],[0,0]]; },
+      validator: function (value) { return value && (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.latLngBounds)(value).isValid(); },
+    },
+  },
+  data: function data() {
+    return {
+      ready: false,
+    };
+  },
+  mounted: function mounted() {
+    var this$1 = this;
+
+    var options = optionsMerger(this.polygonOptions, this);
+    this.mapObject = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.rectangle)(this.bounds, options);
+    leaflet__WEBPACK_IMPORTED_MODULE_0__.DomEvent.on(this.mapObject, this.$listeners);
+    propsBinder(this, this.mapObject, this.$options.props);
+    this.ready = true;
+    this.parentContainer = findRealParent(this.$parent);
+    this.parentContainer.addLayer(this, !this.visible);
+    this.$nextTick(function () {
+      /**
+       * Triggers when the component is ready
+       * @type {object}
+       * @property {object} mapObject - reference to leaflet map object
+       */
+      this$1.$emit('ready', this$1.mapObject);
+    });
+  },
+};
+
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
+    }
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
+    }
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
+}
+
+/* script */
+var __vue_script__ = script;
+
+/* template */
+var __vue_render__ = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticStyle:{"display":"none"}},[(_vm.ready)?_vm._t("default"):_vm._e()],2)};
+var __vue_staticRenderFns__ = [];
+
+  /* style */
+  var __vue_inject_styles__ = undefined;
+  /* scoped */
+  var __vue_scope_id__ = undefined;
+  /* module identifier */
+  var __vue_module_identifier__ = undefined;
+  /* functional template */
+  var __vue_is_functional_template__ = false;
+  /* style inject */
+  
+  /* style inject SSR */
+  
+  /* style inject shadow dom */
+  
+
+  
+  var __vue_component__ = /*#__PURE__*/normalizeComponent(
+    { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
+    __vue_inject_styles__,
+    __vue_script__,
+    __vue_scope_id__,
+    __vue_is_functional_template__,
+    __vue_module_identifier__,
+    false,
+    undefined,
+    undefined,
+    undefined
+  );
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__vue_component__);
+
+
+/***/ }),
+
 /***/ "./node_modules/vue2-leaflet/dist/components/LTileLayer.js":
 /*!*****************************************************************!*\
   !*** ./node_modules/vue2-leaflet/dist/components/LTileLayer.js ***!
@@ -54567,6 +64297,3437 @@ var __vue_staticRenderFns__ = [];
   );
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__vue_component__);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/components/LTooltip.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/components/LTooltip.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var capitalizeFirstLetter = function (string) {
+  if (!string || typeof string.charAt !== 'function') {
+    return string;
+  }
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+var propsBinder = function (vueElement, leafletElement, props, options) {
+  var loop = function ( key ) {
+    var setMethodName = 'set' + capitalizeFirstLetter(key);
+    var deepValue =
+      props[key].type === Object ||
+      props[key].type === Array ||
+      Array.isArray(props[key].type);
+    if (props[key].custom && vueElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          vueElement[setMethodName](newVal, oldVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (setMethodName === 'setOptions') {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.setOptions)(leafletElement, newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (leafletElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          leafletElement[setMethodName](newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    }
+  };
+
+  for (var key in props) loop( key );
+};
+
+var collectionCleaner = function (options) {
+  var result = {};
+  for (var key in options) {
+    var value = options[key];
+    if (value !== null && value !== undefined) {
+      result[key] = value;
+    }
+  }
+  return result;
+};
+
+var optionsMerger = function (props, instance) {
+  var options =
+    instance.options && instance.options.constructor === Object
+      ? instance.options
+      : {};
+  props = props && props.constructor === Object ? props : {};
+  var result = collectionCleaner(options);
+  props = collectionCleaner(props);
+  var defaultProps = instance.$options.props;
+  for (var key in props) {
+    var def = defaultProps[key]
+      ? defaultProps[key].default &&
+        typeof defaultProps[key].default === 'function'
+        ? defaultProps[key].default.call()
+        : defaultProps[key].default
+      : Symbol('unique');
+    var isEqual = false;
+    if (Array.isArray(def)) {
+      isEqual = JSON.stringify(def) === JSON.stringify(props[key]);
+    } else {
+      isEqual = def === props[key];
+    }
+    if (result[key] && !isEqual) {
+      console.warn(
+        (key + " props is overriding the value passed in the options props")
+      );
+      result[key] = props[key];
+    } else if (!result[key]) {
+      result[key] = props[key];
+    }
+  }
+  return result;
+};
+
+var findRealParent = function (firstVueParent) {
+  var found = false;
+  while (firstVueParent && !found) {
+    if (firstVueParent.mapObject === undefined) {
+      firstVueParent = firstVueParent.$parent;
+    } else {
+      found = true;
+    }
+  }
+  return firstVueParent;
+};
+
+var Popper = {
+  props: {
+    content: {
+      type: String,
+      default: null,
+      custom: true
+    }
+  },
+  mounted: function mounted () {
+    this.popperOptions = {};
+  },
+  methods: {
+    setContent: function setContent (newVal) {
+      if (this.mapObject && newVal !== null && newVal !== undefined) {
+        this.mapObject.setContent(newVal);
+      }
+    }
+  },
+  render: function render (h) {
+    if (this.$slots.default) {
+      return h('div', this.$slots.default);
+    }
+    return null;
+  }
+};
+
+var Options = {
+  props: {
+    /**
+     * Leaflet options to pass to the component constructor
+     */
+    options: {
+      type: Object,
+      default: function () { return ({}); }
+    }
+  }
+};
+
+/**
+ * Display a tooltip on the map
+ */
+var script = {
+  name: 'LTooltip',
+  mixins: [Popper, Options],
+  mounted: function mounted() {
+    var this$1 = this;
+
+    var options = optionsMerger(this.popperOptions, this);
+    this.mapObject = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.tooltip)(options);
+    leaflet__WEBPACK_IMPORTED_MODULE_0__.DomEvent.on(this.mapObject, this.$listeners);
+    propsBinder(this, this.mapObject, this.$options.props);
+    this.mapObject.setContent(this.content || this.$el);
+    this.parentContainer = findRealParent(this.$parent);
+    this.parentContainer.mapObject.bindTooltip(this.mapObject);
+    this.$nextTick(function () {
+      /**
+       * Triggers when the component is ready
+       * @type {object}
+       * @property {object} mapObject - reference to leaflet map object
+       */
+      this$1.$emit('ready', this$1.mapObject);
+    });
+  },
+  beforeDestroy: function beforeDestroy() {
+    if (this.parentContainer) {
+      if (this.parentContainer.unbindTooltip) {
+        this.parentContainer.unbindTooltip();
+      } else if (
+        this.parentContainer.mapObject &&
+        this.parentContainer.mapObject.unbindTooltip
+      ) {
+        this.parentContainer.mapObject.unbindTooltip();
+      }
+    }
+  },
+};
+
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
+    }
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
+    }
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
+}
+
+/* script */
+var __vue_script__ = script;
+
+/* template */
+
+  /* style */
+  var __vue_inject_styles__ = undefined;
+  /* scoped */
+  var __vue_scope_id__ = undefined;
+  /* module identifier */
+  var __vue_module_identifier__ = undefined;
+  /* functional template */
+  var __vue_is_functional_template__ = undefined;
+  /* style inject */
+  
+  /* style inject SSR */
+  
+  /* style inject shadow dom */
+  
+
+  
+  var __vue_component__ = /*#__PURE__*/normalizeComponent(
+    {},
+    __vue_inject_styles__,
+    __vue_script__,
+    __vue_scope_id__,
+    __vue_is_functional_template__,
+    __vue_module_identifier__,
+    false,
+    undefined,
+    undefined,
+    undefined
+  );
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__vue_component__);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/components/LWMSTileLayer.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/components/LWMSTileLayer.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var capitalizeFirstLetter = function (string) {
+  if (!string || typeof string.charAt !== 'function') {
+    return string;
+  }
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+var propsBinder = function (vueElement, leafletElement, props, options) {
+  var loop = function ( key ) {
+    var setMethodName = 'set' + capitalizeFirstLetter(key);
+    var deepValue =
+      props[key].type === Object ||
+      props[key].type === Array ||
+      Array.isArray(props[key].type);
+    if (props[key].custom && vueElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          vueElement[setMethodName](newVal, oldVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (setMethodName === 'setOptions') {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.setOptions)(leafletElement, newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (leafletElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          leafletElement[setMethodName](newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    }
+  };
+
+  for (var key in props) loop( key );
+};
+
+var collectionCleaner = function (options) {
+  var result = {};
+  for (var key in options) {
+    var value = options[key];
+    if (value !== null && value !== undefined) {
+      result[key] = value;
+    }
+  }
+  return result;
+};
+
+var optionsMerger = function (props, instance) {
+  var options =
+    instance.options && instance.options.constructor === Object
+      ? instance.options
+      : {};
+  props = props && props.constructor === Object ? props : {};
+  var result = collectionCleaner(options);
+  props = collectionCleaner(props);
+  var defaultProps = instance.$options.props;
+  for (var key in props) {
+    var def = defaultProps[key]
+      ? defaultProps[key].default &&
+        typeof defaultProps[key].default === 'function'
+        ? defaultProps[key].default.call()
+        : defaultProps[key].default
+      : Symbol('unique');
+    var isEqual = false;
+    if (Array.isArray(def)) {
+      isEqual = JSON.stringify(def) === JSON.stringify(props[key]);
+    } else {
+      isEqual = def === props[key];
+    }
+    if (result[key] && !isEqual) {
+      console.warn(
+        (key + " props is overriding the value passed in the options props")
+      );
+      result[key] = props[key];
+    } else if (!result[key]) {
+      result[key] = props[key];
+    }
+  }
+  return result;
+};
+
+var findRealParent = function (firstVueParent) {
+  var found = false;
+  while (firstVueParent && !found) {
+    if (firstVueParent.mapObject === undefined) {
+      firstVueParent = firstVueParent.$parent;
+    } else {
+      found = true;
+    }
+  }
+  return firstVueParent;
+};
+
+var Layer = {
+  props: {
+    pane: {
+      type: String,
+      default: 'overlayPane',
+    },
+    attribution: {
+      type: String,
+      default: null,
+      custom: true,
+    },
+    name: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    layerType: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    visible: {
+      type: Boolean,
+      custom: true,
+      default: true,
+    },
+  },
+  mounted: function mounted() {
+    this.layerOptions = {
+      attribution: this.attribution,
+      pane: this.pane,
+    };
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.unbindPopup();
+    this.unbindTooltip();
+    this.parentContainer.removeLayer(this);
+  },
+  methods: {
+    setAttribution: function setAttribution(val, old) {
+      var attributionControl = this.$parent.mapObject.attributionControl;
+      attributionControl.removeAttribution(old).addAttribution(val);
+    },
+    setName: function setName() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setLayerType: function setLayerType() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setVisible: function setVisible(isVisible) {
+      if (this.mapObject) {
+        if (isVisible) {
+          this.parentContainer.addLayer(this);
+        } else {
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
+        }
+      }
+    },
+    unbindTooltip: function unbindTooltip() {
+      var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
+      if (tooltip) {
+        tooltip.unbindTooltip();
+      }
+    },
+    unbindPopup: function unbindPopup() {
+      var popup = this.mapObject ? this.mapObject.getPopup() : null;
+      if (popup) {
+        popup.unbindPopup();
+      }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      /**
+       * Triggers when the visible prop needs to be updated
+       * @type {boolean}
+       * @property {boolean} value - value of the visible property
+       */
+      this.$emit('update:visible', value);
+    },
+  },
+};
+
+var GridLayer = {
+  mixins: [Layer],
+  props: {
+    pane: {
+      type: String,
+      default: 'tilePane'
+    },
+    opacity: {
+      type: Number,
+      custom: false,
+      default: 1.0
+    },
+    zIndex: {
+      type: Number,
+      default: 1
+    },
+    tileSize: {
+      type: Number,
+      default: 256
+    },
+    noWrap: {
+      type: Boolean,
+      default: false
+    }
+  },
+  mounted: function mounted () {
+    this.gridLayerOptions = Object.assign({}, this.layerOptions,
+      {pane: this.pane,
+      opacity: this.opacity,
+      zIndex: this.zIndex,
+      tileSize: this.tileSize,
+      noWrap: this.noWrap});
+  }
+};
+
+var TileLayer = {
+  mixins: [GridLayer],
+  props: {
+    tms: {
+      type: Boolean,
+      default: false,
+    },
+    subdomains: {
+      type: [String, Array],
+      default: 'abc',
+      validator: function (prop) {
+        if (typeof prop === 'string') { return true; }
+        // Validates array that array only contains only strings
+        if (Array.isArray(prop)) {
+          return prop.every(function (subdomain) { return typeof subdomain === 'string'; });
+        }
+        return false;
+      },
+    },
+    detectRetina: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  mounted: function mounted() {
+    this.tileLayerOptions = Object.assign({}, this.gridLayerOptions,
+      {tms: this.tms,
+      subdomains: this.subdomains,
+      detectRetina: this.detectRetina});
+  },
+  render: function render() {
+    return null;
+  },
+};
+
+var TileLayerWMS = {
+  mixins: [TileLayer],
+  props: {
+    layers: {
+      type: String,
+      default: ''
+    },
+    styles: {
+      type: String,
+      default: ''
+    },
+    format: {
+      type: String,
+      default: 'image/jpeg'
+    },
+    transparent: {
+      type: Boolean,
+      custom: false
+    },
+    version: {
+      type: String,
+      default: '1.1.1'
+    },
+    crs: {
+      default: null
+    },
+    upperCase: {
+      type: Boolean,
+      default: false
+    }
+  },
+  mounted: function mounted () {
+    this.tileLayerWMSOptions = Object.assign({}, this.tileLayerOptions,
+      {layers: this.layers,
+      styles: this.styles,
+      format: this.format,
+      transparent: this.transparent,
+      version: this.version,
+      crs: this.crs,
+      upperCase: this.upperCase});
+  }
+};
+
+var Options = {
+  props: {
+    /**
+     * Leaflet options to pass to the component constructor
+     */
+    options: {
+      type: Object,
+      default: function () { return ({}); }
+    }
+  }
+};
+
+/**
+ * Display WMS services as tile layers on the map
+ */
+var script = {
+  name: 'LWMSTileLayer',
+  mixins: [TileLayerWMS, Options],
+  props: {
+    baseUrl: {
+      type: String,
+      default: null,
+    },
+  },
+  mounted: function mounted() {
+    var this$1 = this;
+
+    var options = optionsMerger(this.tileLayerWMSOptions, this);
+    this.mapObject = leaflet__WEBPACK_IMPORTED_MODULE_0__.tileLayer.wms(this.baseUrl, options);
+    leaflet__WEBPACK_IMPORTED_MODULE_0__.DomEvent.on(this.mapObject, this.$listeners);
+    propsBinder(this, this.mapObject, this.$options.props);
+    this.parentContainer = findRealParent(this.$parent);
+    this.parentContainer.addLayer(this, !this.visible);
+    this.$nextTick(function () {
+      /**
+       * Triggers when the component is ready
+       * @type {object}
+       * @property {object} mapObject - reference to leaflet map object
+       */
+      this$1.$emit('ready', this$1.mapObject);
+    });
+  },
+};
+
+function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier /* server only */, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+    if (typeof shadowMode !== 'boolean') {
+        createInjectorSSR = createInjector;
+        createInjector = shadowMode;
+        shadowMode = false;
+    }
+    // Vue.extend constructor export interop.
+    var options = typeof script === 'function' ? script.options : script;
+    // render functions
+    if (template && template.render) {
+        options.render = template.render;
+        options.staticRenderFns = template.staticRenderFns;
+        options._compiled = true;
+        // functional template
+        if (isFunctionalTemplate) {
+            options.functional = true;
+        }
+    }
+    // scopedId
+    if (scopeId) {
+        options._scopeId = scopeId;
+    }
+    var hook;
+    if (moduleIdentifier) {
+        // server build
+        hook = function (context) {
+            // 2.3 injection
+            context =
+                context || // cached call
+                    (this.$vnode && this.$vnode.ssrContext) || // stateful
+                    (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext); // functional
+            // 2.2 with runInNewContext: true
+            if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+                context = __VUE_SSR_CONTEXT__;
+            }
+            // inject component styles
+            if (style) {
+                style.call(this, createInjectorSSR(context));
+            }
+            // register component module identifier for async chunk inference
+            if (context && context._registeredComponents) {
+                context._registeredComponents.add(moduleIdentifier);
+            }
+        };
+        // used by ssr in case component is cached and beforeCreate
+        // never gets called
+        options._ssrRegister = hook;
+    }
+    else if (style) {
+        hook = shadowMode
+            ? function (context) {
+                style.call(this, createInjectorShadow(context, this.$root.$options.shadowRoot));
+            }
+            : function (context) {
+                style.call(this, createInjector(context));
+            };
+    }
+    if (hook) {
+        if (options.functional) {
+            // register for functional component in vue file
+            var originalRender = options.render;
+            options.render = function renderWithStyleInjection(h, context) {
+                hook.call(context);
+                return originalRender(h, context);
+            };
+        }
+        else {
+            // inject component registration as beforeCreate hook
+            var existing = options.beforeCreate;
+            options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+    }
+    return script;
+}
+
+/* script */
+var __vue_script__ = script;
+
+/* template */
+
+  /* style */
+  var __vue_inject_styles__ = undefined;
+  /* scoped */
+  var __vue_scope_id__ = undefined;
+  /* module identifier */
+  var __vue_module_identifier__ = undefined;
+  /* functional template */
+  var __vue_is_functional_template__ = undefined;
+  /* style inject */
+  
+  /* style inject SSR */
+  
+  /* style inject shadow dom */
+  
+
+  
+  var __vue_component__ = /*#__PURE__*/normalizeComponent(
+    {},
+    __vue_inject_styles__,
+    __vue_script__,
+    __vue_scope_id__,
+    __vue_is_functional_template__,
+    __vue_module_identifier__,
+    false,
+    undefined,
+    undefined,
+    undefined
+  );
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__vue_component__);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/mixins/Circle.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/mixins/Circle.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var Layer = {
+  props: {
+    pane: {
+      type: String,
+      default: 'overlayPane',
+    },
+    attribution: {
+      type: String,
+      default: null,
+      custom: true,
+    },
+    name: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    layerType: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    visible: {
+      type: Boolean,
+      custom: true,
+      default: true,
+    },
+  },
+  mounted: function mounted() {
+    this.layerOptions = {
+      attribution: this.attribution,
+      pane: this.pane,
+    };
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.unbindPopup();
+    this.unbindTooltip();
+    this.parentContainer.removeLayer(this);
+  },
+  methods: {
+    setAttribution: function setAttribution(val, old) {
+      var attributionControl = this.$parent.mapObject.attributionControl;
+      attributionControl.removeAttribution(old).addAttribution(val);
+    },
+    setName: function setName() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setLayerType: function setLayerType() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setVisible: function setVisible(isVisible) {
+      if (this.mapObject) {
+        if (isVisible) {
+          this.parentContainer.addLayer(this);
+        } else {
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
+        }
+      }
+    },
+    unbindTooltip: function unbindTooltip() {
+      var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
+      if (tooltip) {
+        tooltip.unbindTooltip();
+      }
+    },
+    unbindPopup: function unbindPopup() {
+      var popup = this.mapObject ? this.mapObject.getPopup() : null;
+      if (popup) {
+        popup.unbindPopup();
+      }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      /**
+       * Triggers when the visible prop needs to be updated
+       * @type {boolean}
+       * @property {boolean} value - value of the visible property
+       */
+      this.$emit('update:visible', value);
+    },
+  },
+};
+
+var InteractiveLayer = {
+  props: {
+    interactive: {
+      type: Boolean,
+      default: true
+    },
+    bubblingMouseEvents: {
+      type: Boolean,
+      default: true
+    }
+  },
+  mounted: function mounted () {
+    this.interactiveLayerOptions = {
+      interactive: this.interactive,
+      bubblingMouseEvents: this.bubblingMouseEvents
+    };
+  }
+};
+
+var Path = {
+  mixins: [Layer, InteractiveLayer],
+  props: {
+    lStyle: {
+      type: Object,
+      custom: true,
+      default: null
+    },
+    stroke: {
+      type: Boolean,
+      custom: true,
+      default: true
+    },
+    color: {
+      type: String,
+      custom: true,
+      default: '#3388ff'
+    },
+    weight: {
+      type: Number,
+      custom: true,
+      default: 3
+    },
+    opacity: {
+      type: Number,
+      custom: true,
+      default: 1.0
+    },
+    lineCap: {
+      type: String,
+      custom: true,
+      default: 'round'
+    },
+    lineJoin: {
+      type: String,
+      custom: true,
+      default: 'round'
+    },
+    dashArray: {
+      type: String,
+      custom: true,
+      default: null
+    },
+    dashOffset: {
+      type: String,
+      custom: true,
+      default: null
+    },
+    fill: {
+      type: Boolean,
+      custom: true,
+      default: false
+    },
+    fillColor: {
+      type: String,
+      custom: true,
+      default: '#3388ff'
+    },
+    fillOpacity: {
+      type: Number,
+      custom: true,
+      default: 0.2
+    },
+    fillRule: {
+      type: String,
+      custom: true,
+      default: 'evenodd'
+    },
+    className: {
+      type: String,
+      custom: true,
+      default: null
+    }
+  },
+  mounted: function mounted () {
+    this.pathOptions = Object.assign({}, this.layerOptions,
+      this.interactiveLayerOptions,
+      {stroke: this.stroke,
+      color: this.color,
+      weight: this.weight,
+      opacity: this.opacity,
+      lineCap: this.lineCap,
+      lineJoin: this.lineJoin,
+      dashArray: this.dashArray,
+      dashOffset: this.dashOffset,
+      fill: this.fill,
+      fillColor: this.fillColor,
+      fillOpacity: this.fillOpacity,
+      fillRule: this.fillRule,
+      className: this.className});
+
+    if (this.lStyle) {
+      console.warn('lStyle is deprecated and is going to be removed in the next major version');
+      for (var style in this.lStyle) {
+        this.pathOptions[style] = this.lStyle[style];
+      }
+    }
+  },
+  beforeDestroy: function beforeDestroy () {
+    if (this.parentContainer) {
+      this.parentContainer.removeLayer(this);
+    } else {
+      console.error('Missing parent container');
+    }
+  },
+  methods: {
+    setLStyle: function setLStyle (newVal) {
+      this.mapObject.setStyle(newVal);
+    },
+    setStroke: function setStroke (newVal) {
+      this.mapObject.setStyle({ stroke: newVal });
+    },
+    setColor: function setColor (newVal) {
+      this.mapObject.setStyle({ color: newVal });
+    },
+    setWeight: function setWeight (newVal) {
+      this.mapObject.setStyle({ weight: newVal });
+    },
+    setOpacity: function setOpacity (newVal) {
+      this.mapObject.setStyle({ opacity: newVal });
+    },
+    setLineCap: function setLineCap (newVal) {
+      this.mapObject.setStyle({ lineCap: newVal });
+    },
+    setLineJoin: function setLineJoin (newVal) {
+      this.mapObject.setStyle({ lineJoin: newVal });
+    },
+    setDashArray: function setDashArray (newVal) {
+      this.mapObject.setStyle({ dashArray: newVal });
+    },
+    setDashOffset: function setDashOffset (newVal) {
+      this.mapObject.setStyle({ dashOffset: newVal });
+    },
+    setFill: function setFill (newVal) {
+      this.mapObject.setStyle({ fill: newVal });
+    },
+    setFillColor: function setFillColor (newVal) {
+      this.mapObject.setStyle({ fillColor: newVal });
+    },
+    setFillOpacity: function setFillOpacity (newVal) {
+      this.mapObject.setStyle({ fillOpacity: newVal });
+    },
+    setFillRule: function setFillRule (newVal) {
+      this.mapObject.setStyle({ fillRule: newVal });
+    },
+    setClassName: function setClassName (newVal) {
+      this.mapObject.setStyle({ className: newVal });
+    }
+  }
+};
+
+var Circle = {
+  mixins: [Path],
+  props: {
+    fill: {
+      type: Boolean,
+      custom: true,
+      default: true
+    },
+    radius: {
+      type: Number,
+      default: null
+    }
+  },
+  mounted: function mounted () {
+    this.circleOptions = Object.assign({}, this.pathOptions,
+      {radius: this.radius});
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Circle);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/mixins/Control.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/mixins/Control.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var Control = {
+  props: {
+    position: {
+      type: String,
+      default: 'topright'
+    }
+  },
+  mounted: function mounted () {
+    this.controlOptions = {
+      position: this.position
+    };
+  },
+  beforeDestroy: function beforeDestroy () {
+    if (this.mapObject) {
+      this.mapObject.remove();
+    }
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Control);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/mixins/GridLayer.js":
+/*!************************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/mixins/GridLayer.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var Layer = {
+  props: {
+    pane: {
+      type: String,
+      default: 'overlayPane',
+    },
+    attribution: {
+      type: String,
+      default: null,
+      custom: true,
+    },
+    name: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    layerType: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    visible: {
+      type: Boolean,
+      custom: true,
+      default: true,
+    },
+  },
+  mounted: function mounted() {
+    this.layerOptions = {
+      attribution: this.attribution,
+      pane: this.pane,
+    };
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.unbindPopup();
+    this.unbindTooltip();
+    this.parentContainer.removeLayer(this);
+  },
+  methods: {
+    setAttribution: function setAttribution(val, old) {
+      var attributionControl = this.$parent.mapObject.attributionControl;
+      attributionControl.removeAttribution(old).addAttribution(val);
+    },
+    setName: function setName() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setLayerType: function setLayerType() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setVisible: function setVisible(isVisible) {
+      if (this.mapObject) {
+        if (isVisible) {
+          this.parentContainer.addLayer(this);
+        } else {
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
+        }
+      }
+    },
+    unbindTooltip: function unbindTooltip() {
+      var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
+      if (tooltip) {
+        tooltip.unbindTooltip();
+      }
+    },
+    unbindPopup: function unbindPopup() {
+      var popup = this.mapObject ? this.mapObject.getPopup() : null;
+      if (popup) {
+        popup.unbindPopup();
+      }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      /**
+       * Triggers when the visible prop needs to be updated
+       * @type {boolean}
+       * @property {boolean} value - value of the visible property
+       */
+      this.$emit('update:visible', value);
+    },
+  },
+};
+
+var GridLayer = {
+  mixins: [Layer],
+  props: {
+    pane: {
+      type: String,
+      default: 'tilePane'
+    },
+    opacity: {
+      type: Number,
+      custom: false,
+      default: 1.0
+    },
+    zIndex: {
+      type: Number,
+      default: 1
+    },
+    tileSize: {
+      type: Number,
+      default: 256
+    },
+    noWrap: {
+      type: Boolean,
+      default: false
+    }
+  },
+  mounted: function mounted () {
+    this.gridLayerOptions = Object.assign({}, this.layerOptions,
+      {pane: this.pane,
+      opacity: this.opacity,
+      zIndex: this.zIndex,
+      tileSize: this.tileSize,
+      noWrap: this.noWrap});
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GridLayer);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/mixins/ImageOverlay.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/mixins/ImageOverlay.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var Layer = {
+  props: {
+    pane: {
+      type: String,
+      default: 'overlayPane',
+    },
+    attribution: {
+      type: String,
+      default: null,
+      custom: true,
+    },
+    name: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    layerType: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    visible: {
+      type: Boolean,
+      custom: true,
+      default: true,
+    },
+  },
+  mounted: function mounted() {
+    this.layerOptions = {
+      attribution: this.attribution,
+      pane: this.pane,
+    };
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.unbindPopup();
+    this.unbindTooltip();
+    this.parentContainer.removeLayer(this);
+  },
+  methods: {
+    setAttribution: function setAttribution(val, old) {
+      var attributionControl = this.$parent.mapObject.attributionControl;
+      attributionControl.removeAttribution(old).addAttribution(val);
+    },
+    setName: function setName() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setLayerType: function setLayerType() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setVisible: function setVisible(isVisible) {
+      if (this.mapObject) {
+        if (isVisible) {
+          this.parentContainer.addLayer(this);
+        } else {
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
+        }
+      }
+    },
+    unbindTooltip: function unbindTooltip() {
+      var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
+      if (tooltip) {
+        tooltip.unbindTooltip();
+      }
+    },
+    unbindPopup: function unbindPopup() {
+      var popup = this.mapObject ? this.mapObject.getPopup() : null;
+      if (popup) {
+        popup.unbindPopup();
+      }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      /**
+       * Triggers when the visible prop needs to be updated
+       * @type {boolean}
+       * @property {boolean} value - value of the visible property
+       */
+      this.$emit('update:visible', value);
+    },
+  },
+};
+
+var InteractiveLayer = {
+  props: {
+    interactive: {
+      type: Boolean,
+      default: true
+    },
+    bubblingMouseEvents: {
+      type: Boolean,
+      default: true
+    }
+  },
+  mounted: function mounted () {
+    this.interactiveLayerOptions = {
+      interactive: this.interactive,
+      bubblingMouseEvents: this.bubblingMouseEvents
+    };
+  }
+};
+
+var ImageOverlay = {
+  mixins: [Layer, InteractiveLayer],
+  props: {
+    url: {
+      type: String,
+      custom: true
+    },
+    bounds: {
+      custom: true
+    },
+    opacity: {
+      type: Number,
+      custom: true,
+      default: 1.0
+    },
+    alt: {
+      type: String,
+      default: ''
+    },
+    interactive: {
+      type: Boolean,
+      default: false
+    },
+    crossOrigin: {
+      type: Boolean,
+      default: false
+    },
+    errorOverlayUrl: {
+      type: String,
+      custom: true,
+      default: ''
+    },
+    zIndex: {
+      type: Number,
+      custom: true,
+      default: 1
+    },
+    className: {
+      type: String,
+      default: ''
+    }
+  },
+  mounted: function mounted () {
+    this.imageOverlayOptions = Object.assign({}, this.layerOptions,
+      this.interactiveLayerOptions,
+      {opacity: this.opacity,
+      alt: this.alt,
+      interactive: this.interactive,
+      crossOrigin: this.crossOrigin,
+      errorOverlayUrl: this.errorOverlayUrl,
+      zIndex: this.zIndex,
+      className: this.className});
+  },
+  methods: {
+    setOpacity: function setOpacity (opacity) {
+      return this.mapObject.setOpacity(opacity);
+    },
+    setUrl: function setUrl (url) {
+      return this.mapObject.setUrl(url);
+    },
+    setBounds: function setBounds (bounds) {
+      return this.mapObject.setBounds(bounds);
+    },
+    getBounds: function getBounds () {
+      return this.mapObject.getBounds();
+    },
+    getElement: function getElement () {
+      return this.mapObject.getElement();
+    },
+    bringToFront: function bringToFront () {
+      return this.mapObject.bringToFront();
+    },
+    bringToBack: function bringToBack () {
+      return this.mapObject.bringToBack();
+    }
+  },
+  render: function render () {
+    return null;
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ImageOverlay);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/mixins/InteractiveLayer.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/mixins/InteractiveLayer.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var InteractiveLayer = {
+  props: {
+    interactive: {
+      type: Boolean,
+      default: true
+    },
+    bubblingMouseEvents: {
+      type: Boolean,
+      default: true
+    }
+  },
+  mounted: function mounted () {
+    this.interactiveLayerOptions = {
+      interactive: this.interactive,
+      bubblingMouseEvents: this.bubblingMouseEvents
+    };
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (InteractiveLayer);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/mixins/Layer.js":
+/*!********************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/mixins/Layer.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var Layer = {
+  props: {
+    pane: {
+      type: String,
+      default: 'overlayPane',
+    },
+    attribution: {
+      type: String,
+      default: null,
+      custom: true,
+    },
+    name: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    layerType: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    visible: {
+      type: Boolean,
+      custom: true,
+      default: true,
+    },
+  },
+  mounted: function mounted() {
+    this.layerOptions = {
+      attribution: this.attribution,
+      pane: this.pane,
+    };
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.unbindPopup();
+    this.unbindTooltip();
+    this.parentContainer.removeLayer(this);
+  },
+  methods: {
+    setAttribution: function setAttribution(val, old) {
+      var attributionControl = this.$parent.mapObject.attributionControl;
+      attributionControl.removeAttribution(old).addAttribution(val);
+    },
+    setName: function setName() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setLayerType: function setLayerType() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setVisible: function setVisible(isVisible) {
+      if (this.mapObject) {
+        if (isVisible) {
+          this.parentContainer.addLayer(this);
+        } else {
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
+        }
+      }
+    },
+    unbindTooltip: function unbindTooltip() {
+      var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
+      if (tooltip) {
+        tooltip.unbindTooltip();
+      }
+    },
+    unbindPopup: function unbindPopup() {
+      var popup = this.mapObject ? this.mapObject.getPopup() : null;
+      if (popup) {
+        popup.unbindPopup();
+      }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      /**
+       * Triggers when the visible prop needs to be updated
+       * @type {boolean}
+       * @property {boolean} value - value of the visible property
+       */
+      this.$emit('update:visible', value);
+    },
+  },
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Layer);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/mixins/LayerGroup.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/mixins/LayerGroup.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var Layer = {
+  props: {
+    pane: {
+      type: String,
+      default: 'overlayPane',
+    },
+    attribution: {
+      type: String,
+      default: null,
+      custom: true,
+    },
+    name: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    layerType: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    visible: {
+      type: Boolean,
+      custom: true,
+      default: true,
+    },
+  },
+  mounted: function mounted() {
+    this.layerOptions = {
+      attribution: this.attribution,
+      pane: this.pane,
+    };
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.unbindPopup();
+    this.unbindTooltip();
+    this.parentContainer.removeLayer(this);
+  },
+  methods: {
+    setAttribution: function setAttribution(val, old) {
+      var attributionControl = this.$parent.mapObject.attributionControl;
+      attributionControl.removeAttribution(old).addAttribution(val);
+    },
+    setName: function setName() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setLayerType: function setLayerType() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setVisible: function setVisible(isVisible) {
+      if (this.mapObject) {
+        if (isVisible) {
+          this.parentContainer.addLayer(this);
+        } else {
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
+        }
+      }
+    },
+    unbindTooltip: function unbindTooltip() {
+      var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
+      if (tooltip) {
+        tooltip.unbindTooltip();
+      }
+    },
+    unbindPopup: function unbindPopup() {
+      var popup = this.mapObject ? this.mapObject.getPopup() : null;
+      if (popup) {
+        popup.unbindPopup();
+      }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      /**
+       * Triggers when the visible prop needs to be updated
+       * @type {boolean}
+       * @property {boolean} value - value of the visible property
+       */
+      this.$emit('update:visible', value);
+    },
+  },
+};
+
+var LayerGroup = {
+  mixins: [Layer],
+  mounted: function mounted () {
+    this.layerGroupOptions = this.layerOptions;
+  },
+  methods: {
+    addLayer: function addLayer (layer, alreadyAdded) {
+      if (!alreadyAdded) {
+        this.mapObject.addLayer(layer.mapObject);
+      }
+      this.parentContainer.addLayer(layer, true);
+    },
+    removeLayer: function removeLayer (layer, alreadyRemoved) {
+      if (!alreadyRemoved) {
+        this.mapObject.removeLayer(layer.mapObject);
+      }
+      this.parentContainer.removeLayer(layer, true);
+    }
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LayerGroup);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/mixins/Options.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/mixins/Options.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var Options = {
+  props: {
+    /**
+     * Leaflet options to pass to the component constructor
+     */
+    options: {
+      type: Object,
+      default: function () { return ({}); }
+    }
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Options);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/mixins/Path.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/mixins/Path.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var Layer = {
+  props: {
+    pane: {
+      type: String,
+      default: 'overlayPane',
+    },
+    attribution: {
+      type: String,
+      default: null,
+      custom: true,
+    },
+    name: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    layerType: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    visible: {
+      type: Boolean,
+      custom: true,
+      default: true,
+    },
+  },
+  mounted: function mounted() {
+    this.layerOptions = {
+      attribution: this.attribution,
+      pane: this.pane,
+    };
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.unbindPopup();
+    this.unbindTooltip();
+    this.parentContainer.removeLayer(this);
+  },
+  methods: {
+    setAttribution: function setAttribution(val, old) {
+      var attributionControl = this.$parent.mapObject.attributionControl;
+      attributionControl.removeAttribution(old).addAttribution(val);
+    },
+    setName: function setName() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setLayerType: function setLayerType() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setVisible: function setVisible(isVisible) {
+      if (this.mapObject) {
+        if (isVisible) {
+          this.parentContainer.addLayer(this);
+        } else {
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
+        }
+      }
+    },
+    unbindTooltip: function unbindTooltip() {
+      var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
+      if (tooltip) {
+        tooltip.unbindTooltip();
+      }
+    },
+    unbindPopup: function unbindPopup() {
+      var popup = this.mapObject ? this.mapObject.getPopup() : null;
+      if (popup) {
+        popup.unbindPopup();
+      }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      /**
+       * Triggers when the visible prop needs to be updated
+       * @type {boolean}
+       * @property {boolean} value - value of the visible property
+       */
+      this.$emit('update:visible', value);
+    },
+  },
+};
+
+var InteractiveLayer = {
+  props: {
+    interactive: {
+      type: Boolean,
+      default: true
+    },
+    bubblingMouseEvents: {
+      type: Boolean,
+      default: true
+    }
+  },
+  mounted: function mounted () {
+    this.interactiveLayerOptions = {
+      interactive: this.interactive,
+      bubblingMouseEvents: this.bubblingMouseEvents
+    };
+  }
+};
+
+var Path = {
+  mixins: [Layer, InteractiveLayer],
+  props: {
+    lStyle: {
+      type: Object,
+      custom: true,
+      default: null
+    },
+    stroke: {
+      type: Boolean,
+      custom: true,
+      default: true
+    },
+    color: {
+      type: String,
+      custom: true,
+      default: '#3388ff'
+    },
+    weight: {
+      type: Number,
+      custom: true,
+      default: 3
+    },
+    opacity: {
+      type: Number,
+      custom: true,
+      default: 1.0
+    },
+    lineCap: {
+      type: String,
+      custom: true,
+      default: 'round'
+    },
+    lineJoin: {
+      type: String,
+      custom: true,
+      default: 'round'
+    },
+    dashArray: {
+      type: String,
+      custom: true,
+      default: null
+    },
+    dashOffset: {
+      type: String,
+      custom: true,
+      default: null
+    },
+    fill: {
+      type: Boolean,
+      custom: true,
+      default: false
+    },
+    fillColor: {
+      type: String,
+      custom: true,
+      default: '#3388ff'
+    },
+    fillOpacity: {
+      type: Number,
+      custom: true,
+      default: 0.2
+    },
+    fillRule: {
+      type: String,
+      custom: true,
+      default: 'evenodd'
+    },
+    className: {
+      type: String,
+      custom: true,
+      default: null
+    }
+  },
+  mounted: function mounted () {
+    this.pathOptions = Object.assign({}, this.layerOptions,
+      this.interactiveLayerOptions,
+      {stroke: this.stroke,
+      color: this.color,
+      weight: this.weight,
+      opacity: this.opacity,
+      lineCap: this.lineCap,
+      lineJoin: this.lineJoin,
+      dashArray: this.dashArray,
+      dashOffset: this.dashOffset,
+      fill: this.fill,
+      fillColor: this.fillColor,
+      fillOpacity: this.fillOpacity,
+      fillRule: this.fillRule,
+      className: this.className});
+
+    if (this.lStyle) {
+      console.warn('lStyle is deprecated and is going to be removed in the next major version');
+      for (var style in this.lStyle) {
+        this.pathOptions[style] = this.lStyle[style];
+      }
+    }
+  },
+  beforeDestroy: function beforeDestroy () {
+    if (this.parentContainer) {
+      this.parentContainer.removeLayer(this);
+    } else {
+      console.error('Missing parent container');
+    }
+  },
+  methods: {
+    setLStyle: function setLStyle (newVal) {
+      this.mapObject.setStyle(newVal);
+    },
+    setStroke: function setStroke (newVal) {
+      this.mapObject.setStyle({ stroke: newVal });
+    },
+    setColor: function setColor (newVal) {
+      this.mapObject.setStyle({ color: newVal });
+    },
+    setWeight: function setWeight (newVal) {
+      this.mapObject.setStyle({ weight: newVal });
+    },
+    setOpacity: function setOpacity (newVal) {
+      this.mapObject.setStyle({ opacity: newVal });
+    },
+    setLineCap: function setLineCap (newVal) {
+      this.mapObject.setStyle({ lineCap: newVal });
+    },
+    setLineJoin: function setLineJoin (newVal) {
+      this.mapObject.setStyle({ lineJoin: newVal });
+    },
+    setDashArray: function setDashArray (newVal) {
+      this.mapObject.setStyle({ dashArray: newVal });
+    },
+    setDashOffset: function setDashOffset (newVal) {
+      this.mapObject.setStyle({ dashOffset: newVal });
+    },
+    setFill: function setFill (newVal) {
+      this.mapObject.setStyle({ fill: newVal });
+    },
+    setFillColor: function setFillColor (newVal) {
+      this.mapObject.setStyle({ fillColor: newVal });
+    },
+    setFillOpacity: function setFillOpacity (newVal) {
+      this.mapObject.setStyle({ fillOpacity: newVal });
+    },
+    setFillRule: function setFillRule (newVal) {
+      this.mapObject.setStyle({ fillRule: newVal });
+    },
+    setClassName: function setClassName (newVal) {
+      this.mapObject.setStyle({ className: newVal });
+    }
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Path);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/mixins/Polygon.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/mixins/Polygon.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var Layer = {
+  props: {
+    pane: {
+      type: String,
+      default: 'overlayPane',
+    },
+    attribution: {
+      type: String,
+      default: null,
+      custom: true,
+    },
+    name: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    layerType: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    visible: {
+      type: Boolean,
+      custom: true,
+      default: true,
+    },
+  },
+  mounted: function mounted() {
+    this.layerOptions = {
+      attribution: this.attribution,
+      pane: this.pane,
+    };
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.unbindPopup();
+    this.unbindTooltip();
+    this.parentContainer.removeLayer(this);
+  },
+  methods: {
+    setAttribution: function setAttribution(val, old) {
+      var attributionControl = this.$parent.mapObject.attributionControl;
+      attributionControl.removeAttribution(old).addAttribution(val);
+    },
+    setName: function setName() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setLayerType: function setLayerType() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setVisible: function setVisible(isVisible) {
+      if (this.mapObject) {
+        if (isVisible) {
+          this.parentContainer.addLayer(this);
+        } else {
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
+        }
+      }
+    },
+    unbindTooltip: function unbindTooltip() {
+      var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
+      if (tooltip) {
+        tooltip.unbindTooltip();
+      }
+    },
+    unbindPopup: function unbindPopup() {
+      var popup = this.mapObject ? this.mapObject.getPopup() : null;
+      if (popup) {
+        popup.unbindPopup();
+      }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      /**
+       * Triggers when the visible prop needs to be updated
+       * @type {boolean}
+       * @property {boolean} value - value of the visible property
+       */
+      this.$emit('update:visible', value);
+    },
+  },
+};
+
+var InteractiveLayer = {
+  props: {
+    interactive: {
+      type: Boolean,
+      default: true
+    },
+    bubblingMouseEvents: {
+      type: Boolean,
+      default: true
+    }
+  },
+  mounted: function mounted () {
+    this.interactiveLayerOptions = {
+      interactive: this.interactive,
+      bubblingMouseEvents: this.bubblingMouseEvents
+    };
+  }
+};
+
+var Path = {
+  mixins: [Layer, InteractiveLayer],
+  props: {
+    lStyle: {
+      type: Object,
+      custom: true,
+      default: null
+    },
+    stroke: {
+      type: Boolean,
+      custom: true,
+      default: true
+    },
+    color: {
+      type: String,
+      custom: true,
+      default: '#3388ff'
+    },
+    weight: {
+      type: Number,
+      custom: true,
+      default: 3
+    },
+    opacity: {
+      type: Number,
+      custom: true,
+      default: 1.0
+    },
+    lineCap: {
+      type: String,
+      custom: true,
+      default: 'round'
+    },
+    lineJoin: {
+      type: String,
+      custom: true,
+      default: 'round'
+    },
+    dashArray: {
+      type: String,
+      custom: true,
+      default: null
+    },
+    dashOffset: {
+      type: String,
+      custom: true,
+      default: null
+    },
+    fill: {
+      type: Boolean,
+      custom: true,
+      default: false
+    },
+    fillColor: {
+      type: String,
+      custom: true,
+      default: '#3388ff'
+    },
+    fillOpacity: {
+      type: Number,
+      custom: true,
+      default: 0.2
+    },
+    fillRule: {
+      type: String,
+      custom: true,
+      default: 'evenodd'
+    },
+    className: {
+      type: String,
+      custom: true,
+      default: null
+    }
+  },
+  mounted: function mounted () {
+    this.pathOptions = Object.assign({}, this.layerOptions,
+      this.interactiveLayerOptions,
+      {stroke: this.stroke,
+      color: this.color,
+      weight: this.weight,
+      opacity: this.opacity,
+      lineCap: this.lineCap,
+      lineJoin: this.lineJoin,
+      dashArray: this.dashArray,
+      dashOffset: this.dashOffset,
+      fill: this.fill,
+      fillColor: this.fillColor,
+      fillOpacity: this.fillOpacity,
+      fillRule: this.fillRule,
+      className: this.className});
+
+    if (this.lStyle) {
+      console.warn('lStyle is deprecated and is going to be removed in the next major version');
+      for (var style in this.lStyle) {
+        this.pathOptions[style] = this.lStyle[style];
+      }
+    }
+  },
+  beforeDestroy: function beforeDestroy () {
+    if (this.parentContainer) {
+      this.parentContainer.removeLayer(this);
+    } else {
+      console.error('Missing parent container');
+    }
+  },
+  methods: {
+    setLStyle: function setLStyle (newVal) {
+      this.mapObject.setStyle(newVal);
+    },
+    setStroke: function setStroke (newVal) {
+      this.mapObject.setStyle({ stroke: newVal });
+    },
+    setColor: function setColor (newVal) {
+      this.mapObject.setStyle({ color: newVal });
+    },
+    setWeight: function setWeight (newVal) {
+      this.mapObject.setStyle({ weight: newVal });
+    },
+    setOpacity: function setOpacity (newVal) {
+      this.mapObject.setStyle({ opacity: newVal });
+    },
+    setLineCap: function setLineCap (newVal) {
+      this.mapObject.setStyle({ lineCap: newVal });
+    },
+    setLineJoin: function setLineJoin (newVal) {
+      this.mapObject.setStyle({ lineJoin: newVal });
+    },
+    setDashArray: function setDashArray (newVal) {
+      this.mapObject.setStyle({ dashArray: newVal });
+    },
+    setDashOffset: function setDashOffset (newVal) {
+      this.mapObject.setStyle({ dashOffset: newVal });
+    },
+    setFill: function setFill (newVal) {
+      this.mapObject.setStyle({ fill: newVal });
+    },
+    setFillColor: function setFillColor (newVal) {
+      this.mapObject.setStyle({ fillColor: newVal });
+    },
+    setFillOpacity: function setFillOpacity (newVal) {
+      this.mapObject.setStyle({ fillOpacity: newVal });
+    },
+    setFillRule: function setFillRule (newVal) {
+      this.mapObject.setStyle({ fillRule: newVal });
+    },
+    setClassName: function setClassName (newVal) {
+      this.mapObject.setStyle({ className: newVal });
+    }
+  }
+};
+
+var Polyline = {
+  mixins: [Path],
+  props: {
+    smoothFactor: {
+      type: Number,
+      custom: true,
+      default: 1.0
+    },
+    noClip: {
+      type: Boolean,
+      custom: true,
+      default: false
+    }
+  },
+  data: function data () {
+    return {
+      ready: false
+    };
+  },
+  mounted: function mounted () {
+    this.polyLineOptions = Object.assign({}, this.pathOptions,
+      {smoothFactor: this.smoothFactor,
+      noClip: this.noClip});
+  },
+  methods: {
+    setSmoothFactor: function setSmoothFactor (newVal) {
+      this.mapObject.setStyle({ smoothFactor: newVal });
+    },
+    setNoClip: function setNoClip (newVal) {
+      this.mapObject.setStyle({ noClip: newVal });
+    },
+    addLatLng: function addLatLng (value) {
+      this.mapObject.addLatLng(value);
+    }
+  }
+};
+
+var Polygon = {
+  mixins: [Polyline],
+  props: {
+    fill: {
+      type: Boolean,
+      custom: true,
+      default: true
+    }
+  },
+  mounted: function mounted () {
+    this.polygonOptions = this.polyLineOptions;
+  },
+  methods: {
+    getGeoJSONData: function getGeoJSONData () {
+      return this.mapObject.toGeoJSON();
+    }
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Polygon);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/mixins/Polyline.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/mixins/Polyline.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var Layer = {
+  props: {
+    pane: {
+      type: String,
+      default: 'overlayPane',
+    },
+    attribution: {
+      type: String,
+      default: null,
+      custom: true,
+    },
+    name: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    layerType: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    visible: {
+      type: Boolean,
+      custom: true,
+      default: true,
+    },
+  },
+  mounted: function mounted() {
+    this.layerOptions = {
+      attribution: this.attribution,
+      pane: this.pane,
+    };
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.unbindPopup();
+    this.unbindTooltip();
+    this.parentContainer.removeLayer(this);
+  },
+  methods: {
+    setAttribution: function setAttribution(val, old) {
+      var attributionControl = this.$parent.mapObject.attributionControl;
+      attributionControl.removeAttribution(old).addAttribution(val);
+    },
+    setName: function setName() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setLayerType: function setLayerType() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setVisible: function setVisible(isVisible) {
+      if (this.mapObject) {
+        if (isVisible) {
+          this.parentContainer.addLayer(this);
+        } else {
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
+        }
+      }
+    },
+    unbindTooltip: function unbindTooltip() {
+      var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
+      if (tooltip) {
+        tooltip.unbindTooltip();
+      }
+    },
+    unbindPopup: function unbindPopup() {
+      var popup = this.mapObject ? this.mapObject.getPopup() : null;
+      if (popup) {
+        popup.unbindPopup();
+      }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      /**
+       * Triggers when the visible prop needs to be updated
+       * @type {boolean}
+       * @property {boolean} value - value of the visible property
+       */
+      this.$emit('update:visible', value);
+    },
+  },
+};
+
+var InteractiveLayer = {
+  props: {
+    interactive: {
+      type: Boolean,
+      default: true
+    },
+    bubblingMouseEvents: {
+      type: Boolean,
+      default: true
+    }
+  },
+  mounted: function mounted () {
+    this.interactiveLayerOptions = {
+      interactive: this.interactive,
+      bubblingMouseEvents: this.bubblingMouseEvents
+    };
+  }
+};
+
+var Path = {
+  mixins: [Layer, InteractiveLayer],
+  props: {
+    lStyle: {
+      type: Object,
+      custom: true,
+      default: null
+    },
+    stroke: {
+      type: Boolean,
+      custom: true,
+      default: true
+    },
+    color: {
+      type: String,
+      custom: true,
+      default: '#3388ff'
+    },
+    weight: {
+      type: Number,
+      custom: true,
+      default: 3
+    },
+    opacity: {
+      type: Number,
+      custom: true,
+      default: 1.0
+    },
+    lineCap: {
+      type: String,
+      custom: true,
+      default: 'round'
+    },
+    lineJoin: {
+      type: String,
+      custom: true,
+      default: 'round'
+    },
+    dashArray: {
+      type: String,
+      custom: true,
+      default: null
+    },
+    dashOffset: {
+      type: String,
+      custom: true,
+      default: null
+    },
+    fill: {
+      type: Boolean,
+      custom: true,
+      default: false
+    },
+    fillColor: {
+      type: String,
+      custom: true,
+      default: '#3388ff'
+    },
+    fillOpacity: {
+      type: Number,
+      custom: true,
+      default: 0.2
+    },
+    fillRule: {
+      type: String,
+      custom: true,
+      default: 'evenodd'
+    },
+    className: {
+      type: String,
+      custom: true,
+      default: null
+    }
+  },
+  mounted: function mounted () {
+    this.pathOptions = Object.assign({}, this.layerOptions,
+      this.interactiveLayerOptions,
+      {stroke: this.stroke,
+      color: this.color,
+      weight: this.weight,
+      opacity: this.opacity,
+      lineCap: this.lineCap,
+      lineJoin: this.lineJoin,
+      dashArray: this.dashArray,
+      dashOffset: this.dashOffset,
+      fill: this.fill,
+      fillColor: this.fillColor,
+      fillOpacity: this.fillOpacity,
+      fillRule: this.fillRule,
+      className: this.className});
+
+    if (this.lStyle) {
+      console.warn('lStyle is deprecated and is going to be removed in the next major version');
+      for (var style in this.lStyle) {
+        this.pathOptions[style] = this.lStyle[style];
+      }
+    }
+  },
+  beforeDestroy: function beforeDestroy () {
+    if (this.parentContainer) {
+      this.parentContainer.removeLayer(this);
+    } else {
+      console.error('Missing parent container');
+    }
+  },
+  methods: {
+    setLStyle: function setLStyle (newVal) {
+      this.mapObject.setStyle(newVal);
+    },
+    setStroke: function setStroke (newVal) {
+      this.mapObject.setStyle({ stroke: newVal });
+    },
+    setColor: function setColor (newVal) {
+      this.mapObject.setStyle({ color: newVal });
+    },
+    setWeight: function setWeight (newVal) {
+      this.mapObject.setStyle({ weight: newVal });
+    },
+    setOpacity: function setOpacity (newVal) {
+      this.mapObject.setStyle({ opacity: newVal });
+    },
+    setLineCap: function setLineCap (newVal) {
+      this.mapObject.setStyle({ lineCap: newVal });
+    },
+    setLineJoin: function setLineJoin (newVal) {
+      this.mapObject.setStyle({ lineJoin: newVal });
+    },
+    setDashArray: function setDashArray (newVal) {
+      this.mapObject.setStyle({ dashArray: newVal });
+    },
+    setDashOffset: function setDashOffset (newVal) {
+      this.mapObject.setStyle({ dashOffset: newVal });
+    },
+    setFill: function setFill (newVal) {
+      this.mapObject.setStyle({ fill: newVal });
+    },
+    setFillColor: function setFillColor (newVal) {
+      this.mapObject.setStyle({ fillColor: newVal });
+    },
+    setFillOpacity: function setFillOpacity (newVal) {
+      this.mapObject.setStyle({ fillOpacity: newVal });
+    },
+    setFillRule: function setFillRule (newVal) {
+      this.mapObject.setStyle({ fillRule: newVal });
+    },
+    setClassName: function setClassName (newVal) {
+      this.mapObject.setStyle({ className: newVal });
+    }
+  }
+};
+
+var Polyline = {
+  mixins: [Path],
+  props: {
+    smoothFactor: {
+      type: Number,
+      custom: true,
+      default: 1.0
+    },
+    noClip: {
+      type: Boolean,
+      custom: true,
+      default: false
+    }
+  },
+  data: function data () {
+    return {
+      ready: false
+    };
+  },
+  mounted: function mounted () {
+    this.polyLineOptions = Object.assign({}, this.pathOptions,
+      {smoothFactor: this.smoothFactor,
+      noClip: this.noClip});
+  },
+  methods: {
+    setSmoothFactor: function setSmoothFactor (newVal) {
+      this.mapObject.setStyle({ smoothFactor: newVal });
+    },
+    setNoClip: function setNoClip (newVal) {
+      this.mapObject.setStyle({ noClip: newVal });
+    },
+    addLatLng: function addLatLng (value) {
+      this.mapObject.addLatLng(value);
+    }
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Polyline);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/mixins/Popper.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/mixins/Popper.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var Popper = {
+  props: {
+    content: {
+      type: String,
+      default: null,
+      custom: true
+    }
+  },
+  mounted: function mounted () {
+    this.popperOptions = {};
+  },
+  methods: {
+    setContent: function setContent (newVal) {
+      if (this.mapObject && newVal !== null && newVal !== undefined) {
+        this.mapObject.setContent(newVal);
+      }
+    }
+  },
+  render: function render (h) {
+    if (this.$slots.default) {
+      return h('div', this.$slots.default);
+    }
+    return null;
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Popper);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/mixins/TileLayer.js":
+/*!************************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/mixins/TileLayer.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var Layer = {
+  props: {
+    pane: {
+      type: String,
+      default: 'overlayPane',
+    },
+    attribution: {
+      type: String,
+      default: null,
+      custom: true,
+    },
+    name: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    layerType: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    visible: {
+      type: Boolean,
+      custom: true,
+      default: true,
+    },
+  },
+  mounted: function mounted() {
+    this.layerOptions = {
+      attribution: this.attribution,
+      pane: this.pane,
+    };
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.unbindPopup();
+    this.unbindTooltip();
+    this.parentContainer.removeLayer(this);
+  },
+  methods: {
+    setAttribution: function setAttribution(val, old) {
+      var attributionControl = this.$parent.mapObject.attributionControl;
+      attributionControl.removeAttribution(old).addAttribution(val);
+    },
+    setName: function setName() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setLayerType: function setLayerType() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setVisible: function setVisible(isVisible) {
+      if (this.mapObject) {
+        if (isVisible) {
+          this.parentContainer.addLayer(this);
+        } else {
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
+        }
+      }
+    },
+    unbindTooltip: function unbindTooltip() {
+      var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
+      if (tooltip) {
+        tooltip.unbindTooltip();
+      }
+    },
+    unbindPopup: function unbindPopup() {
+      var popup = this.mapObject ? this.mapObject.getPopup() : null;
+      if (popup) {
+        popup.unbindPopup();
+      }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      /**
+       * Triggers when the visible prop needs to be updated
+       * @type {boolean}
+       * @property {boolean} value - value of the visible property
+       */
+      this.$emit('update:visible', value);
+    },
+  },
+};
+
+var GridLayer = {
+  mixins: [Layer],
+  props: {
+    pane: {
+      type: String,
+      default: 'tilePane'
+    },
+    opacity: {
+      type: Number,
+      custom: false,
+      default: 1.0
+    },
+    zIndex: {
+      type: Number,
+      default: 1
+    },
+    tileSize: {
+      type: Number,
+      default: 256
+    },
+    noWrap: {
+      type: Boolean,
+      default: false
+    }
+  },
+  mounted: function mounted () {
+    this.gridLayerOptions = Object.assign({}, this.layerOptions,
+      {pane: this.pane,
+      opacity: this.opacity,
+      zIndex: this.zIndex,
+      tileSize: this.tileSize,
+      noWrap: this.noWrap});
+  }
+};
+
+var TileLayer = {
+  mixins: [GridLayer],
+  props: {
+    tms: {
+      type: Boolean,
+      default: false,
+    },
+    subdomains: {
+      type: [String, Array],
+      default: 'abc',
+      validator: function (prop) {
+        if (typeof prop === 'string') { return true; }
+        // Validates array that array only contains only strings
+        if (Array.isArray(prop)) {
+          return prop.every(function (subdomain) { return typeof subdomain === 'string'; });
+        }
+        return false;
+      },
+    },
+    detectRetina: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  mounted: function mounted() {
+    this.tileLayerOptions = Object.assign({}, this.gridLayerOptions,
+      {tms: this.tms,
+      subdomains: this.subdomains,
+      detectRetina: this.detectRetina});
+  },
+  render: function render() {
+    return null;
+  },
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TileLayer);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/mixins/TileLayerWMS.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/mixins/TileLayerWMS.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var Layer = {
+  props: {
+    pane: {
+      type: String,
+      default: 'overlayPane',
+    },
+    attribution: {
+      type: String,
+      default: null,
+      custom: true,
+    },
+    name: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    layerType: {
+      type: String,
+      custom: true,
+      default: undefined,
+    },
+    visible: {
+      type: Boolean,
+      custom: true,
+      default: true,
+    },
+  },
+  mounted: function mounted() {
+    this.layerOptions = {
+      attribution: this.attribution,
+      pane: this.pane,
+    };
+  },
+  beforeDestroy: function beforeDestroy() {
+    this.unbindPopup();
+    this.unbindTooltip();
+    this.parentContainer.removeLayer(this);
+  },
+  methods: {
+    setAttribution: function setAttribution(val, old) {
+      var attributionControl = this.$parent.mapObject.attributionControl;
+      attributionControl.removeAttribution(old).addAttribution(val);
+    },
+    setName: function setName() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setLayerType: function setLayerType() {
+      this.parentContainer.removeLayer(this);
+      if (this.visible) {
+        this.parentContainer.addLayer(this);
+      }
+    },
+    setVisible: function setVisible(isVisible) {
+      if (this.mapObject) {
+        if (isVisible) {
+          this.parentContainer.addLayer(this);
+        } else {
+          if (this.parentContainer.hideLayer) {
+            this.parentContainer.hideLayer(this);
+          } else {
+            this.parentContainer.removeLayer(this);
+          }
+        }
+      }
+    },
+    unbindTooltip: function unbindTooltip() {
+      var tooltip = this.mapObject ? this.mapObject.getTooltip() : null;
+      if (tooltip) {
+        tooltip.unbindTooltip();
+      }
+    },
+    unbindPopup: function unbindPopup() {
+      var popup = this.mapObject ? this.mapObject.getPopup() : null;
+      if (popup) {
+        popup.unbindPopup();
+      }
+    },
+    updateVisibleProp: function updateVisibleProp(value) {
+      /**
+       * Triggers when the visible prop needs to be updated
+       * @type {boolean}
+       * @property {boolean} value - value of the visible property
+       */
+      this.$emit('update:visible', value);
+    },
+  },
+};
+
+var GridLayer = {
+  mixins: [Layer],
+  props: {
+    pane: {
+      type: String,
+      default: 'tilePane'
+    },
+    opacity: {
+      type: Number,
+      custom: false,
+      default: 1.0
+    },
+    zIndex: {
+      type: Number,
+      default: 1
+    },
+    tileSize: {
+      type: Number,
+      default: 256
+    },
+    noWrap: {
+      type: Boolean,
+      default: false
+    }
+  },
+  mounted: function mounted () {
+    this.gridLayerOptions = Object.assign({}, this.layerOptions,
+      {pane: this.pane,
+      opacity: this.opacity,
+      zIndex: this.zIndex,
+      tileSize: this.tileSize,
+      noWrap: this.noWrap});
+  }
+};
+
+var TileLayer = {
+  mixins: [GridLayer],
+  props: {
+    tms: {
+      type: Boolean,
+      default: false,
+    },
+    subdomains: {
+      type: [String, Array],
+      default: 'abc',
+      validator: function (prop) {
+        if (typeof prop === 'string') { return true; }
+        // Validates array that array only contains only strings
+        if (Array.isArray(prop)) {
+          return prop.every(function (subdomain) { return typeof subdomain === 'string'; });
+        }
+        return false;
+      },
+    },
+    detectRetina: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  mounted: function mounted() {
+    this.tileLayerOptions = Object.assign({}, this.gridLayerOptions,
+      {tms: this.tms,
+      subdomains: this.subdomains,
+      detectRetina: this.detectRetina});
+  },
+  render: function render() {
+    return null;
+  },
+};
+
+var TileLayerWMS = {
+  mixins: [TileLayer],
+  props: {
+    layers: {
+      type: String,
+      default: ''
+    },
+    styles: {
+      type: String,
+      default: ''
+    },
+    format: {
+      type: String,
+      default: 'image/jpeg'
+    },
+    transparent: {
+      type: Boolean,
+      custom: false
+    },
+    version: {
+      type: String,
+      default: '1.1.1'
+    },
+    crs: {
+      default: null
+    },
+    upperCase: {
+      type: Boolean,
+      default: false
+    }
+  },
+  mounted: function mounted () {
+    this.tileLayerWMSOptions = Object.assign({}, this.tileLayerOptions,
+      {layers: this.layers,
+      styles: this.styles,
+      format: this.format,
+      transparent: this.transparent,
+      version: this.version,
+      crs: this.crs,
+      upperCase: this.upperCase});
+  }
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TileLayerWMS);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/utils/utils.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/utils/utils.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "capitalizeFirstLetter": () => (/* binding */ capitalizeFirstLetter),
+/* harmony export */   "collectionCleaner": () => (/* binding */ collectionCleaner),
+/* harmony export */   "debounce": () => (/* binding */ debounce),
+/* harmony export */   "findRealParent": () => (/* binding */ findRealParent),
+/* harmony export */   "optionsMerger": () => (/* binding */ optionsMerger),
+/* harmony export */   "propsBinder": () => (/* binding */ propsBinder)
+/* harmony export */ });
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var debounce = function (fn, time) {
+  var timeout;
+
+  var debouncedFunction = function() {
+    var args = [], len = arguments.length;
+    while ( len-- ) args[ len ] = arguments[ len ];
+
+    var context = this;
+    if (timeout) {
+      clearTimeout(timeout);
+    }
+    timeout = setTimeout(function () {
+      fn.apply(context, args);
+      timeout = null;
+    }, time);
+  };
+
+  debouncedFunction.cancel = function() {
+    if (timeout) {
+      clearTimeout(timeout);
+    }
+  };
+
+  return debouncedFunction;
+};
+
+var capitalizeFirstLetter = function (string) {
+  if (!string || typeof string.charAt !== 'function') {
+    return string;
+  }
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+var propsBinder = function (vueElement, leafletElement, props, options) {
+  var loop = function ( key ) {
+    var setMethodName = 'set' + capitalizeFirstLetter(key);
+    var deepValue =
+      props[key].type === Object ||
+      props[key].type === Array ||
+      Array.isArray(props[key].type);
+    if (props[key].custom && vueElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          vueElement[setMethodName](newVal, oldVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (setMethodName === 'setOptions') {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.setOptions)(leafletElement, newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    } else if (leafletElement[setMethodName]) {
+      vueElement.$watch(
+        key,
+        function (newVal, oldVal) {
+          leafletElement[setMethodName](newVal);
+        },
+        {
+          deep: deepValue,
+        }
+      );
+    }
+  };
+
+  for (var key in props) loop( key );
+};
+
+var collectionCleaner = function (options) {
+  var result = {};
+  for (var key in options) {
+    var value = options[key];
+    if (value !== null && value !== undefined) {
+      result[key] = value;
+    }
+  }
+  return result;
+};
+
+var optionsMerger = function (props, instance) {
+  var options =
+    instance.options && instance.options.constructor === Object
+      ? instance.options
+      : {};
+  props = props && props.constructor === Object ? props : {};
+  var result = collectionCleaner(options);
+  props = collectionCleaner(props);
+  var defaultProps = instance.$options.props;
+  for (var key in props) {
+    var def = defaultProps[key]
+      ? defaultProps[key].default &&
+        typeof defaultProps[key].default === 'function'
+        ? defaultProps[key].default.call()
+        : defaultProps[key].default
+      : Symbol('unique');
+    var isEqual = false;
+    if (Array.isArray(def)) {
+      isEqual = JSON.stringify(def) === JSON.stringify(props[key]);
+    } else {
+      isEqual = def === props[key];
+    }
+    if (result[key] && !isEqual) {
+      console.warn(
+        (key + " props is overriding the value passed in the options props")
+      );
+      result[key] = props[key];
+    } else if (!result[key]) {
+      result[key] = props[key];
+    }
+  }
+  return result;
+};
+
+var findRealParent = function (firstVueParent) {
+  var found = false;
+  while (firstVueParent && !found) {
+    if (firstVueParent.mapObject === undefined) {
+      firstVueParent = firstVueParent.$parent;
+    } else {
+      found = true;
+    }
+  }
+  return firstVueParent;
+};
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-leaflet/dist/vue2-leaflet.es.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/vue2-leaflet/dist/vue2-leaflet.es.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "CircleMixin": () => (/* reexport safe */ _mixins_Circle__WEBPACK_IMPORTED_MODULE_1__["default"]),
+/* harmony export */   "ControlMixin": () => (/* reexport safe */ _mixins_Control__WEBPACK_IMPORTED_MODULE_2__["default"]),
+/* harmony export */   "GridLayerMixin": () => (/* reexport safe */ _mixins_GridLayer__WEBPACK_IMPORTED_MODULE_3__["default"]),
+/* harmony export */   "ImageOverlayMixin": () => (/* reexport safe */ _mixins_ImageOverlay__WEBPACK_IMPORTED_MODULE_4__["default"]),
+/* harmony export */   "InteractiveLayerMixin": () => (/* reexport safe */ _mixins_InteractiveLayer__WEBPACK_IMPORTED_MODULE_5__["default"]),
+/* harmony export */   "LCircle": () => (/* reexport safe */ _components_LCircle__WEBPACK_IMPORTED_MODULE_15__["default"]),
+/* harmony export */   "LCircleMarker": () => (/* reexport safe */ _components_LCircleMarker__WEBPACK_IMPORTED_MODULE_16__["default"]),
+/* harmony export */   "LControl": () => (/* reexport safe */ _components_LControl__WEBPACK_IMPORTED_MODULE_17__["default"]),
+/* harmony export */   "LControlAttribution": () => (/* reexport safe */ _components_LControlAttribution__WEBPACK_IMPORTED_MODULE_18__["default"]),
+/* harmony export */   "LControlLayers": () => (/* reexport safe */ _components_LControlLayers__WEBPACK_IMPORTED_MODULE_19__["default"]),
+/* harmony export */   "LControlScale": () => (/* reexport safe */ _components_LControlScale__WEBPACK_IMPORTED_MODULE_20__["default"]),
+/* harmony export */   "LControlZoom": () => (/* reexport safe */ _components_LControlZoom__WEBPACK_IMPORTED_MODULE_21__["default"]),
+/* harmony export */   "LFeatureGroup": () => (/* reexport safe */ _components_LFeatureGroup__WEBPACK_IMPORTED_MODULE_22__["default"]),
+/* harmony export */   "LGeoJson": () => (/* reexport safe */ _components_LGeoJson__WEBPACK_IMPORTED_MODULE_23__["default"]),
+/* harmony export */   "LGridLayer": () => (/* reexport safe */ _components_LGridLayer__WEBPACK_IMPORTED_MODULE_24__["default"]),
+/* harmony export */   "LIcon": () => (/* reexport safe */ _components_LIcon__WEBPACK_IMPORTED_MODULE_25__["default"]),
+/* harmony export */   "LIconDefault": () => (/* reexport safe */ _components_LIconDefault__WEBPACK_IMPORTED_MODULE_26__["default"]),
+/* harmony export */   "LImageOverlay": () => (/* reexport safe */ _components_LImageOverlay__WEBPACK_IMPORTED_MODULE_27__["default"]),
+/* harmony export */   "LLayerGroup": () => (/* reexport safe */ _components_LLayerGroup__WEBPACK_IMPORTED_MODULE_28__["default"]),
+/* harmony export */   "LMap": () => (/* reexport safe */ _components_LMap__WEBPACK_IMPORTED_MODULE_29__["default"]),
+/* harmony export */   "LMarker": () => (/* reexport safe */ _components_LMarker__WEBPACK_IMPORTED_MODULE_30__["default"]),
+/* harmony export */   "LPolygon": () => (/* reexport safe */ _components_LPolygon__WEBPACK_IMPORTED_MODULE_31__["default"]),
+/* harmony export */   "LPolyline": () => (/* reexport safe */ _components_LPolyline__WEBPACK_IMPORTED_MODULE_32__["default"]),
+/* harmony export */   "LPopup": () => (/* reexport safe */ _components_LPopup__WEBPACK_IMPORTED_MODULE_33__["default"]),
+/* harmony export */   "LRectangle": () => (/* reexport safe */ _components_LRectangle__WEBPACK_IMPORTED_MODULE_34__["default"]),
+/* harmony export */   "LTileLayer": () => (/* reexport safe */ _components_LTileLayer__WEBPACK_IMPORTED_MODULE_35__["default"]),
+/* harmony export */   "LTooltip": () => (/* reexport safe */ _components_LTooltip__WEBPACK_IMPORTED_MODULE_36__["default"]),
+/* harmony export */   "LWMSTileLayer": () => (/* reexport safe */ _components_LWMSTileLayer__WEBPACK_IMPORTED_MODULE_37__["default"]),
+/* harmony export */   "LayerGroupMixin": () => (/* reexport safe */ _mixins_LayerGroup__WEBPACK_IMPORTED_MODULE_7__["default"]),
+/* harmony export */   "LayerMixin": () => (/* reexport safe */ _mixins_Layer__WEBPACK_IMPORTED_MODULE_6__["default"]),
+/* harmony export */   "OptionsMixin": () => (/* reexport safe */ _mixins_Options__WEBPACK_IMPORTED_MODULE_8__["default"]),
+/* harmony export */   "PathMixin": () => (/* reexport safe */ _mixins_Path__WEBPACK_IMPORTED_MODULE_9__["default"]),
+/* harmony export */   "PolygonMixin": () => (/* reexport safe */ _mixins_Polygon__WEBPACK_IMPORTED_MODULE_10__["default"]),
+/* harmony export */   "PolylineMixin": () => (/* reexport safe */ _mixins_Polyline__WEBPACK_IMPORTED_MODULE_11__["default"]),
+/* harmony export */   "PopperMixin": () => (/* reexport safe */ _mixins_Popper__WEBPACK_IMPORTED_MODULE_12__["default"]),
+/* harmony export */   "TileLayerMixin": () => (/* reexport safe */ _mixins_TileLayer__WEBPACK_IMPORTED_MODULE_13__["default"]),
+/* harmony export */   "TileLayerWMSMixin": () => (/* reexport safe */ _mixins_TileLayerWMS__WEBPACK_IMPORTED_MODULE_14__["default"]),
+/* harmony export */   "capitalizeFirstLetter": () => (/* reexport safe */ _utils_utils__WEBPACK_IMPORTED_MODULE_0__.capitalizeFirstLetter),
+/* harmony export */   "collectionCleaner": () => (/* reexport safe */ _utils_utils__WEBPACK_IMPORTED_MODULE_0__.collectionCleaner),
+/* harmony export */   "debounce": () => (/* reexport safe */ _utils_utils__WEBPACK_IMPORTED_MODULE_0__.debounce),
+/* harmony export */   "findRealParent": () => (/* reexport safe */ _utils_utils__WEBPACK_IMPORTED_MODULE_0__.findRealParent),
+/* harmony export */   "optionsMerger": () => (/* reexport safe */ _utils_utils__WEBPACK_IMPORTED_MODULE_0__.optionsMerger),
+/* harmony export */   "propsBinder": () => (/* reexport safe */ _utils_utils__WEBPACK_IMPORTED_MODULE_0__.propsBinder)
+/* harmony export */ });
+/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/utils */ "./node_modules/vue2-leaflet/dist/utils/utils.js");
+/* harmony import */ var _mixins_Circle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./mixins/Circle */ "./node_modules/vue2-leaflet/dist/mixins/Circle.js");
+/* harmony import */ var _mixins_Control__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mixins/Control */ "./node_modules/vue2-leaflet/dist/mixins/Control.js");
+/* harmony import */ var _mixins_GridLayer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./mixins/GridLayer */ "./node_modules/vue2-leaflet/dist/mixins/GridLayer.js");
+/* harmony import */ var _mixins_ImageOverlay__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./mixins/ImageOverlay */ "./node_modules/vue2-leaflet/dist/mixins/ImageOverlay.js");
+/* harmony import */ var _mixins_InteractiveLayer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./mixins/InteractiveLayer */ "./node_modules/vue2-leaflet/dist/mixins/InteractiveLayer.js");
+/* harmony import */ var _mixins_Layer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./mixins/Layer */ "./node_modules/vue2-leaflet/dist/mixins/Layer.js");
+/* harmony import */ var _mixins_LayerGroup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./mixins/LayerGroup */ "./node_modules/vue2-leaflet/dist/mixins/LayerGroup.js");
+/* harmony import */ var _mixins_Options__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./mixins/Options */ "./node_modules/vue2-leaflet/dist/mixins/Options.js");
+/* harmony import */ var _mixins_Path__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./mixins/Path */ "./node_modules/vue2-leaflet/dist/mixins/Path.js");
+/* harmony import */ var _mixins_Polygon__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./mixins/Polygon */ "./node_modules/vue2-leaflet/dist/mixins/Polygon.js");
+/* harmony import */ var _mixins_Polyline__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./mixins/Polyline */ "./node_modules/vue2-leaflet/dist/mixins/Polyline.js");
+/* harmony import */ var _mixins_Popper__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./mixins/Popper */ "./node_modules/vue2-leaflet/dist/mixins/Popper.js");
+/* harmony import */ var _mixins_TileLayer__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./mixins/TileLayer */ "./node_modules/vue2-leaflet/dist/mixins/TileLayer.js");
+/* harmony import */ var _mixins_TileLayerWMS__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./mixins/TileLayerWMS */ "./node_modules/vue2-leaflet/dist/mixins/TileLayerWMS.js");
+/* harmony import */ var _components_LCircle__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/LCircle */ "./node_modules/vue2-leaflet/dist/components/LCircle.js");
+/* harmony import */ var _components_LCircleMarker__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/LCircleMarker */ "./node_modules/vue2-leaflet/dist/components/LCircleMarker.js");
+/* harmony import */ var _components_LControl__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/LControl */ "./node_modules/vue2-leaflet/dist/components/LControl.js");
+/* harmony import */ var _components_LControlAttribution__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/LControlAttribution */ "./node_modules/vue2-leaflet/dist/components/LControlAttribution.js");
+/* harmony import */ var _components_LControlLayers__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/LControlLayers */ "./node_modules/vue2-leaflet/dist/components/LControlLayers.js");
+/* harmony import */ var _components_LControlScale__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/LControlScale */ "./node_modules/vue2-leaflet/dist/components/LControlScale.js");
+/* harmony import */ var _components_LControlZoom__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/LControlZoom */ "./node_modules/vue2-leaflet/dist/components/LControlZoom.js");
+/* harmony import */ var _components_LFeatureGroup__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/LFeatureGroup */ "./node_modules/vue2-leaflet/dist/components/LFeatureGroup.js");
+/* harmony import */ var _components_LGeoJson__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/LGeoJson */ "./node_modules/vue2-leaflet/dist/components/LGeoJson.js");
+/* harmony import */ var _components_LGridLayer__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/LGridLayer */ "./node_modules/vue2-leaflet/dist/components/LGridLayer.js");
+/* harmony import */ var _components_LIcon__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/LIcon */ "./node_modules/vue2-leaflet/dist/components/LIcon.js");
+/* harmony import */ var _components_LIconDefault__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/LIconDefault */ "./node_modules/vue2-leaflet/dist/components/LIconDefault.js");
+/* harmony import */ var _components_LImageOverlay__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/LImageOverlay */ "./node_modules/vue2-leaflet/dist/components/LImageOverlay.js");
+/* harmony import */ var _components_LLayerGroup__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/LLayerGroup */ "./node_modules/vue2-leaflet/dist/components/LLayerGroup.js");
+/* harmony import */ var _components_LMap__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/LMap */ "./node_modules/vue2-leaflet/dist/components/LMap.js");
+/* harmony import */ var _components_LMarker__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/LMarker */ "./node_modules/vue2-leaflet/dist/components/LMarker.js");
+/* harmony import */ var _components_LPolygon__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/LPolygon */ "./node_modules/vue2-leaflet/dist/components/LPolygon.js");
+/* harmony import */ var _components_LPolyline__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/LPolyline */ "./node_modules/vue2-leaflet/dist/components/LPolyline.js");
+/* harmony import */ var _components_LPopup__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./components/LPopup */ "./node_modules/vue2-leaflet/dist/components/LPopup.js");
+/* harmony import */ var _components_LRectangle__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./components/LRectangle */ "./node_modules/vue2-leaflet/dist/components/LRectangle.js");
+/* harmony import */ var _components_LTileLayer__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./components/LTileLayer */ "./node_modules/vue2-leaflet/dist/components/LTileLayer.js");
+/* harmony import */ var _components_LTooltip__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./components/LTooltip */ "./node_modules/vue2-leaflet/dist/components/LTooltip.js");
+/* harmony import */ var _components_LWMSTileLayer__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./components/LWMSTileLayer */ "./node_modules/vue2-leaflet/dist/components/LWMSTileLayer.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /***/ }),

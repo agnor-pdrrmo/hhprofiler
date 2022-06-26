@@ -28,5 +28,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/household',[HouseholdController::class,'index']);
 Route::get('/household/maps',[HouseholdController::class,'maps'])->name('maps');
+Route::get('/household/vue',[HouseholdController::class,'vuemap'])->name('vue');
 
 
