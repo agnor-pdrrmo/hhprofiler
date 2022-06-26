@@ -1,12 +1,16 @@
 <template>
-  <div class="simple">
-    <div style="height: 100%">
-      <v-map :zoom="zoom" :center="center" style="height: 80vh; width: 100%; position: relative;  solid black; ">       
-        <v-tilelayer-googlemutant :apikey="apikey" :options="options"></v-tilelayer-googlemutant>
-        <v-marker v-for="household in households" :key="household.controlnumber" :lat-lng="setcoordinates(household.latitude, household.longitude)" :icon="icon"></v-marker>       
-      </v-map>     
-    </div>
-  </div>
+  <section class="content" >
+        <div class="container-fluid" >
+            <div class="row">
+                <div class="col-12" >
+                    <v-map :zoom="zoom" :center="center" style="height: 80vh; width: 100%; position: relative;  solid black; ">       
+                      <v-tilelayer-googlemutant :apikey="apikey" :options="options"></v-tilelayer-googlemutant>
+                      <v-marker v-for="household in households" :key="household.controlnumber" :lat-lng="coordinates(household.latitude, household.longitude)" :icon="icon" @click="opensidebar(household.controlnumber)"></v-marker>       
+                    </v-map>     
+                </div>         
+            </div>
+        </div>
+    </section>
 </template>
 
 <script>
@@ -36,12 +40,13 @@ export default {
           iconSize:     [16, 16],
           iconAnchor:   [16, 16]
         }),
-        households: {},   
+        households: {},
+        household: {}
     }
     
   },
   methods: {
-      getHouseholds(){
+      gethouseholds: function(){
           axios.get('/household/vue')
                 .then((response)=>{
                   this.households = response.data;
@@ -50,12 +55,15 @@ export default {
                   console.log(error);
                 });
       },
-      setcoordinates(lat,long){
+      coordinates: function(lat,long){
         return L.latLng(lat,long);
-      }        
+      },
+      opensidebar: function (controlnumber){
+        this.household = this.households.filter(cn => cn.controlnumber == controlnumber);
+      }
   },
     created() {
-        this.getHouseholds()
+        this.gethouseholds()
     }
 }
 </script>

@@ -27,7 +27,8 @@ Vue.component('nav-item-component', require('./components/NavitemComponent.vue')
 //Vue.component('v-map',LMap);
 //Vue.component('v-tilelayer', LTileLayer);
 //Vue.component('v-marker', LMarker);
-Vue.component('simple-map-component', require('./components/SimpleComponent.vue').default);
+Vue.component('map-view-component', require('./components/MapviewComponent.vue').default);
+Vue.component('section-header-component', require('./components/SectionheaderComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
