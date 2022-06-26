@@ -2172,33 +2172,6 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ControlsidebarComponent.vue?vue&type=script&lang=js&":
-/*!******************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ControlsidebarComponent.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['title']
-});
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js& ***!
@@ -2257,6 +2230,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
@@ -2272,13 +2252,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue2_leaflet__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue2-leaflet */ "./node_modules/vue2-leaflet/dist/components/LMap.js");
-/* harmony import */ var vue2_leaflet__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue2-leaflet */ "./node_modules/vue2-leaflet/dist/components/LTileLayer.js");
-/* harmony import */ var vue2_leaflet__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue2-leaflet */ "./node_modules/vue2-leaflet/dist/components/LMarker.js");
+/* harmony import */ var vue2_leaflet__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue2-leaflet */ "./node_modules/vue2-leaflet/dist/components/LMap.js");
+/* harmony import */ var vue2_leaflet__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue2-leaflet */ "./node_modules/vue2-leaflet/dist/components/LTileLayer.js");
+/* harmony import */ var vue2_leaflet__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue2-leaflet */ "./node_modules/vue2-leaflet/dist/components/LMarker.js");
 /* harmony import */ var vue2_leaflet_googlemutant__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue2-leaflet-googlemutant */ "./node_modules/vue2-leaflet-googlemutant/dist/Vue2LeafletGoogleMutant.js");
 /* harmony import */ var vue2_leaflet_googlemutant__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue2_leaflet_googlemutant__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _HouseholdformComponent_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./HouseholdformComponent.vue */ "./resources/js/components/HouseholdformComponent.vue");
 //
 //
 //
@@ -2301,15 +2282,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    'v-map': vue2_leaflet__WEBPACK_IMPORTED_MODULE_2__["default"],
-    'v-tilelayer': vue2_leaflet__WEBPACK_IMPORTED_MODULE_3__["default"],
-    'v-marker': vue2_leaflet__WEBPACK_IMPORTED_MODULE_4__["default"],
-    'v-tilelayer-googlemutant': (vue2_leaflet_googlemutant__WEBPACK_IMPORTED_MODULE_0___default())
+    'v-map': vue2_leaflet__WEBPACK_IMPORTED_MODULE_3__["default"],
+    'v-tilelayer': vue2_leaflet__WEBPACK_IMPORTED_MODULE_4__["default"],
+    'v-marker': vue2_leaflet__WEBPACK_IMPORTED_MODULE_5__["default"],
+    'v-tilelayer-googlemutant': (vue2_leaflet_googlemutant__WEBPACK_IMPORTED_MODULE_0___default()),
+    'form-household': _HouseholdformComponent_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
     var options = {
@@ -2336,6 +2319,10 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('/household').then(function (response) {
         _this.households = response.data;
+
+        _this.$refs.map.mapObject.fitBounds(_this.households.map(function (h) {
+          return [h.latitude, h.longitude];
+        }));
       })["catch"](function (error) {
         console.log(error);
       });
@@ -2454,7 +2441,6 @@ Vue.component('nav-item-component', (__webpack_require__(/*! ./components/Navite
 
 Vue.component('map-view-component', (__webpack_require__(/*! ./components/MapviewComponent.vue */ "./resources/js/components/MapviewComponent.vue")["default"]));
 Vue.component('section-header-component', (__webpack_require__(/*! ./components/SectionheaderComponent.vue */ "./resources/js/components/SectionheaderComponent.vue")["default"]));
-Vue.component('control-sidebar-component', (__webpack_require__(/*! ./components/ControlsidebarComponent.vue */ "./resources/js/components/ControlsidebarComponent.vue")["default"]));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -54603,45 +54589,6 @@ module.exports = function (list, options) {
 
 /***/ }),
 
-/***/ "./resources/js/components/ControlsidebarComponent.vue":
-/*!*************************************************************!*\
-  !*** ./resources/js/components/ControlsidebarComponent.vue ***!
-  \*************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _ControlsidebarComponent_vue_vue_type_template_id_1825d4c3___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ControlsidebarComponent.vue?vue&type=template&id=1825d4c3& */ "./resources/js/components/ControlsidebarComponent.vue?vue&type=template&id=1825d4c3&");
-/* harmony import */ var _ControlsidebarComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ControlsidebarComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/ControlsidebarComponent.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _ControlsidebarComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ControlsidebarComponent_vue_vue_type_template_id_1825d4c3___WEBPACK_IMPORTED_MODULE_0__.render,
-  _ControlsidebarComponent_vue_vue_type_template_id_1825d4c3___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/ControlsidebarComponent.vue"
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
-
-/***/ }),
-
 /***/ "./resources/js/components/ExampleComponent.vue":
 /*!******************************************************!*\
   !*** ./resources/js/components/ExampleComponent.vue ***!
@@ -54839,22 +54786,6 @@ component.options.__file = "resources/js/components/SectionheaderComponent.vue"
 
 /***/ }),
 
-/***/ "./resources/js/components/ControlsidebarComponent.vue?vue&type=script&lang=js&":
-/*!**************************************************************************************!*\
-  !*** ./resources/js/components/ControlsidebarComponent.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ControlsidebarComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ControlsidebarComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ControlsidebarComponent.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ControlsidebarComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
 /***/ "./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************!*\
   !*** ./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js& ***!
@@ -54948,23 +54879,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/ControlsidebarComponent.vue?vue&type=template&id=1825d4c3&":
-/*!********************************************************************************************!*\
-  !*** ./resources/js/components/ControlsidebarComponent.vue?vue&type=template&id=1825d4c3& ***!
-  \********************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ControlsidebarComponent_vue_vue_type_template_id_1825d4c3___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ControlsidebarComponent_vue_vue_type_template_id_1825d4c3___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
-/* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ControlsidebarComponent_vue_vue_type_template_id_1825d4c3___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ControlsidebarComponent.vue?vue&type=template&id=1825d4c3& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ControlsidebarComponent.vue?vue&type=template&id=1825d4c3&");
-
-
-/***/ }),
-
 /***/ "./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e&":
 /*!*************************************************************************************!*\
   !*** ./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e& ***!
@@ -55050,37 +54964,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ControlsidebarComponent.vue?vue&type=template&id=1825d4c3&":
-/*!***********************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ControlsidebarComponent.vue?vue&type=template&id=1825d4c3& ***!
-  \***********************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
-/* harmony export */ });
-var render = function () {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("aside", { staticClass: "control-sidebar control-sidebar-dark" }, [
-    _c("div", { staticClass: "p-3" }, [
-      _c("h5", [_vm._v(_vm._s(_vm.title))]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Sidebar content")]),
-    ]),
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e&":
 /*!****************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e& ***!
@@ -55152,17 +55035,43 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "aside",
-      { staticClass: "control-sidebar control-sidebar-dark" },
-      [
-        _c("div", { staticClass: "p-3" }, [
-          _c("h5", [_vm._v("Household information")]),
+    return _c("div", [
+      _c("div", { staticClass: "card-body" }, [
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "respondent" } }, [
+            _vm._v("Household Head"),
+          ]),
           _vm._v(" "),
-          _c("p", [_vm._v("This form is load using vue component")]),
+          _c("input", {
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", id: "respondent", name: "respondent" },
+          }),
         ]),
-      ]
-    )
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "libmunicipalitie_psgccode" } }, [
+            _vm._v("Municipality"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            staticClass: "form-control form-control-sm",
+            attrs: {
+              type: "text",
+              id: "libmunicipalitie_psgccode",
+              name: "libmunicipalitie_psgccode",
+            },
+          }),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-footer" }, [
+        _c(
+          "button",
+          { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+          [_vm._v("Save")]
+        ),
+      ]),
+    ])
   },
 ]
 render._withStripped = true
@@ -55197,6 +55106,7 @@ var render = function () {
             _c(
               "v-map",
               {
+                ref: "map",
                 staticStyle: {
                   height: "80vh",
                   width: "100%",
@@ -55235,27 +55145,21 @@ var render = function () {
       ]),
     ]),
     _vm._v(" "),
-    _vm._m(0),
-  ])
-}
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "aside",
-      { staticClass: "control-sidebar control-sidebar-dark" },
-      [
-        _c("div", { staticClass: "p-3" }, [
+    _c("aside", { staticClass: "control-sidebar control-sidebar-dark" }, [
+      _c(
+        "div",
+        { staticClass: "p-3" },
+        [
           _c("h5", [_vm._v("household Information")]),
           _vm._v(" "),
-          _c("p", [_vm._v("Sidebar content")]),
-        ]),
-      ]
-    )
-  },
-]
+          _c("form-household"),
+        ],
+        1
+      ),
+    ]),
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 

@@ -1,13 +1,20 @@
 <template>
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-            <div class="p-3">
-                <h5>Household information</h5>
-                    <p>This form is load using vue component</p>
+    <div>
+        <div class="card-body">
+            <div class="form-group mb-1">
+                <label for="respondent">Household Head</label>
+                <input type="text" class="form-control form-control-sm" id="respondent" name="respondent">
             </div>
-        </aside>
-        <!-- /.control-sidebar -->
+            <div class="form-group mb-1">
+                <label for="libmunicipalitie_psgccode">Municipality</label>
+                <input type="text" class="form-control form-control-sm" id="libmunicipalitie_psgccode" name="libmunicipalitie_psgccode">
+            </div>
+        </div>   
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+       
+    </div>
 </template>
 
 <script>

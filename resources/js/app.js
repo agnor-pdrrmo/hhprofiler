@@ -29,7 +29,7 @@ Vue.component('nav-item-component', require('./components/NavitemComponent.vue')
 //Vue.component('v-marker', LMarker);
 Vue.component('map-view-component', require('./components/MapviewComponent.vue').default);
 Vue.component('section-header-component', require('./components/SectionheaderComponent.vue').default);
-Vue.component('control-sidebar-component', require('./components/ControlsidebarComponent.vue').default);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
