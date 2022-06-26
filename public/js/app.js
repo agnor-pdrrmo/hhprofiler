@@ -2307,14 +2307,22 @@ __webpack_require__.r(__webpack_exports__);
         iconUrl: 'images/icons8-red-circle-48.png',
         iconSize: [16, 16],
         iconAnchor: [16, 16]
-      })
+      }),
+      households: {}
     };
   },
   methods: {
     getHouseholds: function getHouseholds() {
+      var _this = this;
+
       axios.get('/household/vue').then(function (response) {
-        console.log(response);
+        _this.households = response.data;
+      })["catch"](function (error) {
+        console.log(error);
       });
+    },
+    setcoordinates: function setcoordinates(lat, _long) {
+      return L.latLng(lat, _long);
     }
   },
   created: function created() {
@@ -54964,7 +54972,7 @@ var render = function () {
   return _c("div", { staticClass: "simple" }, [
     _c(
       "div",
-      { staticStyle: { height: "100%" }, attrs: { id: "top_div" } },
+      { staticStyle: { height: "100%" } },
       [
         _c(
           "v-map",
@@ -54981,11 +54989,20 @@ var render = function () {
               attrs: { apikey: _vm.apikey, options: _vm.options },
             }),
             _vm._v(" "),
-            _c("v-marker", {
-              attrs: { "lat-lng": _vm.marker, icon: _vm.icon },
+            _vm._l(_vm.households, function (household) {
+              return _c("v-marker", {
+                key: household.controlnumber,
+                attrs: {
+                  "lat-lng": _vm.setcoordinates(
+                    household.latitude,
+                    household.longitude
+                  ),
+                  icon: _vm.icon,
+                },
+              })
             }),
           ],
-          1
+          2
         ),
       ],
       1

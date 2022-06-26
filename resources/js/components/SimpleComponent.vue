@@ -1,10 +1,10 @@
 <template>
   <div class="simple">
-    <div id="top_div" style="height: 100%">
+    <div style="height: 100%">
       <v-map :zoom="zoom" :center="center" style="height: 80vh; width: 100%; position: relative;  solid black; ">       
         <v-tilelayer-googlemutant :apikey="apikey" :options="options"></v-tilelayer-googlemutant>
-        <v-marker :lat-lng="marker" :icon="icon"></v-marker>       
-      </v-map>
+        <v-marker v-for="household in households" :key="household.controlnumber" :lat-lng="setcoordinates(household.latitude, household.longitude)" :icon="icon"></v-marker>       
+      </v-map>     
     </div>
   </div>
 </template>
@@ -35,7 +35,8 @@ export default {
           iconUrl: 'images/icons8-red-circle-48.png',
           iconSize:     [16, 16],
           iconAnchor:   [16, 16]
-        })
+        }),
+        households: {},   
     }
     
   },
@@ -43,9 +44,15 @@ export default {
       getHouseholds(){
           axios.get('/household/vue')
                 .then((response)=>{
-                  console.log(response);
+                  this.households = response.data;
                 })
-      }          
+                .catch(function(error){
+                  console.log(error);
+                });
+      },
+      setcoordinates(lat,long){
+        return L.latLng(lat,long);
+      }        
   },
     created() {
         this.getHouseholds()
