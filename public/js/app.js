@@ -2218,6 +2218,61 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2242,32 +2297,70 @@ __webpack_require__.r(__webpack_exports__);
       householdInfo: this.householdData[0],
       formEdit: {
         respondent: "",
-        libmunicipalitie_psgccode: null,
-        libbarangay_psgccode: null,
-        purok: null,
-        nameenumerator: null,
-        libbuildingtype_id: null,
-        libtenuralstatu_id: null,
-        year_construct: null,
+        libmunicipalitie_psgccode: "",
+        libbarangay_psgccode: "",
+        purok: "",
+        nameenumerator: "",
+        libbuildingtype_id: "",
+        libtenuralstatu_id: "",
+        year_construct: "",
         bedrooms: 0,
         storey: 0,
-        access_electricity: null
+        access_electricity: ""
       }
     };
   },
   methods: {
     updateHousehold: function updateHousehold(hh) {
-      return this.fromHouseholdInfoDefault = hh;
+      var _hh = _slicedToArray(hh, 1),
+          h = _hh[0];
+
+      this.formEdit.respondent = h.respondent;
+      this.formEdit.libmunicipalitie_psgccode = h.libmunicipalitie_psgccode;
+      this.formEdit.libbarangay_psgccode = h.libbarangay_psgccode;
+      this.formEdit.purok = h.purok;
+      this.formEdit.nameenumerator = h.nameenumerator;
     }
   },
   computed: {
     fromHouseholdInfoDefault: {
       get: function get() {
-        //your validation
         return this.householdInfo;
       },
       set: function set(val) {
         this.householdInfo = val;
+      }
+    },
+    computedRespondent: {
+      get: function get() {
+        return this.formEdit.respondent;
+      },
+      set: function set(val) {
+        this.formEdit.respondent = val;
+      }
+    },
+    computedMunicipality: {
+      get: function get() {
+        return this.formEdit.libmunicipalitie_psgccode;
+      },
+      set: function set(val) {
+        this.formEdit.libmunicipalitie_psgccode = val;
+      }
+    },
+    computedBarangay: {
+      get: function get() {
+        return this.formEdit.libbarangay_psgccode;
+      },
+      set: function set(val) {
+        this.formEdit.libbarangay_psgccode = val;
+      }
+    },
+    computedPurok: {
+      get: function get() {
+        return this.formEdit.purok;
+      },
+      set: function set(val) {
+        this.formEdit.purok = val;
       }
     }
   }
@@ -55084,25 +55177,329 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.name,
-              expression: "name",
+              value: _vm.computedRespondent,
+              expression: "computedRespondent",
             },
           ],
           staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "respondent" },
-          domProps: { value: _vm.name },
+          attrs: { type: "text" },
+          domProps: { value: _vm.computedRespondent },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.name = $event.target.value
+              _vm.computedRespondent = $event.target.value
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group mb-1" }, [
+        _c("label", { attrs: { for: "libmunicipalitie_psgccode" } }, [
+          _vm._v("Municipalitys"),
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.computedMunicipality,
+              expression: "computedMunicipality",
+            },
+          ],
+          staticClass: "form-control form-control-sm",
+          attrs: { type: "text" },
+          domProps: { value: _vm.computedMunicipality },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.computedMunicipality = $event.target.value
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group mb-1" }, [
+        _c("label", { attrs: { for: "libbarangay_psgccode" } }, [
+          _vm._v("Barangay"),
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.computedBarangay,
+              expression: "computedBarangay",
+            },
+          ],
+          staticClass: "form-control form-control-sm",
+          attrs: { type: "text" },
+          domProps: { value: _vm.computedBarangay },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.computedBarangay = $event.target.value
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group mb-1" }, [
+        _c("label", { attrs: { for: "purok" } }, [_vm._v("Purok")]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.computedPurok,
+              expression: "computedPurok",
+            },
+          ],
+          staticClass: "form-control form-control-sm",
+          attrs: { type: "text" },
+          domProps: { value: _vm.computedPurok },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.computedPurok = $event.target.value
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group mb-1" }, [
+        _c("label", { attrs: { for: "nameenumerator" } }, [
+          _vm._v("name of Enumerator"),
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.formEdit.nameenumerator,
+              expression: "formEdit.nameenumerator",
+            },
+          ],
+          staticClass: "form-control form-control-sm",
+          attrs: { type: "text" },
+          domProps: { value: _vm.formEdit.nameenumerator },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.formEdit, "nameenumerator", $event.target.value)
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group mb-1" }, [
+        _c("label", { attrs: { for: "libbuildingtype_id" } }, [
+          _vm._v("Type of building"),
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.formEdit.libbuildingtype_id,
+              expression: "formEdit.libbuildingtype_id",
+            },
+          ],
+          staticClass: "form-control form-control-sm",
+          attrs: { type: "text" },
+          domProps: { value: _vm.formEdit.libbuildingtype_id },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.formEdit, "libbuildingtype_id", $event.target.value)
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group mb-1" }, [
+        _c("label", { attrs: { for: "libtenuralstatu_id" } }, [
+          _vm._v("Tenural status"),
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.formEdit.libtenuralstatu_id,
+              expression: "formEdit.libtenuralstatu_id",
+            },
+          ],
+          staticClass: "form-control form-control-sm",
+          attrs: { type: "text" },
+          domProps: { value: _vm.formEdit.libtenuralstatu_id },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.formEdit, "libtenuralstatu_id", $event.target.value)
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group mb-1" }, [
+        _c("label", { attrs: { for: "year_construct" } }, [
+          _vm._v("Year construct"),
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.formEdit.year_construct,
+              expression: "formEdit.year_construct",
+            },
+          ],
+          staticClass: "form-control form-control-sm",
+          attrs: { type: "text" },
+          domProps: { value: _vm.formEdit.year_construct },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.formEdit, "year_construct", $event.target.value)
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group mb-1" }, [
+        _c("label", { attrs: { for: "estimated_cost" } }, [
+          _vm._v("Estimated cost"),
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.formEdit.year_construct,
+              expression: "formEdit.year_construct",
+            },
+          ],
+          staticClass: "form-control form-control-sm",
+          attrs: { type: "text" },
+          domProps: { value: _vm.formEdit.year_construct },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.formEdit, "year_construct", $event.target.value)
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group mb-1" }, [
+        _c("label", { attrs: { for: "bedrooms" } }, [
+          _vm._v("Number of bedrooms"),
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.formEdit.bedrooms,
+              expression: "formEdit.bedrooms",
+            },
+          ],
+          staticClass: "form-control form-control-sm",
+          attrs: { type: "text" },
+          domProps: { value: _vm.formEdit.bedrooms },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.formEdit, "bedrooms", $event.target.value)
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group mb-1" }, [
+        _c("label", { attrs: { for: "storey" } }, [_vm._v("Storey")]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.formEdit.storey,
+              expression: "formEdit.storey",
+            },
+          ],
+          staticClass: "form-control form-control-sm",
+          attrs: { type: "text" },
+          domProps: { value: _vm.formEdit.storey },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.formEdit, "storey", $event.target.value)
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group mb-1" }, [
+        _c("label", { attrs: { for: "access_electricity" } }, [
+          _vm._v("Access to electricity"),
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.formEdit.access_electricity,
+              expression: "formEdit.access_electricity",
+            },
+          ],
+          staticClass: "form-control form-control-sm",
+          attrs: { type: "text" },
+          domProps: { value: _vm.formEdit.access_electricity },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.formEdit, "access_electricity", $event.target.value)
             },
           },
         }),
       ]),
     ]),
-    _vm._v("   \n     " + _vm._s(_vm.householdInfo) + "\n    "),
+    _vm._v(" "),
     _c("div", { staticClass: "card-footer" }, [
       _c(
         "button",
