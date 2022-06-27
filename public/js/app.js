@@ -2294,6 +2294,66 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['householdData'],
   data: function data() {
@@ -2302,6 +2362,11 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       formEdit: {}
     };
   },
+  watch: {
+    householdInfo: function householdInfo() {
+      this.updateHousehold;
+    }
+  },
   methods: {
     updateHousehold: function updateHousehold(hh) {
       //Distructuring hh[0]
@@ -2309,251 +2374,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
           h = _hh[0]; //assign h object to formedit data   
 
 
-      this.formEdit = h; // this.formEdit.respondent = h.respondent;
-      // this.formEdit.libmunicipalitie_psgccode = h.libmunicipalitie_psgccode;
-      // this.formEdit.libbarangay_psgccode = h.libbarangay_psgccode;
-      // this.formEdit.purok = h.purok;
-      // this.formEdit.nameenumerator = h.nameenumerator;
-      // this.formEdit.libbuildingtype_id = h.libbuildingtype_id;
-      // this.formEdit.libtenuralstatu_id = h.libtenuralstatu_id;
-      // this.formEdit.year_construct = h.year_construct;
-      // this.formEdit.estimated_cost = h.estimated_cost;
-      // this.formEdit.bedrooms = h.bedrooms;
-      // this.formEdit.storey = h.storey;
-      // this.formEdit.access_electricity = h.access_electricity;
-      // this.formEdit.libbuildingroofmaterial_id = h.libbuildingroofmaterial_id;
-      // this.formEdit.medical_treatment = h.medical_treatment;
-      // this.formEdit.access_watersupply = h.access_watersupply;
-      // this.formEdit.potable = h.potable;
-      // this.formEdit.libhhwatertenuralstatu_id = h.libhhwatertenuralstatu_id;
-      // this.formEdit.libhhlvlwatersystem_id = h.libhhlvlwatersystem_id;
-      // this.formEdit.floods_occur = h.floods_occur;
-      // this.formEdit.year_flood = h.year_flood;
-      // this.formEdit.experience_evacuationduringcalamity = h.experience_evacuationduringcalamity;
-      // this.formEdit.year_evacuated = h.year_evacuated;
-      // this.formEdit.libhhevacuationarea_id = h.libhhevacuationarea_id;
-      // this.formEdit.has_accesstohealthmedicalfacilities = this.,
-      // has_accesstotelecommunications: "",
-      // has_accesstodrillsandsimulations: "",
-      // image: ""
-    }
-  },
-  computed: {
-    fromHouseholdInfoDefault: {
-      get: function get() {
-        return this.householdInfo;
-      },
-      set: function set(val) {
-        this.householdInfo = val;
-      }
-    },
-    computedRespondent: {
-      get: function get() {
-        return this.formEdit.respondent;
-      },
-      set: function set(val) {
-        this.formEdit.respondent = val;
-      }
-    },
-    computedMunicipality: {
-      get: function get() {
-        return this.formEdit.libmunicipalitie_psgccode;
-      },
-      set: function set(val) {
-        this.formEdit.libmunicipalitie_psgccode = val;
-      }
-    },
-    computedBarangay: {
-      get: function get() {
-        return this.formEdit.libbarangay_psgccode;
-      },
-      set: function set(val) {
-        this.formEdit.libbarangay_psgccode = val;
-      }
-    },
-    computedPurok: {
-      get: function get() {
-        return this.formEdit.purok;
-      },
-      set: function set(val) {
-        this.formEdit.purok = val;
-      }
-    },
-    computedNameenumerator: {
-      get: function get() {
-        return this.formEdit.nameenumerator;
-      },
-      set: function set(val) {
-        this.formEdit.nameenumerator = val;
-      }
-    },
-    computedBuildingtype: {
-      get: function get() {
-        return this.formEdit.libbuildingtype_id;
-      },
-      set: function set(val) {
-        this.formEdit.libbuildingtype_id = val;
-      }
-    },
-    computedTenuralstatus: {
-      get: function get() {
-        return this.formEdit.libtenuralstatu_id;
-      },
-      set: function set(val) {
-        this.formEdit.libtenuralstatu_id = val;
-      }
-    },
-    computedYearconstruct: {
-      get: function get() {
-        return this.formEdit.year_construct;
-      },
-      set: function set(val) {
-        this.formEdit.year_construct = val;
-      }
-    },
-    computedEstimatedcost: {
-      get: function get() {
-        return this.formEdit.estimated_cost;
-      },
-      set: function set(val) {
-        this.formEdit.estimated_cost = val;
-      }
-    },
-    computedBedroms: {
-      get: function get() {
-        return this.formEdit.bedrooms;
-      },
-      set: function set(val) {
-        this.formEdit.bedrooms = val;
-      }
-    },
-    computedStorey: {
-      get: function get() {
-        return this.formEdit.storey;
-      },
-      set: function set(val) {
-        this.formEdit.storey = val;
-      }
-    },
-    computedAccesselectricity: {
-      get: function get() {
-        return this.formEdit.access_electricity;
-      },
-      set: function set(val) {
-        this.formEdit.access_electricity = val;
-      }
-    },
-    computedRoofmaterial: {
-      get: function get() {
-        return this.formEdit.libbuildingroofmaterial_id;
-      },
-      set: function set(val) {
-        this.formEdit.libbuildingroofmaterial_id = val;
-      }
-    },
-    computedMedicaltreatment: {
-      get: function get() {
-        return this.formEdit.medical_treatment;
-      },
-      set: function set(val) {
-        this.formEdit.medical_treatment = val;
-      }
-    },
-    computedAccesswater: {
-      get: function get() {
-        return this.formEdit.access_watersupply;
-      },
-      set: function set(val) {
-        this.formEdit.access_watersupply = val;
-      }
-    },
-    computedPotable: {
-      get: function get() {
-        return this.formEdit.potable;
-      },
-      set: function set(val) {
-        this.formEdit.potable = val;
-      }
-    },
-    computedWatertenuralstatus: {
-      get: function get() {
-        return this.formEdit.libhhwatertenuralstatu_id;
-      },
-      set: function set(val) {
-        this.formEdit.libhhwatertenuralstatu_id = val;
-      }
-    },
-    computedLevelwatersystem: {
-      get: function get() {
-        return this.formEdit.libhhlvlwatersystem_id;
-      },
-      set: function set(val) {
-        this.formEdit.libhhlvlwatersystem_id = val;
-      }
-    },
-    computedFloodsoccur: {
-      get: function get() {
-        return this.formEdit.floods_occur;
-      },
-      set: function set(val) {
-        this.formEdit.floods_occur = val;
-      }
-    },
-    computedYearflood: {
-      get: function get() {
-        return this.formEdit.year_flood;
-      },
-      set: function set(val) {
-        this.formEdit.year_flood = val;
-      }
-    },
-    computedExperienceevacuationduringcalamity: {
-      get: function get() {
-        return this.formEdit.experience_evacuationduringcalamity;
-      },
-      set: function set(val) {
-        this.formEdit.experience_evacuationduringcalamity = val;
-      }
-    },
-    computedYearevacuated: {
-      get: function get() {
-        return this.formEdit.year_evacuated;
-      },
-      set: function set(val) {
-        this.formEdit.year_evacuated = val;
-      }
-    },
-    computedEvacuationarea: {
-      get: function get() {
-        return this.formEdit.libhhevacuationarea_id;
-      },
-      set: function set(val) {
-        this.formEdit.libhhevacuationarea_id = val;
-      }
-    },
-    computedAccesstohealthmedicalfacilities: {
-      get: function get() {
-        return this.formEdit.has_accesstohealthmedicalfacilities;
-      },
-      set: function set(val) {
-        this.formEdit.has_accesstohealthmedicalfacilities = val;
-      }
-    },
-    computedAccesstotelecommunications: {
-      get: function get() {
-        return this.formEdit.has_accesstotelecommunications;
-      },
-      set: function set(val) {
-        this.formEdit.has_accesstotelecommunications = val;
-      }
-    },
-    computedAccesstodrillsandsimulations: {
-      get: function get() {
-        return this.formEdit.has_accesstodrillsandsimulations;
-      },
-      set: function set(val) {
-        this.formEdit.has_accesstodrillsandsimulations = val;
-      }
+      this.formEdit = h;
     }
   }
 });
@@ -55369,19 +55190,19 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.computedRespondent,
-              expression: "computedRespondent",
+              value: _vm.formEdit.respondent,
+              expression: "formEdit.respondent",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "respondent" },
-          domProps: { value: _vm.computedRespondent },
+          domProps: { value: _vm.formEdit.respondent },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.computedRespondent = $event.target.value
+              _vm.$set(_vm.formEdit, "respondent", $event.target.value)
             },
           },
         }),
@@ -55397,19 +55218,23 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.computedMunicipality,
-              expression: "computedMunicipality",
+              value: _vm.formEdit.libmunicipalitie_psgccode,
+              expression: "formEdit.libmunicipalitie_psgccode",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "libmunicipalitie_psgccode" },
-          domProps: { value: _vm.computedMunicipality },
+          domProps: { value: _vm.formEdit.libmunicipalitie_psgccode },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.computedMunicipality = $event.target.value
+              _vm.$set(
+                _vm.formEdit,
+                "libmunicipalitie_psgccode",
+                $event.target.value
+              )
             },
           },
         }),
@@ -55425,19 +55250,23 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.computedBarangay,
-              expression: "computedBarangay",
+              value: _vm.formEdit.libbarangay_psgccode,
+              expression: "formEdit.libbarangay_psgccode",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "libbarangay_psgccode" },
-          domProps: { value: _vm.computedBarangay },
+          domProps: { value: _vm.formEdit.libbarangay_psgccode },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.computedBarangay = $event.target.value
+              _vm.$set(
+                _vm.formEdit,
+                "libbarangay_psgccode",
+                $event.target.value
+              )
             },
           },
         }),
@@ -55451,19 +55280,19 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.computedPurok,
-              expression: "computedPurok",
+              value: _vm.formEdit.purok,
+              expression: "formEdit.purok",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "purok" },
-          domProps: { value: _vm.computedPurok },
+          domProps: { value: _vm.formEdit.purok },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.computedPurok = $event.target.value
+              _vm.$set(_vm.formEdit, "purok", $event.target.value)
             },
           },
         }),
@@ -55479,19 +55308,19 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.computedNameenumerator,
-              expression: "computedNameenumerator",
+              value: _vm.formEdit.nameenumerator,
+              expression: "formEdit.nameenumerator",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "nameenumerator" },
-          domProps: { value: _vm.computedNameenumerator },
+          domProps: { value: _vm.formEdit.nameenumerator },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.computedNameenumerator = $event.target.value
+              _vm.$set(_vm.formEdit, "nameenumerator", $event.target.value)
             },
           },
         }),
@@ -55507,19 +55336,19 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.computedBuildingtype,
-              expression: "computedBuildingtype",
+              value: _vm.formEdit.libbuildingtype_id,
+              expression: "formEdit.libbuildingtype_id",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "libbuildingtype_id" },
-          domProps: { value: _vm.computedBuildingtype },
+          domProps: { value: _vm.formEdit.libbuildingtype_id },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.computedBuildingtype = $event.target.value
+              _vm.$set(_vm.formEdit, "libbuildingtype_id", $event.target.value)
             },
           },
         }),
@@ -55535,19 +55364,19 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.computedTenuralstatus,
-              expression: "computedTenuralstatus",
+              value: _vm.formEdit.libtenuralstatu_id,
+              expression: "formEdit.libtenuralstatu_id",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "libtenuralstatu_id" },
-          domProps: { value: _vm.computedTenuralstatus },
+          domProps: { value: _vm.formEdit.libtenuralstatu_id },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.computedTenuralstatus = $event.target.value
+              _vm.$set(_vm.formEdit, "libtenuralstatu_id", $event.target.value)
             },
           },
         }),
@@ -55563,19 +55392,19 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.computedYearconstruct,
-              expression: "computedYearconstruct",
+              value: _vm.formEdit.year_construct,
+              expression: "formEdit.year_construct",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "year_construct" },
-          domProps: { value: _vm.computedYearconstruct },
+          domProps: { value: _vm.formEdit.year_construct },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.computedYearconstruct = $event.target.value
+              _vm.$set(_vm.formEdit, "year_construct", $event.target.value)
             },
           },
         }),
@@ -55591,19 +55420,19 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.computedEstimatedcost,
-              expression: "computedEstimatedcost",
+              value: _vm.formEdit.year_construct,
+              expression: "formEdit.year_construct",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "estimated_cost" },
-          domProps: { value: _vm.computedEstimatedcost },
+          domProps: { value: _vm.formEdit.year_construct },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.computedEstimatedcost = $event.target.value
+              _vm.$set(_vm.formEdit, "year_construct", $event.target.value)
             },
           },
         }),
@@ -55619,19 +55448,19 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.computedBedroms,
-              expression: "computedBedroms",
+              value: _vm.formEdit.bedrooms,
+              expression: "formEdit.bedrooms",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "bedrooms" },
-          domProps: { value: _vm.computedBedroms },
+          domProps: { value: _vm.formEdit.bedrooms },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.computedBedroms = $event.target.value
+              _vm.$set(_vm.formEdit, "bedrooms", $event.target.value)
             },
           },
         }),
@@ -55645,19 +55474,19 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.computedStorey,
-              expression: "computedStorey",
+              value: _vm.formEdit.storey,
+              expression: "formEdit.storey",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "storey" },
-          domProps: { value: _vm.computedStorey },
+          domProps: { value: _vm.formEdit.storey },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.computedStorey = $event.target.value
+              _vm.$set(_vm.formEdit, "storey", $event.target.value)
             },
           },
         }),
@@ -55673,19 +55502,47 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.computedAccesselectricity,
-              expression: "computedAccesselectricity",
+              value: _vm.formEdit.access_electricity,
+              expression: "formEdit.access_electricity",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "access_electricity" },
-          domProps: { value: _vm.computedAccesselectricity },
+          domProps: { value: _vm.formEdit.access_electricity },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.computedAccesselectricity = $event.target.value
+              _vm.$set(_vm.formEdit, "access_electricity", $event.target.value)
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group mb-1" }, [
+        _c("label", { attrs: { for: "access_internet" } }, [
+          _vm._v("Access to Internet"),
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.formEdit.access_internet,
+              expression: "formEdit.access_internet",
+            },
+          ],
+          staticClass: "form-control form-control-sm",
+          attrs: { type: "text", id: "access_internet" },
+          domProps: { value: _vm.formEdit.access_internet },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.formEdit, "access_internet", $event.target.value)
             },
           },
         }),
@@ -55701,19 +55558,437 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.computedRoofmaterial,
-              expression: "computedRoofmaterial",
+              value: _vm.formEdit.libbuildingroofmaterial_id,
+              expression: "formEdit.libbuildingroofmaterial_id",
             },
           ],
           staticClass: "form-control form-control-sm",
-          attrs: { type: "text", for: "libbuildingroofmaterial_id" },
-          domProps: { value: _vm.computedRoofmaterial },
+          attrs: { type: "text", id: "libbuildingroofmaterial_id" },
+          domProps: { value: _vm.formEdit.libbuildingroofmaterial_id },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.computedRoofmaterial = $event.target.value
+              _vm.$set(
+                _vm.formEdit,
+                "libbuildingroofmaterial_id",
+                $event.target.value
+              )
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group mb-1" }, [
+        _c("label", { attrs: { for: "medical_treatment" } }, [
+          _vm._v("Medical treatment"),
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.formEdit.medical_treatment,
+              expression: "formEdit.medical_treatment",
+            },
+          ],
+          staticClass: "form-control form-control-sm",
+          attrs: { type: "text", id: "medical_treatment" },
+          domProps: { value: _vm.formEdit.medical_treatment },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.formEdit, "medical_treatment", $event.target.value)
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group mb-1" }, [
+        _c("label", { attrs: { for: "access_watersupply" } }, [
+          _vm._v("Access to water supply"),
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.formEdit.access_watersupply,
+              expression: "formEdit.access_watersupply",
+            },
+          ],
+          staticClass: "form-control form-control-sm",
+          attrs: { type: "text", id: "access_watersupply" },
+          domProps: { value: _vm.formEdit.access_watersupply },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.formEdit, "access_watersupply", $event.target.value)
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group mb-1" }, [
+        _c("label", { attrs: { for: "potable" } }, [_vm._v("Potable")]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.formEdit.potable,
+              expression: "formEdit.potable",
+            },
+          ],
+          staticClass: "form-control form-control-sm",
+          attrs: { type: "text", id: "potable" },
+          domProps: { value: _vm.formEdit.potable },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.formEdit, "potable", $event.target.value)
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group mb-1" }, [
+        _c("label", { attrs: { for: "libhhwatertenuralstatu_id" } }, [
+          _vm._v("Water tenural status"),
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.formEdit.libhhwatertenuralstatu_id,
+              expression: "formEdit.libhhwatertenuralstatu_id",
+            },
+          ],
+          staticClass: "form-control form-control-sm",
+          attrs: { type: "text", id: "libhhwatertenuralstatu_id" },
+          domProps: { value: _vm.formEdit.libhhwatertenuralstatu_id },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(
+                _vm.formEdit,
+                "libhhwatertenuralstatu_id",
+                $event.target.value
+              )
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group mb-1" }, [
+        _c("label", { attrs: { for: "libhhlvlwatersystem_id" } }, [
+          _vm._v("Level of water system"),
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.formEdit.libhhlvlwatersystem_id,
+              expression: "formEdit.libhhlvlwatersystem_id",
+            },
+          ],
+          staticClass: "form-control form-control-sm",
+          attrs: { type: "text", id: "libhhlvlwatersystem_id" },
+          domProps: { value: _vm.formEdit.libhhlvlwatersystem_id },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(
+                _vm.formEdit,
+                "libhhlvlwatersystem_id",
+                $event.target.value
+              )
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group mb-1" }, [
+        _c("label", { attrs: { for: "floods_occur" } }, [
+          _vm._v("Floods occur in the area"),
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.formEdit.floods_occur,
+              expression: "formEdit.floods_occur",
+            },
+          ],
+          staticClass: "form-control form-control-sm",
+          attrs: { type: "text", id: "floods_occur" },
+          domProps: { value: _vm.formEdit.floods_occur },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.formEdit, "floods_occur", $event.target.value)
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group mb-1" }, [
+        _c("label", { attrs: { for: "year_flood" } }, [_vm._v("Year flooded")]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.formEdit.year_flood,
+              expression: "formEdit.year_flood",
+            },
+          ],
+          staticClass: "form-control form-control-sm",
+          attrs: { type: "text", id: "year_flood" },
+          domProps: { value: _vm.formEdit.year_flood },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.formEdit, "year_flood", $event.target.value)
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group mb-1" }, [
+        _c("label", { attrs: { for: "experience_evacuationduringcalamity" } }, [
+          _vm._v("Experience evacuated"),
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.formEdit.experience_evacuationduringcalamity,
+              expression: "formEdit.experience_evacuationduringcalamity",
+            },
+          ],
+          staticClass: "form-control form-control-sm",
+          attrs: { type: "text", id: "experience_evacuationduringcalamity" },
+          domProps: { value: _vm.formEdit.experience_evacuationduringcalamity },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(
+                _vm.formEdit,
+                "experience_evacuationduringcalamity",
+                $event.target.value
+              )
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group mb-1" }, [
+        _c("label", { attrs: { for: "year_evacuated" } }, [
+          _vm._v("Year evacuated"),
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.formEdit.year_evacuated,
+              expression: "formEdit.year_evacuated",
+            },
+          ],
+          staticClass: "form-control form-control-sm",
+          attrs: { type: "text", id: "year_evacuated" },
+          domProps: { value: _vm.formEdit.year_evacuated },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.formEdit, "year_evacuated", $event.target.value)
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group mb-1" }, [
+        _c("label", { attrs: { for: "libhhevacuationarea_id" } }, [
+          _vm._v("Nearest accessable evacuation center"),
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.formEdit.libhhevacuationarea_id,
+              expression: "formEdit.libhhevacuationarea_id",
+            },
+          ],
+          staticClass: "form-control form-control-sm",
+          attrs: { type: "text", id: "libhhevacuationarea_id" },
+          domProps: { value: _vm.formEdit.libhhevacuationarea_id },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(
+                _vm.formEdit,
+                "libhhevacuationarea_id",
+                $event.target.value
+              )
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group mb-1" }, [
+        _c("label", { attrs: { for: "has_accesstohealthmedicalfacilities" } }, [
+          _vm._v("Access to medical facilities"),
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.formEdit.has_accesstohealthmedicalfacilities,
+              expression: "formEdit.has_accesstohealthmedicalfacilities",
+            },
+          ],
+          staticClass: "form-control form-control-sm",
+          attrs: { type: "text", id: "has_accesstohealthmedicalfacilities" },
+          domProps: { value: _vm.formEdit.has_accesstohealthmedicalfacilities },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(
+                _vm.formEdit,
+                "has_accesstohealthmedicalfacilities",
+                $event.target.value
+              )
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group mb-1" }, [
+        _c("label", { attrs: { for: "has_accesstotelecommunications" } }, [
+          _vm._v("Access to telecommunications"),
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.formEdit.has_accesstotelecommunications,
+              expression: "formEdit.has_accesstotelecommunications",
+            },
+          ],
+          staticClass: "form-control form-control-sm",
+          attrs: { type: "text", id: "has_accesstotelecommunications" },
+          domProps: { value: _vm.formEdit.has_accesstotelecommunications },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(
+                _vm.formEdit,
+                "has_accesstotelecommunications",
+                $event.target.value
+              )
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group mb-1" }, [
+        _c("label", { attrs: { for: "has_accesstodrillsandsimulations" } }, [
+          _vm._v("Access to drill and simulations"),
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.formEdit.has_accesstodrillsandsimulations,
+              expression: "formEdit.has_accesstodrillsandsimulations",
+            },
+          ],
+          staticClass: "form-control form-control-sm",
+          attrs: { type: "text", id: "has_accesstodrillsandsimulations" },
+          domProps: { value: _vm.formEdit.has_accesstodrillsandsimulations },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(
+                _vm.formEdit,
+                "has_accesstodrillsandsimulations",
+                $event.target.value
+              )
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group mb-1" }, [
+        _c("label", { attrs: { for: "image" } }, [_vm._v("Image")]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.formEdit.image,
+              expression: "formEdit.image",
+            },
+          ],
+          staticClass: "form-control form-control-sm",
+          attrs: { type: "text", id: "image" },
+          domProps: { value: _vm.formEdit.image },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.formEdit, "image", $event.target.value)
             },
           },
         }),

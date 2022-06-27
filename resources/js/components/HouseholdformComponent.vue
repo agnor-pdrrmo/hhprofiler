@@ -4,55 +4,115 @@
         <div class="card-body">
             <div class="form-group mb-1">
                 <label for="respondent">Respondent</label> 
-                <input type="text" class="form-control form-control-sm" id="respondent" v-model="computedRespondent">
+                <input type="text" class="form-control form-control-sm" id="respondent" v-model="formEdit.respondent">
             </div>  
             <div class="form-group mb-1">
                 <label for="libmunicipalitie_psgccode">Municipalitys</label>
-                <input type="text" class="form-control form-control-sm" id="libmunicipalitie_psgccode" v-model="computedMunicipality">
+                <input type="text" class="form-control form-control-sm" id="libmunicipalitie_psgccode" v-model="formEdit.libmunicipalitie_psgccode">
             </div>
             <div class="form-group mb-1">
                 <label for="libbarangay_psgccode">Barangay</label>
-                <input type="text" class="form-control form-control-sm" id="libbarangay_psgccode"  v-model="computedBarangay">
+                <input type="text" class="form-control form-control-sm" id="libbarangay_psgccode"  v-model="formEdit.libbarangay_psgccode">
             </div>
             <div class="form-group mb-1">
                 <label for="purok">Purok</label>
-                <input type="text" class="form-control form-control-sm"  id="purok" v-model="computedPurok">
+                <input type="text" class="form-control form-control-sm"  id="purok" v-model="formEdit.purok">
             </div>
              <div class="form-group mb-1">
                 <label for="nameenumerator">name of Enumerator</label>
-                <input type="text" class="form-control form-control-sm" id="nameenumerator"  v-model="computedNameenumerator">
+                <input type="text" class="form-control form-control-sm" id="nameenumerator"  v-model="formEdit.nameenumerator">
             </div>
             <div class="form-group mb-1">
                 <label for="libbuildingtype_id">Type of building</label>
-                <input type="text" class="form-control form-control-sm" id="libbuildingtype_id" v-model="computedBuildingtype">
+                <input type="text" class="form-control form-control-sm" id="libbuildingtype_id" v-model="formEdit.libbuildingtype_id">
             </div>
             <div class="form-group mb-1">
                 <label for="libtenuralstatu_id">Tenural status</label>
-                <input type="text" class="form-control form-control-sm"  id="libtenuralstatu_id" v-model="computedTenuralstatus">
+                <input type="text" class="form-control form-control-sm"  id="libtenuralstatu_id" v-model="formEdit.libtenuralstatu_id">
             </div>
             <div class="form-group mb-1">
                 <label for="year_construct">Year construct</label>
-                <input type="text" class="form-control form-control-sm" id="year_construct" v-model="computedYearconstruct">
+                <input type="text" class="form-control form-control-sm" id="year_construct" v-model="formEdit.year_construct">
             </div>
             <div class="form-group mb-1">
                 <label for="estimated_cost">Estimated cost</label>
-                <input type="text" class="form-control form-control-sm" id="estimated_cost" v-model="computedEstimatedcost">
+                <input type="text" class="form-control form-control-sm" id="estimated_cost" v-model="formEdit.year_construct">
             </div>
             <div class="form-group mb-1">
                 <label for="bedrooms">Number of bedrooms</label>
-                <input type="text" class="form-control form-control-sm" id="bedrooms" v-model="computedBedroms">
+                <input type="text" class="form-control form-control-sm" id="bedrooms" v-model="formEdit.bedrooms">
             </div>
             <div class="form-group mb-1">
                 <label for="storey">Storey</label>
-                <input type="text" class="form-control form-control-sm" id="storey" v-model="computedStorey">
+                <input type="text" class="form-control form-control-sm" id="storey" v-model="formEdit.storey">
             </div>
             <div class="form-group mb-1">
                 <label for="access_electricity">Access to electricity</label>
-                <input type="text" class="form-control form-control-sm" id="access_electricity" v-model="computedAccesselectricity">
+                <input type="text" class="form-control form-control-sm" id="access_electricity" v-model="formEdit.access_electricity">
+            </div>
+            <div class="form-group mb-1">
+                <label for="access_internet">Access to Internet</label>
+                <input type="text" class="form-control form-control-sm" id="access_internet" v-model="formEdit.access_internet">
             </div>
             <div class="form-group mb-1">
                 <label for="libbuildingroofmaterial_id">Roof material</label>
-                <input type="text" class="form-control form-control-sm" for="libbuildingroofmaterial_id" v-model="computedRoofmaterial">
+                <input type="text" class="form-control form-control-sm" id="libbuildingroofmaterial_id" v-model="formEdit.libbuildingroofmaterial_id">
+            </div>
+            <div class="form-group mb-1">
+                <label for="medical_treatment">Medical treatment</label>
+                <input type="text" class="form-control form-control-sm" id="medical_treatment" v-model="formEdit.medical_treatment">
+            </div>
+            <div class="form-group mb-1">
+                <label for="access_watersupply">Access to water supply</label>
+                <input type="text" class="form-control form-control-sm" id="access_watersupply" v-model="formEdit.access_watersupply">
+            </div>
+            <div class="form-group mb-1">
+                <label for="potable">Potable</label>
+                <input type="text" class="form-control form-control-sm" id="potable" v-model="formEdit.potable">
+            </div>
+            <div class="form-group mb-1">
+                <label for="libhhwatertenuralstatu_id">Water tenural status</label>
+                <input type="text" class="form-control form-control-sm" id="libhhwatertenuralstatu_id" v-model="formEdit.libhhwatertenuralstatu_id">
+            </div>
+            <div class="form-group mb-1">
+                <label for="libhhlvlwatersystem_id">Level of water system</label>
+                <input type="text" class="form-control form-control-sm" id="libhhlvlwatersystem_id" v-model="formEdit.libhhlvlwatersystem_id">
+            </div>
+            <div class="form-group mb-1">
+                <label for="floods_occur">Floods occur in the area</label>
+                <input type="text" class="form-control form-control-sm" id="floods_occur" v-model="formEdit.floods_occur">
+            </div>
+            <div class="form-group mb-1">
+                <label for="year_flood">Year flooded</label>
+                <input type="text" class="form-control form-control-sm" id="year_flood" v-model="formEdit.year_flood">
+            </div>
+            <div class="form-group mb-1">
+                <label for="experience_evacuationduringcalamity">Experience evacuated</label>
+                <input type="text" class="form-control form-control-sm" id="experience_evacuationduringcalamity" v-model="formEdit.experience_evacuationduringcalamity">
+            </div>
+            <div class="form-group mb-1">
+                <label for="year_evacuated">Year evacuated</label>
+                <input type="text" class="form-control form-control-sm" id="year_evacuated" v-model="formEdit.year_evacuated">
+            </div>
+            <div class="form-group mb-1">
+                <label for="libhhevacuationarea_id">Nearest accessable evacuation center</label>
+                <input type="text" class="form-control form-control-sm" id="libhhevacuationarea_id" v-model="formEdit.libhhevacuationarea_id">
+            </div>
+            <div class="form-group mb-1">
+                <label for="has_accesstohealthmedicalfacilities">Access to medical facilities</label>
+                <input type="text" class="form-control form-control-sm" id="has_accesstohealthmedicalfacilities" v-model="formEdit.has_accesstohealthmedicalfacilities">
+            </div>
+            <div class="form-group mb-1">
+                <label for="has_accesstotelecommunications">Access to telecommunications</label>
+                <input type="text" class="form-control form-control-sm" id="has_accesstotelecommunications" v-model="formEdit.has_accesstotelecommunications">
+            </div>
+            <div class="form-group mb-1">
+                <label for="has_accesstodrillsandsimulations">Access to drill and simulations</label>
+                <input type="text" class="form-control form-control-sm" id="has_accesstodrillsandsimulations" v-model="formEdit.has_accesstodrillsandsimulations">
+            </div>
+            <div class="form-group mb-1">
+                <label for="image">Image</label>
+                <input type="text" class="form-control form-control-sm" id="image" v-model="formEdit.image">
             </div>
         </div>   
         <div class="card-footer">
@@ -71,257 +131,17 @@
                 formEdit: {}
             }
         },
+        watch: {
+            householdInfo: function(){
+                this.updateHousehold;
+            }
+        },
         methods: {
             updateHousehold: function(hh){   
                 //Distructuring hh[0]
                 var [h] = hh;       
                 //assign h object to formedit data   
-                this.formEdit = h;
-                // this.formEdit.respondent = h.respondent;
-                // this.formEdit.libmunicipalitie_psgccode = h.libmunicipalitie_psgccode;
-                // this.formEdit.libbarangay_psgccode = h.libbarangay_psgccode;
-                // this.formEdit.purok = h.purok;
-                // this.formEdit.nameenumerator = h.nameenumerator;
-                // this.formEdit.libbuildingtype_id = h.libbuildingtype_id;
-                // this.formEdit.libtenuralstatu_id = h.libtenuralstatu_id;
-                // this.formEdit.year_construct = h.year_construct;
-                // this.formEdit.estimated_cost = h.estimated_cost;
-                // this.formEdit.bedrooms = h.bedrooms;
-                // this.formEdit.storey = h.storey;
-                // this.formEdit.access_electricity = h.access_electricity;
-                // this.formEdit.libbuildingroofmaterial_id = h.libbuildingroofmaterial_id;
-                // this.formEdit.medical_treatment = h.medical_treatment;
-                // this.formEdit.access_watersupply = h.access_watersupply;
-                // this.formEdit.potable = h.potable;
-                // this.formEdit.libhhwatertenuralstatu_id = h.libhhwatertenuralstatu_id;
-                // this.formEdit.libhhlvlwatersystem_id = h.libhhlvlwatersystem_id;
-                // this.formEdit.floods_occur = h.floods_occur;
-                // this.formEdit.year_flood = h.year_flood;
-                // this.formEdit.experience_evacuationduringcalamity = h.experience_evacuationduringcalamity;
-                // this.formEdit.year_evacuated = h.year_evacuated;
-                // this.formEdit.libhhevacuationarea_id = h.libhhevacuationarea_id;
-                // this.formEdit.has_accesstohealthmedicalfacilities = this.,
-                // has_accesstotelecommunications: "",
-                // has_accesstodrillsandsimulations: "",
-                // image: ""
-            }
-        },
-        computed: {
-            fromHouseholdInfoDefault: {
-                get() {
-                    return this.householdInfo;
-                },
-                set(val) {
-                    this.householdInfo = val;
-                },
-            },
-            computedRespondent: {
-                get() {             
-                    return this.formEdit.respondent;
-                },
-                set(val) {
-                    this.formEdit.respondent = val;
-                },
-            },
-            computedMunicipality: {
-                get(){
-                    return this.formEdit.libmunicipalitie_psgccode;
-                },
-                set(val){
-                    this.formEdit.libmunicipalitie_psgccode = val;
-                }
-            },
-            computedBarangay: {
-                get(){
-                    return this.formEdit.libbarangay_psgccode;
-                },
-                set(val){
-                    this.formEdit.libbarangay_psgccode = val;
-                }
-            },
-            computedPurok: {
-                get(){
-                    return this.formEdit.purok;
-                },
-                set(val){
-                    this.formEdit.purok = val;
-                }
-            },
-            computedNameenumerator: {
-                get(){
-                    return this.formEdit.nameenumerator;
-                },
-                set(val){
-                    this.formEdit.nameenumerator = val;
-                }
-            },
-            computedBuildingtype: {
-                get(){
-                    return this.formEdit.libbuildingtype_id;
-                },
-                set(val){
-                    this.formEdit.libbuildingtype_id = val;
-                }
-            },
-            computedTenuralstatus: {
-                get(){
-                    return this.formEdit.libtenuralstatu_id;
-                },
-                set(val){
-                    this.formEdit.libtenuralstatu_id = val;
-                }
-            },
-            computedYearconstruct: {
-                get(){
-                    return this.formEdit.year_construct;
-                },
-                set(val){
-                    this.formEdit.year_construct = val;
-                }
-            },
-            computedEstimatedcost: {
-                get(){
-                    return this.formEdit.estimated_cost;
-                },
-                set(val){
-                    this.formEdit.estimated_cost = val;
-                }
-            },
-            computedBedroms: {
-                get(){
-                    return this.formEdit.bedrooms;
-                },
-                set(val){
-                    this.formEdit.bedrooms = val;
-                }
-            },
-            computedStorey: {
-                get(){
-                    return this.formEdit.storey;
-                },
-                set(val){
-                    this.formEdit.storey = val;
-                }
-            },
-            computedAccesselectricity: {
-                get(){
-                    return this.formEdit.access_electricity;
-                },
-                set(val){
-                    this.formEdit.access_electricity = val;
-                }
-            },
-            computedRoofmaterial: {
-                get(){
-                    return this.formEdit.libbuildingroofmaterial_id;
-                },
-                set(val){
-                    this.formEdit.libbuildingroofmaterial_id = val;
-                }
-            },
-            computedMedicaltreatment: {
-                get(){
-                    return this.formEdit.medical_treatment;
-                },
-                set(val){
-                    this.formEdit.medical_treatment = val;
-                }
-            },
-            computedAccesswater: {
-                get(){
-                    return this.formEdit.access_watersupply;
-                },
-                set(val){
-                    this.formEdit.access_watersupply = val;
-                }
-            },
-            computedPotable: {
-                get(){
-                    return this.formEdit.potable;
-                },
-                set(val){
-                    this.formEdit.potable = val;
-                }
-            },
-            computedWatertenuralstatus: {
-                get(){
-                    return this.formEdit.libhhwatertenuralstatu_id;
-                },
-                set(val){
-                    this.formEdit.libhhwatertenuralstatu_id = val;
-                }
-            },
-            computedLevelwatersystem: {
-                get(){
-                    return this.formEdit.libhhlvlwatersystem_id;
-                },
-                set(val){
-                    this.formEdit.libhhlvlwatersystem_id = val;
-                }
-            },
-            computedFloodsoccur: {
-                get(){
-                    return this.formEdit.floods_occur;
-                },
-                set(val){
-                    this.formEdit.floods_occur = val;
-                }
-            },
-            computedYearflood: {
-                get(){
-                    return this.formEdit.year_flood;
-                },
-                set(val){
-                    this.formEdit.year_flood = val;
-                }
-            },
-            computedExperienceevacuationduringcalamity: {
-                get(){
-                    return this.formEdit.experience_evacuationduringcalamity;
-                },
-                set(val){
-                    this.formEdit.experience_evacuationduringcalamity = val;
-                }
-            },
-            computedYearevacuated: {
-                get(){
-                    return this.formEdit.year_evacuated;
-                },
-                set(val){
-                    this.formEdit.year_evacuated = val;
-                }
-            },
-            computedEvacuationarea: {
-                get(){
-                    return this.formEdit.libhhevacuationarea_id;
-                },
-                set(val){
-                    this.formEdit.libhhevacuationarea_id = val;
-                }
-            },
-            computedAccesstohealthmedicalfacilities: {
-                get(){
-                    return this.formEdit.has_accesstohealthmedicalfacilities;
-                },
-                set(val){
-                    this.formEdit.has_accesstohealthmedicalfacilities = val;
-                }
-            },
-            computedAccesstotelecommunications: {
-                get(){
-                    return this.formEdit.has_accesstotelecommunications;
-                },
-                set(val){
-                    this.formEdit.has_accesstotelecommunications = val;
-                }
-            },
-            computedAccesstodrillsandsimulations: {
-                get(){
-                    return this.formEdit.has_accesstodrillsandsimulations;
-                },
-                set(val){
-                    this.formEdit.has_accesstodrillsandsimulations = val;
-                }
+                this.formEdit = h;              
             }
         }
     }
