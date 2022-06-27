@@ -10,7 +10,7 @@
                 </div>         
             </div>
         </div>
-        <aside class="control-sidebar control-sidebar-dark">
+        <aside class="control-sidebar overflow-auto control-sidebar-dark" style="width: 18% !important;">
             <!-- Control sidebar content goes here -->
             <div class="p-3">
             <h5>household Information</h5>
