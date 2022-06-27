@@ -2235,57 +2235,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['householddata'],
+  props: ['householdData'],
   data: function data() {
-    var _this$householdInfo;
-
     return {
-      householdInfo: this.householddata,
+      householdInfo: this.householdData[0],
       formEdit: {
-        respondents: (_this$householdInfo = this.householdInfo) === null || _this$householdInfo === void 0 ? void 0 : _this$householdInfo.respondent,
+        respondent: "",
         libmunicipalitie_psgccode: null,
         libbarangay_psgccode: null,
         purok: null,
@@ -2298,6 +2254,22 @@ __webpack_require__.r(__webpack_exports__);
         access_electricity: null
       }
     };
+  },
+  methods: {
+    updateHousehold: function updateHousehold(hh) {
+      return this.fromHouseholdInfoDefault = hh;
+    }
+  },
+  computed: {
+    fromHouseholdInfoDefault: {
+      get: function get() {
+        //your validation
+        return this.householdInfo;
+      },
+      set: function set(val) {
+        this.householdInfo = val;
+      }
+    }
   }
 });
 
@@ -2372,7 +2344,9 @@ __webpack_require__.r(__webpack_exports__);
         iconAnchor: [16, 16]
       }),
       households: {},
-      household: {}
+      household: {},
+      test: 'initialValue',
+      bus: new Vue()
     };
   },
   methods: {
@@ -2396,12 +2370,17 @@ __webpack_require__.r(__webpack_exports__);
       this.household = this.households.filter(function (cn) {
         return cn.controlnumber == controlnumber;
       });
+      this.$refs.childThing.updateHousehold(this.household);
       jquery__WEBPACK_IMPORTED_MODULE_1___default()("#my-toggle-button").ControlSidebar('show');
     }
   },
   computed: {
-    householdinfo: function householdinfo() {
+    householdInfo: function householdInfo() {
       return this.household;
+      console.log(this.household);
+    },
+    updateTest: function updateTest() {
+      return this.test = "Updated";
     }
   },
   created: function created() {
@@ -55105,354 +55084,43 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.formEdit.respondent,
-              expression: "formEdit.respondent",
+              value: _vm.name,
+              expression: "name",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "respondent" },
-          domProps: { value: _vm.formEdit.respondent },
+          domProps: { value: _vm.name },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.$set(_vm.formEdit, "respondent", $event.target.value)
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "libmunicipalitie_psgccode" } }, [
-          _vm._v("Municipality"),
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.formEdit.libmunicipalitie_psgccode,
-              expression: "formEdit.libmunicipalitie_psgccode",
-            },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "libmunicipalitie_psgccode" },
-          domProps: { value: _vm.formEdit.libmunicipalitie_psgccode },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(
-                _vm.formEdit,
-                "libmunicipalitie_psgccode",
-                $event.target.value
-              )
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "libbarangay_psgccode" } }, [
-          _vm._v("Barangay"),
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.formEdit.libbarangay_psgccode,
-              expression: "formEdit.libbarangay_psgccode",
-            },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "libbarangay_psgccode" },
-          domProps: { value: _vm.formEdit.libbarangay_psgccode },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(
-                _vm.formEdit,
-                "libbarangay_psgccode",
-                $event.target.value
-              )
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "purok" } }, [_vm._v("Purok")]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.formEdit.purok,
-              expression: "formEdit.purok",
-            },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "purok" },
-          domProps: { value: _vm.formEdit.purok },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.formEdit, "purok", $event.target.value)
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "nameenumerator" } }, [
-          _vm._v("name of Enumerator"),
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.formEdit.nameenumerator,
-              expression: "formEdit.nameenumerator",
-            },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "nameenumerator" },
-          domProps: { value: _vm.formEdit.nameenumerator },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.formEdit, "nameenumerator", $event.target.value)
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "libbuildingtype_id" } }, [
-          _vm._v("Type of building"),
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.formEdit.libbuildingtype_id,
-              expression: "formEdit.libbuildingtype_id",
-            },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "libbuildingtype_id" },
-          domProps: { value: _vm.formEdit.libbuildingtype_id },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.formEdit, "libbuildingtype_id", $event.target.value)
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "libtenuralstatu_id" } }, [
-          _vm._v("Tenural status"),
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.formEdit.libtenuralstatu_id,
-              expression: "formEdit.libtenuralstatu_id",
-            },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "libtenuralstatu_id" },
-          domProps: { value: _vm.formEdit.libtenuralstatu_id },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.formEdit, "libtenuralstatu_id", $event.target.value)
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "year_construct" } }, [
-          _vm._v("Year construct"),
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.formEdit.year_construct,
-              expression: "formEdit.year_construct",
-            },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "year_construct" },
-          domProps: { value: _vm.formEdit.year_construct },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.formEdit, "year_construct", $event.target.value)
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "estimated_cost" } }, [
-          _vm._v("Estimated cost"),
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.formEdit.year_construct,
-              expression: "formEdit.year_construct",
-            },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "estimated_cost" },
-          domProps: { value: _vm.formEdit.year_construct },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.formEdit, "year_construct", $event.target.value)
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "bedrooms" } }, [
-          _vm._v("Number of bedrooms"),
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.formEdit.bedrooms,
-              expression: "formEdit.bedrooms",
-            },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "bedrooms" },
-          domProps: { value: _vm.formEdit.bedrooms },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.formEdit, "bedrooms", $event.target.value)
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "storey" } }, [_vm._v("Storey")]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.formEdit.storey,
-              expression: "formEdit.storey",
-            },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "storey" },
-          domProps: { value: _vm.formEdit.storey },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.formEdit, "storey", $event.target.value)
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "access_electricity" } }, [
-          _vm._v("Access to electricity"),
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.formEdit.access_electricity,
-              expression: "formEdit.access_electricity",
-            },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "access_electricity" },
-          domProps: { value: _vm.formEdit.access_electricity },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.formEdit, "access_electricity", $event.target.value)
+              _vm.name = $event.target.value
             },
           },
         }),
       ]),
     ]),
-    _vm._v(" "),
-    _vm._m(0),
-  ])
-}
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-footer" }, [
+    _vm._v("   \n     " + _vm._s(_vm.householdInfo) + "\n    "),
+    _c("div", { staticClass: "card-footer" }, [
       _c(
         "button",
-        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+        {
+          staticClass: "btn btn-primary",
+          attrs: { type: "submit" },
+          on: {
+            click: function ($event) {
+              return _vm.updateHousehold(_vm.householdData)
+            },
+          },
+        },
         [_vm._v("Save")]
       ),
-    ])
-  },
-]
+    ]),
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -55531,7 +55199,10 @@ var render = function () {
         [
           _c("h5", [_vm._v("household Information")]),
           _vm._v(" "),
-          _c("form-household", { attrs: { householddata: _vm.householdinfo } }),
+          _c("form-household", {
+            ref: "childThing",
+            attrs: { householdData: _vm.householdInfo },
+          }),
         ],
         1
       ),

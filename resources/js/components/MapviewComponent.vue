@@ -14,7 +14,7 @@
             <!-- Control sidebar content goes here -->
             <div class="p-3">
             <h5>household Information</h5>
-            <form-household v-bind:householddata="householdinfo"></form-household>
+            <form-household  v-bind:householdData="householdInfo" ref="childThing"></form-household>
             </div>
         </aside>
     </section>
@@ -28,7 +28,7 @@ import $ from 'jquery'
 import HousholdForm from './HouseholdformComponent.vue';
 
 export default {
-   components: {
+  components: {
     'v-map': LMap,
     'v-tilelayer' :LTileLayer,
     'v-marker': LMarker,
@@ -52,6 +52,8 @@ export default {
         }),
         households: {},
         household: {},
+        test: 'initialValue',
+        bus: new Vue(),
     }
     
   },
@@ -71,12 +73,17 @@ export default {
       },
       opensidebar: function (controlnumber){
         this.household = this.households.filter(cn => cn.controlnumber == controlnumber);
+        this.$refs.childThing.updateHousehold(this.household);
         $("#my-toggle-button").ControlSidebar('show');
       }
   },
   computed:{
-    householdinfo: function() {
+    householdInfo: function() {
       return this.household;
+      console.log(this.household);
+    },
+    updateTest: function(){
+      return this.test = "Updated";
     }
   },
   created() {
