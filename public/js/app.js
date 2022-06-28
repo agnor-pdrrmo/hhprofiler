@@ -2424,6 +2424,52 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _HouseholdformComponent_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./HouseholdformComponent.vue */ "./resources/js/components/HouseholdformComponent.vue");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2475,8 +2521,9 @@ __webpack_require__.r(__webpack_exports__);
       }),
       households: {},
       household: {},
-      test: 'initialValue',
-      bus: new Vue()
+      style: {
+        width: '100%'
+      }
     };
   },
   methods: {
@@ -2500,7 +2547,22 @@ __webpack_require__.r(__webpack_exports__);
       this.household = this.households.filter(function (cn) {
         return cn.controlnumber == controlnumber;
       });
-      this.$refs.childThing.updateHousehold(this.household);
+      this.$refs.childThing.updateHousehold(this.household); // Update center of the map
+
+      var _this$household$map = this.household.map(function (h) {
+        return [h.latitude, h.longitude];
+      });
+
+      var _this$household$map2 = _slicedToArray(_this$household$map, 1);
+
+      this.center = _this$household$map2[0];
+      // Call invalidateSize to update map size
+      this.$refs.map.mapObject.invalidateSize(); //Set width of the map 
+
+      this.style = {
+        width: '65%'
+      }; //Call toggle to show sidebar
+
       jquery__WEBPACK_IMPORTED_MODULE_1___default()("#my-toggle-button").ControlSidebar('show');
     }
   },
@@ -2509,8 +2571,21 @@ __webpack_require__.r(__webpack_exports__);
       return this.household;
       console.log(this.household);
     },
-    updateTest: function updateTest() {
-      return this.test = "Updated";
+    centerMarker: {
+      get: function get() {
+        return this.center;
+      },
+      set: function set(val) {
+        this.center = val;
+      }
+    },
+    setStyle: {
+      get: function get() {
+        return this.style;
+      },
+      set: function set(val) {
+        this.style = val;
+      }
     }
   },
   created: function created() {
@@ -56123,12 +56198,9 @@ var render = function () {
               "v-map",
               {
                 ref: "map",
-                staticStyle: {
-                  height: "80vh",
-                  width: "100%",
-                  position: "relative",
-                },
-                attrs: { zoom: _vm.zoom, center: _vm.center },
+                staticStyle: { height: "80vh", position: "relative" },
+                style: _vm.setStyle,
+                attrs: { zoom: _vm.zoom, center: _vm.centerMarker },
               },
               [
                 _c("v-tilelayer-googlemutant", {
@@ -56164,28 +56236,171 @@ var render = function () {
     _c(
       "aside",
       {
-        staticClass: "control-sidebar overflow-auto control-sidebar-dark",
-        staticStyle: { width: "18% !important" },
+        staticClass: "control-sidebar overflow-auto control-sidebar-light",
+        staticStyle: { width: "35% !important" },
       },
       [
-        _c(
-          "div",
-          { staticClass: "p-3" },
-          [
-            _c("h5", [_vm._v("household Information")]),
-            _vm._v(" "),
-            _c("form-household", {
-              ref: "childThing",
-              attrs: { householdData: _vm.householdInfo },
-            }),
-          ],
-          1
-        ),
+        _c("div", { staticClass: "p-3" }, [
+          _c(
+            "div",
+            { staticClass: "card card-primary card-outline card-outline-tabs" },
+            [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "tab-content",
+                    attrs: { id: "custom-tabs-four-tabContent" },
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "tab-pane fade show active",
+                        attrs: {
+                          id: "custom-tabs-four-household-information",
+                          role: "tabpanel",
+                          "aria-labelledby":
+                            "custom-tabs-four-household-information-tab",
+                        },
+                      },
+                      [
+                        _c("form-household", {
+                          ref: "childThing",
+                          attrs: { householdData: _vm.householdInfo },
+                        }),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("div", {
+                      staticClass: "tab-pane fade",
+                      attrs: {
+                        id: "custom-tabs-four-demography",
+                        role: "tabpanel",
+                        "aria-labelledby": "custom-tabs-four-demography-tab",
+                      },
+                    }),
+                    _vm._v(" "),
+                    _c("div", {
+                      staticClass: "tab-pane fade",
+                      attrs: {
+                        id: "custom-tabs-four-availed-programs",
+                        role: "tabpanel",
+                        "aria-labelledby":
+                          "custom-tabs-four-availed-programs-tab",
+                      },
+                    }),
+                    _vm._v(" "),
+                    _c("div", {
+                      staticClass: "tab-pane fade",
+                      attrs: {
+                        id: "custom-tabs-four-livelihood",
+                        role: "tabpanel",
+                        "aria-labelledby": "custom-tabs-four-livelihood-tab",
+                      },
+                    }),
+                  ]
+                ),
+              ]),
+            ]
+          ),
+        ]),
       ]
     ),
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header p-0 border-bottom-0" }, [
+      _c(
+        "ul",
+        {
+          staticClass: "nav nav-tabs",
+          attrs: { id: "custom-tabs-four-tab", role: "tablist" },
+        },
+        [
+          _c("li", { staticClass: "nav-item" }, [
+            _c(
+              "a",
+              {
+                staticClass: "nav-link active",
+                attrs: {
+                  id: "custom-tabs-four-household-information-tab",
+                  "data-toggle": "pill",
+                  href: "#custom-tabs-four-household-information",
+                  role: "tab",
+                  "aria-controls": "custom-tabs-four-household-information",
+                  "aria-selected": "true",
+                },
+              },
+              [_vm._v("Household information")]
+            ),
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "nav-item" }, [
+            _c(
+              "a",
+              {
+                staticClass: "nav-link",
+                attrs: {
+                  id: "custom-tabs-four-demography-tab",
+                  "data-toggle": "pill",
+                  href: "#custom-tabs-four-demography",
+                  role: "tab",
+                  "aria-controls": "custom-tabs-four-demography",
+                  "aria-selected": "false",
+                },
+              },
+              [_vm._v("Demography")]
+            ),
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "nav-item" }, [
+            _c(
+              "a",
+              {
+                staticClass: "nav-link",
+                attrs: {
+                  id: "custom-tabs-four-availed-programs-tab",
+                  "data-toggle": "pill",
+                  href: "#custom-tabs-four-availed-programs",
+                  role: "tab",
+                  "aria-controls": "custom-tabs-four-availed-programs",
+                  "aria-selected": "false",
+                },
+              },
+              [_vm._v("Availed programs")]
+            ),
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "nav-item" }, [
+            _c(
+              "a",
+              {
+                staticClass: "nav-link",
+                attrs: {
+                  id: "custom-tabs-four-livelihood-tab",
+                  "data-toggle": "pill",
+                  href: "#custom-tabs-four-livelihood",
+                  role: "tab",
+                  "aria-controls": "custom-tabs-four-livelihood",
+                  "aria-selected": "false",
+                },
+              },
+              [_vm._v("Livelihood")]
+            ),
+          ]),
+        ]
+      ),
+    ])
+  },
+]
 render._withStripped = true
 
 

@@ -3,18 +3,52 @@
         <div class="container-fluid" >
             <div class="row">
                 <div class="col-12" >
-                    <v-map ref="map" :zoom="zoom" :center="center"  style="height: 80vh; width: 100%; position: relative;  solid black; ">       
+                    <v-map ref="map" :zoom="zoom" :center="centerMarker" :style="setStyle" style="height: 80vh; position: relative;  solid black; ">       
                       <v-tilelayer-googlemutant :apikey="apikey" :options="options"></v-tilelayer-googlemutant>
                       <v-marker v-for="(household,i) in households" :key="i" :lat-lng="coordinates(household.latitude, household.longitude)" :icon="icon" @click="opensidebar(household.controlnumber)"></v-marker>       
                     </v-map>     
                 </div>         
             </div>
         </div>
-        <aside class="control-sidebar overflow-auto control-sidebar-dark" style="width: 18% !important;">
-            <!-- Control sidebar content goes here -->
+        <aside class="control-sidebar overflow-auto control-sidebar-light" style="width: 35% !important;">
+            <!-- Control sidebar content goes here -->        
             <div class="p-3">
-            <h5>household Information</h5>
-            <form-household  v-bind:householdData="householdInfo" ref="childThing"></form-household>
+               <div class="card card-primary card-outline card-outline-tabs">
+                    <div class="card-header p-0 border-bottom-0">
+                      <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
+                        <li class="nav-item">
+                          <a class="nav-link active" id="custom-tabs-four-household-information-tab" data-toggle="pill" href="#custom-tabs-four-household-information" role="tab" aria-controls="custom-tabs-four-household-information" aria-selected="true">Household information</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="custom-tabs-four-demography-tab" data-toggle="pill" href="#custom-tabs-four-demography" role="tab" aria-controls="custom-tabs-four-demography" aria-selected="false">Demography</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="custom-tabs-four-availed-programs-tab" data-toggle="pill" href="#custom-tabs-four-availed-programs" role="tab" aria-controls="custom-tabs-four-availed-programs" aria-selected="false">Availed programs</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="custom-tabs-four-livelihood-tab" data-toggle="pill" href="#custom-tabs-four-livelihood" role="tab" aria-controls="custom-tabs-four-livelihood" aria-selected="false">Livelihood</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="card-body">
+                      <div class="tab-content" id="custom-tabs-four-tabContent">
+                        <div class="tab-pane fade show active" id="custom-tabs-four-household-information" role="tabpanel" aria-labelledby="custom-tabs-four-household-information-tab">
+                          <!-- Form household component -->
+                          <form-household  v-bind:householdData="householdInfo" ref="childThing"></form-household>
+                        </div>
+                        <div class="tab-pane fade" id="custom-tabs-four-demography" role="tabpanel" aria-labelledby="custom-tabs-four-demography-tab">
+                          <!-- Foldable list of demography component -->
+                        </div>
+                        <div class="tab-pane fade" id="custom-tabs-four-availed-programs" role="tabpanel" aria-labelledby="custom-tabs-four-availed-programs-tab">
+                          <!-- Foldable list of availed programs -->
+                        </div>
+                        <div class="tab-pane fade" id="custom-tabs-four-livelihood" role="tabpanel" aria-labelledby="custom-tabs-four-livelihood-tab">
+                          <!-- Foldable list of livelihood -->
+                        </div>
+                      </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
             </div>
         </aside>
     </section>
@@ -52,8 +86,9 @@ export default {
         }),
         households: {},
         household: {},
-        test: 'initialValue',
-        bus: new Vue(),
+        style:{
+          width: '100%',
+        }
     }
     
   },
@@ -72,8 +107,20 @@ export default {
         return L.latLng(lat,long);
       },
       opensidebar: function (controlnumber){
+
         this.household = this.households.filter(cn => cn.controlnumber == controlnumber);
         this.$refs.childThing.updateHousehold(this.household);
+
+        // Update center of the map
+        [this.center] = this.household.map(h => { return [h.latitude, h.longitude] })
+
+        // Call invalidateSize to update map size
+        this.$refs.map.mapObject.invalidateSize();
+
+        //Set width of the map 
+        this.style = {width: '65%'}; 
+
+        //Call toggle to show sidebar
         $("#my-toggle-button").ControlSidebar('show');
       }
   },
@@ -82,8 +129,21 @@ export default {
       return this.household;
       console.log(this.household);
     },
-    updateTest: function(){
-      return this.test = "Updated";
+    centerMarker:{
+      get(){
+        return this.center;
+      },
+      set(val){
+        this.center = val;
+      }
+    },
+    setStyle: {
+      get(){
+        return this.style;
+      },
+      set(val){
+        this.style = val;
+      }
     }
   },
   created() {
