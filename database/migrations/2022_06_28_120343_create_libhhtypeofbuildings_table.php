@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('libhhlvlwatersystems', function (Blueprint $table) {
+        Schema::create('libhhtypeofbuildings', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('lib_');
+            $table->string('lib_hhtobname');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('libhhlvlwatersystems');
+        Schema::dropIfExists('libhhtypeofbuildings');
     }
 };

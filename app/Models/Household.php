@@ -33,9 +33,9 @@ class Household extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function libbuildingtype()
+    public function libhhtypeofbuilding()
     {
-        return $this->belongsTo(Libbuildingtype::class);
+        return $this->belongsTo(Libhhtypeofbuilding::class);
     }
 
     /**
@@ -46,5 +46,45 @@ class Household extends Model
     public function libhhtenuralstatu()
     {
         return $this->belongsTo(Libhhtenuralstatu::class);
+    }
+
+    /**
+     * Get the libhhroofmaterial that owns the Household
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function libhhroofmaterial()
+    {
+        return $this->belongsTo(libhhroofmaterial::class);
+    }
+
+    /**
+     * Get the libhhwatertenuralstatu that owns the Household
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function libhhwatertenuralstatu()
+    {
+        return $this->belongsTo(Libhhwatertenuralstatu::class);
+    }
+
+    /**
+     * Get the libhhlvlwatersystem that owns the Household
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function libhhlvlwatersystem()
+    {
+        return $this->belongsTo(Libhhlvlwatersystem::class);
+    }
+
+    /**
+     * Get the libhhevacuationarea that owns the Household
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function libhhevacuationarea()
+    {
+        return $this->belongsTo(Libhhevacuationarea::class);
     }
 }

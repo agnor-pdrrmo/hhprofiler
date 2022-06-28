@@ -32,7 +32,7 @@ Route::get('/home',[HouseholdController::class,'index'])->name('home');
 Route::get('/household',[HouseholdController::class,'index'])->name('gethouseholds');
 Route::get('/test',function(){
     $household = App\Models\Household::find('3da7059c-f523-4b9b-bdb5-cdc423cdd8d1-1623890768546');
-    return json_encode($household->load('libmunicipalitie'));
+    return json_encode($household->load('libmunicipalitie','libbarangay','libbuildingtype','libhhtenuralstatu'));
 });
 
 

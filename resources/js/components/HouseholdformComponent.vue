@@ -24,11 +24,11 @@
             </div>
             <div class="form-group mb-1">
                 <label for="libbuildingtype_id">Type of building</label>
-                <textarea  type="text" class="form-control form-control-sm" id="libbuildingtype_id" rows="3" v-model="formEdit.libbuildingtype.lib_tobname"></textarea>
+                <textarea  type="text" class="form-control form-control-sm" id="libbuildingtype_id" rows="3" v-model="formEdit.libhhtypeofbuilding.lib_hhtobname"></textarea>
             </div>
             <div class="form-group mb-1">
                 <label for="libtenuralstatu_id">Tenural status</label>
-                <input type="text" class="form-control form-control-sm"  id="libtenuralstatu_id" v-model="formEdit.libtenuralstatu_id">
+                <input type="text" class="form-control form-control-sm"  id="libtenuralstatu_id" v-model="formEdit.libhhtenuralstatu.lib_ternuralstatusdesc">
             </div>
             <div class="form-group mb-1">
                 <label for="year_construct">Year construct</label>
@@ -48,15 +48,15 @@
             </div>
             <div class="form-group mb-1">
                 <label for="access_electricity">Access to electricity</label>
-                <input type="text" class="form-control form-control-sm" id="access_electricity" v-model="formEdit.access_electricity">
+                <input type="text" class="form-control form-control-sm" id="access_electricity" v-model="formEdit.access_electricity ? 'Yes' : 'No'">
             </div>
             <div class="form-group mb-1">
                 <label for="access_internet">Access to Internet</label>
-                <input type="text" class="form-control form-control-sm" id="access_internet" v-model="formEdit.access_internet">
+                <input type="text" class="form-control form-control-sm" id="access_internet" v-model="formEdit.access_internet ? 'Yes' : 'No'">
             </div>
             <div class="form-group mb-1">
                 <label for="libbuildingroofmaterial_id">Roof material</label>
-                <input type="text" class="form-control form-control-sm" id="libbuildingroofmaterial_id" v-model="formEdit.libbuildingroofmaterial_id">
+                <textarea type="text" class="form-control form-control-sm" id="libbuildingroofmaterial_id"  rows="3" v-model="formEdit.libhhroofmaterial.lib_roofmaterialsdesc"></textarea>
             </div>
             <div class="form-group mb-1">
                 <label for="medical_treatment">Medical treatment</label>
@@ -64,23 +64,23 @@
             </div>
             <div class="form-group mb-1">
                 <label for="access_watersupply">Access to water supply</label>
-                <input type="text" class="form-control form-control-sm" id="access_watersupply" v-model="formEdit.access_watersupply">
+                <input type="text" class="form-control form-control-sm" id="access_watersupply" v-model="formEdit.access_watersupply ? 'Yes' : 'No'">
             </div>
             <div class="form-group mb-1">
                 <label for="potable">Potable</label>
-                <input type="text" class="form-control form-control-sm" id="potable" v-model="formEdit.potable">
+                <input type="text" class="form-control form-control-sm" id="potable" v-model="formEdit.potable ? 'Yes' : 'No'">
             </div>
             <div class="form-group mb-1">
                 <label for="libhhwatertenuralstatu_id">Water tenural status</label>
-                <input type="text" class="form-control form-control-sm" id="libhhwatertenuralstatu_id" v-model="formEdit.libhhwatertenuralstatu_id">
+                <input type="text" class="form-control form-control-sm" id="libhhwatertenuralstatu_id" v-model="formEdit.libhhwatertenuralstatu.lib_wtdesc">
             </div>
             <div class="form-group mb-1">
                 <label for="libhhlvlwatersystem_id">Level of water system</label>
-                <input type="text" class="form-control form-control-sm" id="libhhlvlwatersystem_id" v-model="formEdit.libhhlvlwatersystem_id">
+                <textarea type="text" class="form-control form-control-sm" id="libhhlvlwatersystem_id" rows="5" v-model="formEdit.libhhlvlwatersystem.lib_hhlvldesc"></textarea>
             </div>
             <div class="form-group mb-1">
                 <label for="floods_occur">Floods occur in the area</label>
-                <input type="text" class="form-control form-control-sm" id="floods_occur" v-model="formEdit.floods_occur">
+                <input type="text" class="form-control form-control-sm" id="floods_occur" v-model="formEdit.floods_occur ? 'Yes' : 'No'">
             </div>
             <div class="form-group mb-1">
                 <label for="year_flood">Year flooded</label>
@@ -88,7 +88,7 @@
             </div>
             <div class="form-group mb-1">
                 <label for="experience_evacuationduringcalamity">Experience evacuated</label>
-                <input type="text" class="form-control form-control-sm" id="experience_evacuationduringcalamity" v-model="formEdit.experience_evacuationduringcalamity">
+                <input type="text" class="form-control form-control-sm" id="experience_evacuationduringcalamity" v-model="formEdit.experience_evacuationduringcalamity ? 'Yes' : 'No'">
             </div>
             <div class="form-group mb-1">
                 <label for="year_evacuated">Year evacuated</label>
@@ -96,19 +96,19 @@
             </div>
             <div class="form-group mb-1">
                 <label for="libhhevacuationarea_id">Nearest accessable evacuation center</label>
-                <input type="text" class="form-control form-control-sm" id="libhhevacuationarea_id" v-model="formEdit.libhhevacuationarea_id">
+                <input type="text" class="form-control form-control-sm" id="libhhevacuationarea_id" v-model="formEdit.libhhevacuationarea.lib_heaname">
             </div>
             <div class="form-group mb-1">
                 <label for="has_accesstohealthmedicalfacilities">Access to medical facilities</label>
-                <input type="text" class="form-control form-control-sm" id="has_accesstohealthmedicalfacilities" v-model="formEdit.has_accesstohealthmedicalfacilities">
+                <input type="text" class="form-control form-control-sm" id="has_accesstohealthmedicalfacilities" v-model="formEdit.has_accesstohealthmedicalfacilities ? 'Yes' : 'No'">
             </div>
             <div class="form-group mb-1">
                 <label for="has_accesstotelecommunications">Access to telecommunications</label>
-                <input type="text" class="form-control form-control-sm" id="has_accesstotelecommunications" v-model="formEdit.has_accesstotelecommunications">
+                <input type="text" class="form-control form-control-sm" id="has_accesstotelecommunications" v-model="formEdit.has_accesstotelecommunications ? 'Yes' : 'No'">
             </div>
             <div class="form-group mb-1">
                 <label for="has_accesstodrillsandsimulations">Access to drill and simulations</label>
-                <input type="text" class="form-control form-control-sm" id="has_accesstodrillsandsimulations" v-model="formEdit.has_accesstodrillsandsimulations">
+                <input type="text" class="form-control form-control-sm" id="has_accesstodrillsandsimulations" v-model="formEdit.has_accesstodrillsandsimulations ? 'Yes' : 'No'">
             </div>
             <div class="form-group mb-1">
                 <label for="image">Image</label>
@@ -128,16 +128,28 @@
             return {
                 formEdit: {
                     libmunicipalitie:{
-                        lib_munname: "",
+                        lib_munname: ""
                     },
                     libbarangay:{
-                        lib_brgyname: "",
+                        lib_brgyname: ""
                     },
-                    libbuildingtype:{
-                        lib_tobname: "",
+                    libhhtypeofbuilding:{
+                        lib_hhtobname: "" 
                     },
                     libhhtenuralstatu:{
-                        lib_ternuralstatusdesc: "",
+                        lib_ternuralstatusdesc: ""
+                    },
+                    libhhroofmaterial:{
+                        lib_roofmaterialsdesc: ""
+                    },
+                    libhhwatertenuralstatu: {
+                        lib_wtdesc: ""
+                    },
+                    libhhlvlwatersystem: {
+                        lib_hhlvldesc:""
+                    },
+                    libhhevacuationarea: {
+                        lib_heaname: ""
                     }
                 },
             }
@@ -152,7 +164,6 @@
             updateHousehold: function(hh){   
                 //Distructuring hh[0]
                 var [h] = hh;       
-                console.log(h);
                 //assign h object to formedit data   
                 this.formEdit = h;  
             }

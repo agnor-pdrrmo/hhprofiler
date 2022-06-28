@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('nameenumerator');
             $table->string('nameeditor');
             $table->text('dateedited');
-            $table->foreignId('libbuildingtype_id')->constrained()->onDelete('cascade');
+            $table->foreignId('libhhtypeofbuilding_id')->constrained()->onDelete('cascade');
             $table->foreignId('libhhtenuralstatu_id')->constrained()->onDelete('cascade');
             $table->year('year_construct');
             $table->integer('estimated_cost');
@@ -36,7 +36,7 @@ return new class extends Migration
             $table->integer('storey');
             $table->boolean('access_electricity');
             $table->boolean('access_internet');
-            $table->foreignId('libbuildingroofmaterial_id')->constrained()->onDelete('cascade');
+            $table->foreignId('libhhroofmaterial_id')->constrained()->onDelete('cascade');
             $table->string('medical_treatment')->nullable();
             $table->boolean('access_watersupply');
             $table->boolean('potable');
