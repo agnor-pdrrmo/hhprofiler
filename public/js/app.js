@@ -2460,6 +2460,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get('/household').then(function (response) {
+        console.log(response.data);
         _this.households = response.data;
 
         _this.$refs.map.mapObject.fitBounds(_this.households.map(function (h) {
