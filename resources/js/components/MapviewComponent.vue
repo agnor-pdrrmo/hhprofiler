@@ -61,7 +61,6 @@ export default {
       gethouseholds: function(){
           axios.get('/household')
                 .then((response)=>{
-                  console.log(response.data)
                    this.households = response.data;
                    this.$refs.map.mapObject.fitBounds(this.households.map(h => { return [h.latitude, h.longitude] }));
                 })

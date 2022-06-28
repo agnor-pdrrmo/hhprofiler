@@ -2355,24 +2355,37 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['householdData'],
   data: function data() {
     return {
-      householdInfo: this.householdData[0],
-      formEdit: {}
+      formEdit: {
+        libmunicipalitie: {
+          lib_munname: ""
+        },
+        libbarangay: {
+          lib_brgyname: ""
+        },
+        libbuildingtype: {
+          lib_tobname: ""
+        },
+        libhhtenuralstatu: {
+          lib_ternuralstatusdesc: ""
+        }
+      }
     };
   },
   watch: {
-    householdInfo: function householdInfo() {
-      this.updateHousehold;
-    }
+    formEdit: function formEdit() {
+      this.formEdit;
+    },
+    deep: true
   },
   methods: {
     updateHousehold: function updateHousehold(hh) {
       //Distructuring hh[0]
       var _hh = _slicedToArray(hh, 1),
-          h = _hh[0]; //assign h object to formedit data   
+          h = _hh[0];
 
+      console.log(h); //assign h object to formedit data   
 
       this.formEdit = h;
     }
@@ -2460,7 +2473,6 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get('/household').then(function (response) {
-        console.log(response.data);
         _this.households = response.data;
 
         _this.$refs.map.mapObject.fitBounds(_this.households.map(function (h) {
@@ -55219,21 +55231,21 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.formEdit.libmunicipalitie_psgccode,
-              expression: "formEdit.libmunicipalitie_psgccode",
+              value: _vm.formEdit.libmunicipalitie.lib_munname,
+              expression: "formEdit.libmunicipalitie.lib_munname",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "libmunicipalitie_psgccode" },
-          domProps: { value: _vm.formEdit.libmunicipalitie_psgccode },
+          domProps: { value: _vm.formEdit.libmunicipalitie.lib_munname },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
               _vm.$set(
-                _vm.formEdit,
-                "libmunicipalitie_psgccode",
+                _vm.formEdit.libmunicipalitie,
+                "lib_munname",
                 $event.target.value
               )
             },
@@ -55251,21 +55263,21 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.formEdit.libbarangay_psgccode,
-              expression: "formEdit.libbarangay_psgccode",
+              value: _vm.formEdit.libbarangay.lib_brgyname,
+              expression: "formEdit.libbarangay.lib_brgyname",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "libbarangay_psgccode" },
-          domProps: { value: _vm.formEdit.libbarangay_psgccode },
+          domProps: { value: _vm.formEdit.libbarangay.lib_brgyname },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
               _vm.$set(
-                _vm.formEdit,
-                "libbarangay_psgccode",
+                _vm.formEdit.libbarangay,
+                "lib_brgyname",
                 $event.target.value
               )
             },
@@ -55332,24 +55344,28 @@ var render = function () {
           _vm._v("Type of building"),
         ]),
         _vm._v(" "),
-        _c("input", {
+        _c("textarea", {
           directives: [
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.formEdit.libbuildingtype_id,
-              expression: "formEdit.libbuildingtype_id",
+              value: _vm.formEdit.libbuildingtype.lib_tobname,
+              expression: "formEdit.libbuildingtype.lib_tobname",
             },
           ],
           staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "libbuildingtype_id" },
-          domProps: { value: _vm.formEdit.libbuildingtype_id },
+          attrs: { type: "text", id: "libbuildingtype_id", rows: "3" },
+          domProps: { value: _vm.formEdit.libbuildingtype.lib_tobname },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.$set(_vm.formEdit, "libbuildingtype_id", $event.target.value)
+              _vm.$set(
+                _vm.formEdit.libbuildingtype,
+                "lib_tobname",
+                $event.target.value
+              )
             },
           },
         }),
@@ -55996,24 +56012,23 @@ var render = function () {
       ]),
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "card-footer" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-primary",
-          attrs: { type: "submit" },
-          on: {
-            click: function ($event) {
-              return _vm.updateHousehold(_vm.householdData)
-            },
-          },
-        },
-        [_vm._v("Save")]
-      ),
-    ]),
+    _vm._m(0),
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-footer" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+        [_vm._v("Save")]
+      ),
+    ])
+  },
+]
 render._withStripped = true
 
 

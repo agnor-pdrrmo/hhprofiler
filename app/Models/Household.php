@@ -10,15 +10,41 @@ class Household extends Model
     use HasFactory;
 
     // Table Name
-    protected $table = "households";
+    protected $table = 'households';
     // Key Type
     protected $keyType = 'string';
     // Primary key
-    public $primaryKey = "controlnumber";
+    public $primaryKey = 'controlnumber';
 
     // Get the municipality of this household
     public function libmunicipalitie()
     {
-        return $this->belongsTo(Libmunicipalitie::class,'libmunicipalitie_psgccode',"psgccode");
+        return $this->belongsTo(Libmunicipalitie::class,'libmunicipalitie_psgccode','psgccode');
+    }
+
+    // Get the barangay of this household
+    public function libbarangay()
+    {
+        return $this->belongsTo(Libbarangay::class,'libbarangay_psgccode','psgccode');
+    }
+
+    /**
+     * Get the libbuildingtype that owns the Household
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function libbuildingtype()
+    {
+        return $this->belongsTo(Libbuildingtype::class);
+    }
+
+    /**
+     * Get the libhhtenuralstatu that owns the Household
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function libhhtenuralstatu()
+    {
+        return $this->belongsTo(Libhhtenuralstatu::class);
     }
 }

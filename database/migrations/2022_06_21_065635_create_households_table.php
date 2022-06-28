@@ -29,7 +29,7 @@ return new class extends Migration
             $table->string('nameeditor');
             $table->text('dateedited');
             $table->foreignId('libbuildingtype_id')->constrained()->onDelete('cascade');
-            $table->foreignId('libtenuralstatu_id')->constrained()->onDelete('cascade');
+            $table->foreignId('libhhtenuralstatu_id')->constrained()->onDelete('cascade');
             $table->year('year_construct');
             $table->integer('estimated_cost');
             $table->integer('bedrooms');

@@ -7,12 +7,12 @@
                 <input type="text" class="form-control form-control-sm" id="respondent" v-model="formEdit.respondent">
             </div>  
             <div class="form-group mb-1">
-                <label for="libmunicipalitie_psgccode">Municipalitys</label>
-                <input type="text" class="form-control form-control-sm" id="libmunicipalitie_psgccode" v-model="formEdit.libmunicipalitie_psgccode">
+                <label for="libmunicipalitie_psgccode">Municipalitys</label>           
+                <input type="text"  class="form-control form-control-sm" id="libmunicipalitie_psgccode" v-model="formEdit.libmunicipalitie.lib_munname">
             </div>
             <div class="form-group mb-1">
                 <label for="libbarangay_psgccode">Barangay</label>
-                <input type="text" class="form-control form-control-sm" id="libbarangay_psgccode"  v-model="formEdit.libbarangay_psgccode">
+                <input type="text" class="form-control form-control-sm" id="libbarangay_psgccode"  v-model="formEdit.libbarangay.lib_brgyname">
             </div>
             <div class="form-group mb-1">
                 <label for="purok">Purok</label>
@@ -24,7 +24,7 @@
             </div>
             <div class="form-group mb-1">
                 <label for="libbuildingtype_id">Type of building</label>
-                <input type="text" class="form-control form-control-sm" id="libbuildingtype_id" v-model="formEdit.libbuildingtype_id">
+                <textarea  type="text" class="form-control form-control-sm" id="libbuildingtype_id" rows="3" v-model="formEdit.libbuildingtype.lib_tobname"></textarea>
             </div>
             <div class="form-group mb-1">
                 <label for="libtenuralstatu_id">Tenural status</label>
@@ -116,7 +116,7 @@
             </div>
         </div>   
         <div class="card-footer">
-            <button type="submit" @click="updateHousehold(householdData)" class="btn btn-primary">Save</button>
+            <button type="submit" class="btn btn-primary">Save</button>
         </div>
          
     </div>
@@ -124,24 +124,37 @@
 
 <script>
     export default {
-        props: ['householdData'],
         data (){
             return {
-                householdInfo: this.householdData[0],
-                formEdit: {}
+                formEdit: {
+                    libmunicipalitie:{
+                        lib_munname: "",
+                    },
+                    libbarangay:{
+                        lib_brgyname: "",
+                    },
+                    libbuildingtype:{
+                        lib_tobname: "",
+                    },
+                    libhhtenuralstatu:{
+                        lib_ternuralstatusdesc: "",
+                    }
+                },
             }
         },
         watch: {
-            householdInfo: function(){
-                this.updateHousehold;
-            }
+            formEdit: function(){           
+                this.formEdit;
+            },
+            deep: true
         },
         methods: {
             updateHousehold: function(hh){   
                 //Distructuring hh[0]
                 var [h] = hh;       
+                console.log(h);
                 //assign h object to formedit data   
-                this.formEdit = h;              
+                this.formEdit = h;  
             }
         }
     }

@@ -21,7 +21,7 @@ class HouseholdController extends Controller
         if($request->ajax()) // This is check ajax request
         {
             $households = Household::all();
-            return response()->json($households->load('libmunicipalitie'));
+            return response()->json($households->load('libmunicipalitie','libbarangay','libbuildingtype','libhhtenuralstatu'));
         }
 
         return view('household.index');
