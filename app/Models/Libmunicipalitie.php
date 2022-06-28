@@ -11,12 +11,14 @@ class Libmunicipalitie extends Model
 
     // Table Name
     protected $table = "libmunicipalities";
+    // Key Type
+    protected $keyType = 'string';
     //Primary Key
     public $primaryKey = "psgccode";
 
     // Get the household in this municipality
     public function households()
     {
-        return $this->hasMany('App\Household','libmunicipalitie_psgccode');
+        return $this->hasMany(households::class,'psgccode',"libmunicipalitie_psgccode"); 
     }
 }

@@ -5,7 +5,7 @@
                 <div class="col-12" >
                     <v-map ref="map" :zoom="zoom" :center="center"  style="height: 80vh; width: 100%; position: relative;  solid black; ">       
                       <v-tilelayer-googlemutant :apikey="apikey" :options="options"></v-tilelayer-googlemutant>
-                      <v-marker v-for="household in households" :key="household.controlnumber" :lat-lng="coordinates(household.latitude, household.longitude)" :icon="icon" @click="opensidebar(household.controlnumber)"></v-marker>       
+                      <v-marker v-for="(household,i) in households" :key="i" :lat-lng="coordinates(household.latitude, household.longitude)" :icon="icon" @click="opensidebar(household.controlnumber)"></v-marker>       
                     </v-map>     
                 </div>         
             </div>
@@ -61,7 +61,7 @@ export default {
       gethouseholds: function(){
           axios.get('/household')
                 .then((response)=>{
-                  console.log(response.data);
+                  console.log(response.data)
                    this.households = response.data;
                    this.$refs.map.mapObject.fitBounds(this.households.map(h => { return [h.latitude, h.longitude] }));
                 })

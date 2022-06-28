@@ -20,8 +20,8 @@ class HouseholdController extends Controller
 
         if($request->ajax()) // This is check ajax request
         {
-            $households = Household::with('libmunicipalitie')->get();
-            return response()->json($households);
+            $households = Household::all();
+            return response()->json($households->load('libmunicipalitie'));
         }
 
         return view('household.index');

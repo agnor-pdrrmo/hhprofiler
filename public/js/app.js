@@ -56059,9 +56059,9 @@ var render = function () {
                   attrs: { apikey: _vm.apikey, options: _vm.options },
                 }),
                 _vm._v(" "),
-                _vm._l(_vm.households, function (household) {
+                _vm._l(_vm.households, function (household, i) {
                   return _c("v-marker", {
-                    key: household.controlnumber,
+                    key: i,
                     attrs: {
                       "lat-lng": _vm.coordinates(
                         household.latitude,
