@@ -128,7 +128,7 @@
         </li> --}}
         
         @if(Route::is('home') )
-            <nav-item-component></nav-item-component>
+            <slot name="control-sidebar-button"></slot>
         @endif
     </ul>
 </nav>

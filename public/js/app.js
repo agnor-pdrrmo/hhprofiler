@@ -2492,6 +2492,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 //
 //
 //
+//
+//
+//
 
 
 
@@ -56187,130 +56190,149 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", { staticClass: "content" }, [
-    _c("div", { staticClass: "container-fluid" }, [
-      _c("div", { staticClass: "row" }, [
-        _c(
-          "div",
-          { staticClass: "col-12" },
-          [
-            _c(
-              "v-map",
-              {
-                ref: "map",
-                staticStyle: { height: "80vh", position: "relative" },
-                style: _vm.setStyle,
-                attrs: { zoom: _vm.zoom, center: _vm.centerMarker },
-              },
-              [
-                _c("v-tilelayer-googlemutant", {
-                  attrs: { apikey: _vm.apikey, options: _vm.options },
-                }),
-                _vm._v(" "),
-                _vm._l(_vm.households, function (household, i) {
-                  return _c("v-marker", {
-                    key: i,
-                    attrs: {
-                      "lat-lng": _vm.coordinates(
-                        household.latitude,
-                        household.longitude
-                      ),
-                      icon: _vm.icon,
-                    },
-                    on: {
-                      click: function ($event) {
-                        return _vm.opensidebar(household.controlnumber)
-                      },
-                    },
-                  })
-                }),
-              ],
-              2
-            ),
-          ],
-          1
-        ),
-      ]),
-    ]),
-    _vm._v(" "),
-    _c(
-      "aside",
-      {
-        staticClass: "control-sidebar overflow-auto control-sidebar-light",
-        staticStyle: { width: "35% !important" },
-      },
-      [
-        _c("div", { staticClass: "p-3" }, [
+  return _c(
+    "section",
+    { staticClass: "content" },
+    [
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "row" }, [
           _c(
             "div",
-            { staticClass: "card card-primary card-outline card-outline-tabs" },
+            { staticClass: "col-12" },
             [
-              _vm._m(0),
-              _vm._v(" "),
-              _c("div", { staticClass: "card-body" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "tab-content",
-                    attrs: { id: "custom-tabs-four-tabContent" },
-                  },
-                  [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "tab-pane fade show active",
-                        attrs: {
-                          id: "custom-tabs-four-household-information",
-                          role: "tabpanel",
-                          "aria-labelledby":
-                            "custom-tabs-four-household-information-tab",
+              _c(
+                "v-map",
+                {
+                  ref: "map",
+                  staticStyle: { height: "80vh", position: "relative" },
+                  style: _vm.setStyle,
+                  attrs: { zoom: _vm.zoom, center: _vm.centerMarker },
+                },
+                [
+                  _c("v-tilelayer-googlemutant", {
+                    attrs: { apikey: _vm.apikey, options: _vm.options },
+                  }),
+                  _vm._v(" "),
+                  _vm._l(_vm.households, function (household, i) {
+                    return _c("v-marker", {
+                      key: i,
+                      attrs: {
+                        "lat-lng": _vm.coordinates(
+                          household.latitude,
+                          household.longitude
+                        ),
+                        icon: _vm.icon,
+                      },
+                      on: {
+                        click: function ($event) {
+                          return _vm.opensidebar(household.controlnumber)
                         },
                       },
-                      [
-                        _c("form-household", {
-                          ref: "childThing",
-                          attrs: { householdData: _vm.householdInfo },
-                        }),
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("div", {
-                      staticClass: "tab-pane fade",
-                      attrs: {
-                        id: "custom-tabs-four-demography",
-                        role: "tabpanel",
-                        "aria-labelledby": "custom-tabs-four-demography-tab",
-                      },
-                    }),
-                    _vm._v(" "),
-                    _c("div", {
-                      staticClass: "tab-pane fade",
-                      attrs: {
-                        id: "custom-tabs-four-availed-programs",
-                        role: "tabpanel",
-                        "aria-labelledby":
-                          "custom-tabs-four-availed-programs-tab",
-                      },
-                    }),
-                    _vm._v(" "),
-                    _c("div", {
-                      staticClass: "tab-pane fade",
-                      attrs: {
-                        id: "custom-tabs-four-livelihood",
-                        role: "tabpanel",
-                        "aria-labelledby": "custom-tabs-four-livelihood-tab",
-                      },
-                    }),
-                  ]
-                ),
-              ]),
-            ]
+                    })
+                  }),
+                ],
+                2
+              ),
+            ],
+            1
           ),
         ]),
-      ]
-    ),
-  ])
+      ]),
+      _vm._v(" "),
+      _c("nav-item-component", {
+        scopedSlots: _vm._u([
+          {
+            key: "control-sidebar-button",
+            fn: function () {
+              return undefined
+            },
+            proxy: true,
+          },
+        ]),
+      }),
+      _vm._v(" "),
+      _c(
+        "aside",
+        {
+          staticClass: "control-sidebar overflow-auto control-sidebar-light",
+          staticStyle: { width: "35% !important" },
+        },
+        [
+          _c("div", { staticClass: "p-3" }, [
+            _c(
+              "div",
+              {
+                staticClass: "card card-primary card-outline card-outline-tabs",
+              },
+              [
+                _vm._m(0),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-body" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "tab-content",
+                      attrs: { id: "custom-tabs-four-tabContent" },
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "tab-pane fade show active",
+                          attrs: {
+                            id: "custom-tabs-four-household-information",
+                            role: "tabpanel",
+                            "aria-labelledby":
+                              "custom-tabs-four-household-information-tab",
+                          },
+                        },
+                        [
+                          _c("form-household", {
+                            ref: "childThing",
+                            attrs: { householdData: _vm.householdInfo },
+                          }),
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c("div", {
+                        staticClass: "tab-pane fade",
+                        attrs: {
+                          id: "custom-tabs-four-demography",
+                          role: "tabpanel",
+                          "aria-labelledby": "custom-tabs-four-demography-tab",
+                        },
+                      }),
+                      _vm._v(" "),
+                      _c("div", {
+                        staticClass: "tab-pane fade",
+                        attrs: {
+                          id: "custom-tabs-four-availed-programs",
+                          role: "tabpanel",
+                          "aria-labelledby":
+                            "custom-tabs-four-availed-programs-tab",
+                        },
+                      }),
+                      _vm._v(" "),
+                      _c("div", {
+                        staticClass: "tab-pane fade",
+                        attrs: {
+                          id: "custom-tabs-four-livelihood",
+                          role: "tabpanel",
+                          "aria-labelledby": "custom-tabs-four-livelihood-tab",
+                        },
+                      }),
+                    ]
+                  ),
+                ]),
+              ]
+            ),
+          ]),
+        ]
+      ),
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function () {
