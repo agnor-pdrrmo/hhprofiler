@@ -21,9 +21,9 @@ import * as Vue2Leaflet from 'vue2-leaflet';
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-Vue.component('household-form-component', require('./components/HouseholdformComponent.vue').default);
 Vue.component('map-view-component', require('./components/MapviewComponent.vue').default);
+Vue.component('household-form-component', require('./components/HouseholdformComponent.vue').default);
+Vue.component('demography-form-component', require('./components/DemographyformComponent.vue').default);
 Vue.component('section-header-component', require('./components/SectionheaderComponent.vue').default);
 Vue.component('nav-item-component', require('./components/NavitemComponent.vue').default);
 

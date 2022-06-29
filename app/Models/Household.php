@@ -87,4 +87,14 @@ class Household extends Model
     {
         return $this->belongsTo(Libhhevacuationarea::class);
     }
+
+    /**
+     * Get all of the demography for the Household
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function demography()
+    {
+        return $this->hasMany(Demography::class,'household_controlnumber','controlnumber');
+    }
 }
