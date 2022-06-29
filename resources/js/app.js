@@ -23,12 +23,9 @@ import * as Vue2Leaflet from 'vue2-leaflet';
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('household-form-component', require('./components/HouseholdformComponent.vue').default);
-Vue.component('nav-item-component', require('./components/NavitemComponent.vue').default);
-//Vue.component('v-map',LMap);
-//Vue.component('v-tilelayer', LTileLayer);
-//Vue.component('v-marker', LMarker);
 Vue.component('map-view-component', require('./components/MapviewComponent.vue').default);
 Vue.component('section-header-component', require('./components/SectionheaderComponent.vue').default);
+Vue.component('nav-item-component', require('./components/NavitemComponent.vue').default);
 
 
 /**
@@ -36,6 +33,9 @@ Vue.component('section-header-component', require('./components/SectionheaderCom
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+
+//global event handler
+ window.Event = new Vue();
 
 const app = new Vue({
     el: '#app',

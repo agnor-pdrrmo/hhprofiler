@@ -1,6 +1,6 @@
 <template>
     <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button" id="my-toggle-button">
+        <a v-on:click="callInvalidatesize" class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button" id="my-toggle-button">
             <i class="fas fa-book"></i>
         </a>
     </li>
@@ -8,6 +8,11 @@
 
 <script>
 export default {
-    
+  methods:{
+    callInvalidatesize: function(){
+        console.log('call function');
+       Event.$emit('mapInvalidate');
+    }
+  }
 }
 </script>

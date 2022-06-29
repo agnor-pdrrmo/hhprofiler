@@ -2493,8 +2493,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 //
 //
 //
-//
-//
 
 
 
@@ -2591,6 +2589,29 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       }
     }
   },
+  mounted: function mounted() {
+    var _this2 = this;
+
+    Event.$on('mapInvalidate', function () {
+      if (jquery__WEBPACK_IMPORTED_MODULE_1___default()('#toogleinformation:visible').length == 0) {
+        // Call invalidateSize to update map size
+        _this2.$refs.map.mapObject.invalidateSize(); //Set width of the map 
+
+
+        _this2.style = {
+          width: '65%'
+        };
+      } else {
+        // Call invalidateSize to update map size
+        _this2.$refs.map.mapObject.invalidateSize(); //Set width of the map 
+
+
+        _this2.style = {
+          width: '100%'
+        };
+      }
+    });
+  },
   created: function created() {
     this.gethouseholds();
   }
@@ -2617,7 +2638,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  methods: {
+    callInvalidatesize: function callInvalidatesize() {
+      console.log('call function');
+      Event.$emit('mapInvalidate');
+    }
+  }
+});
 
 /***/ }),
 
@@ -2689,18 +2717,17 @@ window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js
 
 Vue.component('example-component', (__webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]));
 Vue.component('household-form-component', (__webpack_require__(/*! ./components/HouseholdformComponent.vue */ "./resources/js/components/HouseholdformComponent.vue")["default"]));
-Vue.component('nav-item-component', (__webpack_require__(/*! ./components/NavitemComponent.vue */ "./resources/js/components/NavitemComponent.vue")["default"])); //Vue.component('v-map',LMap);
-//Vue.component('v-tilelayer', LTileLayer);
-//Vue.component('v-marker', LMarker);
-
 Vue.component('map-view-component', (__webpack_require__(/*! ./components/MapviewComponent.vue */ "./resources/js/components/MapviewComponent.vue")["default"]));
 Vue.component('section-header-component', (__webpack_require__(/*! ./components/SectionheaderComponent.vue */ "./resources/js/components/SectionheaderComponent.vue")["default"]));
+Vue.component('nav-item-component', (__webpack_require__(/*! ./components/NavitemComponent.vue */ "./resources/js/components/NavitemComponent.vue")["default"]));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+//global event handler
 
+window.Event = new Vue();
 var app = new Vue({
   el: '#app'
 });
@@ -56148,139 +56175,131 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "section",
-    { staticClass: "content" },
-    [
-      _c("div", { staticClass: "container-fluid" }, [
-        _c("div", { staticClass: "row" }, [
-          _c(
-            "div",
-            { staticClass: "col-12" },
-            [
-              _c(
-                "v-map",
-                {
-                  ref: "map",
-                  staticStyle: { height: "80vh", position: "relative" },
-                  style: _vm.setStyle,
-                  attrs: { zoom: _vm.zoom, center: _vm.centerMarker },
-                },
-                [
-                  _c("v-tilelayer-googlemutant", {
-                    attrs: { apikey: _vm.apikey, options: _vm.options },
-                  }),
-                  _vm._v(" "),
-                  _vm._l(_vm.households, function (household, i) {
-                    return _c("v-marker", {
-                      key: i,
-                      attrs: {
-                        "lat-lng": _vm.coordinates(
-                          household.latitude,
-                          household.longitude
-                        ),
-                        icon: _vm.icon,
-                      },
-                      on: {
-                        click: function ($event) {
-                          return _vm.opensidebar(household.controlnumber)
-                        },
-                      },
-                    })
-                  }),
-                ],
-                2
-              ),
-            ],
-            1
-          ),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c("nav-item-component"),
-      _vm._v(" "),
-      _c(
-        "aside",
-        {
-          staticClass: "control-sidebar overflow-auto control-sidebar-light",
-          staticStyle: { width: "35% !important" },
-        },
-        [
-          _c("div", { staticClass: "p-3" }, [
+  return _c("section", { staticClass: "content" }, [
+    _c("div", { staticClass: "container-fluid" }, [
+      _c("div", { staticClass: "row" }, [
+        _c(
+          "div",
+          { staticClass: "col-12" },
+          [
             _c(
-              "div",
+              "v-map",
               {
-                staticClass: "card card-primary card-outline card-outline-tabs",
+                ref: "map",
+                staticStyle: { height: "80vh", position: "relative" },
+                style: _vm.setStyle,
+                attrs: { zoom: _vm.zoom, center: _vm.centerMarker },
               },
               [
-                _vm._m(0),
+                _c("v-tilelayer-googlemutant", {
+                  attrs: { apikey: _vm.apikey, options: _vm.options },
+                }),
                 _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tab-content",
-                      attrs: { id: "custom-tabs-four-tabContent" },
-                    },
-                    [
-                      _c(
-                        "div",
-                        {
-                          staticClass: "tab-pane fade show active",
-                          attrs: {
-                            id: "custom-tabs-four-household-information",
-                            role: "tabpanel",
-                            "aria-labelledby":
-                              "custom-tabs-four-household-information-tab",
-                          },
-                        },
-                        [
-                          _c("form-household", {
-                            ref: "childThing",
-                            attrs: { householdData: _vm.householdInfo },
-                          }),
-                        ],
-                        1
+                _vm._l(_vm.households, function (household, i) {
+                  return _c("v-marker", {
+                    key: i,
+                    attrs: {
+                      "lat-lng": _vm.coordinates(
+                        household.latitude,
+                        household.longitude
                       ),
-                      _vm._v(" "),
-                      _c("div", {
-                        staticClass: "tab-pane fade",
+                      icon: _vm.icon,
+                    },
+                    on: {
+                      click: function ($event) {
+                        return _vm.opensidebar(household.controlnumber)
+                      },
+                    },
+                  })
+                }),
+              ],
+              2
+            ),
+          ],
+          1
+        ),
+      ]),
+    ]),
+    _vm._v(" "),
+    _c(
+      "aside",
+      {
+        staticClass: "control-sidebar overflow-auto control-sidebar-light",
+        staticStyle: { width: "35% !important" },
+        attrs: { id: "toogleinformation" },
+      },
+      [
+        _c("div", { staticClass: "p-3" }, [
+          _c(
+            "div",
+            { staticClass: "card card-primary card-outline card-outline-tabs" },
+            [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "tab-content",
+                    attrs: { id: "custom-tabs-four-tabContent" },
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "tab-pane fade show active",
                         attrs: {
-                          id: "custom-tabs-four-demography",
-                          role: "tabpanel",
-                          "aria-labelledby": "custom-tabs-four-demography-tab",
-                        },
-                      }),
-                      _vm._v(" "),
-                      _c("div", {
-                        staticClass: "tab-pane fade",
-                        attrs: {
-                          id: "custom-tabs-four-availed-programs",
+                          id: "custom-tabs-four-household-information",
                           role: "tabpanel",
                           "aria-labelledby":
-                            "custom-tabs-four-availed-programs-tab",
+                            "custom-tabs-four-household-information-tab",
                         },
-                      }),
-                      _vm._v(" "),
-                      _c("div", {
-                        staticClass: "tab-pane fade",
-                        attrs: {
-                          id: "custom-tabs-four-livelihood",
-                          role: "tabpanel",
-                          "aria-labelledby": "custom-tabs-four-livelihood-tab",
-                        },
-                      }),
-                    ]
-                  ),
-                ]),
-              ]
-            ),
-          ]),
-        ]
-      ),
-    ],
-    1
-  )
+                      },
+                      [
+                        _c("form-household", {
+                          ref: "childThing",
+                          attrs: { householdData: _vm.householdInfo },
+                        }),
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("div", {
+                      staticClass: "tab-pane fade",
+                      attrs: {
+                        id: "custom-tabs-four-demography",
+                        role: "tabpanel",
+                        "aria-labelledby": "custom-tabs-four-demography-tab",
+                      },
+                    }),
+                    _vm._v(" "),
+                    _c("div", {
+                      staticClass: "tab-pane fade",
+                      attrs: {
+                        id: "custom-tabs-four-availed-programs",
+                        role: "tabpanel",
+                        "aria-labelledby":
+                          "custom-tabs-four-availed-programs-tab",
+                      },
+                    }),
+                    _vm._v(" "),
+                    _c("div", {
+                      staticClass: "tab-pane fade",
+                      attrs: {
+                        id: "custom-tabs-four-livelihood",
+                        role: "tabpanel",
+                        "aria-labelledby": "custom-tabs-four-livelihood-tab",
+                      },
+                    }),
+                  ]
+                ),
+              ]),
+            ]
+          ),
+        ]),
+      ]
+    ),
+  ])
 }
 var staticRenderFns = [
   function () {
@@ -56393,31 +56412,25 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item" }, [
-      _c(
-        "a",
-        {
-          staticClass: "nav-link",
-          attrs: {
-            "data-widget": "control-sidebar",
-            "data-slide": "true",
-            href: "#",
-            role: "button",
-            id: "my-toggle-button",
-          },
+  return _c("li", { staticClass: "nav-item" }, [
+    _c(
+      "a",
+      {
+        staticClass: "nav-link",
+        attrs: {
+          "data-widget": "control-sidebar",
+          "data-slide": "true",
+          href: "#",
+          role: "button",
+          id: "my-toggle-button",
         },
-        [_c("i", { staticClass: "fas fa-book" })]
-      ),
-    ])
-  },
-]
+        on: { click: _vm.callInvalidatesize },
+      },
+      [_c("i", { staticClass: "fas fa-book" })]
+    ),
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 

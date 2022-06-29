@@ -10,10 +10,8 @@
                 </div>         
             </div>
         </div>
-        
-        <nav-item-component></nav-item-component>   
 
-        <aside class="control-sidebar overflow-auto control-sidebar-light" style="width: 35% !important;">
+        <aside id="toogleinformation" class="control-sidebar overflow-auto control-sidebar-light" style="width: 35% !important;">
             <!-- Control sidebar content goes here -->        
             <div class="p-3">
                <div class="card card-primary card-outline card-outline-tabs">
@@ -148,6 +146,22 @@ export default {
         this.style = val;
       }
     }
+  },
+  mounted(){
+    Event.$on('mapInvalidate',() =>{
+      if($('#toogleinformation:visible').length == 0){
+          // Call invalidateSize to update map size
+          this.$refs.map.mapObject.invalidateSize();
+          //Set width of the map 
+          this.style = {width: '65%'}; 
+        }else{
+          // Call invalidateSize to update map size
+          this.$refs.map.mapObject.invalidateSize();
+          //Set width of the map 
+          this.style = {width: '100%'}; 
+        }
+        
+    })
   },
   created() {
       this.gethouseholds();   
