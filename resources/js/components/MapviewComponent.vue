@@ -39,11 +39,7 @@
                         </div>
                         <div class="tab-pane fade" id="custom-tabs-four-demography" role="tabpanel" aria-labelledby="custom-tabs-four-demography-tab">
                           <!-- Foldable list of demography component -->      
-<<<<<<< HEAD
                           <demography-component v-bind:demographies="setDemographies" ></demography-component>                     
-=======
-                          <demography-form-component v-bind:demographies="setDemographies" ></demography-form-component>                     
->>>>>>> 4a0271f4eb67a847e7aae5ae2d9fd2f6cf21dc72
                         </div>
                         <div class="tab-pane fade" id="custom-tabs-four-availed-programs" role="tabpanel" aria-labelledby="custom-tabs-four-availed-programs-tab">
                           <!-- Foldable list of availed programs -->
@@ -65,11 +61,6 @@
 import { LMap, LTileLayer, LMarker }  from 'vue2-leaflet';
 import Vue2LeafletGoogleMutant from 'vue2-leaflet-googlemutant';
 import $ from 'jquery';
-<<<<<<< HEAD
-=======
-import HousholdForm from './HouseholdformComponent.vue';
-import DemographyformComponent from './DemographyformComponent.vue';
->>>>>>> 4a0271f4eb67a847e7aae5ae2d9fd2f6cf21dc72
 
 export default {
   components: {
@@ -121,10 +112,6 @@ export default {
 
         this.household = this.households.filter(cn => cn.controlnumber == controlnumber);
         this.demographies = this.household[0].demography;
-<<<<<<< HEAD
-=======
-        this.$refs.childThing.updateHousehold(this.household);
->>>>>>> 4a0271f4eb67a847e7aae5ae2d9fd2f6cf21dc72
 
         // Update center of the map
         [this.center] = this.household.map(h => { return [h.latitude, h.longitude] })
@@ -171,19 +158,7 @@ export default {
       set(val){
         this.style = val;
       }
-<<<<<<< HEAD
     }  
-=======
-    },
-    setDemographies:{
-      get(){
-        return this.demographies;
-      },
-      set(val){
-        this.demographies = val;
-      }
-    }
->>>>>>> 4a0271f4eb67a847e7aae5ae2d9fd2f6cf21dc72
   },
   mounted(){
     Event.$on('mapInvalidate',() =>{
