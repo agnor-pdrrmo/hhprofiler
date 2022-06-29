@@ -1,0 +1,5 @@
+# pack-refs with: peeled fully-peeled sorted 
+ed11f72e3ddf6866968633e2d92b546e7fecee33 refs/remotes/origin/household
+73b4eb05b644630c71cfb1b6ece768958e59d039 refs/remotes/origin/library
+ed11f72e3ddf6866968633e2d92b546e7fecee33 refs/remotes/origin/master
+4b63a22e6139ae32218af9dc76571efb9757b645 refs/remotes/origin/vuejs

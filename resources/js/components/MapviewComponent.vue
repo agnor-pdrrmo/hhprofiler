@@ -35,11 +35,11 @@
                       <div class="tab-content" id="custom-tabs-four-tabContent">
                         <div class="tab-pane fade show active" id="custom-tabs-four-household-information" role="tabpanel" aria-labelledby="custom-tabs-four-household-information-tab">
                           <!-- Form household component -->
-                          <form-household  v-bind:householdData="householdInfo" ref="childThing"></form-household>                   
+                          <household-form-component  v-bind:householdData="householdInfo" ref="childThing" :submit="'Update'"></household-form-component>                   
                         </div>
                         <div class="tab-pane fade" id="custom-tabs-four-demography" role="tabpanel" aria-labelledby="custom-tabs-four-demography-tab">
                           <!-- Foldable list of demography component -->      
-                          <demography-form-component></demography-form-component>                     
+                          <demography-component v-bind:demographies="setDemographies" ></demography-component>                     
                         </div>
                         <div class="tab-pane fade" id="custom-tabs-four-availed-programs" role="tabpanel" aria-labelledby="custom-tabs-four-availed-programs-tab">
                           <!-- Foldable list of availed programs -->
@@ -60,18 +60,14 @@
 
 import { LMap, LTileLayer, LMarker }  from 'vue2-leaflet';
 import Vue2LeafletGoogleMutant from 'vue2-leaflet-googlemutant';
-import $ from 'jquery'
-import HousholdForm from './HouseholdformComponent.vue';
-import DemographyformComponent from './DemographyformComponent.vue';
+import $ from 'jquery';
 
 export default {
   components: {
     'v-map': LMap,
     'v-tilelayer' :LTileLayer,
     'v-marker': LMarker,
-    'v-tilelayer-googlemutant': Vue2LeafletGoogleMutant,
-    'form-household': HousholdForm,
-    DemographyformComponent,
+    'v-tilelayer-googlemutant': Vue2LeafletGoogleMutant
   },
   data () {
     let options = {
@@ -90,6 +86,7 @@ export default {
         }),
         households: {},
         household: {},
+        demographies: [],
         style:{
           width: '100%',
         }
@@ -100,7 +97,7 @@ export default {
       gethouseholds: function(){
           axios.get('/household')
                 .then((response)=>{
-                   console.log(response.data);
+                   //console.log(response.data);
                    this.households = response.data;
                    this.$refs.map.mapObject.fitBounds(this.households.map(h => { return [h.latitude, h.longitude] }));
                 })
@@ -114,7 +111,7 @@ export default {
       opensidebar: function (controlnumber){
 
         this.household = this.households.filter(cn => cn.controlnumber == controlnumber);
-        this.$refs.childThing.updateHousehold(this.household);
+        this.demographies = this.household[0].demography;
 
         // Update center of the map
         [this.center] = this.household.map(h => { return [h.latitude, h.longitude] })
@@ -130,9 +127,21 @@ export default {
       }
   },
   computed:{
-    householdInfo: function() {
-      return this.household;
-      console.log(this.household);
+    householdInfo: {
+      get(){
+        return this.household;  
+      },
+      set(val){
+        this.household = val;
+      }
+    },
+    setDemographies:{
+      get(){
+        return this.demographies;
+      },
+      set(val){
+        this.demographies = val;
+      }
     },
     centerMarker:{
       get(){
@@ -149,7 +158,7 @@ export default {
       set(val){
         this.style = val;
       }
-    }
+    }  
   },
   mounted(){
     Event.$on('mapInvalidate',() =>{
