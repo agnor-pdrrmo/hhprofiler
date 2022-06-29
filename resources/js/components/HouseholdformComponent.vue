@@ -123,6 +123,14 @@
                 <label for="updated_at">Date updated</label> 
                 <input type="text" class="form-control form-control-sm" id="updated_at" v-model="householdinfo.updated_at">
             </div>
+            <div class="form-group mb-1">
+                <label for="created_at">Date added</label> 
+                <input type="text" class="form-control form-control-sm" id="created_at" v-model="formEdit.created_at">
+            </div>
+            <div class="form-group mb-1">
+                <label for="updated_at">Date updated</label> 
+                <input type="text" class="form-control form-control-sm" id="updated_at" v-model="formEdit.updated_at">
+            </div>
         </div>   
         <div class="card-footer">
             <button type="submit" class="btn btn-primary">{{submit}}</button>
