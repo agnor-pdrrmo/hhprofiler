@@ -11,7 +11,7 @@
             </div>
         </div>
         
-        <nav-item-component v-slot:control-sidebar-button></nav-item-component>   
+        <nav-item-component></nav-item-component>   
 
         <aside class="control-sidebar overflow-auto control-sidebar-light" style="width: 35% !important;">
             <!-- Control sidebar content goes here -->        

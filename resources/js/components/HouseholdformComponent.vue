@@ -36,7 +36,7 @@
             </div>
             <div class="form-group mb-1">
                 <label for="estimated_cost">Estimated cost</label>
-                <input type="text" class="form-control form-control-sm" id="estimated_cost" v-model="formEdit.year_construct">
+                <input type="text" class="form-control form-control-sm" id="estimated_cost" v-model="formEdit.estimated_cost">
             </div>
             <div class="form-group mb-1">
                 <label for="bedrooms">Number of bedrooms</label>
@@ -48,11 +48,11 @@
             </div>
             <div class="form-group mb-1">
                 <label for="access_electricity">Access to electricity</label>
-                <input type="text" class="form-control form-control-sm" id="access_electricity" v-model="formEdit.access_electricity ? 'Yes' : 'No'">
+                <input type="text" class="form-control form-control-sm" id="access_electricity" v-model="formEdit.access_electricity">
             </div>
             <div class="form-group mb-1">
                 <label for="access_internet">Access to Internet</label>
-                <input type="text" class="form-control form-control-sm" id="access_internet" v-model="formEdit.access_internet ? 'Yes' : 'No'">
+                <input type="text" class="form-control form-control-sm" id="access_internet" v-model="formEdit.access_internet">
             </div>
             <div class="form-group mb-1">
                 <label for="libbuildingroofmaterial_id">Roof material</label>
@@ -64,11 +64,11 @@
             </div>
             <div class="form-group mb-1">
                 <label for="access_watersupply">Access to water supply</label>
-                <input type="text" class="form-control form-control-sm" id="access_watersupply" v-model="formEdit.access_watersupply ? 'Yes' : 'No'">
+                <input type="text" class="form-control form-control-sm" id="access_watersupply" v-model="formEdit.access_watersupply">
             </div>
             <div class="form-group mb-1">
                 <label for="potable">Potable</label>
-                <input type="text" class="form-control form-control-sm" id="potable" v-model="formEdit.potable ? 'Yes' : 'No'">
+                <input type="text" class="form-control form-control-sm" id="potable" v-model="formEdit.potable">
             </div>
             <div class="form-group mb-1">
                 <label for="libhhwatertenuralstatu_id">Water tenural status</label>
@@ -80,7 +80,7 @@
             </div>
             <div class="form-group mb-1">
                 <label for="floods_occur">Floods occur in the area</label>
-                <input type="text" class="form-control form-control-sm" id="floods_occur" v-model="formEdit.floods_occur ? 'Yes' : 'No'">
+                <input type="text" class="form-control form-control-sm" id="floods_occur" v-model="formEdit.floods_occur">
             </div>
             <div class="form-group mb-1">
                 <label for="year_flood">Year flooded</label>
@@ -88,7 +88,7 @@
             </div>
             <div class="form-group mb-1">
                 <label for="experience_evacuationduringcalamity">Experience evacuated</label>
-                <input type="text" class="form-control form-control-sm" id="experience_evacuationduringcalamity" v-model="formEdit.experience_evacuationduringcalamity ? 'Yes' : 'No'">
+                <input type="text" class="form-control form-control-sm" id="experience_evacuationduringcalamity" v-model="formEdit.experience_evacuationduringcalamity">
             </div>
             <div class="form-group mb-1">
                 <label for="year_evacuated">Year evacuated</label>
@@ -100,15 +100,15 @@
             </div>
             <div class="form-group mb-1">
                 <label for="has_accesstohealthmedicalfacilities">Access to medical facilities</label>
-                <input type="text" class="form-control form-control-sm" id="has_accesstohealthmedicalfacilities" v-model="formEdit.has_accesstohealthmedicalfacilities ? 'Yes' : 'No'">
+                <input type="text" class="form-control form-control-sm" id="has_accesstohealthmedicalfacilities" v-model="formEdit.has_accesstohealthmedicalfacilities">
             </div>
             <div class="form-group mb-1">
                 <label for="has_accesstotelecommunications">Access to telecommunications</label>
-                <input type="text" class="form-control form-control-sm" id="has_accesstotelecommunications" v-model="formEdit.has_accesstotelecommunications ? 'Yes' : 'No'">
+                <input type="text" class="form-control form-control-sm" id="has_accesstotelecommunications" v-model="formEdit.has_accesstotelecommunications">
             </div>
             <div class="form-group mb-1">
                 <label for="has_accesstodrillsandsimulations">Access to drill and simulations</label>
-                <input type="text" class="form-control form-control-sm" id="has_accesstodrillsandsimulations" v-model="formEdit.has_accesstodrillsandsimulations ? 'Yes' : 'No'">
+                <input type="text" class="form-control form-control-sm" id="has_accesstodrillsandsimulations" v-model="formEdit.has_accesstodrillsandsimulations">
             </div>
             <div class="form-group mb-1">
                 <label for="image">Image</label>

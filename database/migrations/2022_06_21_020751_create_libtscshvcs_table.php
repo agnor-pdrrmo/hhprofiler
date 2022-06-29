@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('libtscshvc', function (Blueprint $table) {
+        Schema::create('libtscshvcs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('lib_tscshvcname');

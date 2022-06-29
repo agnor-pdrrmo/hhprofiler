@@ -55532,19 +55532,19 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.formEdit.year_construct,
-              expression: "formEdit.year_construct",
+              value: _vm.formEdit.estimated_cost,
+              expression: "formEdit.estimated_cost",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "estimated_cost" },
-          domProps: { value: _vm.formEdit.year_construct },
+          domProps: { value: _vm.formEdit.estimated_cost },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.$set(_vm.formEdit, "year_construct", $event.target.value)
+              _vm.$set(_vm.formEdit, "estimated_cost", $event.target.value)
             },
           },
         }),
@@ -55614,23 +55614,19 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.formEdit.access_electricity ? "Yes" : "No",
-              expression: "formEdit.access_electricity ? 'Yes' : 'No'",
+              value: _vm.formEdit.access_electricity,
+              expression: "formEdit.access_electricity",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "access_electricity" },
-          domProps: { value: _vm.formEdit.access_electricity ? "Yes" : "No" },
+          domProps: { value: _vm.formEdit.access_electricity },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.$set(
-                _vm.formEdit,
-                "access_electricity ? 'Yes' : 'No'",
-                $event.target.value
-              )
+              _vm.$set(_vm.formEdit, "access_electricity", $event.target.value)
             },
           },
         }),
@@ -55646,23 +55642,19 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.formEdit.access_internet ? "Yes" : "No",
-              expression: "formEdit.access_internet ? 'Yes' : 'No'",
+              value: _vm.formEdit.access_internet,
+              expression: "formEdit.access_internet",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "access_internet" },
-          domProps: { value: _vm.formEdit.access_internet ? "Yes" : "No" },
+          domProps: { value: _vm.formEdit.access_internet },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.$set(
-                _vm.formEdit,
-                "access_internet ? 'Yes' : 'No'",
-                $event.target.value
-              )
+              _vm.$set(_vm.formEdit, "access_internet", $event.target.value)
             },
           },
         }),
@@ -55740,23 +55732,19 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.formEdit.access_watersupply ? "Yes" : "No",
-              expression: "formEdit.access_watersupply ? 'Yes' : 'No'",
+              value: _vm.formEdit.access_watersupply,
+              expression: "formEdit.access_watersupply",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "access_watersupply" },
-          domProps: { value: _vm.formEdit.access_watersupply ? "Yes" : "No" },
+          domProps: { value: _vm.formEdit.access_watersupply },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.$set(
-                _vm.formEdit,
-                "access_watersupply ? 'Yes' : 'No'",
-                $event.target.value
-              )
+              _vm.$set(_vm.formEdit, "access_watersupply", $event.target.value)
             },
           },
         }),
@@ -55770,23 +55758,19 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.formEdit.potable ? "Yes" : "No",
-              expression: "formEdit.potable ? 'Yes' : 'No'",
+              value: _vm.formEdit.potable,
+              expression: "formEdit.potable",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "potable" },
-          domProps: { value: _vm.formEdit.potable ? "Yes" : "No" },
+          domProps: { value: _vm.formEdit.potable },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.$set(
-                _vm.formEdit,
-                "potable ? 'Yes' : 'No'",
-                $event.target.value
-              )
+              _vm.$set(_vm.formEdit, "potable", $event.target.value)
             },
           },
         }),
@@ -55866,23 +55850,19 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.formEdit.floods_occur ? "Yes" : "No",
-              expression: "formEdit.floods_occur ? 'Yes' : 'No'",
+              value: _vm.formEdit.floods_occur,
+              expression: "formEdit.floods_occur",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "floods_occur" },
-          domProps: { value: _vm.formEdit.floods_occur ? "Yes" : "No" },
+          domProps: { value: _vm.formEdit.floods_occur },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.$set(
-                _vm.formEdit,
-                "floods_occur ? 'Yes' : 'No'",
-                $event.target.value
-              )
+              _vm.$set(_vm.formEdit, "floods_occur", $event.target.value)
             },
           },
         }),
@@ -55924,20 +55904,13 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.formEdit.experience_evacuationduringcalamity
-                ? "Yes"
-                : "No",
-              expression:
-                "formEdit.experience_evacuationduringcalamity ? 'Yes' : 'No'",
+              value: _vm.formEdit.experience_evacuationduringcalamity,
+              expression: "formEdit.experience_evacuationduringcalamity",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "experience_evacuationduringcalamity" },
-          domProps: {
-            value: _vm.formEdit.experience_evacuationduringcalamity
-              ? "Yes"
-              : "No",
-          },
+          domProps: { value: _vm.formEdit.experience_evacuationduringcalamity },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
@@ -55945,7 +55918,7 @@ var render = function () {
               }
               _vm.$set(
                 _vm.formEdit,
-                "experience_evacuationduringcalamity ? 'Yes' : 'No'",
+                "experience_evacuationduringcalamity",
                 $event.target.value
               )
             },
@@ -56023,20 +55996,13 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.formEdit.has_accesstohealthmedicalfacilities
-                ? "Yes"
-                : "No",
-              expression:
-                "formEdit.has_accesstohealthmedicalfacilities ? 'Yes' : 'No'",
+              value: _vm.formEdit.has_accesstohealthmedicalfacilities,
+              expression: "formEdit.has_accesstohealthmedicalfacilities",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "has_accesstohealthmedicalfacilities" },
-          domProps: {
-            value: _vm.formEdit.has_accesstohealthmedicalfacilities
-              ? "Yes"
-              : "No",
-          },
+          domProps: { value: _vm.formEdit.has_accesstohealthmedicalfacilities },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
@@ -56044,7 +56010,7 @@ var render = function () {
               }
               _vm.$set(
                 _vm.formEdit,
-                "has_accesstohealthmedicalfacilities ? 'Yes' : 'No'",
+                "has_accesstohealthmedicalfacilities",
                 $event.target.value
               )
             },
@@ -56062,16 +56028,13 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.formEdit.has_accesstotelecommunications ? "Yes" : "No",
-              expression:
-                "formEdit.has_accesstotelecommunications ? 'Yes' : 'No'",
+              value: _vm.formEdit.has_accesstotelecommunications,
+              expression: "formEdit.has_accesstotelecommunications",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "has_accesstotelecommunications" },
-          domProps: {
-            value: _vm.formEdit.has_accesstotelecommunications ? "Yes" : "No",
-          },
+          domProps: { value: _vm.formEdit.has_accesstotelecommunications },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
@@ -56079,7 +56042,7 @@ var render = function () {
               }
               _vm.$set(
                 _vm.formEdit,
-                "has_accesstotelecommunications ? 'Yes' : 'No'",
+                "has_accesstotelecommunications",
                 $event.target.value
               )
             },
@@ -56097,18 +56060,13 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.formEdit.has_accesstodrillsandsimulations
-                ? "Yes"
-                : "No",
-              expression:
-                "formEdit.has_accesstodrillsandsimulations ? 'Yes' : 'No'",
+              value: _vm.formEdit.has_accesstodrillsandsimulations,
+              expression: "formEdit.has_accesstodrillsandsimulations",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "has_accesstodrillsandsimulations" },
-          domProps: {
-            value: _vm.formEdit.has_accesstodrillsandsimulations ? "Yes" : "No",
-          },
+          domProps: { value: _vm.formEdit.has_accesstodrillsandsimulations },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
@@ -56116,7 +56074,7 @@ var render = function () {
               }
               _vm.$set(
                 _vm.formEdit,
-                "has_accesstodrillsandsimulations ? 'Yes' : 'No'",
+                "has_accesstodrillsandsimulations",
                 $event.target.value
               )
             },
@@ -56239,17 +56197,7 @@ var render = function () {
         ]),
       ]),
       _vm._v(" "),
-      _c("nav-item-component", {
-        scopedSlots: _vm._u([
-          {
-            key: "control-sidebar-button",
-            fn: function () {
-              return undefined
-            },
-            proxy: true,
-          },
-        ]),
-      }),
+      _c("nav-item-component"),
       _vm._v(" "),
       _c(
         "aside",

@@ -2,43 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Demography;
 use Illuminate\Http\Request;
-use \App\Models\Household;
 
-class HouseholdController extends Controller
+class DemographyController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        
-        // if(!$this->isLogin())
-        //     return Redirect::to('login');
-        if($request->ajax()) // This is check ajax request
-        {
-            $households = Household::all();
-            return response()->json($households->load('libmunicipalitie','libbarangay','libhhtypeofbuilding','libhhtenuralstatu','libhhroofmaterial','libhhwatertenuralstatu','libhhlvlwatersystem','libhhevacuationarea'));
-        }
-
-        return view('household.index');
-    }
-
-    public function maps()
-    {
-        //dd(Household::whereNotNull('latitude','longitude'))->all()->latitude;
-        return view('household.maps',[
-            'households' => Household::all()
-        ]);
-    }
-
-
-    public function vuemap()
-    {
-        $households = Household::all();
-        return response()->json($households);
+        //
     }
 
     /**
@@ -65,10 +41,10 @@ class HouseholdController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Demography  $demography
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Demography $demography)
     {
         //
     }
@@ -76,10 +52,10 @@ class HouseholdController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Demography  $demography
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Demography $demography)
     {
         //
     }
@@ -88,10 +64,10 @@ class HouseholdController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Demography  $demography
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Demography $demography)
     {
         //
     }
@@ -99,10 +75,10 @@ class HouseholdController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Demography  $demography
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Demography $demography)
     {
         //
     }
