@@ -39,7 +39,7 @@
                         </div>
                         <div class="tab-pane fade" id="custom-tabs-four-demography" role="tabpanel" aria-labelledby="custom-tabs-four-demography-tab">
                           <!-- Foldable list of demography component -->      
-                          <demography-form-component></demography-form-component>                     
+                          <demography-form-component v-bind:demographies="setDemographies" ></demography-form-component>                     
                         </div>
                         <div class="tab-pane fade" id="custom-tabs-four-availed-programs" role="tabpanel" aria-labelledby="custom-tabs-four-availed-programs-tab">
                           <!-- Foldable list of availed programs -->
@@ -60,7 +60,7 @@
 
 import { LMap, LTileLayer, LMarker }  from 'vue2-leaflet';
 import Vue2LeafletGoogleMutant from 'vue2-leaflet-googlemutant';
-import $ from 'jquery'
+import $ from 'jquery';
 import HousholdForm from './HouseholdformComponent.vue';
 import DemographyformComponent from './DemographyformComponent.vue';
 
@@ -90,6 +90,7 @@ export default {
         }),
         households: {},
         household: {},
+        demographies: [],
         style:{
           width: '100%',
         }
@@ -100,7 +101,7 @@ export default {
       gethouseholds: function(){
           axios.get('/household')
                 .then((response)=>{
-                   console.log(response.data);
+                   //console.log(response.data);
                    this.households = response.data;
                    this.$refs.map.mapObject.fitBounds(this.households.map(h => { return [h.latitude, h.longitude] }));
                 })
@@ -114,6 +115,7 @@ export default {
       opensidebar: function (controlnumber){
 
         this.household = this.households.filter(cn => cn.controlnumber == controlnumber);
+        this.demographies = this.household[0].demography;
         this.$refs.childThing.updateHousehold(this.household);
 
         // Update center of the map
@@ -148,6 +150,14 @@ export default {
       },
       set(val){
         this.style = val;
+      }
+    },
+    setDemographies:{
+      get(){
+        return this.demographies;
+      },
+      set(val){
+        this.demographies = val;
       }
     }
   },
