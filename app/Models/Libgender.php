@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Librelationshiphead extends Model
+class Libgender extends Model
 {
     use HasFactory;
 
     /**
-     * Get all of the demography for the Librelationshiphead
+     * Get all of the demography for the Libgender
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

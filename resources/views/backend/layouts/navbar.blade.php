@@ -126,9 +126,8 @@
                 <i class="fas fa-expand-arrows-alt"></i>
             </a>
         </li> --}}
-        
         @if(Route::is('home') )
-            <nav-item-component></nav-item-component>   
+            <nav-item-component></nav-item-component>               
         @endif
     </ul>
 </nav>

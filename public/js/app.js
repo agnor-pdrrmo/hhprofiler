@@ -2221,8 +2221,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -2361,9 +2359,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['demography', 'submit']
+  props: ['demography', 'submit'],
+  methods: {
+    getAge: function getAge(birthday) {
+      var bday = new Date(birthday);
+      var ageDifMs = Date.now() - bday.getTime();
+      var ageDate = new Date(ageDifMs); // miliseconds from epoch
+
+      return Math.abs(ageDate.getUTCFullYear() - 1970);
+    }
+  }
 });
 
 /***/ }),
@@ -2613,7 +2623,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 //
 //
 //
-//
 
 
 
@@ -2652,7 +2661,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       var _this = this;
 
       axios.get('/household').then(function (response) {
-        //console.log(response.data);
+        console.log(response.data);
         _this.households = response.data;
 
         _this.$refs.map.mapObject.fitBounds(_this.households.map(function (h) {
@@ -2854,6 +2863,7 @@ Vue.component('demography-component', (__webpack_require__(/*! ./components/Demo
 Vue.component('demography-form-component', (__webpack_require__(/*! ./components/DemographyformComponent.vue */ "./resources/js/components/DemographyformComponent.vue")["default"]));
 Vue.component('section-header-component', (__webpack_require__(/*! ./components/SectionheaderComponent.vue */ "./resources/js/components/SectionheaderComponent.vue")["default"]));
 Vue.component('nav-item-component', (__webpack_require__(/*! ./components/NavitemComponent.vue */ "./resources/js/components/NavitemComponent.vue")["default"]));
+Vue.component('sidecontrol-slot', (__webpack_require__(/*! ./components/SlotsidebarcontrollerComponent.vue */ "./resources/js/components/SlotsidebarcontrollerComponent.vue")["default"]));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -55240,6 +55250,43 @@ component.options.__file = "resources/js/components/SectionheaderComponent.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/SlotsidebarcontrollerComponent.vue":
+/*!********************************************************************!*\
+  !*** ./resources/js/components/SlotsidebarcontrollerComponent.vue ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _SlotsidebarcontrollerComponent_vue_vue_type_template_id_16c98c0e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SlotsidebarcontrollerComponent.vue?vue&type=template&id=16c98c0e& */ "./resources/js/components/SlotsidebarcontrollerComponent.vue?vue&type=template&id=16c98c0e&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _SlotsidebarcontrollerComponent_vue_vue_type_template_id_16c98c0e___WEBPACK_IMPORTED_MODULE_0__.render,
+  _SlotsidebarcontrollerComponent_vue_vue_type_template_id_16c98c0e___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/SlotsidebarcontrollerComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/DemographyComponent.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************!*\
   !*** ./resources/js/components/DemographyComponent.vue?vue&type=script&lang=js& ***!
@@ -55447,6 +55494,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SectionheaderComponent_vue_vue_type_template_id_5016c3d4___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SectionheaderComponent_vue_vue_type_template_id_5016c3d4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SectionheaderComponent.vue?vue&type=template&id=5016c3d4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SectionheaderComponent.vue?vue&type=template&id=5016c3d4&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/SlotsidebarcontrollerComponent.vue?vue&type=template&id=16c98c0e&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/components/SlotsidebarcontrollerComponent.vue?vue&type=template&id=16c98c0e& ***!
+  \***************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SlotsidebarcontrollerComponent_vue_vue_type_template_id_16c98c0e___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SlotsidebarcontrollerComponent_vue_vue_type_template_id_16c98c0e___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SlotsidebarcontrollerComponent_vue_vue_type_template_id_16c98c0e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SlotsidebarcontrollerComponent.vue?vue&type=template&id=16c98c0e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SlotsidebarcontrollerComponent.vue?vue&type=template&id=16c98c0e&");
 
 
 /***/ }),
@@ -55687,21 +55751,21 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.demography.librelationshiphead_id,
-              expression: "demography.librelationshiphead_id",
+              value: _vm.demography.librelationshiphead.lib_rhname,
+              expression: "demography.librelationshiphead.lib_rhname",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "librelationshiphead_id" },
-          domProps: { value: _vm.demography.librelationshiphead_id },
+          domProps: { value: _vm.demography.librelationshiphead.lib_rhname },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
               _vm.$set(
-                _vm.demography,
-                "librelationshiphead_id",
+                _vm.demography.librelationshiphead,
+                "lib_rhname",
                 $event.target.value
               )
             },
@@ -55717,19 +55781,23 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.demography.libgender_id,
-              expression: "demography.libgender_id",
+              value: _vm.demography.libgender.lib_gname,
+              expression: "demography.libgender.lib_gname",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "libgender_id" },
-          domProps: { value: _vm.demography.libgender_id },
+          domProps: { value: _vm.demography.libgender.lib_gname },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.$set(_vm.demography, "libgender_id", $event.target.value)
+              _vm.$set(
+                _vm.demography.libgender,
+                "lib_gname",
+                $event.target.value
+              )
             },
           },
         }),
@@ -55762,6 +55830,16 @@ var render = function () {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "form-group mb-1" }, [
+        _c("label", { attrs: { for: "birthdate" } }, [_vm._v("Age")]),
+        _vm._v(" "),
+        _c("input", {
+          staticClass: "form-control form-control-sm",
+          attrs: { readonly: "", type: "text", id: "birthdate" },
+          domProps: { value: _vm.getAge(_vm.demography.birthdate) },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group mb-1" }, [
         _c("label", { attrs: { for: "libmaritalstatu_id" } }, [
           _vm._v("Marital status"),
         ]),
@@ -55771,21 +55849,21 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.demography.libmaritalstatu_id,
-              expression: "demography.libmaritalstatu_id",
+              value: _vm.demography.libmaritalstatu.lib_msname,
+              expression: "demography.libmaritalstatu.lib_msname",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "libmaritalstatu_id" },
-          domProps: { value: _vm.demography.libmaritalstatu_id },
+          domProps: { value: _vm.demography.libmaritalstatu.lib_msname },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
               _vm.$set(
-                _vm.demography,
-                "libmaritalstatu_id",
+                _vm.demography.libmaritalstatu,
+                "lib_msname",
                 $event.target.value
               )
             },
@@ -57856,6 +57934,40 @@ var render = function () {
       ]),
     ]),
   ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SlotsidebarcontrollerComponent.vue?vue&type=template&id=16c98c0e&":
+/*!******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SlotsidebarcontrollerComponent.vue?vue&type=template&id=16c98c0e& ***!
+  \******************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "section",
+    { staticClass: "content-header" },
+    [
+      _vm._t("default", function () {
+        return [_vm._v("Old value")]
+      }),
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

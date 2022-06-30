@@ -10,7 +10,6 @@
                 </div>         
             </div>
         </div>
-
         <aside id="toogleinformation" class="control-sidebar overflow-auto control-sidebar-light" style="width: 35% !important;">
             <!-- Control sidebar content goes here -->        
             <div class="p-3">
@@ -97,7 +96,7 @@ export default {
       gethouseholds: function(){
           axios.get('/household')
                 .then((response)=>{
-                   //console.log(response.data);
+                   console.log(response.data);
                    this.households = response.data;
                    this.$refs.map.mapObject.fitBounds(this.households.map(h => { return [h.latitude, h.longitude] }));
                 })

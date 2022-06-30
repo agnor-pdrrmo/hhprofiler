@@ -27,6 +27,7 @@ Vue.component('demography-component', require('./components/DemographyComponent.
 Vue.component('demography-form-component', require('./components/DemographyformComponent.vue').default);
 Vue.component('section-header-component', require('./components/SectionheaderComponent.vue').default);
 Vue.component('nav-item-component', require('./components/NavitemComponent.vue').default);
+Vue.component('sidecontrol-slot', require('./components/SlotsidebarcontrollerComponent.vue').default);
 
 
 /**

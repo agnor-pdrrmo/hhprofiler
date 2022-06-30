@@ -19,4 +19,34 @@ class Demography extends Model
         return $this->belongsTo(Household::class, 'household_controlnumber', 'controlnumber');
     }
 
+    /**
+     * Get the librelationshiphead that owns the Demography
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function librelationshiphead()
+    {
+        return $this->belongsTo(Librelationshiphead::class);
+    }
+
+    /**
+     * Get the libgender that owns the Demography
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function libgender()
+    {
+        return $this->belongsTo(Libgender::class);
+    }
+
+    /**
+     * Get the libmaritalstatu that owns the Demography
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function libmaritalstatu()
+    {
+        return $this->belongsTo(Libmaritalstatu::class);
+    }
+
 }

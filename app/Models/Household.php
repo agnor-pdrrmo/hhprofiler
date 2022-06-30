@@ -97,4 +97,5 @@ class Household extends Model
     {
         return $this->hasMany(Demography::class,'household_controlnumber','controlnumber');
     }
+    
 }

@@ -23,19 +23,23 @@
             </div> 
             <div class="form-group mb-1">
                 <label for="librelationshiphead_id">Relationship to head</label> 
-                <input type="text" class="form-control form-control-sm" id="librelationshiphead_id" v-model="demography.librelationshiphead_id">
+                <input type="text" class="form-control form-control-sm" id="librelationshiphead_id" v-model="demography.librelationshiphead.lib_rhname">
             </div> 
             <div class="form-group mb-1">
                 <label for="libgender_id">Gender</label> 
-                <input type="text" class="form-control form-control-sm" id="libgender_id" v-model="demography.libgender_id">
+                <input type="text" class="form-control form-control-sm" id="libgender_id" v-model="demography.libgender.lib_gname">
             </div> 
             <div class="form-group mb-1">
                 <label for="birthdate">Birthday</label> 
                 <input type="text" class="form-control form-control-sm" id="birthdate" v-model="demography.birthdate">
             </div> 
             <div class="form-group mb-1">
+                <label for="birthdate">Age</label> 
+                <input readonly type="text" class="form-control form-control-sm" id="birthdate" :value="getAge(demography.birthdate)">
+            </div> 
+            <div class="form-group mb-1">
                 <label for="libmaritalstatu_id">Marital status</label> 
-                <input type="text" class="form-control form-control-sm" id="libmaritalstatu_id" v-model="demography.libmaritalstatu_id">
+                <input type="text" class="form-control form-control-sm" id="libmaritalstatu_id" v-model="demography.libmaritalstatu.lib_msname">
             </div> 
             <div class="form-group mb-1">
                 <label for="ethnicity_by_blood">Ethnicity by blood</label> 
@@ -138,9 +142,15 @@
 
 <script>
 
-import $ from 'jquery';
-
 export default {
-    props: ['demography','submit']
+    props: ['demography','submit'],
+    methods:{
+      getAge: function(birthday){
+          var bday = new Date(birthday);
+          var ageDifMs = Date.now() - bday.getTime();
+          var ageDate = new Date(ageDifMs); // miliseconds from epoch
+          return Math.abs(ageDate.getUTCFullYear() - 1970);
+      }  
+    }
 }
 </script>

@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Librelationshiphead extends Model
+class Libmaritalstatu extends Model
 {
     use HasFactory;
 
     /**
-     * Get all of the demography for the Librelationshiphead
+     * Get all of the demogragphy for the Libmaritalstatu
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
