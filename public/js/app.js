@@ -2199,7 +2199,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['demographies'],
@@ -2365,6 +2364,70 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['demography', 'submit'],
+  data: function data() {
+    var _this$demography$libr, _this$demography$libg, _this$demography$libm, _this$demography$libs, _this$demography$libn, _this$demography$libg2, _this$demography$high, _this$demography$libt, _this$demography$libm2;
+
+    return {
+      valueTrue: 'Yes',
+      valueFalse: 'No',
+      dynamicValue: null,
+      formEdit: {
+        demography: {
+          surname: this.demography.surname,
+          firstname: this.demography.firstname,
+          middlename: this.demography.middlename,
+          extension: this.demography.extension,
+          nuclear_family: this.demography.nuclear_family,
+          librelationshiphead: {
+            lib_rhname: (_this$demography$libr = this.demography.librelationshiphead) === null || _this$demography$libr === void 0 ? void 0 : _this$demography$libr.lib_rhname
+          },
+          libgender: {
+            lib_gname: (_this$demography$libg = this.demography.libgender) === null || _this$demography$libg === void 0 ? void 0 : _this$demography$libg.lib_gname
+          },
+          birthdate: this.demography.birthdate,
+          age: this.getAge(this.demography.birthdate),
+          libmaritalstatu: {
+            lib_msname: (_this$demography$libm = this.demography.libmaritalstatu) === null || _this$demography$libm === void 0 ? void 0 : _this$demography$libm.lib_msname
+          },
+          ethnicity_by_blood: this.demography.ethnicity_by_blood,
+          member_ip: this.demography.member_ip ? 'Yes' : 'No',
+          informal_settler: this.demography.informal_settler ? 'Yes' : 'No',
+          religion: this.demography.religion,
+          person_with_special_needs: this.demography.person_with_special_needs ? 'Yes' : 'No',
+          libdisabilitie: {
+            lib_dname: (_this$demography$libs = this.demography.libsisabilitie) === null || _this$demography$libs === void 0 ? void 0 : _this$demography$libs.lib_dname
+          },
+          is_ofw: this.demography.is_ofw ? 'Yes' : 'No',
+          residence_3_years: this.demography.residence_3_years ? 'Yes' : 'No',
+          libnutrionalstatu: {
+            lib_nsname: (_this$demography$libn = this.demography.libnutrionalstatu) === null || _this$demography$libn === void 0 ? void 0 : _this$demography$libn.lib_nsname
+          },
+          nutrional_status_recorded: this.demography.nutrional_status_recorded,
+          current_attending_school: this.demography.current_attending_school ? 'Yes' : 'No',
+          libgradelvl: {
+            lib_glname: (_this$demography$libg2 = this.demography.libgradelvl) === null || _this$demography$libg2 === void 0 ? void 0 : _this$demography$libg2.lib_glname
+          },
+          highestgradelvl: {
+            lib_glname: (_this$demography$high = this.demography.highestgradelvl) === null || _this$demography$high === void 0 ? void 0 : _this$demography$high.lib_glname
+          },
+          libtscshvc_id: {
+            lib_tscshvcname: (_this$demography$libt = this.demography.libtscshvc_id) === null || _this$demography$libt === void 0 ? void 0 : _this$demography$libt.lib_tscshvcname
+          },
+          can_read_write_or_atleast_hs_graduate: this.demography.can_read_write_or_atleast_hs_graduate ? 'Yes' : 'No',
+          primary_occupation: this.demography.primary_occupation,
+          libmonthlyincome_id: {
+            lib_miname: (_this$demography$libm2 = this.demography.libmonthlyincome_id) === null || _this$demography$libm2 === void 0 ? void 0 : _this$demography$libm2.lib_miname
+          },
+          sss_member: this.demography.sss_member ? 'Yes' : 'No',
+          gsis_member: this.demography.gsis_member ? 'Yes' : 'No',
+          philhealth_member: this.demography.philhealth_member ? 'Yes' : 'No',
+          dependent_of_philheath_member: this.demography.dependent_of_philheath_member ? 'Yes' : 'No',
+          created_at: this.demography.created_at,
+          updated_at: this.demography.updated_at
+        }
+      }
+    };
+  },
   methods: {
     getAge: function getAge(birthday) {
       var bday = new Date(birthday);
@@ -2372,6 +2435,9 @@ __webpack_require__.r(__webpack_exports__);
       var ageDate = new Date(ageDifMs); // miliseconds from epoch
 
       return Math.abs(ageDate.getUTCFullYear() - 1970);
+    },
+    checkUndefined: function checkUndefined(val) {
+      return typeof val === 'undefined' ? '' : val;
     }
   }
 });
@@ -55536,15 +55602,13 @@ var render = function () {
       "ul",
       _vm._l(_vm.demographies, function (demography) {
         return _c("li", { key: demography.id }, [
-          _c("span", {}),
-          _vm._v(" "),
           _c(
             "a",
             {
               staticStyle: { "text-transform": "capitalize" },
               attrs: {
                 "data-toggle": "collapse",
-                href: "#school-" + demography.id,
+                href: "#demography-" + demography.id,
                 "aria-expanded": "false",
                 "aria-controls": "collapseExample",
               },
@@ -55567,7 +55631,7 @@ var render = function () {
             {
               staticClass: "collapse",
               attrs: {
-                id: "school-" + demography.id,
+                id: "demography-" + demography.id,
                 "data-parent": "#myGroup",
               },
             },
@@ -55617,19 +55681,19 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.demography.surname,
-              expression: "demography.surname",
+              value: _vm.formEdit.demography.surname,
+              expression: "formEdit.demography.surname",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "surname" },
-          domProps: { value: _vm.demography.surname },
+          domProps: { value: _vm.formEdit.demography.surname },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.$set(_vm.demography, "surname", $event.target.value)
+              _vm.$set(_vm.formEdit.demography, "surname", $event.target.value)
             },
           },
         }),
@@ -55643,19 +55707,23 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.demography.firstname,
-              expression: "demography.firstname",
+              value: _vm.formEdit.demography.firstname,
+              expression: "formEdit.demography.firstname",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "firstname" },
-          domProps: { value: _vm.demography.firstname },
+          domProps: { value: _vm.formEdit.demography.firstname },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.$set(_vm.demography, "firstname", $event.target.value)
+              _vm.$set(
+                _vm.formEdit.demography,
+                "firstname",
+                $event.target.value
+              )
             },
           },
         }),
@@ -55669,19 +55737,23 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.demography.middlename,
-              expression: "demography.middlename",
+              value: _vm.formEdit.demography.middlename,
+              expression: "formEdit.demography.middlename",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "middlename" },
-          domProps: { value: _vm.demography.middlename },
+          domProps: { value: _vm.formEdit.demography.middlename },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.$set(_vm.demography, "middlename", $event.target.value)
+              _vm.$set(
+                _vm.formEdit.demography,
+                "middlename",
+                $event.target.value
+              )
             },
           },
         }),
@@ -55695,19 +55767,23 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.demography.extension,
-              expression: "demography.extension",
+              value: _vm.formEdit.demography.extension,
+              expression: "formEdit.demography.extension",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "extension" },
-          domProps: { value: _vm.demography.extension },
+          domProps: { value: _vm.formEdit.demography.extension },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.$set(_vm.demography, "extension", $event.target.value)
+              _vm.$set(
+                _vm.formEdit.demography,
+                "extension",
+                $event.target.value
+              )
             },
           },
         }),
@@ -55723,19 +55799,23 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.demography.nuclear_family,
-              expression: "demography.nuclear_family",
+              value: _vm.formEdit.demography.nuclear_family,
+              expression: "formEdit.demography.nuclear_family",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "nuclear_family" },
-          domProps: { value: _vm.demography.nuclear_family },
+          domProps: { value: _vm.formEdit.demography.nuclear_family },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.$set(_vm.demography, "nuclear_family", $event.target.value)
+              _vm.$set(
+                _vm.formEdit.demography,
+                "nuclear_family",
+                $event.target.value
+              )
             },
           },
         }),
@@ -55751,20 +55831,22 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.demography.librelationshiphead.lib_rhname,
-              expression: "demography.librelationshiphead.lib_rhname",
+              value: _vm.formEdit.demography.librelationshiphead.lib_rhname,
+              expression: "formEdit.demography.librelationshiphead.lib_rhname",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "librelationshiphead_id" },
-          domProps: { value: _vm.demography.librelationshiphead.lib_rhname },
+          domProps: {
+            value: _vm.formEdit.demography.librelationshiphead.lib_rhname,
+          },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
               _vm.$set(
-                _vm.demography.librelationshiphead,
+                _vm.formEdit.demography.librelationshiphead,
                 "lib_rhname",
                 $event.target.value
               )
@@ -55781,20 +55863,20 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.demography.libgender.lib_gname,
-              expression: "demography.libgender.lib_gname",
+              value: _vm.formEdit.demography.libgender.lib_gname,
+              expression: "formEdit.demography.libgender.lib_gname",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "libgender_id" },
-          domProps: { value: _vm.demography.libgender.lib_gname },
+          domProps: { value: _vm.formEdit.demography.libgender.lib_gname },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
               _vm.$set(
-                _vm.demography.libgender,
+                _vm.formEdit.demography.libgender,
                 "lib_gname",
                 $event.target.value
               )
@@ -55811,19 +55893,23 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.demography.birthdate,
-              expression: "demography.birthdate",
+              value: _vm.formEdit.demography.birthdate,
+              expression: "formEdit.demography.birthdate",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "birthdate" },
-          domProps: { value: _vm.demography.birthdate },
+          domProps: { value: _vm.formEdit.demography.birthdate },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.$set(_vm.demography, "birthdate", $event.target.value)
+              _vm.$set(
+                _vm.formEdit.demography,
+                "birthdate",
+                $event.target.value
+              )
             },
           },
         }),
@@ -55833,9 +55919,25 @@ var render = function () {
         _c("label", { attrs: { for: "birthdate" } }, [_vm._v("Age")]),
         _vm._v(" "),
         _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.formEdit.demography.age,
+              expression: "formEdit.demography.age",
+            },
+          ],
           staticClass: "form-control form-control-sm",
           attrs: { readonly: "", type: "text", id: "birthdate" },
-          domProps: { value: _vm.getAge(_vm.demography.birthdate) },
+          domProps: { value: _vm.formEdit.demography.age },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.formEdit.demography, "age", $event.target.value)
+            },
+          },
         }),
       ]),
       _vm._v(" "),
@@ -55849,20 +55951,22 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.demography.libmaritalstatu.lib_msname,
-              expression: "demography.libmaritalstatu.lib_msname",
+              value: _vm.formEdit.demography.libmaritalstatu.lib_msname,
+              expression: "formEdit.demography.libmaritalstatu.lib_msname",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "libmaritalstatu_id" },
-          domProps: { value: _vm.demography.libmaritalstatu.lib_msname },
+          domProps: {
+            value: _vm.formEdit.demography.libmaritalstatu.lib_msname,
+          },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
               _vm.$set(
-                _vm.demography.libmaritalstatu,
+                _vm.formEdit.demography.libmaritalstatu,
                 "lib_msname",
                 $event.target.value
               )
@@ -55881,20 +55985,20 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.demography.ethnicity_by_blood,
-              expression: "demography.ethnicity_by_blood",
+              value: _vm.formEdit.demography.ethnicity_by_blood,
+              expression: "formEdit.demography.ethnicity_by_blood",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "ethnicity_by_blood" },
-          domProps: { value: _vm.demography.ethnicity_by_blood },
+          domProps: { value: _vm.formEdit.demography.ethnicity_by_blood },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
               _vm.$set(
-                _vm.demography,
+                _vm.formEdit.demography,
                 "ethnicity_by_blood",
                 $event.target.value
               )
@@ -55913,19 +56017,23 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.demography.member_ip,
-              expression: "demography.member_ip",
+              value: _vm.formEdit.demography.member_ip,
+              expression: "formEdit.demography.member_ip",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "member_ip" },
-          domProps: { value: _vm.demography.member_ip },
+          domProps: { value: _vm.formEdit.demography.member_ip },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.$set(_vm.demography, "member_ip", $event.target.value)
+              _vm.$set(
+                _vm.formEdit.demography,
+                "member_ip",
+                $event.target.value
+              )
             },
           },
         }),
@@ -55941,19 +56049,23 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.demography.informal_settler,
-              expression: "demography.informal_settler",
+              value: _vm.formEdit.demography.informal_settler,
+              expression: "formEdit.demography.informal_settler",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "informal_settler" },
-          domProps: { value: _vm.demography.informal_settler },
+          domProps: { value: _vm.formEdit.demography.informal_settler },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.$set(_vm.demography, "informal_settler", $event.target.value)
+              _vm.$set(
+                _vm.formEdit.demography,
+                "informal_settler",
+                $event.target.value
+              )
             },
           },
         }),
@@ -55967,19 +56079,19 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.demography.religion,
-              expression: "demography.religion",
+              value: _vm.formEdit.demography.religion,
+              expression: "formEdit.demography.religion",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "religion" },
-          domProps: { value: _vm.demography.religion },
+          domProps: { value: _vm.formEdit.demography.religion },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.$set(_vm.demography, "religion", $event.target.value)
+              _vm.$set(_vm.formEdit.demography, "religion", $event.target.value)
             },
           },
         }),
@@ -55995,20 +56107,22 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.demography.person_with_special_needs,
-              expression: "demography.person_with_special_needs",
+              value: _vm.formEdit.demography.person_with_special_needs,
+              expression: "formEdit.demography.person_with_special_needs",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "person_with_special_needs" },
-          domProps: { value: _vm.demography.person_with_special_needs },
+          domProps: {
+            value: _vm.formEdit.demography.person_with_special_needs,
+          },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
               _vm.$set(
-                _vm.demography,
+                _vm.formEdit.demography,
                 "person_with_special_needs",
                 $event.target.value
               )
@@ -56027,19 +56141,23 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.demography.libdisability_id,
-              expression: "demography.libdisability_id",
+              value: _vm.formEdit.demography.libsisabilitie,
+              expression: "formEdit.demography.libsisabilitie",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "libdisability_id" },
-          domProps: { value: _vm.demography.libdisability_id },
+          domProps: { value: _vm.formEdit.demography.libsisabilitie },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.$set(_vm.demography, "libdisability_id", $event.target.value)
+              _vm.$set(
+                _vm.formEdit.demography,
+                "libsisabilitie",
+                $event.target.value
+              )
             },
           },
         }),
@@ -56053,19 +56171,19 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.demography.is_ofw,
-              expression: "demography.is_ofw",
+              value: _vm.formEdit.demography.is_ofw,
+              expression: "formEdit.demography.is_ofw",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "is_ofw" },
-          domProps: { value: _vm.demography.is_ofw },
+          domProps: { value: _vm.formEdit.demography.is_ofw },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.$set(_vm.demography, "is_ofw", $event.target.value)
+              _vm.$set(_vm.formEdit.demography, "is_ofw", $event.target.value)
             },
           },
         }),
@@ -56081,19 +56199,23 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.demography.residence_3_years,
-              expression: "demography.residence_3_years",
+              value: _vm.formEdit.demography.residence_3_years,
+              expression: "formEdit.demography.residence_3_years",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "residence_3_years" },
-          domProps: { value: _vm.demography.residence_3_years },
+          domProps: { value: _vm.formEdit.demography.residence_3_years },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.$set(_vm.demography, "residence_3_years", $event.target.value)
+              _vm.$set(
+                _vm.formEdit.demography,
+                "residence_3_years",
+                $event.target.value
+              )
             },
           },
         }),
@@ -56109,21 +56231,23 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.demography.libnutritionalstatu_id,
-              expression: "demography.libnutritionalstatu_id",
+              value: _vm.formEdit.demography.libnutrionalstatu.lib_nsname,
+              expression: "formEdit.demography.libnutrionalstatu.lib_nsname",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "libnutritionalstatu_id" },
-          domProps: { value: _vm.demography.libnutritionalstatu_id },
+          domProps: {
+            value: _vm.formEdit.demography.libnutrionalstatu.lib_nsname,
+          },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
               _vm.$set(
-                _vm.demography,
-                "libnutritionalstatu_id",
+                _vm.formEdit.demography.libnutrionalstatu,
+                "lib_nsname",
                 $event.target.value
               )
             },
@@ -56141,20 +56265,22 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.demography.nutrional_status_recorded,
-              expression: "demography.nutrional_status_recorded",
+              value: _vm.formEdit.demography.nutrional_status_recorded,
+              expression: "formEdit.demography.nutrional_status_recorded",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "nutrional_status_recorded" },
-          domProps: { value: _vm.demography.nutrional_status_recorded },
+          domProps: {
+            value: _vm.formEdit.demography.nutrional_status_recorded,
+          },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
               _vm.$set(
-                _vm.demography,
+                _vm.formEdit.demography,
                 "nutrional_status_recorded",
                 $event.target.value
               )
@@ -56173,20 +56299,20 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.demography.current_attending_school,
-              expression: "demography.current_attending_school",
+              value: _vm.formEdit.demography.current_attending_school,
+              expression: "formEdit.demography.current_attending_school",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "current_attending_school" },
-          domProps: { value: _vm.demography.current_attending_school },
+          domProps: { value: _vm.formEdit.demography.current_attending_school },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
               _vm.$set(
-                _vm.demography,
+                _vm.formEdit.demography,
                 "current_attending_school",
                 $event.target.value
               )
@@ -56207,23 +56333,21 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.demography.current_attending_libgradelvl_glcode,
-              expression: "demography.current_attending_libgradelvl_glcode",
+              value: _vm.formEdit.demography.libgradelvl.lib_glname,
+              expression: "formEdit.demography.libgradelvl.lib_glname",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "current_attending_libgradelvl_glcode" },
-          domProps: {
-            value: _vm.demography.current_attending_libgradelvl_glcode,
-          },
+          domProps: { value: _vm.formEdit.demography.libgradelvl.lib_glname },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
               _vm.$set(
-                _vm.demography,
-                "current_attending_libgradelvl_glcode",
+                _vm.formEdit.demography.libgradelvl,
+                "lib_glname",
                 $event.target.value
               )
             },
@@ -56243,14 +56367,17 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.demography.current_attending_libgradelvl_glcode,
-              expression: "demography.current_attending_libgradelvl_glcode",
+              value: _vm.formEdit.demography.highestgradelvl.lib_glname,
+              expression: "formEdit.demography.highestgradelvl.lib_glname",
             },
           ],
           staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "current_attending_libgradelvl_glcode" },
+          attrs: {
+            type: "text",
+            id: "highest_education_attainment_libgradelvl_glcode",
+          },
           domProps: {
-            value: _vm.demography.current_attending_libgradelvl_glcode,
+            value: _vm.formEdit.demography.highestgradelvl.lib_glname,
           },
           on: {
             input: function ($event) {
@@ -56258,8 +56385,8 @@ var render = function () {
                 return
               }
               _vm.$set(
-                _vm.demography,
-                "current_attending_libgradelvl_glcode",
+                _vm.formEdit.demography.highestgradelvl,
+                "lib_glname",
                 $event.target.value
               )
             },
@@ -56268,26 +56395,36 @@ var render = function () {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "libtscshvc_id" } }, [_vm._v("Tscshvc")]),
+        _c("label", { attrs: { for: "libtscshvc_id" } }, [
+          _vm._v(
+            "Track / Strand / Course (for Senior High school / Vocational / College)"
+          ),
+        ]),
         _vm._v(" "),
         _c("input", {
           directives: [
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.demography.libtscshvc_id,
-              expression: "demography.libtscshvc_id",
+              value: _vm.formEdit.demography.libtscshvc_id.lib_tscshvcname,
+              expression: "formEdit.demography.libtscshvc_id.lib_tscshvcname",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "libtscshvc_id" },
-          domProps: { value: _vm.demography.libtscshvc_id },
+          domProps: {
+            value: _vm.formEdit.demography.libtscshvc_id.lib_tscshvcname,
+          },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.$set(_vm.demography, "libtscshvc_id", $event.target.value)
+              _vm.$set(
+                _vm.formEdit.demography.libtscshvc_id,
+                "lib_tscshvcname",
+                $event.target.value
+              )
             },
           },
         }),
@@ -56305,14 +56442,17 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.demography.can_read_write_or_atleast_hs_graduate,
-              expression: "demography.can_read_write_or_atleast_hs_graduate",
+              value:
+                _vm.formEdit.demography.can_read_write_or_atleast_hs_graduate,
+              expression:
+                "formEdit.demography.can_read_write_or_atleast_hs_graduate",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "can_read_write_or_atleast_hs_graduate" },
           domProps: {
-            value: _vm.demography.can_read_write_or_atleast_hs_graduate,
+            value:
+              _vm.formEdit.demography.can_read_write_or_atleast_hs_graduate,
           },
           on: {
             input: function ($event) {
@@ -56320,7 +56460,7 @@ var render = function () {
                 return
               }
               _vm.$set(
-                _vm.demography,
+                _vm.formEdit.demography,
                 "can_read_write_or_atleast_hs_graduate",
                 $event.target.value
               )
@@ -56339,20 +56479,20 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.demography.primary_occupation,
-              expression: "demography.primary_occupation",
+              value: _vm.formEdit.demography.primary_occupation,
+              expression: "formEdit.demography.primary_occupation",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "primary_occupation" },
-          domProps: { value: _vm.demography.primary_occupation },
+          domProps: { value: _vm.formEdit.demography.primary_occupation },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
               _vm.$set(
-                _vm.demography,
+                _vm.formEdit.demography,
                 "primary_occupation",
                 $event.target.value
               )
@@ -56371,21 +56511,23 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.demography.libmonthlyincome_id,
-              expression: "demography.libmonthlyincome_id",
+              value: _vm.formEdit.demography.libmonthlyincome_id.lib_miname,
+              expression: "formEdit.demography.libmonthlyincome_id.lib_miname",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "libmonthlyincome_id" },
-          domProps: { value: _vm.demography.libmonthlyincome_id },
+          domProps: {
+            value: _vm.formEdit.demography.libmonthlyincome_id.lib_miname,
+          },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
               _vm.$set(
-                _vm.demography,
-                "libmonthlyincome_id",
+                _vm.formEdit.demography.libmonthlyincome_id,
+                "lib_miname",
                 $event.target.value
               )
             },
@@ -56401,19 +56543,23 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.demography.sss_member,
-              expression: "demography.sss_member",
+              value: _vm.formEdit.demography.sss_member,
+              expression: "formEdit.demography.sss_member",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "sss_member" },
-          domProps: { value: _vm.demography.sss_member },
+          domProps: { value: _vm.formEdit.demography.sss_member },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.$set(_vm.demography, "sss_member", $event.target.value)
+              _vm.$set(
+                _vm.formEdit.demography,
+                "sss_member",
+                $event.target.value
+              )
             },
           },
         }),
@@ -56427,19 +56573,23 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.demography.gsis_member,
-              expression: "demography.gsis_member",
+              value: _vm.formEdit.demography.gsis_member,
+              expression: "formEdit.demography.gsis_member",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "gsis_member" },
-          domProps: { value: _vm.demography.gsis_member },
+          domProps: { value: _vm.formEdit.demography.gsis_member },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.$set(_vm.demography, "gsis_member", $event.target.value)
+              _vm.$set(
+                _vm.formEdit.demography,
+                "gsis_member",
+                $event.target.value
+              )
             },
           },
         }),
@@ -56455,19 +56605,23 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.demography.philhealth_member,
-              expression: "demography.philhealth_member",
+              value: _vm.formEdit.demography.philhealth_member,
+              expression: "formEdit.demography.philhealth_member",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "philhealth_member" },
-          domProps: { value: _vm.demography.philhealth_member },
+          domProps: { value: _vm.formEdit.demography.philhealth_member },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.$set(_vm.demography, "philhealth_member", $event.target.value)
+              _vm.$set(
+                _vm.formEdit.demography,
+                "philhealth_member",
+                $event.target.value
+              )
             },
           },
         }),
@@ -56483,20 +56637,22 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.demography.dependent_of_philheath_member,
-              expression: "demography.dependent_of_philheath_member",
+              value: _vm.formEdit.demography.dependent_of_philheath_member,
+              expression: "formEdit.demography.dependent_of_philheath_member",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "dependent_of_philheath_member" },
-          domProps: { value: _vm.demography.dependent_of_philheath_member },
+          domProps: {
+            value: _vm.formEdit.demography.dependent_of_philheath_member,
+          },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
               _vm.$set(
-                _vm.demography,
+                _vm.formEdit.demography,
                 "dependent_of_philheath_member",
                 $event.target.value
               )
@@ -56513,19 +56669,23 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.demography.created_at,
-              expression: "demography.created_at",
+              value: _vm.formEdit.demography.created_at,
+              expression: "formEdit.demography.created_at",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "created_at" },
-          domProps: { value: _vm.demography.created_at },
+          domProps: { value: _vm.formEdit.demography.created_at },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.$set(_vm.demography, "created_at", $event.target.value)
+              _vm.$set(
+                _vm.formEdit.demography,
+                "created_at",
+                $event.target.value
+              )
             },
           },
         }),
@@ -56539,19 +56699,23 @@ var render = function () {
             {
               name: "model",
               rawName: "v-model",
-              value: _vm.demography.updated_at,
-              expression: "demography.updated_at",
+              value: _vm.formEdit.demography.updated_at,
+              expression: "formEdit.demography.updated_at",
             },
           ],
           staticClass: "form-control form-control-sm",
           attrs: { type: "text", id: "updated_at" },
-          domProps: { value: _vm.demography.updated_at },
+          domProps: { value: _vm.formEdit.demography.updated_at },
           on: {
             input: function ($event) {
               if ($event.target.composing) {
                 return
               }
-              _vm.$set(_vm.demography, "updated_at", $event.target.value)
+              _vm.$set(
+                _vm.formEdit.demography,
+                "updated_at",
+                $event.target.value
+              )
             },
           },
         }),

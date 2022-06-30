@@ -49,4 +49,54 @@ class Demography extends Model
         return $this->belongsTo(Libmaritalstatu::class);
     }
 
+    /**
+     * Get the libsisabilitie that owns the Demography
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function libdisabilitie()
+    {
+        return $this->belongsTo(Libdisabilitie::class);
+    }
+
+    /**
+     * Get the libnutritionalstatu that owns the Demography
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function libnutritionalstatu()
+    {
+        return $this->belongsTo(Libnutritionalstatu::class);
+    }
+
+    /**
+     * Get the libgradelvl that owns the Demography
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function libgradelvl()
+    {
+        return $this->belongsTo(Libgradelvl::class,'current_attending_libgradelvl_glcode','lib_glcode');
+    }
+
+    /**
+     * Get the libgradelvl that owns the Demography
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function highestgradelvl()
+    {
+        return $this->belongsTo(Libgradelvl::class,'highest_education_attainment_libgradelvl_glcode','lib_glcode');
+    }
+
+    /**
+     * Get the user that owns the Demography
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'foreign_key', 'other_key');
+    }
+
 }

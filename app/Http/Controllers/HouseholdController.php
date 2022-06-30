@@ -31,7 +31,11 @@ class HouseholdController extends Controller
                 'libhhevacuationarea',
                 'demography.librelationshiphead',
                 'demography.libgender',
-                'demography.libmaritalstatu'
+                'demography.libmaritalstatu',
+                'demography.libdisabilitie',
+                'demography.libnutritionalstatu',
+                'demography.libgradelvl',
+                'demography.highestgradelvl'
             ));
         }
 

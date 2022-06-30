@@ -11,6 +11,8 @@ class Household extends Model
 
     // Table Name
     protected $table = 'households';
+    // Disable Timestamp
+    public $timestamps = false;
     // Key Type
     protected $keyType = 'string';
     // Primary key
