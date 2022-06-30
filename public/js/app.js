@@ -2709,8 +2709,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       zoom: 10,
       apikey: 'AIzaSyB2MmppHGfdrSzVXgDSPWVmOUVH-rwkI6M',
       marker: L.latLng(9.112161, 125.560837),
-      icon: L.icon({
-        iconUrl: 'images/icons8-red-circle-48.png',
+      defaultIcon: L.icon({
+        iconUrl: 'images/icons8-green-circle-48.png',
         iconSize: [16, 16],
         iconAnchor: [16, 16]
       }),
@@ -2719,7 +2719,12 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       demographies: [],
       style: {
         width: '100%'
-      }
+      },
+      selectedIcon: L.icon({
+        iconUrl: 'images/icons8-red-circle-48.png',
+        iconSize: [16, 16],
+        iconAnchor: [16, 16]
+      })
     };
   },
   methods: {
@@ -2740,7 +2745,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     coordinates: function coordinates(lat, _long) {
       return L.latLng(lat, _long);
     },
-    opensidebar: function opensidebar(controlnumber) {
+    opensidebar: function opensidebar(controlnumber, hhold) {
       this.household = this.households.filter(function (cn) {
         return cn.controlnumber == controlnumber;
       });
@@ -2758,7 +2763,15 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
       this.style = {
         width: '65%'
-      }; //Call toggle to show sidebar
+      }; //Change icon to green
+
+      if (this.currentHousehold) {
+        this.currentHousehold.icon = this.defaultIcon;
+      } //Change icon to red
+
+
+      this.currentHousehold = hhold;
+      this.currentHousehold.icon = this.selectedIcon; //Call toggle to show sidebar
 
       jquery__WEBPACK_IMPORTED_MODULE_1___default()("#my-toggle-button").ControlSidebar('show');
     }
@@ -57813,11 +57826,14 @@ var render = function () {
                         household.latitude,
                         household.longitude
                       ),
-                      icon: _vm.icon,
+                      icon: household.icon ? household.icon : _vm.defaultIcon,
                     },
                     on: {
                       click: function ($event) {
-                        return _vm.opensidebar(household.controlnumber)
+                        return _vm.opensidebar(
+                          household.controlnumber,
+                          household
+                        )
                       },
                     },
                   })

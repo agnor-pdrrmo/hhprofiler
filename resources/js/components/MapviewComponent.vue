@@ -5,7 +5,7 @@
                 <div class="col-12" >
                     <v-map ref="map" :zoom="zoom" :center="centerMarker" :style="setStyle" style="height: 80vh; position: relative;  solid black; ">       
                       <v-tilelayer-googlemutant :apikey="apikey" :options="options"></v-tilelayer-googlemutant>
-                      <v-marker v-for="(household,i) in households" :key="i" :lat-lng="coordinates(household.latitude, household.longitude)" :icon="icon" @click="opensidebar(household.controlnumber)"></v-marker>       
+                      <v-marker v-for="(household,i) in households" :key="i" :lat-lng="coordinates(household.latitude, household.longitude)" :icon="(household.icon) ? household.icon : defaultIcon" @click="opensidebar(household.controlnumber,household)"></v-marker>       
                     </v-map>     
                 </div>         
             </div>
@@ -78,8 +78,8 @@ export default {
         zoom: 10,
         apikey : 'AIzaSyB2MmppHGfdrSzVXgDSPWVmOUVH-rwkI6M',
         marker: L.latLng(9.112161, 125.560837),
-        icon: L.icon({
-          iconUrl: 'images/icons8-red-circle-48.png',
+        defaultIcon: L.icon({
+          iconUrl: 'images/icons8-green-circle-48.png',
           iconSize:     [16, 16],
           iconAnchor:   [16, 16]
         }),
@@ -88,7 +88,12 @@ export default {
         demographies: [],
         style:{
           width: '100%',
-        }
+        },
+        selectedIcon: L.icon({
+          iconUrl: 'images/icons8-red-circle-48.png',
+          iconSize:     [16, 16],
+          iconAnchor:   [16, 16]
+        }),
     }
     
   },
@@ -107,7 +112,7 @@ export default {
       coordinates: function(lat,long){
         return L.latLng(lat,long);
       },
-      opensidebar: function (controlnumber){
+      opensidebar: function (controlnumber,hhold){
 
         this.household = this.households.filter(cn => cn.controlnumber == controlnumber);
         this.demographies = this.household[0].demography;
@@ -121,9 +126,17 @@ export default {
         //Set width of the map 
         this.style = {width: '65%'}; 
 
+        //Change icon to green
+        if (this.currentHousehold) {
+          this.currentHousehold.icon = this.defaultIcon;
+        }
+        //Change icon to red
+        this.currentHousehold = hhold
+        this.currentHousehold.icon = this.selectedIcon;
+
         //Call toggle to show sidebar
         $("#my-toggle-button").ControlSidebar('show');
-      }
+      },
   },
   computed:{
     householdInfo: {
