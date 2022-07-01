@@ -1,6 +1,6 @@
 <template>
   <div id="myGroup">   
-          <ul>
+          <ul class="list-unstyled">
             <li v-for="demography in demographies" :key="demography.id">
               <a style="text-transform: capitalize" data-toggle="collapse" :href="'#demography-' + demography.id" aria-expanded="false" aria-controls="collapseExample">
                   {{demography.surname}} {{demography.firstname}} {{demography.middlename}}

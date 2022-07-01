@@ -6,10 +6,11 @@
                 <label for="respondent">Respondent</label> 
                 <input type="text" class="form-control form-control-sm" id="respondent" v-model="compRespondent">
             </div>  
-            <!-- <div class="form-group mb-1">
-                <label for="libmunicipalitie_psgccode">Municipalitys</label>           
-                <input type="text"  class="form-control form-control-sm" id="libmunicipalitie_psgccode" v-model="householdinfo.libmunicipalitie.lib_munname">
+             <div class="form-group mb-1">
+                <label for="libmunicipalitie_psgccode">Municipality</label>           
+                <input type="text"  class="form-control form-control-sm" id="libmunicipalitie_psgccode" v-model="compLibmunicipalitie">
             </div>
+            <!--
             <div class="form-group mb-1">
                 <label for="libbarangay_psgccode">Barangay</label>
                 <input type="text" class="form-control form-control-sm" id="libbarangay_psgccode"  v-model="householdinfo.libbarangay.lib_brgyname">
@@ -146,7 +147,7 @@
         formEdit: {
             respondent: this.household.respondent,
             libmunicipalitie:{
-                lib_munname: ''
+                lib_munname: this.household.libmunicipalitie.lib_munname
             },
             libbarangay:{
                 lib_brgyname: ''
@@ -201,7 +202,24 @@
             set(val){
                 this.formEdit.respondent
             }
-        }
+        },
+        compLibmunicipalitie:{
+            get(){
+                return this.formEdit.libmunicipalitie.lib_munname;
+            },
+            set(val){
+                this.formEdit.libmunicipalitie.lib_munname = val;
+            }
+        },
+        compLibbarangay:{
+            get(){
+                return this.formEdit.libbarangay.lib_brgyname;
+            },
+            set(val){
+                this.formEdit.libbarangay.lib_brgyname = val;
+            }
+        },
+        
     }
 }
 </script>

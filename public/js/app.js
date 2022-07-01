@@ -2608,6 +2608,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['household', 'submit'],
   data: function data() {
@@ -2615,7 +2616,7 @@ __webpack_require__.r(__webpack_exports__);
       formEdit: {
         respondent: this.household.respondent,
         libmunicipalitie: {
-          lib_munname: ''
+          lib_munname: this.household.libmunicipalitie.lib_munname
         },
         libbarangay: {
           lib_brgyname: ''
@@ -2669,6 +2670,22 @@ __webpack_require__.r(__webpack_exports__);
       },
       set: function set(val) {
         this.formEdit.respondent;
+      }
+    },
+    compLibmunicipalitie: {
+      get: function get() {
+        return this.formEdit.libmunicipalitie.lib_munname;
+      },
+      set: function set(val) {
+        this.formEdit.libmunicipalitie.lib_munname = val;
+      }
+    },
+    compLibbarangay: {
+      get: function get() {
+        return this.formEdit.libbarangay.lib_brgyname;
+      },
+      set: function set(val) {
+        this.formEdit.libbarangay.lib_brgyname = val;
       }
     }
   }
@@ -55704,6 +55721,7 @@ var render = function () {
   return _c("div", { attrs: { id: "myGroup" } }, [
     _c(
       "ul",
+      { staticClass: "list-unstyled" },
       _vm._l(_vm.demographies, function (demography) {
         return _c("li", { key: demography.id }, [
           _c(
@@ -56921,6 +56939,34 @@ var render = function () {
                 return
               }
               _vm.compRespondent = $event.target.value
+            },
+          },
+        }),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group mb-1" }, [
+        _c("label", { attrs: { for: "libmunicipalitie_psgccode" } }, [
+          _vm._v("Municipality"),
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.compLibmunicipalitie,
+              expression: "compLibmunicipalitie",
+            },
+          ],
+          staticClass: "form-control form-control-sm",
+          attrs: { type: "text", id: "libmunicipalitie_psgccode" },
+          domProps: { value: _vm.compLibmunicipalitie },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.compLibmunicipalitie = $event.target.value
             },
           },
         }),
