@@ -14,14 +14,7 @@
 </template>
 <script>
 
-import $ from 'jquery';
-
 export default {
   props : ['demographies'],
-  data(){
-     return{
-      
-     }
-  }
 }
 </script>

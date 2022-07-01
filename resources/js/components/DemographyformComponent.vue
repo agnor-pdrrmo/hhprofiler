@@ -146,9 +146,6 @@ export default {
     props: ['demography','submit'],
     data(){
       return {
-        valueTrue: 'Yes',
-        valueFalse: 'No',
-        dynamicValue : null,
         formEdit: {
           demography:{
             surname: this.demography.surname,
@@ -212,9 +209,6 @@ export default {
           var ageDifMs = Date.now() - bday.getTime();
           var ageDate = new Date(ageDifMs); // miliseconds from epoch
           return Math.abs(ageDate.getUTCFullYear() - 1970);
-      },
-      checkUndefined: function(val){
-        return typeof val === 'undefined' ? '' : val;
       }
     }
 }

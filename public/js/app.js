@@ -2183,8 +2183,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -2199,12 +2197,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['demographies'],
-  data: function data() {
-    return {};
-  }
+  props: ['demographies']
 });
 
 /***/ }),
@@ -2368,9 +2362,6 @@ __webpack_require__.r(__webpack_exports__);
     var _this$demography$libr, _this$demography$libg, _this$demography$libm, _this$demography$libs, _this$demography$libn, _this$demography$libg2, _this$demography$high, _this$demography$libt, _this$demography$libm2;
 
     return {
-      valueTrue: 'Yes',
-      valueFalse: 'No',
-      dynamicValue: null,
       formEdit: {
         demography: {
           surname: this.demography.surname,
@@ -2435,11 +2426,33 @@ __webpack_require__.r(__webpack_exports__);
       var ageDate = new Date(ageDifMs); // miliseconds from epoch
 
       return Math.abs(ageDate.getUTCFullYear() - 1970);
-    },
-    checkUndefined: function checkUndefined(val) {
-      return typeof val === 'undefined' ? '' : val;
     }
   }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/HouseholdComponent.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/HouseholdComponent.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['householdData']
 });
 
 /***/ }),
@@ -2595,9 +2608,70 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['householdData', 'submit']
+  props: ['household', 'submit'],
+  data: function data() {
+    return {
+      formEdit: {
+        respondent: this.household.respondent,
+        libmunicipalitie: {
+          lib_munname: ''
+        },
+        libbarangay: {
+          lib_brgyname: ''
+        },
+        purok: '',
+        nameenumerator: '',
+        libhhtypeofbuilding: {
+          lib_hhtobname: ''
+        },
+        libhhtenuralstatu: {
+          lib_ternuralstatusdesc: ''
+        },
+        year_construct: '',
+        estimated_cost: '',
+        bedrooms: '',
+        storey: '',
+        access_electricity: '',
+        access_internet: '',
+        libhhroofmaterial: {
+          lib_roofmaterialsdesc: ''
+        },
+        medical_treatment: '',
+        access_watersupply: '',
+        potable: '',
+        libhhwatertenuralstatu: {
+          lib_wtdesc: ''
+        },
+        libhhlvlwatersystem: {
+          lib_wtdesc: ''
+        },
+        floods_occur: '',
+        year_flood: '',
+        experience_evacuationduringcalamity: '',
+        year_evacuated: '',
+        libhhevacuationarea: {
+          lib_heaname: ''
+        },
+        has_accesstohealthmedicalfacilities: '',
+        has_accesstotelecommunications: '',
+        has_accesstodrillsandsimulations: '',
+        image: '',
+        created_at: '',
+        updated_at: ''
+      }
+    };
+  },
+  computed: {
+    compRespondent: {
+      get: function get() {
+        return this.formEdit.respondent;
+      },
+      set: function set(val) {
+        this.formEdit.respondent;
+      }
+    }
+  }
 });
 
 /***/ }),
@@ -2862,7 +2936,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   methods: {
     callInvalidatesize: function callInvalidatesize() {
-      console.log('call function');
       Event.$emit('mapInvalidate');
     }
   }
@@ -2937,12 +3010,12 @@ window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('map-view-component', (__webpack_require__(/*! ./components/MapviewComponent.vue */ "./resources/js/components/MapviewComponent.vue")["default"]));
+Vue.component('household-component', (__webpack_require__(/*! ./components/HouseholdComponent.vue */ "./resources/js/components/HouseholdComponent.vue")["default"]));
 Vue.component('household-form-component', (__webpack_require__(/*! ./components/HouseholdformComponent.vue */ "./resources/js/components/HouseholdformComponent.vue")["default"]));
 Vue.component('demography-component', (__webpack_require__(/*! ./components/DemographyComponent.vue */ "./resources/js/components/DemographyComponent.vue")["default"]));
 Vue.component('demography-form-component', (__webpack_require__(/*! ./components/DemographyformComponent.vue */ "./resources/js/components/DemographyformComponent.vue")["default"]));
 Vue.component('section-header-component', (__webpack_require__(/*! ./components/SectionheaderComponent.vue */ "./resources/js/components/SectionheaderComponent.vue")["default"]));
 Vue.component('nav-item-component', (__webpack_require__(/*! ./components/NavitemComponent.vue */ "./resources/js/components/NavitemComponent.vue")["default"]));
-Vue.component('sidecontrol-slot', (__webpack_require__(/*! ./components/SlotsidebarcontrollerComponent.vue */ "./resources/js/components/SlotsidebarcontrollerComponent.vue")["default"]));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -55171,6 +55244,45 @@ component.options.__file = "resources/js/components/DemographyformComponent.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/HouseholdComponent.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/components/HouseholdComponent.vue ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _HouseholdComponent_vue_vue_type_template_id_74c872ee___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./HouseholdComponent.vue?vue&type=template&id=74c872ee& */ "./resources/js/components/HouseholdComponent.vue?vue&type=template&id=74c872ee&");
+/* harmony import */ var _HouseholdComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./HouseholdComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/HouseholdComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _HouseholdComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _HouseholdComponent_vue_vue_type_template_id_74c872ee___WEBPACK_IMPORTED_MODULE_0__.render,
+  _HouseholdComponent_vue_vue_type_template_id_74c872ee___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/HouseholdComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/HouseholdformComponent.vue":
 /*!************************************************************!*\
   !*** ./resources/js/components/HouseholdformComponent.vue ***!
@@ -55329,43 +55441,6 @@ component.options.__file = "resources/js/components/SectionheaderComponent.vue"
 
 /***/ }),
 
-/***/ "./resources/js/components/SlotsidebarcontrollerComponent.vue":
-/*!********************************************************************!*\
-  !*** ./resources/js/components/SlotsidebarcontrollerComponent.vue ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _SlotsidebarcontrollerComponent_vue_vue_type_template_id_16c98c0e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SlotsidebarcontrollerComponent.vue?vue&type=template&id=16c98c0e& */ "./resources/js/components/SlotsidebarcontrollerComponent.vue?vue&type=template&id=16c98c0e&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-var script = {}
-
-
-/* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  script,
-  _SlotsidebarcontrollerComponent_vue_vue_type_template_id_16c98c0e___WEBPACK_IMPORTED_MODULE_0__.render,
-  _SlotsidebarcontrollerComponent_vue_vue_type_template_id_16c98c0e___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/SlotsidebarcontrollerComponent.vue"
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
-
-/***/ }),
-
 /***/ "./resources/js/components/DemographyComponent.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************!*\
   !*** ./resources/js/components/DemographyComponent.vue?vue&type=script&lang=js& ***!
@@ -55395,6 +55470,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DemographyformComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DemographyformComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DemographyformComponent.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DemographyformComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/HouseholdComponent.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/HouseholdComponent.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_HouseholdComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./HouseholdComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/HouseholdComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_HouseholdComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -55509,6 +55600,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/HouseholdComponent.vue?vue&type=template&id=74c872ee&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/components/HouseholdComponent.vue?vue&type=template&id=74c872ee& ***!
+  \***************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HouseholdComponent_vue_vue_type_template_id_74c872ee___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HouseholdComponent_vue_vue_type_template_id_74c872ee___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HouseholdComponent_vue_vue_type_template_id_74c872ee___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./HouseholdComponent.vue?vue&type=template&id=74c872ee& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/HouseholdComponent.vue?vue&type=template&id=74c872ee&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/HouseholdformComponent.vue?vue&type=template&id=a376a376&":
 /*!*******************************************************************************************!*\
   !*** ./resources/js/components/HouseholdformComponent.vue?vue&type=template&id=a376a376& ***!
@@ -55573,23 +55681,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SectionheaderComponent_vue_vue_type_template_id_5016c3d4___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SectionheaderComponent_vue_vue_type_template_id_5016c3d4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SectionheaderComponent.vue?vue&type=template&id=5016c3d4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SectionheaderComponent.vue?vue&type=template&id=5016c3d4&");
-
-
-/***/ }),
-
-/***/ "./resources/js/components/SlotsidebarcontrollerComponent.vue?vue&type=template&id=16c98c0e&":
-/*!***************************************************************************************************!*\
-  !*** ./resources/js/components/SlotsidebarcontrollerComponent.vue?vue&type=template&id=16c98c0e& ***!
-  \***************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SlotsidebarcontrollerComponent_vue_vue_type_template_id_16c98c0e___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SlotsidebarcontrollerComponent_vue_vue_type_template_id_16c98c0e___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
-/* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SlotsidebarcontrollerComponent_vue_vue_type_template_id_16c98c0e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SlotsidebarcontrollerComponent.vue?vue&type=template&id=16c98c0e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SlotsidebarcontrollerComponent.vue?vue&type=template&id=16c98c0e&");
 
 
 /***/ }),
@@ -56751,6 +56842,46 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/HouseholdComponent.vue?vue&type=template&id=74c872ee&":
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/HouseholdComponent.vue?vue&type=template&id=74c872ee& ***!
+  \******************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    _vm._l(_vm.householdData, function (householdinfo) {
+      return _c(
+        "div",
+        { key: householdinfo.id, staticClass: "card-body" },
+        [
+          _c("household-form-component", {
+            attrs: { household: householdinfo, submit: "Update" },
+          }),
+        ],
+        1
+      )
+    }),
+    0
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/HouseholdformComponent.vue?vue&type=template&id=a376a376&":
 /*!**********************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/HouseholdformComponent.vue?vue&type=template&id=a376a376& ***!
@@ -56767,1013 +56898,43 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _vm._l(_vm.householdData, function (householdinfo) {
-        return _c("div", { key: householdinfo.key, staticClass: "card-body" }, [
-          _c("div", { staticClass: "form-group mb-1" }, [
-            _c("label", { attrs: { for: "respondent" } }, [
-              _vm._v("Respondent"),
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: householdinfo.respondent,
-                  expression: "householdinfo.respondent",
-                },
-              ],
-              staticClass: "form-control form-control-sm",
-              attrs: { type: "text", id: "respondent" },
-              domProps: { value: householdinfo.respondent },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(householdinfo, "respondent", $event.target.value)
-                },
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group mb-1" }, [
-            _c("label", { attrs: { for: "libmunicipalitie_psgccode" } }, [
-              _vm._v("Municipalitys"),
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: householdinfo.libmunicipalitie.lib_munname,
-                  expression: "householdinfo.libmunicipalitie.lib_munname",
-                },
-              ],
-              staticClass: "form-control form-control-sm",
-              attrs: { type: "text", id: "libmunicipalitie_psgccode" },
-              domProps: { value: householdinfo.libmunicipalitie.lib_munname },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(
-                    householdinfo.libmunicipalitie,
-                    "lib_munname",
-                    $event.target.value
-                  )
-                },
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group mb-1" }, [
-            _c("label", { attrs: { for: "libbarangay_psgccode" } }, [
-              _vm._v("Barangay"),
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: householdinfo.libbarangay.lib_brgyname,
-                  expression: "householdinfo.libbarangay.lib_brgyname",
-                },
-              ],
-              staticClass: "form-control form-control-sm",
-              attrs: { type: "text", id: "libbarangay_psgccode" },
-              domProps: { value: householdinfo.libbarangay.lib_brgyname },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(
-                    householdinfo.libbarangay,
-                    "lib_brgyname",
-                    $event.target.value
-                  )
-                },
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group mb-1" }, [
-            _c("label", { attrs: { for: "purok" } }, [_vm._v("Purok")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: householdinfo.purok,
-                  expression: "householdinfo.purok",
-                },
-              ],
-              staticClass: "form-control form-control-sm",
-              attrs: { type: "text", id: "purok" },
-              domProps: { value: householdinfo.purok },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(householdinfo, "purok", $event.target.value)
-                },
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group mb-1" }, [
-            _c("label", { attrs: { for: "nameenumerator" } }, [
-              _vm._v("name of Enumerator"),
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: householdinfo.nameenumerator,
-                  expression: "householdinfo.nameenumerator",
-                },
-              ],
-              staticClass: "form-control form-control-sm",
-              attrs: { type: "text", id: "nameenumerator" },
-              domProps: { value: householdinfo.nameenumerator },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(householdinfo, "nameenumerator", $event.target.value)
-                },
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group mb-1" }, [
-            _c("label", { attrs: { for: "libbuildingtype_id" } }, [
-              _vm._v("Type of building"),
-            ]),
-            _vm._v(" "),
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: householdinfo.libhhtypeofbuilding.lib_hhtobname,
-                  expression: "householdinfo.libhhtypeofbuilding.lib_hhtobname",
-                },
-              ],
-              staticClass: "form-control form-control-sm",
-              attrs: { type: "text", id: "libbuildingtype_id", rows: "3" },
-              domProps: {
-                value: householdinfo.libhhtypeofbuilding.lib_hhtobname,
-              },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(
-                    householdinfo.libhhtypeofbuilding,
-                    "lib_hhtobname",
-                    $event.target.value
-                  )
-                },
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group mb-1" }, [
-            _c("label", { attrs: { for: "libtenuralstatu_id" } }, [
-              _vm._v("Tenural status"),
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: householdinfo.libhhtenuralstatu.lib_ternuralstatusdesc,
-                  expression:
-                    "householdinfo.libhhtenuralstatu.lib_ternuralstatusdesc",
-                },
-              ],
-              staticClass: "form-control form-control-sm",
-              attrs: { type: "text", id: "libtenuralstatu_id" },
-              domProps: {
-                value: householdinfo.libhhtenuralstatu.lib_ternuralstatusdesc,
-              },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(
-                    householdinfo.libhhtenuralstatu,
-                    "lib_ternuralstatusdesc",
-                    $event.target.value
-                  )
-                },
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group mb-1" }, [
-            _c("label", { attrs: { for: "year_construct" } }, [
-              _vm._v("Year construct"),
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: householdinfo.year_construct,
-                  expression: "householdinfo.year_construct",
-                },
-              ],
-              staticClass: "form-control form-control-sm",
-              attrs: { type: "text", id: "year_construct" },
-              domProps: { value: householdinfo.year_construct },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(householdinfo, "year_construct", $event.target.value)
-                },
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group mb-1" }, [
-            _c("label", { attrs: { for: "estimated_cost" } }, [
-              _vm._v("Estimated cost"),
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: householdinfo.estimated_cost,
-                  expression: "householdinfo.estimated_cost",
-                },
-              ],
-              staticClass: "form-control form-control-sm",
-              attrs: { type: "text", id: "estimated_cost" },
-              domProps: { value: householdinfo.estimated_cost },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(householdinfo, "estimated_cost", $event.target.value)
-                },
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group mb-1" }, [
-            _c("label", { attrs: { for: "bedrooms" } }, [
-              _vm._v("Number of bedrooms"),
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: householdinfo.bedrooms,
-                  expression: "householdinfo.bedrooms",
-                },
-              ],
-              staticClass: "form-control form-control-sm",
-              attrs: { type: "text", id: "bedrooms" },
-              domProps: { value: householdinfo.bedrooms },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(householdinfo, "bedrooms", $event.target.value)
-                },
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group mb-1" }, [
-            _c("label", { attrs: { for: "storey" } }, [_vm._v("Storey")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: householdinfo.storey,
-                  expression: "householdinfo.storey",
-                },
-              ],
-              staticClass: "form-control form-control-sm",
-              attrs: { type: "text", id: "storey" },
-              domProps: { value: householdinfo.storey },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(householdinfo, "storey", $event.target.value)
-                },
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group mb-1" }, [
-            _c("label", { attrs: { for: "access_electricity" } }, [
-              _vm._v("Access to electricity"),
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: householdinfo.access_electricity,
-                  expression: "householdinfo.access_electricity",
-                },
-              ],
-              staticClass: "form-control form-control-sm",
-              attrs: { type: "text", id: "access_electricity" },
-              domProps: { value: householdinfo.access_electricity },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(
-                    householdinfo,
-                    "access_electricity",
-                    $event.target.value
-                  )
-                },
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group mb-1" }, [
-            _c("label", { attrs: { for: "access_internet" } }, [
-              _vm._v("Access to Internet"),
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: householdinfo.access_internet,
-                  expression: "householdinfo.access_internet",
-                },
-              ],
-              staticClass: "form-control form-control-sm",
-              attrs: { type: "text", id: "access_internet" },
-              domProps: { value: householdinfo.access_internet },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(
-                    householdinfo,
-                    "access_internet",
-                    $event.target.value
-                  )
-                },
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group mb-1" }, [
-            _c("label", { attrs: { for: "libbuildingroofmaterial_id" } }, [
-              _vm._v("Roof material"),
-            ]),
-            _vm._v(" "),
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: householdinfo.libhhroofmaterial.lib_roofmaterialsdesc,
-                  expression:
-                    "householdinfo.libhhroofmaterial.lib_roofmaterialsdesc",
-                },
-              ],
-              staticClass: "form-control form-control-sm",
-              attrs: {
-                type: "text",
-                id: "libbuildingroofmaterial_id",
-                rows: "3",
-              },
-              domProps: {
-                value: householdinfo.libhhroofmaterial.lib_roofmaterialsdesc,
-              },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(
-                    householdinfo.libhhroofmaterial,
-                    "lib_roofmaterialsdesc",
-                    $event.target.value
-                  )
-                },
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group mb-1" }, [
-            _c("label", { attrs: { for: "medical_treatment" } }, [
-              _vm._v("Medical treatment"),
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: householdinfo.medical_treatment,
-                  expression: "householdinfo.medical_treatment",
-                },
-              ],
-              staticClass: "form-control form-control-sm",
-              attrs: { type: "text", id: "medical_treatment" },
-              domProps: { value: householdinfo.medical_treatment },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(
-                    householdinfo,
-                    "medical_treatment",
-                    $event.target.value
-                  )
-                },
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group mb-1" }, [
-            _c("label", { attrs: { for: "access_watersupply" } }, [
-              _vm._v("Access to water supply"),
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: householdinfo.access_watersupply,
-                  expression: "householdinfo.access_watersupply",
-                },
-              ],
-              staticClass: "form-control form-control-sm",
-              attrs: { type: "text", id: "access_watersupply" },
-              domProps: { value: householdinfo.access_watersupply },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(
-                    householdinfo,
-                    "access_watersupply",
-                    $event.target.value
-                  )
-                },
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group mb-1" }, [
-            _c("label", { attrs: { for: "potable" } }, [_vm._v("Potable")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: householdinfo.potable,
-                  expression: "householdinfo.potable",
-                },
-              ],
-              staticClass: "form-control form-control-sm",
-              attrs: { type: "text", id: "potable" },
-              domProps: { value: householdinfo.potable },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(householdinfo, "potable", $event.target.value)
-                },
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group mb-1" }, [
-            _c("label", { attrs: { for: "libhhwatertenuralstatu_id" } }, [
-              _vm._v("Water tenural status"),
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: householdinfo.libhhwatertenuralstatu.lib_wtdesc,
-                  expression: "householdinfo.libhhwatertenuralstatu.lib_wtdesc",
-                },
-              ],
-              staticClass: "form-control form-control-sm",
-              attrs: { type: "text", id: "libhhwatertenuralstatu_id" },
-              domProps: {
-                value: householdinfo.libhhwatertenuralstatu.lib_wtdesc,
-              },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(
-                    householdinfo.libhhwatertenuralstatu,
-                    "lib_wtdesc",
-                    $event.target.value
-                  )
-                },
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group mb-1" }, [
-            _c("label", { attrs: { for: "libhhlvlwatersystem_id" } }, [
-              _vm._v("Level of water system"),
-            ]),
-            _vm._v(" "),
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: householdinfo.libhhlvlwatersystem.lib_hhlvldesc,
-                  expression: "householdinfo.libhhlvlwatersystem.lib_hhlvldesc",
-                },
-              ],
-              staticClass: "form-control form-control-sm",
-              attrs: { type: "text", id: "libhhlvlwatersystem_id", rows: "5" },
-              domProps: {
-                value: householdinfo.libhhlvlwatersystem.lib_hhlvldesc,
-              },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(
-                    householdinfo.libhhlvlwatersystem,
-                    "lib_hhlvldesc",
-                    $event.target.value
-                  )
-                },
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group mb-1" }, [
-            _c("label", { attrs: { for: "floods_occur" } }, [
-              _vm._v("Floods occur in the area"),
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: householdinfo.floods_occur,
-                  expression: "householdinfo.floods_occur",
-                },
-              ],
-              staticClass: "form-control form-control-sm",
-              attrs: { type: "text", id: "floods_occur" },
-              domProps: { value: householdinfo.floods_occur },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(householdinfo, "floods_occur", $event.target.value)
-                },
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group mb-1" }, [
-            _c("label", { attrs: { for: "year_flood" } }, [
-              _vm._v("Year flooded"),
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: householdinfo.year_flood,
-                  expression: "householdinfo.year_flood",
-                },
-              ],
-              staticClass: "form-control form-control-sm",
-              attrs: { type: "text", id: "year_flood" },
-              domProps: { value: householdinfo.year_flood },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(householdinfo, "year_flood", $event.target.value)
-                },
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group mb-1" }, [
-            _c(
-              "label",
-              { attrs: { for: "experience_evacuationduringcalamity" } },
-              [_vm._v("Experience evacuated")]
-            ),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: householdinfo.experience_evacuationduringcalamity,
-                  expression:
-                    "householdinfo.experience_evacuationduringcalamity",
-                },
-              ],
-              staticClass: "form-control form-control-sm",
-              attrs: {
-                type: "text",
-                id: "experience_evacuationduringcalamity",
-              },
-              domProps: {
-                value: householdinfo.experience_evacuationduringcalamity,
-              },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(
-                    householdinfo,
-                    "experience_evacuationduringcalamity",
-                    $event.target.value
-                  )
-                },
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group mb-1" }, [
-            _c("label", { attrs: { for: "year_evacuated" } }, [
-              _vm._v("Year evacuated"),
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: householdinfo.year_evacuated,
-                  expression: "householdinfo.year_evacuated",
-                },
-              ],
-              staticClass: "form-control form-control-sm",
-              attrs: { type: "text", id: "year_evacuated" },
-              domProps: { value: householdinfo.year_evacuated },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(householdinfo, "year_evacuated", $event.target.value)
-                },
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group mb-1" }, [
-            _c("label", { attrs: { for: "libhhevacuationarea_id" } }, [
-              _vm._v("Nearest accessable evacuation center"),
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: householdinfo.libhhevacuationarea.lib_heaname,
-                  expression: "householdinfo.libhhevacuationarea.lib_heaname",
-                },
-              ],
-              staticClass: "form-control form-control-sm",
-              attrs: { type: "text", id: "libhhevacuationarea_id" },
-              domProps: {
-                value: householdinfo.libhhevacuationarea.lib_heaname,
-              },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(
-                    householdinfo.libhhevacuationarea,
-                    "lib_heaname",
-                    $event.target.value
-                  )
-                },
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group mb-1" }, [
-            _c(
-              "label",
-              { attrs: { for: "has_accesstohealthmedicalfacilities" } },
-              [_vm._v("Access to medical facilities")]
-            ),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: householdinfo.has_accesstohealthmedicalfacilities,
-                  expression:
-                    "householdinfo.has_accesstohealthmedicalfacilities",
-                },
-              ],
-              staticClass: "form-control form-control-sm",
-              attrs: {
-                type: "text",
-                id: "has_accesstohealthmedicalfacilities",
-              },
-              domProps: {
-                value: householdinfo.has_accesstohealthmedicalfacilities,
-              },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(
-                    householdinfo,
-                    "has_accesstohealthmedicalfacilities",
-                    $event.target.value
-                  )
-                },
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group mb-1" }, [
-            _c("label", { attrs: { for: "has_accesstotelecommunications" } }, [
-              _vm._v("Access to telecommunications"),
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: householdinfo.has_accesstotelecommunications,
-                  expression: "householdinfo.has_accesstotelecommunications",
-                },
-              ],
-              staticClass: "form-control form-control-sm",
-              attrs: { type: "text", id: "has_accesstotelecommunications" },
-              domProps: { value: householdinfo.has_accesstotelecommunications },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(
-                    householdinfo,
-                    "has_accesstotelecommunications",
-                    $event.target.value
-                  )
-                },
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group mb-1" }, [
-            _c(
-              "label",
-              { attrs: { for: "has_accesstodrillsandsimulations" } },
-              [_vm._v("Access to drill and simulations")]
-            ),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: householdinfo.has_accesstodrillsandsimulations,
-                  expression: "householdinfo.has_accesstodrillsandsimulations",
-                },
-              ],
-              staticClass: "form-control form-control-sm",
-              attrs: { type: "text", id: "has_accesstodrillsandsimulations" },
-              domProps: {
-                value: householdinfo.has_accesstodrillsandsimulations,
-              },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(
-                    householdinfo,
-                    "has_accesstodrillsandsimulations",
-                    $event.target.value
-                  )
-                },
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group mb-1" }, [
-            _c("label", { attrs: { for: "image" } }, [_vm._v("Image")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: householdinfo.image,
-                  expression: "householdinfo.image",
-                },
-              ],
-              staticClass: "form-control form-control-sm",
-              attrs: { type: "text", id: "image" },
-              domProps: { value: householdinfo.image },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(householdinfo, "image", $event.target.value)
-                },
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group mb-1" }, [
-            _c("label", { attrs: { for: "created_at" } }, [
-              _vm._v("Date added"),
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: householdinfo.created_at,
-                  expression: "householdinfo.created_at",
-                },
-              ],
-              staticClass: "form-control form-control-sm",
-              attrs: { type: "text", id: "created_at" },
-              domProps: { value: householdinfo.created_at },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(householdinfo, "created_at", $event.target.value)
-                },
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group mb-1" }, [
-            _c("label", { attrs: { for: "updated_at" } }, [
-              _vm._v("Date updated"),
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: householdinfo.updated_at,
-                  expression: "householdinfo.updated_at",
-                },
-              ],
-              staticClass: "form-control form-control-sm",
-              attrs: { type: "text", id: "updated_at" },
-              domProps: { value: householdinfo.updated_at },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(householdinfo, "updated_at", $event.target.value)
-                },
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group mb-1" }, [
-            _c("label", { attrs: { for: "created_at" } }, [
-              _vm._v("Date added"),
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: householdinfo.created_at,
-                  expression: "householdinfo.created_at",
-                },
-              ],
-              staticClass: "form-control form-control-sm",
-              attrs: { type: "text", id: "created_at" },
-              domProps: { value: householdinfo.created_at },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(householdinfo, "created_at", $event.target.value)
-                },
-              },
-            }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group mb-1" }, [
-            _c("label", { attrs: { for: "updated_at" } }, [
-              _vm._v("Date updated"),
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: householdinfo.updated_at,
-                  expression: "householdinfo.updated_at",
-                },
-              ],
-              staticClass: "form-control form-control-sm",
-              attrs: { type: "text", id: "updated_at" },
-              domProps: { value: householdinfo.updated_at },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(householdinfo, "updated_at", $event.target.value)
-                },
-              },
-            }),
-          ]),
-        ])
-      }),
-      _vm._v(" "),
-      _c("div", { staticClass: "card-footer" }, [
-        _c(
-          "button",
-          { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-          [_vm._v(_vm._s(_vm.submit))]
-        ),
+  return _c("div", [
+    _c("div", { staticClass: "card-body" }, [
+      _c("div", { staticClass: "form-group mb-1" }, [
+        _c("label", { attrs: { for: "respondent" } }, [_vm._v("Respondent")]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.compRespondent,
+              expression: "compRespondent",
+            },
+          ],
+          staticClass: "form-control form-control-sm",
+          attrs: { type: "text", id: "respondent" },
+          domProps: { value: _vm.compRespondent },
+          on: {
+            input: function ($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.compRespondent = $event.target.value
+            },
+          },
+        }),
       ]),
-    ],
-    2
-  )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "card-footer" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+        [_vm._v(_vm._s(_vm.submit))]
+      ),
+    ]),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -57882,12 +57043,8 @@ var render = function () {
                         },
                       },
                       [
-                        _c("household-form-component", {
-                          ref: "childThing",
-                          attrs: {
-                            householdData: _vm.householdInfo,
-                            submit: "Update",
-                          },
+                        _c("household-component", {
+                          attrs: { householdData: _vm.householdInfo },
                         }),
                       ],
                       1
@@ -58114,40 +57271,6 @@ var render = function () {
       ]),
     ]),
   ])
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SlotsidebarcontrollerComponent.vue?vue&type=template&id=16c98c0e&":
-/*!******************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SlotsidebarcontrollerComponent.vue?vue&type=template&id=16c98c0e& ***!
-  \******************************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
-/* harmony export */ });
-var render = function () {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "section",
-    { staticClass: "content-header" },
-    [
-      _vm._t("default", function () {
-        return [_vm._v("Old value")]
-      }),
-    ],
-    2
-  )
 }
 var staticRenderFns = []
 render._withStripped = true

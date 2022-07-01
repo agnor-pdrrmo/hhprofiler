@@ -34,7 +34,7 @@
                       <div class="tab-content" id="custom-tabs-four-tabContent">
                         <div class="tab-pane fade show active" id="custom-tabs-four-household-information" role="tabpanel" aria-labelledby="custom-tabs-four-household-information-tab">
                           <!-- Form household component -->
-                          <household-form-component  v-bind:householdData="householdInfo" ref="childThing" :submit="'Update'"></household-form-component>                   
+                          <household-component v-bind:householdData="householdInfo"></household-component>                   
                         </div>
                         <div class="tab-pane fade" id="custom-tabs-four-demography" role="tabpanel" aria-labelledby="custom-tabs-four-demography-tab">
                           <!-- Foldable list of demography component -->      
@@ -84,7 +84,7 @@ export default {
           iconAnchor:   [16, 16]
         }),
         households: {},
-        household: {},
+        household:{},
         demographies: [],
         style:{
           width: '100%',

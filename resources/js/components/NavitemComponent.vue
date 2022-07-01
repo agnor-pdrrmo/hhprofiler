@@ -10,7 +10,6 @@
 export default {
   methods:{
     callInvalidatesize: function(){
-        console.log('call function');
        Event.$emit('mapInvalidate');
     }
   }

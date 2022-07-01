@@ -1,13 +1,12 @@
 <template>
     <div>
-      
-        <div class="card-body" v-for="householdinfo in householdData" :key="householdinfo.key">
-      
+        <!-- {{household}} -->
+        <div class="card-body">          
             <div class="form-group mb-1">
                 <label for="respondent">Respondent</label> 
-                <input type="text" class="form-control form-control-sm" id="respondent" v-model="householdinfo.respondent">
+                <input type="text" class="form-control form-control-sm" id="respondent" v-model="compRespondent">
             </div>  
-            <div class="form-group mb-1">
+            <!-- <div class="form-group mb-1">
                 <label for="libmunicipalitie_psgccode">Municipalitys</label>           
                 <input type="text"  class="form-control form-control-sm" id="libmunicipalitie_psgccode" v-model="householdinfo.libmunicipalitie.lib_munname">
             </div>
@@ -130,7 +129,7 @@
             <div class="form-group mb-1">
                 <label for="updated_at">Date updated</label> 
                 <input type="text" class="form-control form-control-sm" id="updated_at" v-model="householdinfo.updated_at">
-            </div>
+            </div> -->
         </div>   
         <div class="card-footer">
             <button type="submit" class="btn btn-primary">{{submit}}</button>
@@ -141,6 +140,68 @@
 
 <script>
     export default {
-        props: ['householdData','submit']
+    props: ['household','submit'],
+    data(){
+      return {
+        formEdit: {
+            respondent: this.household.respondent,
+            libmunicipalitie:{
+                lib_munname: ''
+            },
+            libbarangay:{
+                lib_brgyname: ''
+            },
+            purok: '',
+            nameenumerator: '',
+            libhhtypeofbuilding:{
+                lib_hhtobname: ''
+            },
+            libhhtenuralstatu:{
+                lib_ternuralstatusdesc: ''
+            },
+            year_construct: '',
+            estimated_cost: '',
+            bedrooms: '',
+            storey: '',
+            access_electricity: '',
+            access_internet: '',
+            libhhroofmaterial:{
+                lib_roofmaterialsdesc: ''
+            },
+            medical_treatment: '',
+            access_watersupply: '',
+            potable: '',
+            libhhwatertenuralstatu:{
+                lib_wtdesc: ''
+            },
+            libhhlvlwatersystem: {
+                lib_wtdesc: ''
+            },
+            floods_occur: '',
+            year_flood: '',
+            experience_evacuationduringcalamity: '',
+            year_evacuated: '',
+            libhhevacuationarea: {
+                lib_heaname: ''
+            },
+            has_accesstohealthmedicalfacilities: '',
+            has_accesstotelecommunications: '',
+            has_accesstodrillsandsimulations: '',
+            image: '',
+            created_at: '',
+            updated_at: ''
+            }
+      }
+    },
+    computed:{
+        compRespondent:{
+            get(){
+                return this.formEdit.respondent;
+            },
+            set(val){
+                this.formEdit.respondent
+            }
+        }
     }
+}
 </script>
