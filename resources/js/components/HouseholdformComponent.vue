@@ -4,123 +4,123 @@
         <div class="card-body">          
             <div class="form-group mb-1">
                 <label for="respondent">Respondent</label> 
-                <input type="text" class="form-control form-control-sm" id="respondent" v-model="formEdit.respondent">
+                <input type="text" class="form-control form-control-sm" id="respondent" v-model="form.respondent">
             </div>  
              <div class="form-group mb-1">
                 <label for="libmunicipalitie_psgccode">Municipality</label>           
-                <input type="text"  class="form-control form-control-sm" id="libmunicipalitie_psgccode" v-model="compLibmunicipalitie">
+                <input type="text"  class="form-control form-control-sm" id="libmunicipalitie_psgccode" v-model="form.libmunicipalitie.lib_munname">
             </div>
             <div class="form-group mb-1">
                 <label for="libbarangay_psgccode">Barangay</label>
-                <input type="text" class="form-control form-control-sm" id="libbarangay_psgccode"  v-model="compLibbarangay">
+                <input type="text" class="form-control form-control-sm" id="libbarangay_psgccode"  v-model="form.libbarangay.lib_brgyname">
             </div>
             <div class="form-group mb-1">
                 <label for="purok">Purok</label>
-                <input type="text" class="form-control form-control-sm"  id="purok" v-model="compPurok">
+                <input type="text" class="form-control form-control-sm"  id="purok" v-model="form.purok">
             </div>
              <div class="form-group mb-1">
                 <label for="nameenumerator">name of Enumerator</label>
-                <input type="text" class="form-control form-control-sm" id="nameenumerator"  v-model="compNameenumerator">
+                <input type="text" class="form-control form-control-sm" id="nameenumerator"  v-model="form.nameenumerator">
             </div>
             <div class="form-group mb-1">
                 <label for="libbuildingtype_id">Type of building</label>
-                <textarea  type="text" class="form-control form-control-sm" id="libbuildingtype_id" rows="3" v-model="compLibhhtypeofbuilding"></textarea>
+                <textarea  type="text" class="form-control form-control-sm" id="libbuildingtype_id" rows="3" v-model="form.libhhtypeofbuilding.lib_hhtobname"></textarea>
             </div>
             <div class="form-group mb-1">
                 <label for="libtenuralstatu_id">Tenural status</label>
-                <input type="text" class="form-control form-control-sm"  id="libtenuralstatu_id" v-model="compLibhhtenuralstatu">
+                <input type="text" class="form-control form-control-sm"  id="libtenuralstatu_id" v-model="form.libhhtenuralstatu.lib_ternuralstatusdesc">
             </div>
             <div class="form-group mb-1">
                 <label for="year_construct">Year construct</label>
-                <input type="text" class="form-control form-control-sm" id="year_construct" v-model="compYearconstruct">
+                <input type="text" class="form-control form-control-sm" id="year_construct" v-model="form.year_construct">
             </div>
             <div class="form-group mb-1">
                 <label for="estimated_cost">Estimated cost</label>
-                <input type="text" class="form-control form-control-sm" id="estimated_cost" v-model="compEstimatedcost">
+                <input type="text" class="form-control form-control-sm" id="estimated_cost" v-model="form.estimated_cost">
             </div>
             <div class="form-group mb-1">
                 <label for="bedrooms">Number of bedrooms</label>
-                <input type="text" class="form-control form-control-sm" id="bedrooms" v-model="compBedrooms">
+                <input type="text" class="form-control form-control-sm" id="bedrooms" v-model="form.bedrooms">
             </div>
             <div class="form-group mb-1">
                 <label for="storey">Storey</label>
-                <input type="text" class="form-control form-control-sm" id="storey" v-model="compStorey">
+                <input type="text" class="form-control form-control-sm" id="storey" v-model="form.storey">
             </div>
             <div class="form-group mb-1">
                 <label for="access_electricity">Access to electricity</label>
-                <input type="text" class="form-control form-control-sm" id="access_electricity" v-model="compAccesselectricity">
+                <input type="text" class="form-control form-control-sm" id="access_electricity" v-model="form.access_electricity">
             </div>
             <div class="form-group mb-1">
                 <label for="access_internet">Access to Internet</label>
-                <input type="text" class="form-control form-control-sm" id="access_internet" v-model="compAccessinternet">
+                <input type="text" class="form-control form-control-sm" id="access_internet" v-model="form.access_internet">
             </div>
             <div class="form-group mb-1">
                 <label for="libbuildingroofmaterial_id">Roof material</label>
-                <textarea type="text" class="form-control form-control-sm" id="libbuildingroofmaterial_id"  rows="3" v-model="compLibhhroofmaterial"></textarea>
+                <textarea type="text" class="form-control form-control-sm" id="libbuildingroofmaterial_id"  rows="3" v-model="form.libhhroofmaterial.lib_roofmaterialsdesc"></textarea>
             </div>
             <div class="form-group mb-1">
                 <label for="medical_treatment">Medical treatment</label>
-                <input type="text" class="form-control form-control-sm" id="medical_treatment" v-model="compMedicaltreatment">
+                <input type="text" class="form-control form-control-sm" id="medical_treatment" v-model="form.medical_treatment">
             </div>
             <div class="form-group mb-1">
                 <label for="access_watersupply">Access to water supply</label>
-                <input type="text" class="form-control form-control-sm" id="access_watersupply" v-model="compAccesswatersupply">
+                <input type="text" class="form-control form-control-sm" id="access_watersupply" v-model="form.access_watersupply">
             </div>
             <div class="form-group mb-1">
                 <label for="potable">Potable</label>
-                <input type="text" class="form-control form-control-sm" id="potable" v-model="compPotable">
+                <input type="text" class="form-control form-control-sm" id="potable" v-model="form.potable">
             </div>
             <div class="form-group mb-1">
                 <label for="libhhwatertenuralstatu_id">Water tenural status</label>
-                <input type="text" class="form-control form-control-sm" id="libhhwatertenuralstatu_id" v-model="compLibhhwatertenuralstatu">
+                <input type="text" class="form-control form-control-sm" id="libhhwatertenuralstatu_id" v-model="form.libhhwatertenuralstatu.lib_wtdesc">
             </div>
             <div class="form-group mb-1">
                 <label for="libhhlvlwatersystem_id">Level of water system</label>
-                <textarea type="text" class="form-control form-control-sm" id="libhhlvlwatersystem_id" rows="5" v-model="compLibhhlvlwatersystem"></textarea>
+                <textarea type="text" class="form-control form-control-sm" id="libhhlvlwatersystem_id" rows="5" v-model="form.libhhlvlwatersystem.lib_wtdesc"></textarea>
             </div>
             <div class="form-group mb-1">
                 <label for="floods_occur">Floods occur in the area</label>
-                <input type="text" class="form-control form-control-sm" id="floods_occur" v-model="compFloodsoccur">
+                <input type="text" class="form-control form-control-sm" id="floods_occur" v-model="form.floods_occur">
             </div>
             <div class="form-group mb-1">
                 <label for="year_flood">Year flooded</label>
-                <input type="text" class="form-control form-control-sm" id="year_flood" v-model="compYearflood">
+                <input type="text" class="form-control form-control-sm" id="year_flood" v-model="form.year_flood">
             </div>
             <div class="form-group mb-1">
                 <label for="experience_evacuationduringcalamity">Experience evacuated</label>
-                <input type="text" class="form-control form-control-sm" id="experience_evacuationduringcalamity" v-model="compExperienceevacationdurigcalamity">
+                <input type="text" class="form-control form-control-sm" id="experience_evacuationduringcalamity" v-model="form.experience_evacuationduringcalamity">
             </div>
             <div class="form-group mb-1">
                 <label for="year_evacuated">Year evacuated</label>
-                <input type="text" class="form-control form-control-sm" id="year_evacuated" v-model="compYearevacuated">
+                <input type="text" class="form-control form-control-sm" id="year_evacuated" v-model="form.year_evacuated">
             </div>
             <div class="form-group mb-1">
                 <label for="libhhevacuationarea_id">Nearest accessable evacuation center</label>
-                <input type="text" class="form-control form-control-sm" id="libhhevacuationarea_id" v-model="compLibhhevacuationarea">
+                <input type="text" class="form-control form-control-sm" id="libhhevacuationarea_id" v-model="form.libhhevacuationarea.lib_hhtobname">
             </div>
             <div class="form-group mb-1">
                 <label for="has_accesstohealthmedicalfacilities">Access to medical facilities</label>
-                <input type="text" class="form-control form-control-sm" id="has_accesstohealthmedicalfacilities" v-model="compHasaccesstohealthmedicalfacilities">
+                <input type="text" class="form-control form-control-sm" id="has_accesstohealthmedicalfacilities" v-model="form.has_accesstohealthmedicalfacilities">
             </div>
             <div class="form-group mb-1">
                 <label for="has_accesstotelecommunications">Access to telecommunications</label>
-                <input type="text" class="form-control form-control-sm" id="has_accesstotelecommunications" v-model="compHasaccesstotelecommunications">
+                <input type="text" class="form-control form-control-sm" id="has_accesstotelecommunications" v-model="form.has_accesstotelecommunications">
             </div>
             <div class="form-group mb-1">
                 <label for="has_accesstodrillsandsimulations">Access to drill and simulations</label>
-                <input type="text" class="form-control form-control-sm" id="has_accesstodrillsandsimulations" v-model="compHasaccesstodirllsandsimulations">
+                <input type="text" class="form-control form-control-sm" id="has_accesstodrillsandsimulations" v-model="form.has_accesstodrillsandsimulations">
             </div>
             <div class="form-group mb-1">
                 <label for="image">Image</label>
-                <input type="text" class="form-control form-control-sm" id="image" v-model="compImage">
+                <input type="text" class="form-control form-control-sm" id="image" v-model="form.image">
             </div>
             <div class="form-group mb-1">
                 <label for="created_at">Date added</label> 
-                <input type="text" class="form-control form-control-sm" id="created_at" v-model="compCreatedat">
+                <input type="text" class="form-control form-control-sm" id="created_at" v-model="form.created_at">
             </div>
             <div class="form-group mb-1">
                 <label for="updated_at">Date updated</label> 
-                <input type="text" class="form-control form-control-sm" id="updated_at" v-model="compUpdatedat">
+                <input type="text" class="form-control form-control-sm" id="updated_at" v-model="form.updated_at">
             </div>
         </div>   
         <div class="card-footer">
@@ -135,7 +135,7 @@
     props: ['household','submit'],
     data(){
       return {
-        formEdit: {
+        form: {
             respondent: this.household.respondent,
             libmunicipalitie:{
                 lib_munname: this.household.libmunicipalitie.lib_munname
@@ -160,7 +160,7 @@
             libhhroofmaterial:{
                 lib_roofmaterialsdesc: this.household.libhhroofmaterial.lib_roofmaterialsdesc
             },
-            medical_treatment: (this.household.medical_treatment) ? 'Yes' : 'No',
+            medical_treatment: (this.household.medical_treatment) ? this.household.medical_treatment : 'No',
             access_watersupply: (this.household.access_watersupply) ? 'Yes' : 'No',
             potable: (this.household.potable) ? 'Yes' : 'No',
             libhhwatertenuralstatu:{
@@ -185,247 +185,247 @@
             }
       }
     },
-    computed:{
-        compRespondent:{
-            get(){
-                return this.formEdit.respondent;
-            },
-            set(val){
-                this.formEdit.respondent
-            }
-        },
-        compLibmunicipalitie:{
-            get(){
-                return this.formEdit.libmunicipalitie.lib_munname;
-            },
-            set(val){
-                this.formEdit.libmunicipalitie.lib_munname = val;
-            }
-        },
-        compLibbarangay:{
-            get(){
-                return this.formEdit.libbarangay.lib_brgyname;
-            },
-            set(val){
-                this.formEdit.libbarangay.lib_brgyname = val;
-            }
-        },
-        compPurok:{
-            get(){
-                return this.formEdit.purok;
-            },
-            set(val){
-                this.formEdit.purok = val;
-            }
-        },
-        compNameenumerator:{
-            get(){
-                return this.formEdit.nameenumerator;
-            },
-            set(val){
-                this.formEdit.nameenumerator = val;
-            }
-        },
-        compLibhhtypeofbuilding:{
-            get(){
-                return this.formEdit.libhhtypeofbuilding.lib_hhtobname;
-            },
-            set(val){
-                this.formEdit.lib
-            }
-        },
-        compLibhhtenuralstatu:{
-            get(){
-                return this.formEdit.libhhtenuralstatu.lib_ternuralstatusdesc;
-            },
-            set(val){
-                this.formEdit.libhhtenuralstatu.lib_ternuralstatusdesc = val;
-            }
-        },
-        compYearconstruct:{
-            get(){
-                return this.formEdit.year_construct;
-            },
-            set(val){
-                this.formEdit.year_construct = val;
-            }
-        },
-        compEstimatedcost:{
-            get(){
-                return this.formEdit.estimated_cost;
-            },
-            set(val){
-                this.formEdit.estimated_cost = val;
-            }
-        },
-        compBedrooms:{
-            get(){
-                return this.formEdit.bedrooms;
-            },
-            set(val){
-                this.formEdit.bedrooms = val;
-            }
-        },
-        compStorey:{
-            get(){
-                return this.formEdit.storey;
-            },
-            set(val){
-                this.formEdit.storey = val;
-            }
-        },
-        compAccesselectricity:{
-            get(){
-                return this.formEdit.access_electricity;
-            },
-            set(val){
-                this.formEdit.access_electricity = val;
-            }
-        },
-        compAccessinternet:{
-            get(){
-                return this.formEdit.access_internet;
-            },
-            set(val){
-                this.formEdit.access_internet = val;
-            }
-        },
-        compLibhhroofmaterial:{
-            get(){
-                return this.formEdit.libhhroofmaterial.lib_roofmaterialsdesc;
-            },
-            set(val){
-                this.formEdit.libhhroofmaterial.lib_roofmaterialsdesc = val;
-            }
-        },
-        compMedicaltreatment:{
-            get(){
-                return this.formEdit.medical_treatment;
-            },
-            set(val){
-                this.formEdit.medical_treatment = val;
-            }
-        },
-        compAccesswatersupply:{
-            get(){
-                return this.formEdit.access_watersupply;
-            },
-            set(val){
-                this.formEdit.access_watersupply = val;
-            }
-        },
-        compPotable:{
-            get(){
-                return this.formEdit.potable;
-            },
-            set(val){
-                this.formEdit.potable = val
-            }
-        },
-        compLibhhwatertenuralstatu:{
-            get(){
-                return this.formEdit.libhhwatertenuralstatu.lib_wtdesc;
-            },
-            set(val){
-                this.formEdit.libhhwatertenuralstatu.lib_wtdesc = val;
-            }
-        },
-        compLibhhlvlwatersystem:{
-            get(){
-                return this.formEdit.libhhlvlwatersystem.lib_wtdesc;
-            },
-            set(val){
-                this.formEdit.libhhlvlwatersystem.lib_wtdesc = val;
-            }
-        },
-        compFloodsoccur:{
-            get(){
-                return this.formEdit.floods_occur;
-            },
-            set(val){
-                this.formEdit.floods_occur = val;
-            }
-        },
-        compYearflood:{
-            get(){
-                return this.formEdit.year_flood;
-            },
-            set(val){
-                this.formEdit.year_flood = val;
-            }
-        },
-        compExperienceevacationdurigcalamity:{
-            get(){
-                return this.formEdit.experience_evacuationduringcalamity;
-            },
-            set(val){
-                this.formEdit.experience_evacuationduringcalamity = val;
-            }
-        },
-        compYearevacuated:{
-            get(){
-                return this.formEdit.year_evacuated;
-            },
-            set(val){
-                this.formEdit.year_evacuated = val;
-            }
-        },
-        compLibhhevacuationarea:{
-            get(){
-                return this.formEdit.libhhevacuationarea.lib_heaname;
-            },
-            set(val){
-                return this.formEdit.libhhevacuationarea.lib_heaname = val;
-            }
-        },
-        compHasaccesstohealthmedicalfacilities:{
-            get(){
-                return this.formEdit.has_accesstohealthmedicalfacilities;
-            },
-            set(val){
-                this.formEdit.has_accesstohealthmedicalfacilities = val;
-            }
-        },
-        compHasaccesstotelecommunications:{
-            get(){
-                return this.formEdit.has_accesstotelecommunications;
-            },
-            set(val){
-                this.formEdit.has_accesstotelecommunications = val;
-            }
-        },
-        compHasaccesstodirllsandsimulations:{
-            get(){
-                return this.formEdit.has_accesstodrillsandsimulations;
-            },
-            set(val){
-                this.formEdit.has_accesstodrillsandsimulations = val;
-            }
-        },
-        compImage: {
-            get(){
-                return this.formEdit.image;
-            },
-            set(val){
-                this.formEdit.image = val;
-            }
-        },
-        compCreatedat:{
-            get(){
-                return this.formEdit.created_at;
-            },
-            set(val){
-                this.formEdit.created_at = val;
-            }
-        },
-        compUpdatedat:{
-            get(){
-                return this.formEdit.updated_at;
-            },
-            set(val){
-                this.formEdit.created_at = val;
-            }
-        }
-    }
+    // computed:{
+    //     compRespondent:{
+    //         get(){
+    //             return this.form.respondent;
+    //         },
+    //         set(val){
+    //             this.form.respondent
+    //         }
+    //     },
+    //     compLibmunicipalitie:{
+    //         get(){
+    //             return this.form.libmunicipalitie.lib_munname;
+    //         },
+    //         set(val){
+    //             this.form.libmunicipalitie.lib_munname = val;
+    //         }
+    //     },
+    //     compLibbarangay:{
+    //         get(){
+    //             return this.form.libbarangay.lib_brgyname;
+    //         },
+    //         set(val){
+    //             this.form.libbarangay.lib_brgyname = val;
+    //         }
+    //     },
+    //     compPurok:{
+    //         get(){
+    //             return this.form.purok;
+    //         },
+    //         set(val){
+    //             this.form.purok = val;
+    //         }
+    //     },
+    //     compNameenumerator:{
+    //         get(){
+    //             return this.form.nameenumerator;
+    //         },
+    //         set(val){
+    //             this.form.nameenumerator = val;
+    //         }
+    //     },
+    //     compLibhhtypeofbuilding:{
+    //         get(){
+    //             return this.form.libhhtypeofbuilding.lib_hhtobname;
+    //         },
+    //         set(val){
+    //             this.form.lib
+    //         }
+    //     },
+    //     compLibhhtenuralstatu:{
+    //         get(){
+    //             return this.form.libhhtenuralstatu.lib_ternuralstatusdesc;
+    //         },
+    //         set(val){
+    //             this.form.libhhtenuralstatu.lib_ternuralstatusdesc = val;
+    //         }
+    //     },
+    //     compYearconstruct:{
+    //         get(){
+    //             return this.form.year_construct;
+    //         },
+    //         set(val){
+    //             this.form.year_construct = val;
+    //         }
+    //     },
+    //     compEstimatedcost:{
+    //         get(){
+    //             return this.form.estimated_cost;
+    //         },
+    //         set(val){
+    //             this.form.estimated_cost = val;
+    //         }
+    //     },
+    //     compBedrooms:{
+    //         get(){
+    //             return this.form.bedrooms;
+    //         },
+    //         set(val){
+    //             this.form.bedrooms = val;
+    //         }
+    //     },
+    //     compStorey:{
+    //         get(){
+    //             return this.form.storey;
+    //         },
+    //         set(val){
+    //             this.form.storey = val;
+    //         }
+    //     },
+    //     compAccesselectricity:{
+    //         get(){
+    //             return this.form.access_electricity;
+    //         },
+    //         set(val){
+    //             this.form.access_electricity = val;
+    //         }
+    //     },
+    //     compAccessinternet:{
+    //         get(){
+    //             return this.form.access_internet;
+    //         },
+    //         set(val){
+    //             this.form.access_internet = val;
+    //         }
+    //     },
+    //     compLibhhroofmaterial:{
+    //         get(){
+    //             return this.form.libhhroofmaterial.lib_roofmaterialsdesc;
+    //         },
+    //         set(val){
+    //             this.form.libhhroofmaterial.lib_roofmaterialsdesc = val;
+    //         }
+    //     },
+    //     compMedicaltreatment:{
+    //         get(){
+    //             return this.form.medical_treatment;
+    //         },
+    //         set(val){
+    //             this.form.medical_treatment = val;
+    //         }
+    //     },
+    //     compAccesswatersupply:{
+    //         get(){
+    //             return this.form.access_watersupply;
+    //         },
+    //         set(val){
+    //             this.form.access_watersupply = val;
+    //         }
+    //     },
+    //     compPotable:{
+    //         get(){
+    //             return this.form.potable;
+    //         },
+    //         set(val){
+    //             this.form.potable = val
+    //         }
+    //     },
+    //     compLibhhwatertenuralstatu:{
+    //         get(){
+    //             return this.form.libhhwatertenuralstatu.lib_wtdesc;
+    //         },
+    //         set(val){
+    //             this.form.libhhwatertenuralstatu.lib_wtdesc = val;
+    //         }
+    //     },
+    //     compLibhhlvlwatersystem:{
+    //         get(){
+    //             return this.form.libhhlvlwatersystem.lib_wtdesc;
+    //         },
+    //         set(val){
+    //             this.form.libhhlvlwatersystem.lib_wtdesc = val;
+    //         }
+    //     },
+    //     compFloodsoccur:{
+    //         get(){
+    //             return this.form.floods_occur;
+    //         },
+    //         set(val){
+    //             this.form.floods_occur = val;
+    //         }
+    //     },
+    //     compYearflood:{
+    //         get(){
+    //             return this.form.year_flood;
+    //         },
+    //         set(val){
+    //             this.form.year_flood = val;
+    //         }
+    //     },
+    //     compExperienceevacationdurigcalamity:{
+    //         get(){
+    //             return this.form.experience_evacuationduringcalamity;
+    //         },
+    //         set(val){
+    //             this.form.experience_evacuationduringcalamity = val;
+    //         }
+    //     },
+    //     compYearevacuated:{
+    //         get(){
+    //             return this.form.year_evacuated;
+    //         },
+    //         set(val){
+    //             this.form.year_evacuated = val;
+    //         }
+    //     },
+    //     compLibhhevacuationarea:{
+    //         get(){
+    //             return this.form.libhhevacuationarea.lib_heaname;
+    //         },
+    //         set(val){
+    //             return this.form.libhhevacuationarea.lib_heaname = val;
+    //         }
+    //     },
+    //     compHasaccesstohealthmedicalfacilities:{
+    //         get(){
+    //             return this.form.has_accesstohealthmedicalfacilities;
+    //         },
+    //         set(val){
+    //             this.form.has_accesstohealthmedicalfacilities = val;
+    //         }
+    //     },
+    //     compHasaccesstotelecommunications:{
+    //         get(){
+    //             return this.form.has_accesstotelecommunications;
+    //         },
+    //         set(val){
+    //             this.form.has_accesstotelecommunications = val;
+    //         }
+    //     },
+    //     compHasaccesstodirllsandsimulations:{
+    //         get(){
+    //             return this.form.has_accesstodrillsandsimulations;
+    //         },
+    //         set(val){
+    //             this.form.has_accesstodrillsandsimulations = val;
+    //         }
+    //     },
+    //     compImage: {
+    //         get(){
+    //             return this.form.image;
+    //         },
+    //         set(val){
+    //             this.form.image = val;
+    //         }
+    //     },
+    //     compCreatedat:{
+    //         get(){
+    //             return this.form.created_at;
+    //         },
+    //         set(val){
+    //             this.form.created_at = val;
+    //         }
+    //     },
+    //     compUpdatedat:{
+    //         get(){
+    //             return this.form.updated_at;
+    //         },
+    //         set(val){
+    //             this.form.created_at = val;
+    //         }
+    //     }
+    // }
 }
 </script>
