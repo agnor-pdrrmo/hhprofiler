@@ -2687,6 +2687,30 @@ __webpack_require__.r(__webpack_exports__);
       set: function set(val) {
         this.formEdit.libbarangay.lib_brgyname = val;
       }
+    },
+    compPurok: {
+      get: function get() {
+        return this.formEdit.purok;
+      },
+      set: function set(val) {
+        this.formEdit.purok = val;
+      }
+    },
+    compNameenumerator: {
+      get: function get() {
+        return this.formEdit.nameenumerator;
+      },
+      set: function set(val) {
+        this.formEdit.nameenumerator = val;
+      }
+    },
+    compLibhhtypeofbuilding: {
+      get: function get() {
+        return this.formEdit.libhhtypeofbuilding.lib_hhtobname;
+      },
+      set: function set(val) {
+        this.formEdit.lib;
+      }
     }
   }
 });
@@ -2704,13 +2728,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue2_leaflet__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue2-leaflet */ "./node_modules/vue2-leaflet/dist/components/LMap.js");
-/* harmony import */ var vue2_leaflet__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue2-leaflet */ "./node_modules/vue2-leaflet/dist/components/LTileLayer.js");
-/* harmony import */ var vue2_leaflet__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue2-leaflet */ "./node_modules/vue2-leaflet/dist/components/LMarker.js");
+/* harmony import */ var vue2_leaflet__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue2-leaflet */ "./node_modules/vue2-leaflet/dist/components/LMap.js");
+/* harmony import */ var vue2_leaflet__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue2-leaflet */ "./node_modules/vue2-leaflet/dist/components/LTileLayer.js");
+/* harmony import */ var vue2_leaflet__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue2-leaflet */ "./node_modules/vue2-leaflet/dist/components/LMarker.js");
 /* harmony import */ var vue2_leaflet_googlemutant__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue2-leaflet-googlemutant */ "./node_modules/vue2-leaflet-googlemutant/dist/Vue2LeafletGoogleMutant.js");
 /* harmony import */ var vue2_leaflet_googlemutant__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue2_leaflet_googlemutant__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -2782,12 +2804,11 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 //
 
 
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    'v-map': vue2_leaflet__WEBPACK_IMPORTED_MODULE_2__["default"],
-    'v-tilelayer': vue2_leaflet__WEBPACK_IMPORTED_MODULE_3__["default"],
-    'v-marker': vue2_leaflet__WEBPACK_IMPORTED_MODULE_4__["default"],
+    'v-map': vue2_leaflet__WEBPACK_IMPORTED_MODULE_1__["default"],
+    'v-tilelayer': vue2_leaflet__WEBPACK_IMPORTED_MODULE_2__["default"],
+    'v-marker': vue2_leaflet__WEBPACK_IMPORTED_MODULE_3__["default"],
     'v-tilelayer-googlemutant': (vue2_leaflet_googlemutant__WEBPACK_IMPORTED_MODULE_0___default())
   },
   data: function data() {
@@ -2864,7 +2885,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       this.currentHousehold = hhold;
       this.currentHousehold.icon = this.selectedIcon; //Call toggle to show sidebar
 
-      jquery__WEBPACK_IMPORTED_MODULE_1___default()("#my-toggle-button").ControlSidebar('show');
+      $("#my-toggle-button").ControlSidebar('show');
     }
   },
   computed: {
@@ -2905,7 +2926,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     var _this2 = this;
 
     Event.$on('mapInvalidate', function () {
-      if (jquery__WEBPACK_IMPORTED_MODULE_1___default()('#toogleinformation:visible').length == 0) {
+      if ($('#toogleinformation:visible').length == 0) {
         // Call invalidateSize to update map size
         _this2.$refs.map.mapObject.invalidateSize(); //Set width of the map 
 

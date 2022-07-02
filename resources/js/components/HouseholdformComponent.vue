@@ -219,7 +219,30 @@
                 this.formEdit.libbarangay.lib_brgyname = val;
             }
         },
-        
+        compPurok:{
+            get(){
+                return this.formEdit.purok;
+            },
+            set(val){
+                this.formEdit.purok = val;
+            }
+        },
+        compNameenumerator:{
+            get(){
+                return this.formEdit.nameenumerator;
+            },
+            set(val){
+                this.formEdit.nameenumerator = val;
+            }
+        },
+        compLibhhtypeofbuilding:{
+            get(){
+                return this.formEdit.libhhtypeofbuilding.lib_hhtobname;
+            },
+            set(val){
+                this.formEdit.lib
+            }
+        }
     }
 }
 </script>
