@@ -59,6 +59,7 @@
 
 import { LMap, LTileLayer, LMarker }  from 'vue2-leaflet';
 import Vue2LeafletGoogleMutant from 'vue2-leaflet-googlemutant';
+import $ from 'jquery';
 
 export default {
   components: {
