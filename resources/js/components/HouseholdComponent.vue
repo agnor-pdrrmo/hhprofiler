@@ -1,6 +1,6 @@
 <template>
     <div>
-         <div class="card-body" v-for="householdinfo in householdData" :key="householdinfo.id">       
+         <div class="card-body" v-for="householdinfo in householdData" :key="householdinfo.controlnumber">       
             <household-form-component :household="householdinfo" :submit="'Update'"></household-form-component> 
          </div>
     </div>
