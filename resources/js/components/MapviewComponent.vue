@@ -42,6 +42,7 @@
                         </div>
                         <div class="tab-pane fade" id="custom-tabs-four-availed-programs" role="tabpanel" aria-labelledby="custom-tabs-four-availed-programs-tab">
                           <!-- Foldable list of availed programs -->
+                          <availedprogram-component v-bind:availedprograms="setAvailprograms"></availedprogram-component>
                         </div>
                         <div class="tab-pane fade" id="custom-tabs-four-livelihood" role="tabpanel" aria-labelledby="custom-tabs-four-livelihood-tab">
                           <!-- Foldable list of livelihood -->
@@ -86,6 +87,7 @@ export default {
         households: {},
         household:{},
         demographies: [],
+        availedprograms: [],
         style:{
           width: '100%',
         },
@@ -116,6 +118,7 @@ export default {
 
         this.household = this.households.filter(cn => cn.controlnumber == controlnumber);
         this.demographies = this.household[0].demography;
+        this.availedprograms = this.household[0].availedprograms;
 
         // Update center of the map
         [this.center] = this.household.map(h => { return [h.latitude, h.longitude] })
@@ -153,6 +156,14 @@ export default {
       },
       set(val){
         this.demographies = val;
+      }
+    },
+    setAvailprograms:{
+      get(){
+        return this.availedprograms;
+      },
+      set(val){
+        this.availedprograms = val;
       }
     },
     centerMarker:{

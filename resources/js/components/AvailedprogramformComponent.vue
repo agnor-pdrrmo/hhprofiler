@@ -3,19 +3,19 @@
         <div class="card card-body">
             <div class="form-group mb-1">
                 <label for="libtypeofprogram_id">Type of program</label>  
-                <input type="text" class="form-control form-control-sm" id="libtypeofprogram_id" v-model="form.availedprogram.surname">
+                <input type="text" class="form-control form-control-sm" id="libtypeofprogram_id" v-model="form.availedprogram.libtypeofprogram.lib_topname">
             </div> 
             <div class="form-group mb-1">
                 <label for="nameofprogram">Name of program</label> 
-                <input type="text" class="form-control form-control-sm" id="nameofprogram" v-model="form.availedprogram.firstname">
+                <input type="text" class="form-control form-control-sm" id="nameofprogram" v-model="form.availedprogram.nameofprogram">
             </div> 
             <div class="form-group mb-1">
                 <label for="numberofbeneficiaries">Number of beneficiaries</label> 
-                <input type="text" class="form-control form-control-sm" id="numberofbeneficiaries" v-model="form.availedprogram.middlename">
+                <input type="text" class="form-control form-control-sm" id="numberofbeneficiaries" v-model="form.availedprogram.numberofbeneficiaries">
             </div> 
             <div class="form-group mb-3">
                 <label for="programimplementor">Program implementor</label> 
-                <input type="text" class="form-control form-control-sm" id="programimplementor" v-model="form.availedprogram.extension">
+                <input type="text" class="form-control form-control-sm" id="programimplementor" v-model="form.availedprogram.programimplementor">
             </div> 
             <div class="form-group mb-1">
                 <label for="created_at">Date added: </label> 
@@ -41,16 +41,14 @@ export default {
         form: {
           availedprogram:{
             id: this.availedprogram.id,
+            libtypeofprogram:{
+                lib_topname: this.availedprogram.libtypeofprogram.lib_topname
+            },
+            nameofprogram: this.availedprogram.nameofprogram,
+            numberofbeneficiaries: this.availedprogram.numberofbeneficiaries,
+            programimplementor: this.availedprogram.programimplementor
           }
         }
-      }
-    },
-    methods:{
-      getAge: function(birthday){
-          var bday = new Date(birthday);
-          var ageDifMs = Date.now() - bday.getTime();
-          var ageDate = new Date(ageDifMs); // miliseconds from epoch
-          return Math.abs(ageDate.getUTCFullYear() - 1970);
       }
     }
 }

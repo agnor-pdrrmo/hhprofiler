@@ -2206,19 +2206,16 @@ __webpack_require__.r(__webpack_exports__);
     return {
       form: {
         availedprogram: {
-          id: this.availedprogram.id
+          id: this.availedprogram.id,
+          libtypeofprogram: {
+            lib_topname: this.availedprogram.libtypeofprogram.lib_topname
+          },
+          nameofprogram: this.availedprogram.nameofprogram,
+          numberofbeneficiaries: this.availedprogram.numberofbeneficiaries,
+          programimplementor: this.availedprogram.programimplementor
         }
       }
     };
-  },
-  methods: {
-    getAge: function getAge(birthday) {
-      var bday = new Date(birthday);
-      var ageDifMs = Date.now() - bday.getTime();
-      var ageDate = new Date(ageDifMs); // miliseconds from epoch
-
-      return Math.abs(ageDate.getUTCFullYear() - 1970);
-    }
   }
 });
 
@@ -2470,6 +2467,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       households: {},
       household: {},
       demographies: [],
+      availedprograms: [],
       style: {
         width: '100%'
       },
@@ -2502,7 +2500,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       this.household = this.households.filter(function (cn) {
         return cn.controlnumber == controlnumber;
       });
-      this.demographies = this.household[0].demography; // Update center of the map
+      this.demographies = this.household[0].demography;
+      this.availedprograms = this.household[0].availedprograms; // Update center of the map
 
       var _this$household$map = this.household.map(function (h) {
         return [h.latitude, h.longitude];
@@ -2544,6 +2543,14 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       },
       set: function set(val) {
         this.demographies = val;
+      }
+    },
+    setAvailprograms: {
+      get: function get() {
+        return this.availedprograms;
+      },
+      set: function set(val) {
+        this.availedprograms = val;
       }
     },
     centerMarker: {
@@ -2666,7 +2673,7 @@ var render = function render() {
       },
       attrs: {
         "data-toggle": "collapse",
-        href: "#demography-" + _vm.demography.id,
+        href: "#demography-" + availedprogram.id,
         "aria-expanded": "false",
         "aria-controls": "collapseExample"
       }
@@ -2719,8 +2726,8 @@ var render = function render() {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.form.availedprogram.surname,
-      expression: "form.availedprogram.surname"
+      value: _vm.form.availedprogram.libtypeofprogram.lib_topname,
+      expression: "form.availedprogram.libtypeofprogram.lib_topname"
     }],
     staticClass: "form-control form-control-sm",
     attrs: {
@@ -2728,13 +2735,13 @@ var render = function render() {
       id: "libtypeofprogram_id"
     },
     domProps: {
-      value: _vm.form.availedprogram.surname
+      value: _vm.form.availedprogram.libtypeofprogram.lib_topname
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
 
-        _vm.$set(_vm.form.availedprogram, "surname", $event.target.value);
+        _vm.$set(_vm.form.availedprogram.libtypeofprogram, "lib_topname", $event.target.value);
       }
     }
   })]), _vm._v(" "), _c("div", {
@@ -2747,8 +2754,8 @@ var render = function render() {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.form.availedprogram.firstname,
-      expression: "form.availedprogram.firstname"
+      value: _vm.form.availedprogram.nameofprogram,
+      expression: "form.availedprogram.nameofprogram"
     }],
     staticClass: "form-control form-control-sm",
     attrs: {
@@ -2756,13 +2763,13 @@ var render = function render() {
       id: "nameofprogram"
     },
     domProps: {
-      value: _vm.form.availedprogram.firstname
+      value: _vm.form.availedprogram.nameofprogram
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
 
-        _vm.$set(_vm.form.availedprogram, "firstname", $event.target.value);
+        _vm.$set(_vm.form.availedprogram, "nameofprogram", $event.target.value);
       }
     }
   })]), _vm._v(" "), _c("div", {
@@ -2775,8 +2782,8 @@ var render = function render() {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.form.availedprogram.middlename,
-      expression: "form.availedprogram.middlename"
+      value: _vm.form.availedprogram.numberofbeneficiaries,
+      expression: "form.availedprogram.numberofbeneficiaries"
     }],
     staticClass: "form-control form-control-sm",
     attrs: {
@@ -2784,13 +2791,13 @@ var render = function render() {
       id: "numberofbeneficiaries"
     },
     domProps: {
-      value: _vm.form.availedprogram.middlename
+      value: _vm.form.availedprogram.numberofbeneficiaries
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
 
-        _vm.$set(_vm.form.availedprogram, "middlename", $event.target.value);
+        _vm.$set(_vm.form.availedprogram, "numberofbeneficiaries", $event.target.value);
       }
     }
   })]), _vm._v(" "), _c("div", {
@@ -2803,8 +2810,8 @@ var render = function render() {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.form.availedprogram.extension,
-      expression: "form.availedprogram.extension"
+      value: _vm.form.availedprogram.programimplementor,
+      expression: "form.availedprogram.programimplementor"
     }],
     staticClass: "form-control form-control-sm",
     attrs: {
@@ -2812,13 +2819,13 @@ var render = function render() {
       id: "programimplementor"
     },
     domProps: {
-      value: _vm.form.availedprogram.extension
+      value: _vm.form.availedprogram.programimplementor
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
 
-        _vm.$set(_vm.form.availedprogram, "extension", $event.target.value);
+        _vm.$set(_vm.form.availedprogram, "programimplementor", $event.target.value);
       }
     }
   })]), _vm._v(" "), _c("div", {
@@ -4789,7 +4796,11 @@ var render = function render() {
       role: "tabpanel",
       "aria-labelledby": "custom-tabs-four-availed-programs-tab"
     }
-  }), _vm._v(" "), _c("div", {
+  }, [_c("availedprogram-component", {
+    attrs: {
+      availedprograms: _vm.setAvailprograms
+    }
+  })], 1), _vm._v(" "), _c("div", {
     staticClass: "tab-pane fade",
     attrs: {
       id: "custom-tabs-four-livelihood",
