@@ -26,6 +26,8 @@ Vue.component('household-component', require('./components/HouseholdComponent.vu
 Vue.component('household-form-component', require('./components/HouseholdformComponent.vue').default);
 Vue.component('demography-component', require('./components/DemographyComponent.vue').default);
 Vue.component('demography-form-component', require('./components/DemographyformComponent.vue').default);
+Vue.component('availedprogram-component', require('./components/AvailedprogramComponent.vue').default);
+Vue.component('availedprogram-form-component', require('./components/AvailedprogramformComponent.vue').default);
 Vue.component('section-header-component', require('./components/SectionheaderComponent.vue').default);
 Vue.component('nav-item-component', require('./components/NavitemComponent.vue').default);
 

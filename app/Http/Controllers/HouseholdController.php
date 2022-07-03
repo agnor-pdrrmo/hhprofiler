@@ -35,7 +35,8 @@ class HouseholdController extends Controller
                 'demography.libdisabilitie',
                 'demography.libnutritionalstatu',
                 'demography.libgradelvl',
-                'demography.highestgradelvl'
+                'demography.highestgradelvl',
+                'availedprograms.libtypeofprogram'
             ));
         }
 

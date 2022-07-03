@@ -2172,6 +2172,58 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AvailedprogramComponent.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AvailedprogramComponent.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['availedprograms']
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AvailedprogramformComponent.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AvailedprogramformComponent.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['availedprogram', 'submit'],
+  data: function data() {
+    return {
+      form: {
+        availedprogram: {
+          id: this.availedprogram.id
+        }
+      }
+    };
+  },
+  methods: {
+    getAge: function getAge(birthday) {
+      var bday = new Date(birthday);
+      var ageDifMs = Date.now() - bday.getTime();
+      var ageDate = new Date(ageDifMs); // miliseconds from epoch
+
+      return Math.abs(ageDate.getUTCFullYear() - 1970);
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DemographyComponent.vue?vue&type=script&lang=js&":
 /*!**************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/DemographyComponent.vue?vue&type=script&lang=js& ***!
@@ -2257,9 +2309,7 @@ __webpack_require__.r(__webpack_exports__);
           sss_member: this.demography.sss_member ? 'Yes' : 'No',
           gsis_member: this.demography.gsis_member ? 'Yes' : 'No',
           philhealth_member: this.demography.philhealth_member ? 'Yes' : 'No',
-          dependent_of_philheath_member: this.demography.dependent_of_philheath_member ? 'Yes' : 'No',
-          created_at: this.demography.created_at,
-          updated_at: this.demography.updated_at
+          dependent_of_philheath_member: this.demography.dependent_of_philheath_member ? 'Yes' : 'No'
         }
       }
     };
@@ -2354,9 +2404,7 @@ __webpack_require__.r(__webpack_exports__);
         has_accesstohealthmedicalfacilities: this.household.has_accesstohealthmedicalfacilities ? 'Yes' : 'No',
         has_accesstotelecommunications: this.household.has_accesstotelecommunications ? 'Yes' : 'No',
         has_accesstodrillsandsimulations: this.household.has_accesstodrillsandsimulations ? 'Yes' : 'No',
-        image: this.household.image,
-        created_at: this.household.created_at,
-        updated_at: this.household.updated_at
+        image: this.household.image
       }
     };
   }
@@ -2584,6 +2632,220 @@ __webpack_require__.r(__webpack_exports__);
     breadcrumbitemactive: String
   }
 });
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AvailedprogramComponent.vue?vue&type=template&id=0c3eac8c&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AvailedprogramComponent.vue?vue&type=template&id=0c3eac8c& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    attrs: {
+      id: "myGroup"
+    }
+  }, [_c("ul", {
+    staticClass: "list-unstyled"
+  }, _vm._l(_vm.availedprograms, function (availedprogram) {
+    return _c("li", {
+      key: availedprogram.id
+    }, [_c("a", {
+      staticStyle: {
+        "text-transform": "capitalize"
+      },
+      attrs: {
+        "data-toggle": "collapse",
+        href: "#demography-" + _vm.demography.id,
+        "aria-expanded": "false",
+        "aria-controls": "collapseExample"
+      }
+    }, [_vm._v("\r\n                  " + _vm._s(availedprogram.libtypeofprogram.lib_topname) + "\r\n              ")]), _vm._v(" "), _c("div", {
+      staticClass: "collapse",
+      attrs: {
+        id: "demography-" + availedprogram.id,
+        "data-parent": "#myGroup"
+      }
+    }, [_c("availedprogram-form-component", {
+      attrs: {
+        availedprogram: availedprogram,
+        submit: "Update"
+      }
+    })], 1)]);
+  }), 0)]);
+};
+
+var staticRenderFns = [];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AvailedprogramformComponent.vue?vue&type=template&id=7d2edac8&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AvailedprogramformComponent.vue?vue&type=template&id=7d2edac8& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", [_c("div", {
+    staticClass: "card card-body"
+  }, [_c("div", {
+    staticClass: "form-group mb-1"
+  }, [_c("label", {
+    attrs: {
+      "for": "libtypeofprogram_id"
+    }
+  }, [_vm._v("Type of program")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.availedprogram.surname,
+      expression: "form.availedprogram.surname"
+    }],
+    staticClass: "form-control form-control-sm",
+    attrs: {
+      type: "text",
+      id: "libtypeofprogram_id"
+    },
+    domProps: {
+      value: _vm.form.availedprogram.surname
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+
+        _vm.$set(_vm.form.availedprogram, "surname", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "form-group mb-1"
+  }, [_c("label", {
+    attrs: {
+      "for": "nameofprogram"
+    }
+  }, [_vm._v("Name of program")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.availedprogram.firstname,
+      expression: "form.availedprogram.firstname"
+    }],
+    staticClass: "form-control form-control-sm",
+    attrs: {
+      type: "text",
+      id: "nameofprogram"
+    },
+    domProps: {
+      value: _vm.form.availedprogram.firstname
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+
+        _vm.$set(_vm.form.availedprogram, "firstname", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "form-group mb-1"
+  }, [_c("label", {
+    attrs: {
+      "for": "numberofbeneficiaries"
+    }
+  }, [_vm._v("Number of beneficiaries")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.availedprogram.middlename,
+      expression: "form.availedprogram.middlename"
+    }],
+    staticClass: "form-control form-control-sm",
+    attrs: {
+      type: "text",
+      id: "numberofbeneficiaries"
+    },
+    domProps: {
+      value: _vm.form.availedprogram.middlename
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+
+        _vm.$set(_vm.form.availedprogram, "middlename", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "form-group mb-3"
+  }, [_c("label", {
+    attrs: {
+      "for": "programimplementor"
+    }
+  }, [_vm._v("Program implementor")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.availedprogram.extension,
+      expression: "form.availedprogram.extension"
+    }],
+    staticClass: "form-control form-control-sm",
+    attrs: {
+      type: "text",
+      id: "programimplementor"
+    },
+    domProps: {
+      value: _vm.form.availedprogram.extension
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+
+        _vm.$set(_vm.form.availedprogram, "extension", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "form-group mb-1"
+  }, [_c("label", {
+    attrs: {
+      "for": "created_at"
+    }
+  }, [_vm._v("Date added: ")]), _vm._v(" "), _c("p", [_vm._v(_vm._s(_vm.availedprogram.created_at))])]), _vm._v(" "), _c("div", {
+    staticClass: "form-group mb-1"
+  }, [_c("label", {
+    attrs: {
+      "for": "updated_at"
+    }
+  }, [_vm._v("Date updated: ")]), _vm._v(" "), _c("p", [_vm._v(_vm._s(_vm.availedprogram.updated_at))])])]), _vm._v(" "), _c("div", {
+    staticClass: "card-footer"
+  }, [_c("button", {
+    staticClass: "btn btn-primary",
+    attrs: {
+      type: "submit"
+    }
+  }, [_vm._v(_vm._s(_vm.submit))])])]);
+};
+
+var staticRenderFns = [];
+render._withStripped = true;
+
 
 /***/ }),
 
@@ -3503,7 +3765,7 @@ var render = function render() {
       }
     }
   })]), _vm._v(" "), _c("div", {
-    staticClass: "form-group mb-1"
+    staticClass: "form-group mb-3"
   }, [_c("label", {
     attrs: {
       "for": "dependent_of_philheath_member"
@@ -3536,57 +3798,13 @@ var render = function render() {
     attrs: {
       "for": "created_at"
     }
-  }, [_vm._v("Date added")]), _vm._v(" "), _c("input", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: _vm.form.demography.created_at,
-      expression: "form.demography.created_at"
-    }],
-    staticClass: "form-control form-control-sm",
-    attrs: {
-      type: "text",
-      id: "created_at"
-    },
-    domProps: {
-      value: _vm.form.demography.created_at
-    },
-    on: {
-      input: function input($event) {
-        if ($event.target.composing) return;
-
-        _vm.$set(_vm.form.demography, "created_at", $event.target.value);
-      }
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "form-group mb-1"
+  }, [_vm._v("Date added")]), _vm._v(" \r\n                " + _vm._s(_vm.demography.created_at) + "\r\n            ")]), _vm._v(" "), _c("div", {
+    staticClass: "form-group mb-"
   }, [_c("label", {
     attrs: {
       "for": "updated_at"
     }
-  }, [_vm._v("Date updated")]), _vm._v(" "), _c("input", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: _vm.form.demography.updated_at,
-      expression: "form.demography.updated_at"
-    }],
-    staticClass: "form-control form-control-sm",
-    attrs: {
-      type: "text",
-      id: "updated_at"
-    },
-    domProps: {
-      value: _vm.form.demography.updated_at
-    },
-    on: {
-      input: function input($event) {
-        if ($event.target.composing) return;
-
-        _vm.$set(_vm.form.demography, "updated_at", $event.target.value);
-      }
-    }
-  })])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("Date updated")]), _vm._v(" \r\n                " + _vm._s(_vm.demography.updated_at) + "\r\n            ")])]), _vm._v(" "), _c("div", {
     staticClass: "card-footer"
   }, [_c("button", {
     staticClass: "btn btn-primary",
@@ -4415,7 +4633,7 @@ var render = function render() {
       }
     }
   })]), _vm._v(" "), _c("div", {
-    staticClass: "form-group mb-1"
+    staticClass: "form-group mb-3"
   }, [_c("label", {
     attrs: {
       "for": "image"
@@ -4448,57 +4666,13 @@ var render = function render() {
     attrs: {
       "for": "created_at"
     }
-  }, [_vm._v("Date added")]), _vm._v(" "), _c("input", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: _vm.form.created_at,
-      expression: "form.created_at"
-    }],
-    staticClass: "form-control form-control-sm",
-    attrs: {
-      type: "text",
-      id: "created_at"
-    },
-    domProps: {
-      value: _vm.form.created_at
-    },
-    on: {
-      input: function input($event) {
-        if ($event.target.composing) return;
-
-        _vm.$set(_vm.form, "created_at", $event.target.value);
-      }
-    }
-  })]), _vm._v(" "), _c("div", {
+  }, [_vm._v("Date added")]), _vm._v(" \r\n                " + _vm._s(_vm.household.created_at) + "\r\n            ")]), _vm._v(" "), _c("div", {
     staticClass: "form-group mb-1"
   }, [_c("label", {
     attrs: {
       "for": "updated_at"
     }
-  }, [_vm._v("Date updated")]), _vm._v(" "), _c("input", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: _vm.form.updated_at,
-      expression: "form.updated_at"
-    }],
-    staticClass: "form-control form-control-sm",
-    attrs: {
-      type: "text",
-      id: "updated_at"
-    },
-    domProps: {
-      value: _vm.form.updated_at
-    },
-    on: {
-      input: function input($event) {
-        if ($event.target.composing) return;
-
-        _vm.$set(_vm.form, "updated_at", $event.target.value);
-      }
-    }
-  })])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("Date updated")]), _vm._v(" \r\n                " + _vm._s(_vm.household.updated_at) + "\r\n            ")])]), _vm._v(" "), _c("div", {
     staticClass: "card-footer"
   }, [_c("button", {
     staticClass: "btn btn-primary",
@@ -4810,6 +4984,8 @@ Vue.component('household-component', (__webpack_require__(/*! ./components/House
 Vue.component('household-form-component', (__webpack_require__(/*! ./components/HouseholdformComponent.vue */ "./resources/js/components/HouseholdformComponent.vue")["default"]));
 Vue.component('demography-component', (__webpack_require__(/*! ./components/DemographyComponent.vue */ "./resources/js/components/DemographyComponent.vue")["default"]));
 Vue.component('demography-form-component', (__webpack_require__(/*! ./components/DemographyformComponent.vue */ "./resources/js/components/DemographyformComponent.vue")["default"]));
+Vue.component('availedprogram-component', (__webpack_require__(/*! ./components/AvailedprogramComponent.vue */ "./resources/js/components/AvailedprogramComponent.vue")["default"]));
+Vue.component('availedprogram-form-component', (__webpack_require__(/*! ./components/AvailedprogramformComponent.vue */ "./resources/js/components/AvailedprogramformComponent.vue")["default"]));
 Vue.component('section-header-component', (__webpack_require__(/*! ./components/SectionheaderComponent.vue */ "./resources/js/components/SectionheaderComponent.vue")["default"]));
 Vue.component('nav-item-component', (__webpack_require__(/*! ./components/NavitemComponent.vue */ "./resources/js/components/NavitemComponent.vue")["default"]));
 /**
@@ -56962,6 +57138,84 @@ module.exports = function (list, options) {
 
 /***/ }),
 
+/***/ "./resources/js/components/AvailedprogramComponent.vue":
+/*!*************************************************************!*\
+  !*** ./resources/js/components/AvailedprogramComponent.vue ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _AvailedprogramComponent_vue_vue_type_template_id_0c3eac8c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AvailedprogramComponent.vue?vue&type=template&id=0c3eac8c& */ "./resources/js/components/AvailedprogramComponent.vue?vue&type=template&id=0c3eac8c&");
+/* harmony import */ var _AvailedprogramComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AvailedprogramComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/AvailedprogramComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _AvailedprogramComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AvailedprogramComponent_vue_vue_type_template_id_0c3eac8c___WEBPACK_IMPORTED_MODULE_0__.render,
+  _AvailedprogramComponent_vue_vue_type_template_id_0c3eac8c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/AvailedprogramComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/AvailedprogramformComponent.vue":
+/*!*****************************************************************!*\
+  !*** ./resources/js/components/AvailedprogramformComponent.vue ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _AvailedprogramformComponent_vue_vue_type_template_id_7d2edac8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AvailedprogramformComponent.vue?vue&type=template&id=7d2edac8& */ "./resources/js/components/AvailedprogramformComponent.vue?vue&type=template&id=7d2edac8&");
+/* harmony import */ var _AvailedprogramformComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AvailedprogramformComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/AvailedprogramformComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _AvailedprogramformComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AvailedprogramformComponent_vue_vue_type_template_id_7d2edac8___WEBPACK_IMPORTED_MODULE_0__.render,
+  _AvailedprogramformComponent_vue_vue_type_template_id_7d2edac8___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/AvailedprogramformComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/DemographyComponent.vue":
 /*!*********************************************************!*\
   !*** ./resources/js/components/DemographyComponent.vue ***!
@@ -57237,6 +57491,38 @@ component.options.__file = "resources/js/components/SectionheaderComponent.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/AvailedprogramComponent.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/AvailedprogramComponent.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AvailedprogramComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AvailedprogramComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AvailedprogramComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AvailedprogramComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/AvailedprogramformComponent.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/AvailedprogramformComponent.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AvailedprogramformComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AvailedprogramformComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AvailedprogramformComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AvailedprogramformComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/DemographyComponent.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************!*\
   !*** ./resources/js/components/DemographyComponent.vue?vue&type=script&lang=js& ***!
@@ -57346,6 +57632,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SectionheaderComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SectionheaderComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SectionheaderComponent.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SectionheaderComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/AvailedprogramComponent.vue?vue&type=template&id=0c3eac8c&":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/components/AvailedprogramComponent.vue?vue&type=template&id=0c3eac8c& ***!
+  \********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AvailedprogramComponent_vue_vue_type_template_id_0c3eac8c___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AvailedprogramComponent_vue_vue_type_template_id_0c3eac8c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AvailedprogramComponent_vue_vue_type_template_id_0c3eac8c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AvailedprogramComponent.vue?vue&type=template&id=0c3eac8c& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AvailedprogramComponent.vue?vue&type=template&id=0c3eac8c&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/AvailedprogramformComponent.vue?vue&type=template&id=7d2edac8&":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/components/AvailedprogramformComponent.vue?vue&type=template&id=7d2edac8& ***!
+  \************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AvailedprogramformComponent_vue_vue_type_template_id_7d2edac8___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AvailedprogramformComponent_vue_vue_type_template_id_7d2edac8___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AvailedprogramformComponent_vue_vue_type_template_id_7d2edac8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AvailedprogramformComponent.vue?vue&type=template&id=7d2edac8& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AvailedprogramformComponent.vue?vue&type=template&id=7d2edac8&");
+
 
 /***/ }),
 

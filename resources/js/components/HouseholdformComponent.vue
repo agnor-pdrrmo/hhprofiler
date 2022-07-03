@@ -109,17 +109,17 @@
                 <label for="has_accesstodrillsandsimulations">Access to drill and simulations</label>
                 <input type="text" class="form-control form-control-sm" id="has_accesstodrillsandsimulations" v-model="form.has_accesstodrillsandsimulations">
             </div>
-            <div class="form-group mb-1">
+            <div class="form-group mb-3">
                 <label for="image">Image</label>
                 <input type="text" class="form-control form-control-sm" id="image" v-model="form.image">
             </div>
             <div class="form-group mb-1">
                 <label for="created_at">Date added</label> 
-                <input type="text" class="form-control form-control-sm" id="created_at" v-model="form.created_at">
+                {{household.created_at}}
             </div>
             <div class="form-group mb-1">
                 <label for="updated_at">Date updated</label> 
-                <input type="text" class="form-control form-control-sm" id="updated_at" v-model="form.updated_at">
+                {{household.updated_at}}
             </div>
         </div>   
         <div class="card-footer">
@@ -179,9 +179,7 @@
             has_accesstohealthmedicalfacilities: (this.household.has_accesstohealthmedicalfacilities) ? 'Yes' : 'No',
             has_accesstotelecommunications: (this.household.has_accesstotelecommunications) ? 'Yes' : 'No',
             has_accesstodrillsandsimulations: (this.household.has_accesstodrillsandsimulations) ? 'Yes' : 'No',
-            image: this.household.image,
-            created_at: this.household.created_at,
-            updated_at: this.household.updated_at
+            image: this.household.image
             }
       }
     },

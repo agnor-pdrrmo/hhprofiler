@@ -121,17 +121,17 @@
                 <label for="philhealth_member">Philhealth member</label> 
                 <input type="text" class="form-control form-control-sm" id="philhealth_member" v-model="form.demography.philhealth_member">
             </div>
-            <div class="form-group mb-1">
+            <div class="form-group mb-3">
                 <label for="dependent_of_philheath_member">Dependent philhealth member</label> 
                 <input type="text" class="form-control form-control-sm" id="dependent_of_philheath_member" v-model="form.demography.dependent_of_philheath_member">
             </div>
             <div class="form-group mb-1">
                 <label for="created_at">Date added</label> 
-                <input type="text" class="form-control form-control-sm" id="created_at" v-model="form.demography.created_at">
+                {{demography.created_at}}
             </div>
-            <div class="form-group mb-1">
+            <div class="form-group mb-">
                 <label for="updated_at">Date updated</label> 
-                <input type="text" class="form-control form-control-sm" id="updated_at" v-model="form.demography.updated_at">
+                {{demography.updated_at}}
             </div>
         </div>
         <div class="card-footer">
@@ -197,9 +197,7 @@ export default {
             sss_member: (this.demography.sss_member) ? 'Yes' : 'No',
             gsis_member: (this.demography.gsis_member) ? 'Yes' : 'No',
             philhealth_member: (this.demography.philhealth_member) ? 'Yes' : 'No',
-            dependent_of_philheath_member: (this.demography.dependent_of_philheath_member) ? 'Yes' : 'No',
-            created_at : this.demography.created_at,
-            updated_at : this.demography.updated_at
+            dependent_of_philheath_member: (this.demography.dependent_of_philheath_member) ? 'Yes' : 'No'
           }
         }
       }

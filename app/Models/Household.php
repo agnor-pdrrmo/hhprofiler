@@ -99,5 +99,15 @@ class Household extends Model
     {
         return $this->hasMany(Demography::class,'household_controlnumber','controlnumber');
     }
+
+    /**
+     * Get all of the availedprograms for the Household
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function availedprograms()
+    {
+        return $this->hasMany(Availedprogram::class,'household_controlnumber','controlnumber');
+    }
     
 }
