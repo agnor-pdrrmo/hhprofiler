@@ -109,5 +109,15 @@ class Household extends Model
     {
         return $this->hasMany(Availedprogram::class,'household_controlnumber','controlnumber');
     }
+
+    /**
+     * Get all of the livelihoods for the Household
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function livelihoods()
+    {
+        return $this->hasMany(Livelihood::class, 'household_controlnumer', 'controlnumber');
+    }
     
 }
