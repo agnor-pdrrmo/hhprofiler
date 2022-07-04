@@ -122,6 +122,8 @@ export default {
         this.demographies = this.household[0].demography;
         this.availedprograms = this.household[0].availedprograms;
         this.livelihoods = this.household[0].livelihoods;
+        console.log(this.livelihoods);
+    
 
         // Update center of the map
         [this.center] = this.household.map(h => { return [h.latitude, h.longitude] })

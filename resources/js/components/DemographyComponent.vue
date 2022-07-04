@@ -1,6 +1,6 @@
 <template>
   <div id="myGroup">   
-          <ul class="list-unstyled">
+          <ol>
             <li v-for="demography in demographies" :key="demography.id">
               <a style="text-transform: capitalize" data-toggle="collapse" :href="'#demography-' + demography.id" aria-expanded="false" aria-controls="collapseExample">
                   {{demography.surname}} {{demography.firstname}} {{demography.middlename}}
@@ -9,7 +9,7 @@
                   <demography-form-component :demography="demography" :submit="'Update'"></demography-form-component>
               </div>
             </li>        
-          </ul>  
+          </ol>  
   </div>  
 </template>
 <script>

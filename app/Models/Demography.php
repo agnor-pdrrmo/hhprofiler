@@ -14,7 +14,7 @@ class Demography extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function household(): BelongsTo
+    public function household()
     {
         return $this->belongsTo(Household::class, 'household_controlnumber', 'controlnumber');
     }
@@ -87,16 +87,6 @@ class Demography extends Model
     public function highestgradelvl()
     {
         return $this->belongsTo(Libgradelvl::class,'highest_education_attainment_libgradelvl_glcode','lib_glcode');
-    }
-
-    /**
-     * Get the user that owns the Demography
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class, 'foreign_key', 'other_key');
     }
 
 }

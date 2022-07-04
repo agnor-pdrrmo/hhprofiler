@@ -16,7 +16,7 @@ class Livelihood extends Model
      */
     public function household()
     {
-        return $this->belongsTo(Household::class);
+        return $this->belongsTo(Household::class, 'household_controlnumber', 'controlnumber');
     }
 
     /**
@@ -24,7 +24,7 @@ class Livelihood extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function liblivelihood(): BelongsTo
+    public function liblivelihood()
     {
         return $this->belongsTo(Liblivelihood::class);
     }
@@ -34,7 +34,7 @@ class Livelihood extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function libhhtenuralstatu(): BelongsTo
+    public function libhhtenuralstatu()
     {
         return $this->belongsTo(Libhhtenuralstatu::class);
     }

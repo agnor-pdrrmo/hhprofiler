@@ -117,7 +117,7 @@ class Household extends Model
      */
     public function livelihoods()
     {
-        return $this->hasMany(Livelihood::class, 'household_controlnumer', 'controlnumber');
+        return $this->hasMany(Livelihood::class, 'household_controlnumber', 'controlnumber');
     }
     
 }

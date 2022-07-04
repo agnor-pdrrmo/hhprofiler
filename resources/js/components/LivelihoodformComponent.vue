@@ -1,5 +1,6 @@
 <template>
     <div>
+        <!--
         <div class="card card-body">
             <div class="form-group mb-1">
                 <label for="libtypeofprogram_id">Type of program</label>  
@@ -29,6 +30,7 @@
         <div class="card-footer">
             <button type="submit" class="btn btn-primary">{{submit}}</button>
         </div>
+        !-->
     </div>
 </template>
 

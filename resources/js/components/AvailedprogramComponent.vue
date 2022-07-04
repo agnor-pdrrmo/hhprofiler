@@ -1,6 +1,6 @@
 <template>
   <div id="myGroup">   
-          <ul class="list-unstyled">
+          <ol>
             <li v-for="availedprogram in availedprograms" :key="availedprogram.id">
               <a style="text-transform: capitalize" data-toggle="collapse" :href="'#demography-' + availedprogram.id" aria-expanded="false" aria-controls="collapseExample">
                   {{availedprogram.libtypeofprogram.lib_topname}}
@@ -9,7 +9,7 @@
                   <availedprogram-form-component :availedprogram="availedprogram" :submit="'Update'"></availedprogram-form-component>
               </div>
             </li>      
-          </ul>  
+          </ol>  
   </div>  
 </template>
 <script>
