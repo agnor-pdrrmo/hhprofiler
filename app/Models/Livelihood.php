@@ -28,4 +28,14 @@ class Livelihood extends Model
     {
         return $this->belongsTo(Liblivelihood::class);
     }
+
+    /**
+     * Get the libhhtenuralstatu that owns the Livelihood
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function libhhtenuralstatu(): BelongsTo
+    {
+        return $this->belongsTo(Libhhtenuralstatu::class);
+    }
 }

@@ -36,7 +36,10 @@ class HouseholdController extends Controller
                 'demography.libnutritionalstatu',
                 'demography.libgradelvl',
                 'demography.highestgradelvl',
-                'availedprograms.libtypeofprogram'
+                'availedprograms.libtypeofprogram',
+                'livelihoods.liblivelihood',
+                'livelihoods.libhhtenuralstatu'
+
             ));
         }
 

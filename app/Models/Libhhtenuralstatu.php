@@ -21,4 +21,14 @@ class Libhhtenuralstatu extends Model
     {
         return $this->hasMany(Household::class);
     }
+
+    /**
+     * Get all of the livelihoods for the Libhhtenuralstatu
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function livelihoods()
+    {
+        return $this->hasMany(Livelihood::class);
+    }
 }
