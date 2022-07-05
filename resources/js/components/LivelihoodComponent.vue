@@ -1,6 +1,11 @@
 <template>
   <div id="myGroup">   
-          <ol>
+          <ol v-if="livelihoods.length === 0" class="list-unstyled">
+            <li>
+              <p> No livelihood of this household</p>
+            </li>  
+          </ol>
+          <ol v-else>
             <li v-for="livelihood in livelihoods" :key="livelihood.id">
               <a style="text-transform: capitalize" data-toggle="collapse" :href="'#livelihood-' + livelihood.id" aria-expanded="false" aria-controls="collapseExample">
                   {{livelihood.liblivelihood.lib_livelihooddesc}}

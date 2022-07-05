@@ -1,54 +1,64 @@
 <template>
     <div>
-        <!--
         <div class="card card-body">
             <div class="form-group mb-1">
-                <label for="libtypeofprogram_id">Type of program</label>  
-                <input type="text" class="form-control form-control-sm" id="libtypeofprogram_id" v-model="form.livelhood.libtypeofprogram.lib_topname">
+                <label for="liblivelihood_id">Type of livelihood</label>  
+                <textarea  type="text" class="form-control form-control-sm" id="liblivelihood_id" rows="5" v-model="form.livelihood.liblivelihood.lib_livelihooddesc"></textarea>
             </div> 
             <div class="form-group mb-1">
-                <label for="nameofprogram">Name of program</label> 
-                <input type="text" class="form-control form-control-sm" id="nameofprogram" v-model="form.livelhood.nameofprogram">
+                <label for="products">Name of products</label> 
+                <input type="text" class="form-control form-control-sm" id="products" v-model="form.livelihood.products">
             </div> 
             <div class="form-group mb-1">
-                <label for="numberofbeneficiaries">Number of beneficiaries</label> 
-                <input type="text" class="form-control form-control-sm" id="numberofbeneficiaries" v-model="form.livelhood.numberofbeneficiaries">
+                <label for="market_value">Market value</label> 
+                <input type="text" class="form-control form-control-sm" id="market_value" v-model="form.livelihood.market_value">
             </div> 
             <div class="form-group mb-3">
-                <label for="programimplementor">Program implementor</label> 
-                <input type="text" class="form-control form-control-sm" id="programimplementor" v-model="form.livelhood.programimplementor">
+                <label for="total_area_volume_of_production">Total area / volume of production </label> 
+                <input type="text" class="form-control form-control-sm" id="total_area_volume_of_production" v-model="form.livelihood.total_area_volume_of_production">
+            </div> 
+            <div class="form-group mb-3">
+                <label for="libhhtenuralstatu_id">Tenural status of livelihood </label> 
+                <input type="text" class="form-control form-control-sm" id="libhhtenuralstatu_id" v-model="form.livelihood.libhhtenuralstatu.lib_ternuralstatusdesc">
+            </div> 
+            <div class="form-group mb-3">
+                <label for="with_insurance">With insurance </label> 
+                <input type="text" class="form-control form-control-sm" id="with_insurance" v-model="form.livelihood.with_insurance">
             </div> 
             <div class="form-group mb-1">
                 <label for="created_at">Date added: </label> 
-                <p>{{livelhood.created_at}}</p>
+                <p>{{livelihood.created_at}}</p>
             </div>
             <div class="form-group mb-1">
                 <label for="updated_at">Date updated: </label> 
-                <p>{{livelhood.updated_at}}</p>
+                <p>{{livelihood.updated_at}}</p>
             </div>
         </div>
         <div class="card-footer">
             <button type="submit" class="btn btn-primary">{{submit}}</button>
         </div>
-        !-->
     </div>
 </template>
 
 <script>
 
 export default {
-    props: ['livelhood','submit'],
+    props: ['livelihood','submit'],
     data(){
       return {
         form: {
-          livelhood:{
-            id: this.livelhood.id,
-            libtypeofprogram:{
-                lib_topname: this.livelhood.libtypeofprogram.lib_topname
+          livelihood:{
+            id: this.livelihood.id,
+            liblivelihood:{
+                lib_livelihooddesc: this.livelihood.liblivelihood.lib_livelihooddesc
             },
-            nameofprogram: this.livelhood.nameofprogram,
-            numberofbeneficiaries: this.livelhood.numberofbeneficiaries,
-            programimplementor: this.livelhood.programimplementor
+            products: this.livelihood.products,
+            market_value: this.livelihood.market_value,
+            total_area_volume_of_production: this.livelihood.total_area_volume_of_production,
+            libhhtenuralstatu:{
+                lib_ternuralstatusdesc: this.livelihood.libhhtenuralstatu.lib_ternuralstatusdesc
+            },
+            with_insurance: (this.livelihood.with_insurance) ? 'Yes' : 'No'
           }
         }
       }
