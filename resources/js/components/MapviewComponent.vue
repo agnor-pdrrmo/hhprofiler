@@ -1,6 +1,11 @@
 <template>
   <section class="content">
-        <household-modal-search-component v-if="showModal" @close="showModal = false"></household-modal-search-component>
+        <!-- Modal setup !-->
+        <modal-component v-if="showModal">
+          <h2 slot="header">Household advance search</h2>
+          <household-search-component slot="body" :searchData="searchData" :modalMethod="'Search'" @search="advanceSearch"></household-search-component> 
+        </modal-component>
+        <!-- Map setup !-->
         <div class="container-fluid" >
             <div class="row">
                 <div class="col-12" >
@@ -91,6 +96,7 @@ export default {
         demographies: [],
         availedprograms: [],
         livelihoods: [],
+        searchData: {},
         style:{
           width: '100%',
         },
@@ -146,6 +152,10 @@ export default {
         //Call toggle to show sidebar
         $("#my-toggle-button").ControlSidebar('show');
       },
+      advanceSearch(searchValue){
+        console.log(searchValue);
+        this.showModal = false;
+      }
   },
   computed:{
     householdInfo: {
