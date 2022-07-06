@@ -14,11 +14,9 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-        <!-- Navbar Search -->
-        {{-- <li class="nav-item">
-            <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-                <i class="fas fa-search"></i>
-            </a>
+        {{-- <!-- Navbar Search -->
+        <li class="nav-item">
+            <button type="button" class="btn btn-block btn-outline-primary"><i class="fa-solid fa-magnifying-glass" ></i> Advance search</button>
             <div class="navbar-search-block">
                 <form class="form-inline">
                     <div class="input-group input-group-sm">
@@ -35,6 +33,7 @@
                 </form>
             </div>
         </li> --}}
+        <nav-item-search-component></nav-item-search-component>
 
         {{-- <!-- Messages Dropdown Menu -->
         <li class="nav-item dropdown">

@@ -1,5 +1,6 @@
 <template>
-  <section class="content" >
+  <section class="content">
+        <household-modal-search-component v-if="showModal" @close="showModal = false"></household-modal-search-component>
         <div class="container-fluid" >
             <div class="row">
                 <div class="col-12" >
@@ -98,6 +99,7 @@ export default {
           iconSize:     [16, 16],
           iconAnchor:   [16, 16]
         }),
+        showModal : false,
     }
     
   },
@@ -105,7 +107,6 @@ export default {
       gethouseholds: function(){
           axios.get('/household')
                 .then((response)=>{
-                   console.log(response.data);
                    this.households = response.data;
                    this.$refs.map.mapObject.fitBounds(this.households.map(h => { return [h.latitude, h.longitude] }));
                 })
@@ -209,8 +210,10 @@ export default {
           //Set width of the map 
           this.style = {width: '100%'}; 
         }
-        
-    })
+    });
+    Event.$on('openSearchModal',()=>{
+      this.showModal = true;
+    });
   },
   created() {
       this.gethouseholds();   
