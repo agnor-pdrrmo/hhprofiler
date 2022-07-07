@@ -19,6 +19,6 @@ class Libmunicipalitie extends Model
     // Get the household in this municipality
     public function households()
     {
-        return $this->hasMany(household::class,'psgccode',"libmunicipalitie_psgccode"); 
+        return $this->hasMany(household::class,"libmunicipalitie_psgccode",'psgccode'); 
     }
 }

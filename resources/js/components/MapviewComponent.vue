@@ -55,11 +55,10 @@
             </div>
         </aside>
         <aside v-else id="toogleMultipleSearch" class="control-sidebar overflow-auto control-sidebar-dark" style="width: 20% !important;">
-          <div style="padding: 16px;height: 100%;width: 100%;">
-              <h5>Advance search</h5>
+          <div class="p3" style="padding: 35px;height: 100%;width: 100%;">
+              <h5>Filters</h5>
               <hr class="mb-2">
-              <h6>Municipality</h6>
-              <div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>R.T.R</span></div>
+              <lib-municipality v-bind:municipalities="municipalities" v-bind:selected="selected"></lib-municipality>
           </div>
         </aside>
     </section>
@@ -98,7 +97,12 @@ export default {
         demographies: [],
         availedprograms: [],
         livelihoods: [],
-        searchData: {},
+        //Library
+        municipalities: [],
+        //For searching
+        selected: {
+          municipalities: [],
+        },
         style:{
           width: '100%',
         },
@@ -155,6 +159,25 @@ export default {
         //Call toggle to show sidebar
         this.advanceSearch = false;
         $("#my-toggle-button").ControlSidebar('show');
+      },
+      loadMunicipality: function () {
+        axios.get('/api/municipalities', {
+            params: _.omit(this.selected, 'municipalities')
+        })
+        .then((response) => {
+            this.municipalities = response.data.data;
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+      }, 
+  },
+  watch: {
+      selected: {
+          handler: function () {
+              this.loadMunicipality();
+          },
+          deep: true
       }
   },
   computed:{
@@ -213,7 +236,7 @@ export default {
       set(val){
         this.advanceSearchtoggle = val;
       }
-    },
+    }
   },
   mounted(){
     Event.$on('mapInvalidate',() =>{
@@ -246,6 +269,7 @@ export default {
         }
 
     });
+    this.loadMunicipality();
   },
   created() {
       this.gethouseholds();   

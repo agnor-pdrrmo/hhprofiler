@@ -36,6 +36,9 @@ Vue.component('nav-item-component', require('./components/NavitemComponent.vue')
 Vue.component('nav-item-search-component', require('./components/NavsearchbuttonComponent.vue').default);
 Vue.component('modal-component', require('./components/ModalComponent.vue').default);
 
+// Library component
+Vue.component('lib-municipality', require('./components/LibmunicipalityComponent.vue').default);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

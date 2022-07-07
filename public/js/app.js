@@ -2932,6 +2932,34 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LibmunicipalityComponent.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LibmunicipalityComponent.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['municipalities', 'selected']
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LivelihoodComponent.vue?vue&type=script&lang=js&":
 /*!**************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LivelihoodComponent.vue?vue&type=script&lang=js& ***!
@@ -3142,7 +3170,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 //
 //
 //
-//
 
 
 
@@ -3173,7 +3200,12 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       demographies: [],
       availedprograms: [],
       livelihoods: [],
-      searchData: {},
+      //Library
+      municipalities: [],
+      //For searching
+      selected: {
+        municipalities: []
+      },
       style: {
         width: '100%'
       },
@@ -3236,6 +3268,25 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
       this.advanceSearch = false;
       jquery__WEBPACK_IMPORTED_MODULE_1___default()("#my-toggle-button").ControlSidebar('show');
+    },
+    loadMunicipality: function loadMunicipality() {
+      var _this2 = this;
+
+      axios.get('/api/municipalities', {
+        params: _.omit(this.selected, 'municipalities')
+      }).then(function (response) {
+        _this2.municipalities = response.data.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
+  },
+  watch: {
+    selected: {
+      handler: function handler() {
+        this.loadMunicipality();
+      },
+      deep: true
     }
   },
   computed: {
@@ -3297,51 +3348,52 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     }
   },
   mounted: function mounted() {
-    var _this2 = this;
+    var _this3 = this;
 
     Event.$on('mapInvalidate', function () {
-      _this2.advanceSearchtoggle = false;
+      _this3.advanceSearchtoggle = false;
 
       if (jquery__WEBPACK_IMPORTED_MODULE_1___default()('#toogleinformation:visible').length == 0) {
         // Call invalidateSize to update map size
-        _this2.$refs.map.mapObject.invalidateSize(); //Set width of the map 
+        _this3.$refs.map.mapObject.invalidateSize(); //Set width of the map 
 
 
-        _this2.style = {
+        _this3.style = {
           width: '65%'
         };
       } else {
         // Call invalidateSize to update map size
-        _this2.$refs.map.mapObject.invalidateSize(); //Set width of the map 
+        _this3.$refs.map.mapObject.invalidateSize(); //Set width of the map 
 
 
-        _this2.style = {
+        _this3.style = {
           width: '100%'
         };
       }
     });
     Event.$on('openSearchControl', function () {
       //this.showModal = true;
-      _this2.advanceSearchtoggle = true;
+      _this3.advanceSearchtoggle = true;
 
       if (jquery__WEBPACK_IMPORTED_MODULE_1___default()('#toogleMultipleSearch:visible').length == 0) {
         // Call invalidateSize to update map size
-        _this2.$refs.map.mapObject.invalidateSize(); //Set width of the map 
+        _this3.$refs.map.mapObject.invalidateSize(); //Set width of the map 
 
 
-        _this2.style = {
+        _this3.style = {
           width: '80%'
         };
       } else {
         // Call invalidateSize to update map size
-        _this2.$refs.map.mapObject.invalidateSize(); //Set width of the map 
+        _this3.$refs.map.mapObject.invalidateSize(); //Set width of the map 
 
 
-        _this2.style = {
+        _this3.style = {
           width: '100%'
         };
       }
     });
+    this.loadMunicipality();
   },
   created: function created() {
     this.gethouseholds();
@@ -3539,7 +3591,9 @@ Vue.component('livelihood-form-component', (__webpack_require__(/*! ./components
 Vue.component('section-header-component', (__webpack_require__(/*! ./components/SectionheaderComponent.vue */ "./resources/js/components/SectionheaderComponent.vue")["default"]));
 Vue.component('nav-item-component', (__webpack_require__(/*! ./components/NavitemComponent.vue */ "./resources/js/components/NavitemComponent.vue")["default"]));
 Vue.component('nav-item-search-component', (__webpack_require__(/*! ./components/NavsearchbuttonComponent.vue */ "./resources/js/components/NavsearchbuttonComponent.vue")["default"]));
-Vue.component('modal-component', (__webpack_require__(/*! ./components/ModalComponent.vue */ "./resources/js/components/ModalComponent.vue")["default"]));
+Vue.component('modal-component', (__webpack_require__(/*! ./components/ModalComponent.vue */ "./resources/js/components/ModalComponent.vue")["default"])); // Library component
+
+Vue.component('lib-municipality', (__webpack_require__(/*! ./components/LibmunicipalityComponent.vue */ "./resources/js/components/LibmunicipalityComponent.vue")["default"]));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -56017,6 +56071,45 @@ component.options.__file = "resources/js/components/HouseholdsearchComponent.vue
 
 /***/ }),
 
+/***/ "./resources/js/components/LibmunicipalityComponent.vue":
+/*!**************************************************************!*\
+  !*** ./resources/js/components/LibmunicipalityComponent.vue ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _LibmunicipalityComponent_vue_vue_type_template_id_61ab47e7___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LibmunicipalityComponent.vue?vue&type=template&id=61ab47e7& */ "./resources/js/components/LibmunicipalityComponent.vue?vue&type=template&id=61ab47e7&");
+/* harmony import */ var _LibmunicipalityComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LibmunicipalityComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/LibmunicipalityComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _LibmunicipalityComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _LibmunicipalityComponent_vue_vue_type_template_id_61ab47e7___WEBPACK_IMPORTED_MODULE_0__.render,
+  _LibmunicipalityComponent_vue_vue_type_template_id_61ab47e7___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/LibmunicipalityComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/LivelihoodComponent.vue":
 /*!*********************************************************!*\
   !*** ./resources/js/components/LivelihoodComponent.vue ***!
@@ -56406,6 +56499,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/LibmunicipalityComponent.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/components/LibmunicipalityComponent.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LibmunicipalityComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./LibmunicipalityComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LibmunicipalityComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LibmunicipalityComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/LivelihoodComponent.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************!*\
   !*** ./resources/js/components/LivelihoodComponent.vue?vue&type=script&lang=js& ***!
@@ -56659,6 +56768,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HouseholdsearchComponent_vue_vue_type_template_id_7b135a3e___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HouseholdsearchComponent_vue_vue_type_template_id_7b135a3e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./HouseholdsearchComponent.vue?vue&type=template&id=7b135a3e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/HouseholdsearchComponent.vue?vue&type=template&id=7b135a3e&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/LibmunicipalityComponent.vue?vue&type=template&id=61ab47e7&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/components/LibmunicipalityComponent.vue?vue&type=template&id=61ab47e7& ***!
+  \*********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LibmunicipalityComponent_vue_vue_type_template_id_61ab47e7___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LibmunicipalityComponent_vue_vue_type_template_id_61ab47e7___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LibmunicipalityComponent_vue_vue_type_template_id_61ab47e7___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./LibmunicipalityComponent.vue?vue&type=template&id=61ab47e7& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LibmunicipalityComponent.vue?vue&type=template&id=61ab47e7&");
 
 
 /***/ }),
@@ -59916,6 +60042,105 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LibmunicipalityComponent.vue?vue&type=template&id=61ab47e7&":
+/*!************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LibmunicipalityComponent.vue?vue&type=template&id=61ab47e7& ***!
+  \************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("h6", [_vm._v("Municipality")]),
+      _vm._v(" "),
+      _vm._l(_vm.municipalities, function (municipality) {
+        return _c("div", { key: municipality.id, staticClass: "mb-1" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.selected.municipalities,
+                expression: "selected.municipalities",
+              },
+            ],
+            staticClass: "form-check-input",
+            attrs: { type: "checkbox", id: "municipality" + municipality.id },
+            domProps: {
+              value: municipality.id,
+              checked: Array.isArray(_vm.selected.municipalities)
+                ? _vm._i(_vm.selected.municipalities, municipality.id) > -1
+                : _vm.selected.municipalities,
+            },
+            on: {
+              change: function ($event) {
+                var $$a = _vm.selected.municipalities,
+                  $$el = $event.target,
+                  $$c = $$el.checked ? true : false
+                if (Array.isArray($$a)) {
+                  var $$v = municipality.id,
+                    $$i = _vm._i($$a, $$v)
+                  if ($$el.checked) {
+                    $$i < 0 &&
+                      _vm.$set(
+                        _vm.selected,
+                        "municipalities",
+                        $$a.concat([$$v])
+                      )
+                  } else {
+                    $$i > -1 &&
+                      _vm.$set(
+                        _vm.selected,
+                        "municipalities",
+                        $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                      )
+                  }
+                } else {
+                  _vm.$set(_vm.selected, "municipalities", $$c)
+                }
+              },
+            },
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            {
+              staticClass: "form-check-label",
+              attrs: { for: "municipality" + municipality.id },
+            },
+            [
+              _vm._v(
+                "\n        " +
+                  _vm._s(municipality.lib_munname) +
+                  " (" +
+                  _vm._s(municipality.households_count) +
+                  ")\n    "
+              ),
+            ]
+          ),
+        ])
+      }),
+    ],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LivelihoodComponent.vue?vue&type=template&id=82c5ef46&":
 /*!*******************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LivelihoodComponent.vue?vue&type=template&id=82c5ef46& ***!
@@ -60433,7 +60658,28 @@ var render = function () {
             staticStyle: { width: "20% !important" },
             attrs: { id: "toogleMultipleSearch" },
           },
-          [_vm._m(1)]
+          [
+            _c(
+              "div",
+              {
+                staticClass: "p3",
+                staticStyle: { padding: "35px", height: "100%", width: "100%" },
+              },
+              [
+                _c("h5", [_vm._v("Filters")]),
+                _vm._v(" "),
+                _c("hr", { staticClass: "mb-2" }),
+                _vm._v(" "),
+                _c("lib-municipality", {
+                  attrs: {
+                    municipalities: _vm.municipalities,
+                    selected: _vm.selected,
+                  },
+                }),
+              ],
+              1
+            ),
+          ]
         ),
   ])
 }
@@ -60524,30 +60770,6 @@ var staticRenderFns = [
         ]
       ),
     ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticStyle: { padding: "16px", height: "100%", width: "100%" } },
-      [
-        _c("h5", [_vm._v("Advance search")]),
-        _vm._v(" "),
-        _c("hr", { staticClass: "mb-2" }),
-        _vm._v(" "),
-        _c("h6", [_vm._v("Municipality")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "mb-1" }, [
-          _c("input", {
-            staticClass: "mr-1",
-            attrs: { type: "checkbox", value: "1" },
-          }),
-          _c("span", [_vm._v("R.T.R")]),
-        ]),
-      ]
-    )
   },
 ]
 render._withStripped = true
