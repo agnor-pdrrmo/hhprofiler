@@ -1,11 +1,5 @@
 <template>
   <section class="content">
-        <!-- Modal setup !-->
-        <modal-component v-if="showModal">
-          <h2 slot="header">Household advance search</h2>
-          <household-search-component slot="body" :searchData="searchData" :modalMethod="'Search'" @search="advanceSearch"></household-search-component> 
-        </modal-component>
-        <!-- Map setup !-->
         <div class="container-fluid" >
             <div class="row">
                 <div class="col-12" >
@@ -16,10 +10,10 @@
                 </div>         
             </div>
         </div>
-        <aside id="toogleinformation" class="control-sidebar overflow-auto control-sidebar-light" style="width: 35% !important;">
+        <aside v-if="!advanceSearch" id="toogleinformation" class="control-sidebar overflow-auto control-sidebar-dark" style="width: 35% !important;">
             <!-- Control sidebar content goes here -->        
-            <div class="p-3">
-               <div class="card card-primary card-outline card-outline-tabs">
+            <div class="p-3" >
+               <div class="card card-primary card-outline card-outline-tabs" style="background-color: #343a40;">
                     <div class="card-header p-0 border-bottom-0">
                       <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
                         <li class="nav-item">
@@ -59,6 +53,14 @@
                     <!-- /.card -->
                 </div>
             </div>
+        </aside>
+        <aside v-else id="toogleMultipleSearch" class="control-sidebar overflow-auto control-sidebar-dark" style="width: 20% !important;">
+          <div style="padding: 16px;height: 100%;width: 100%;">
+              <h5>Advance search</h5>
+              <hr class="mb-2">
+              <h6>Municipality</h6>
+              <div class="mb-1"><input type="checkbox" value="1" class="mr-1"><span>R.T.R</span></div>
+          </div>
         </aside>
     </section>
 </template>
@@ -106,6 +108,7 @@ export default {
           iconAnchor:   [16, 16]
         }),
         showModal : false,
+        advanceSearchtoggle : false
     }
     
   },
@@ -150,11 +153,8 @@ export default {
         this.currentHousehold.icon = this.selectedIcon;
 
         //Call toggle to show sidebar
+        this.advanceSearch = false;
         $("#my-toggle-button").ControlSidebar('show');
-      },
-      advanceSearch(searchValue){
-        console.log(searchValue);
-        this.showModal = false;
       }
   },
   computed:{
@@ -205,11 +205,20 @@ export default {
       set(val){
         this.style = val;
       }
-    }  
+    },
+    advanceSearch:{
+      get(){
+        return this.advanceSearchtoggle;
+      },
+      set(val){
+        this.advanceSearchtoggle = val;
+      }
+    },
   },
   mounted(){
     Event.$on('mapInvalidate',() =>{
-      if($('#toogleinformation:visible').length == 0){
+       this.advanceSearchtoggle =  false;
+        if($('#toogleinformation:visible').length == 0){
           // Call invalidateSize to update map size
           this.$refs.map.mapObject.invalidateSize();
           //Set width of the map 
@@ -221,8 +230,21 @@ export default {
           this.style = {width: '100%'}; 
         }
     });
-    Event.$on('openSearchModal',()=>{
-      this.showModal = true;
+    Event.$on('openSearchControl',()=>{
+      //this.showModal = true;
+       this.advanceSearchtoggle =   true;
+       if($('#toogleMultipleSearch:visible').length == 0){
+          // Call invalidateSize to update map size
+          this.$refs.map.mapObject.invalidateSize();
+          //Set width of the map 
+          this.style = {width: '80%'}; 
+        }else{
+          // Call invalidateSize to update map size
+          this.$refs.map.mapObject.invalidateSize();
+          //Set width of the map 
+          this.style = {width: '100%'}; 
+        }
+
     });
   },
   created() {

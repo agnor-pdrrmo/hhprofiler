@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="card card-body">
+        <div class="card card-body" style="background-color: #343a40;">
             <div class="form-group mb-1">
                 <label for="liblivelihood_id">Type of livelihood</label>  
                 <textarea  type="text" class="form-control form-control-sm" id="liblivelihood_id" rows="5" v-model="form.livelihood.liblivelihood.lib_livelihooddesc"></textarea>

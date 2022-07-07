@@ -3141,6 +3141,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 //
 //
 //
+//
+//
 
 
 
@@ -3180,7 +3182,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
         iconSize: [16, 16],
         iconAnchor: [16, 16]
       }),
-      showModal: false
+      showModal: false,
+      advanceSearchtoggle: false
     };
   },
   methods: {
@@ -3231,11 +3234,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       this.currentHousehold = hhold;
       this.currentHousehold.icon = this.selectedIcon; //Call toggle to show sidebar
 
+      this.advanceSearch = false;
       jquery__WEBPACK_IMPORTED_MODULE_1___default()("#my-toggle-button").ControlSidebar('show');
-    },
-    advanceSearch: function advanceSearch(searchValue) {
-      console.log(searchValue);
-      this.showModal = false;
     }
   },
   computed: {
@@ -3286,12 +3286,22 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       set: function set(val) {
         this.style = val;
       }
+    },
+    advanceSearch: {
+      get: function get() {
+        return this.advanceSearchtoggle;
+      },
+      set: function set(val) {
+        this.advanceSearchtoggle = val;
+      }
     }
   },
   mounted: function mounted() {
     var _this2 = this;
 
     Event.$on('mapInvalidate', function () {
+      _this2.advanceSearchtoggle = false;
+
       if (jquery__WEBPACK_IMPORTED_MODULE_1___default()('#toogleinformation:visible').length == 0) {
         // Call invalidateSize to update map size
         _this2.$refs.map.mapObject.invalidateSize(); //Set width of the map 
@@ -3310,8 +3320,27 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
         };
       }
     });
-    Event.$on('openSearchModal', function () {
-      _this2.showModal = true;
+    Event.$on('openSearchControl', function () {
+      //this.showModal = true;
+      _this2.advanceSearchtoggle = true;
+
+      if (jquery__WEBPACK_IMPORTED_MODULE_1___default()('#toogleMultipleSearch:visible').length == 0) {
+        // Call invalidateSize to update map size
+        _this2.$refs.map.mapObject.invalidateSize(); //Set width of the map 
+
+
+        _this2.style = {
+          width: '80%'
+        };
+      } else {
+        // Call invalidateSize to update map size
+        _this2.$refs.map.mapObject.invalidateSize(); //Set width of the map 
+
+
+        _this2.style = {
+          width: '100%'
+        };
+      }
     });
   },
   created: function created() {
@@ -3423,7 +3452,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   methods: {
     callOpenModal: function callOpenModal() {
-      Event.$emit('openSearchModal');
+      Event.$emit('openSearchControl');
     }
   }
 });
@@ -56849,151 +56878,160 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "card card-body" }, [
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "libtypeofprogram_id" } }, [
-          _vm._v("Type of program"),
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
+    _c(
+      "div",
+      {
+        staticClass: "card card-body",
+        staticStyle: { "background-color": "#343a40" },
+      },
+      [
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "libtypeofprogram_id" } }, [
+            _vm._v("Type of program"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.availedprogram.libtypeofprogram.lib_topname,
+                expression: "form.availedprogram.libtypeofprogram.lib_topname",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", id: "libtypeofprogram_id" },
+            domProps: {
               value: _vm.form.availedprogram.libtypeofprogram.lib_topname,
-              expression: "form.availedprogram.libtypeofprogram.lib_topname",
             },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "libtypeofprogram_id" },
-          domProps: {
-            value: _vm.form.availedprogram.libtypeofprogram.lib_topname,
-          },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(
-                _vm.form.availedprogram.libtypeofprogram,
-                "lib_topname",
-                $event.target.value
-              )
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.form.availedprogram.libtypeofprogram,
+                  "lib_topname",
+                  $event.target.value
+                )
+              },
             },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "nameofprogram" } }, [
-          _vm._v("Name of program"),
+          }),
         ]),
         _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.form.availedprogram.nameofprogram,
-              expression: "form.availedprogram.nameofprogram",
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "nameofprogram" } }, [
+            _vm._v("Name of program"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.availedprogram.nameofprogram,
+                expression: "form.availedprogram.nameofprogram",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", id: "nameofprogram" },
+            domProps: { value: _vm.form.availedprogram.nameofprogram },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.form.availedprogram,
+                  "nameofprogram",
+                  $event.target.value
+                )
+              },
             },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "nameofprogram" },
-          domProps: { value: _vm.form.availedprogram.nameofprogram },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(
-                _vm.form.availedprogram,
-                "nameofprogram",
-                $event.target.value
-              )
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "numberofbeneficiaries" } }, [
-          _vm._v("Number of beneficiaries"),
+          }),
         ]),
         _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.form.availedprogram.numberofbeneficiaries,
-              expression: "form.availedprogram.numberofbeneficiaries",
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "numberofbeneficiaries" } }, [
+            _vm._v("Number of beneficiaries"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.availedprogram.numberofbeneficiaries,
+                expression: "form.availedprogram.numberofbeneficiaries",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", id: "numberofbeneficiaries" },
+            domProps: { value: _vm.form.availedprogram.numberofbeneficiaries },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.form.availedprogram,
+                  "numberofbeneficiaries",
+                  $event.target.value
+                )
+              },
             },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "numberofbeneficiaries" },
-          domProps: { value: _vm.form.availedprogram.numberofbeneficiaries },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(
-                _vm.form.availedprogram,
-                "numberofbeneficiaries",
-                $event.target.value
-              )
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-3" }, [
-        _c("label", { attrs: { for: "programimplementor" } }, [
-          _vm._v("Program implementor"),
+          }),
         ]),
         _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.form.availedprogram.programimplementor,
-              expression: "form.availedprogram.programimplementor",
+        _c("div", { staticClass: "form-group mb-3" }, [
+          _c("label", { attrs: { for: "programimplementor" } }, [
+            _vm._v("Program implementor"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.availedprogram.programimplementor,
+                expression: "form.availedprogram.programimplementor",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", id: "programimplementor" },
+            domProps: { value: _vm.form.availedprogram.programimplementor },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.form.availedprogram,
+                  "programimplementor",
+                  $event.target.value
+                )
+              },
             },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "programimplementor" },
-          domProps: { value: _vm.form.availedprogram.programimplementor },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(
-                _vm.form.availedprogram,
-                "programimplementor",
-                $event.target.value
-              )
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "created_at" } }, [_vm._v("Date added: ")]),
-        _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(_vm.availedprogram.created_at))]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "updated_at" } }, [
-          _vm._v("Date updated: "),
+          }),
         ]),
         _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(_vm.availedprogram.updated_at))]),
-      ]),
-    ]),
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "created_at" } }, [
+            _vm._v("Date added: "),
+          ]),
+          _vm._v(" "),
+          _c("p", [_vm._v(_vm._s(_vm.availedprogram.created_at))]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "updated_at" } }, [
+            _vm._v("Date updated: "),
+          ]),
+          _vm._v(" "),
+          _c("p", [_vm._v(_vm._s(_vm.availedprogram.updated_at))]),
+        ]),
+      ]
+    ),
     _vm._v(" "),
     _c("div", { staticClass: "card-footer" }, [
       _c(
@@ -57113,969 +57151,992 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "card card-body" }, [
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "surname" } }, [_vm._v("Surename")]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.form.demography.surname,
-              expression: "form.demography.surname",
+    _c(
+      "div",
+      {
+        staticClass: "card card-body",
+        staticStyle: { "background-color": "#343a40" },
+      },
+      [
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "surname" } }, [_vm._v("Surename")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.demography.surname,
+                expression: "form.demography.surname",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", id: "surname" },
+            domProps: { value: _vm.form.demography.surname },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.form.demography, "surname", $event.target.value)
+              },
             },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "surname" },
-          domProps: { value: _vm.form.demography.surname },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.form.demography, "surname", $event.target.value)
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "firstname" } }, [_vm._v("Firstname")]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.form.demography.firstname,
-              expression: "form.demography.firstname",
-            },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "firstname" },
-          domProps: { value: _vm.form.demography.firstname },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.form.demography, "firstname", $event.target.value)
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "middlename" } }, [_vm._v("Middlename")]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.form.demography.middlename,
-              expression: "form.demography.middlename",
-            },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "middlename" },
-          domProps: { value: _vm.form.demography.middlename },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.form.demography, "middlename", $event.target.value)
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "extension" } }, [_vm._v("Extension")]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.form.demography.extension,
-              expression: "form.demography.extension",
-            },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "extension" },
-          domProps: { value: _vm.form.demography.extension },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.form.demography, "extension", $event.target.value)
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "nuclear_family" } }, [
-          _vm._v("Nuclear family of"),
+          }),
         ]),
         _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.form.demography.nuclear_family,
-              expression: "form.demography.nuclear_family",
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "firstname" } }, [_vm._v("Firstname")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.demography.firstname,
+                expression: "form.demography.firstname",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", id: "firstname" },
+            domProps: { value: _vm.form.demography.firstname },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.form.demography, "firstname", $event.target.value)
+              },
             },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "nuclear_family" },
-          domProps: { value: _vm.form.demography.nuclear_family },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(
-                _vm.form.demography,
-                "nuclear_family",
-                $event.target.value
-              )
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "librelationshiphead_id" } }, [
-          _vm._v("Relationship to head"),
+          }),
         ]),
         _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "middlename" } }, [_vm._v("Middlename")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.demography.middlename,
+                expression: "form.demography.middlename",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", id: "middlename" },
+            domProps: { value: _vm.form.demography.middlename },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.form.demography, "middlename", $event.target.value)
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "extension" } }, [_vm._v("Extension")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.demography.extension,
+                expression: "form.demography.extension",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", id: "extension" },
+            domProps: { value: _vm.form.demography.extension },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.form.demography, "extension", $event.target.value)
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "nuclear_family" } }, [
+            _vm._v("Nuclear family of"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.demography.nuclear_family,
+                expression: "form.demography.nuclear_family",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", id: "nuclear_family" },
+            domProps: { value: _vm.form.demography.nuclear_family },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.form.demography,
+                  "nuclear_family",
+                  $event.target.value
+                )
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "librelationshiphead_id" } }, [
+            _vm._v("Relationship to head"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.demography.librelationshiphead.lib_rhname,
+                expression: "form.demography.librelationshiphead.lib_rhname",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", id: "librelationshiphead_id" },
+            domProps: {
               value: _vm.form.demography.librelationshiphead.lib_rhname,
-              expression: "form.demography.librelationshiphead.lib_rhname",
             },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "librelationshiphead_id" },
-          domProps: {
-            value: _vm.form.demography.librelationshiphead.lib_rhname,
-          },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(
-                _vm.form.demography.librelationshiphead,
-                "lib_rhname",
-                $event.target.value
-              )
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.form.demography.librelationshiphead,
+                  "lib_rhname",
+                  $event.target.value
+                )
+              },
             },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "libgender_id" } }, [_vm._v("Gender")]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.form.demography.libgender.lib_gname,
-              expression: "form.demography.libgender.lib_gname",
-            },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "libgender_id" },
-          domProps: { value: _vm.form.demography.libgender.lib_gname },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(
-                _vm.form.demography.libgender,
-                "lib_gname",
-                $event.target.value
-              )
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "birthdate" } }, [_vm._v("Birthday")]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.form.demography.birthdate,
-              expression: "form.demography.birthdate",
-            },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "birthdate" },
-          domProps: { value: _vm.form.demography.birthdate },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.form.demography, "birthdate", $event.target.value)
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "birthdate" } }, [_vm._v("Age")]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.form.demography.age,
-              expression: "form.demography.age",
-            },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { readonly: "", type: "text", id: "birthdate" },
-          domProps: { value: _vm.form.demography.age },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.form.demography, "age", $event.target.value)
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "libmaritalstatu_id" } }, [
-          _vm._v("Marital status"),
+          }),
         ]),
         _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.form.demography.libmaritalstatu.lib_msname,
-              expression: "form.demography.libmaritalstatu.lib_msname",
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "libgender_id" } }, [_vm._v("Gender")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.demography.libgender.lib_gname,
+                expression: "form.demography.libgender.lib_gname",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", id: "libgender_id" },
+            domProps: { value: _vm.form.demography.libgender.lib_gname },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.form.demography.libgender,
+                  "lib_gname",
+                  $event.target.value
+                )
+              },
             },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "libmaritalstatu_id" },
-          domProps: { value: _vm.form.demography.libmaritalstatu.lib_msname },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(
-                _vm.form.demography.libmaritalstatu,
-                "lib_msname",
-                $event.target.value
-              )
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "ethnicity_by_blood" } }, [
-          _vm._v("Ethnicity by blood"),
+          }),
         ]),
         _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.form.demography.ethnicity_by_blood,
-              expression: "form.demography.ethnicity_by_blood",
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "birthdate" } }, [_vm._v("Birthday")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.demography.birthdate,
+                expression: "form.demography.birthdate",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", id: "birthdate" },
+            domProps: { value: _vm.form.demography.birthdate },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.form.demography, "birthdate", $event.target.value)
+              },
             },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "ethnicity_by_blood" },
-          domProps: { value: _vm.form.demography.ethnicity_by_blood },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(
-                _vm.form.demography,
-                "ethnicity_by_blood",
-                $event.target.value
-              )
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "member_ip" } }, [
-          _vm._v("Member of IP's"),
+          }),
         ]),
         _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.form.demography.member_ip,
-              expression: "form.demography.member_ip",
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "birthdate" } }, [_vm._v("Age")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.demography.age,
+                expression: "form.demography.age",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { readonly: "", type: "text", id: "birthdate" },
+            domProps: { value: _vm.form.demography.age },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.form.demography, "age", $event.target.value)
+              },
             },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "member_ip" },
-          domProps: { value: _vm.form.demography.member_ip },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.form.demography, "member_ip", $event.target.value)
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "informal_settler" } }, [
-          _vm._v("Informal Settler"),
+          }),
         ]),
         _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.form.demography.informal_settler,
-              expression: "form.demography.informal_settler",
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "libmaritalstatu_id" } }, [
+            _vm._v("Marital status"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.demography.libmaritalstatu.lib_msname,
+                expression: "form.demography.libmaritalstatu.lib_msname",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", id: "libmaritalstatu_id" },
+            domProps: { value: _vm.form.demography.libmaritalstatu.lib_msname },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.form.demography.libmaritalstatu,
+                  "lib_msname",
+                  $event.target.value
+                )
+              },
             },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "informal_settler" },
-          domProps: { value: _vm.form.demography.informal_settler },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(
-                _vm.form.demography,
-                "informal_settler",
-                $event.target.value
-              )
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "religion" } }, [_vm._v("Religion")]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.form.demography.religion,
-              expression: "form.demography.religion",
-            },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "religion" },
-          domProps: { value: _vm.form.demography.religion },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.form.demography, "religion", $event.target.value)
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "person_with_special_needs" } }, [
-          _vm._v("Person with special needs"),
+          }),
         ]),
         _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.form.demography.person_with_special_needs,
-              expression: "form.demography.person_with_special_needs",
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "ethnicity_by_blood" } }, [
+            _vm._v("Ethnicity by blood"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.demography.ethnicity_by_blood,
+                expression: "form.demography.ethnicity_by_blood",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", id: "ethnicity_by_blood" },
+            domProps: { value: _vm.form.demography.ethnicity_by_blood },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.form.demography,
+                  "ethnicity_by_blood",
+                  $event.target.value
+                )
+              },
             },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "person_with_special_needs" },
-          domProps: { value: _vm.form.demography.person_with_special_needs },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(
-                _vm.form.demography,
-                "person_with_special_needs",
-                $event.target.value
-              )
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "libdisability_id" } }, [
-          _vm._v("Disability specification"),
+          }),
         ]),
         _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.form.demography.libsisabilitie,
-              expression: "form.demography.libsisabilitie",
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "member_ip" } }, [
+            _vm._v("Member of IP's"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.demography.member_ip,
+                expression: "form.demography.member_ip",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", id: "member_ip" },
+            domProps: { value: _vm.form.demography.member_ip },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.form.demography, "member_ip", $event.target.value)
+              },
             },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "libdisability_id" },
-          domProps: { value: _vm.form.demography.libsisabilitie },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(
-                _vm.form.demography,
-                "libsisabilitie",
-                $event.target.value
-              )
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "is_ofw" } }, [_vm._v("OFW")]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.form.demography.is_ofw,
-              expression: "form.demography.is_ofw",
-            },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "is_ofw" },
-          domProps: { value: _vm.form.demography.is_ofw },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.form.demography, "is_ofw", $event.target.value)
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "residence_3_years" } }, [
-          _vm._v("Residence 3 years"),
+          }),
         ]),
         _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.form.demography.residence_3_years,
-              expression: "form.demography.residence_3_years",
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "informal_settler" } }, [
+            _vm._v("Informal Settler"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.demography.informal_settler,
+                expression: "form.demography.informal_settler",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", id: "informal_settler" },
+            domProps: { value: _vm.form.demography.informal_settler },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.form.demography,
+                  "informal_settler",
+                  $event.target.value
+                )
+              },
             },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "residence_3_years" },
-          domProps: { value: _vm.form.demography.residence_3_years },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(
-                _vm.form.demography,
-                "residence_3_years",
-                $event.target.value
-              )
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "libnutritionalstatu_id" } }, [
-          _vm._v("Nutritional status"),
+          }),
         ]),
         _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "religion" } }, [_vm._v("Religion")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.demography.religion,
+                expression: "form.demography.religion",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", id: "religion" },
+            domProps: { value: _vm.form.demography.religion },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.form.demography, "religion", $event.target.value)
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "person_with_special_needs" } }, [
+            _vm._v("Person with special needs"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.demography.person_with_special_needs,
+                expression: "form.demography.person_with_special_needs",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", id: "person_with_special_needs" },
+            domProps: { value: _vm.form.demography.person_with_special_needs },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.form.demography,
+                  "person_with_special_needs",
+                  $event.target.value
+                )
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "libdisability_id" } }, [
+            _vm._v("Disability specification"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.demography.libsisabilitie,
+                expression: "form.demography.libsisabilitie",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", id: "libdisability_id" },
+            domProps: { value: _vm.form.demography.libsisabilitie },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.form.demography,
+                  "libsisabilitie",
+                  $event.target.value
+                )
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "is_ofw" } }, [_vm._v("OFW")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.demography.is_ofw,
+                expression: "form.demography.is_ofw",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", id: "is_ofw" },
+            domProps: { value: _vm.form.demography.is_ofw },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.form.demography, "is_ofw", $event.target.value)
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "residence_3_years" } }, [
+            _vm._v("Residence 3 years"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.demography.residence_3_years,
+                expression: "form.demography.residence_3_years",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", id: "residence_3_years" },
+            domProps: { value: _vm.form.demography.residence_3_years },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.form.demography,
+                  "residence_3_years",
+                  $event.target.value
+                )
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "libnutritionalstatu_id" } }, [
+            _vm._v("Nutritional status"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.demography.libnutrionalstatu.lib_nsname,
+                expression: "form.demography.libnutrionalstatu.lib_nsname",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", id: "libnutritionalstatu_id" },
+            domProps: {
               value: _vm.form.demography.libnutrionalstatu.lib_nsname,
-              expression: "form.demography.libnutrionalstatu.lib_nsname",
             },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "libnutritionalstatu_id" },
-          domProps: { value: _vm.form.demography.libnutrionalstatu.lib_nsname },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(
-                _vm.form.demography.libnutrionalstatu,
-                "lib_nsname",
-                $event.target.value
-              )
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.form.demography.libnutrionalstatu,
+                  "lib_nsname",
+                  $event.target.value
+                )
+              },
             },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "nutrional_status_recorded" } }, [
-          _vm._v("Nutritional status recorded"),
+          }),
         ]),
         _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.form.demography.nutrional_status_recorded,
-              expression: "form.demography.nutrional_status_recorded",
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "nutrional_status_recorded" } }, [
+            _vm._v("Nutritional status recorded"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.demography.nutrional_status_recorded,
+                expression: "form.demography.nutrional_status_recorded",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", id: "nutrional_status_recorded" },
+            domProps: { value: _vm.form.demography.nutrional_status_recorded },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.form.demography,
+                  "nutrional_status_recorded",
+                  $event.target.value
+                )
+              },
             },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "nutrional_status_recorded" },
-          domProps: { value: _vm.form.demography.nutrional_status_recorded },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(
-                _vm.form.demography,
-                "nutrional_status_recorded",
-                $event.target.value
-              )
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "current_attending_school" } }, [
-          _vm._v("Currently attending school"),
+          }),
         ]),
         _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.form.demography.current_attending_school,
-              expression: "form.demography.current_attending_school",
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "current_attending_school" } }, [
+            _vm._v("Currently attending school"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.demography.current_attending_school,
+                expression: "form.demography.current_attending_school",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", id: "current_attending_school" },
+            domProps: { value: _vm.form.demography.current_attending_school },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.form.demography,
+                  "current_attending_school",
+                  $event.target.value
+                )
+              },
             },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "current_attending_school" },
-          domProps: { value: _vm.form.demography.current_attending_school },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(
-                _vm.form.demography,
-                "current_attending_school",
-                $event.target.value
-              )
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c(
-          "label",
-          { attrs: { for: "current_attending_libgradelvl_glcode" } },
-          [_vm._v("Current attending school grade/level")]
-        ),
+          }),
+        ]),
         _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.form.demography.libgradelvl.lib_glname,
-              expression: "form.demography.libgradelvl.lib_glname",
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c(
+            "label",
+            { attrs: { for: "current_attending_libgradelvl_glcode" } },
+            [_vm._v("Current attending school grade/level")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.demography.libgradelvl.lib_glname,
+                expression: "form.demography.libgradelvl.lib_glname",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", id: "current_attending_libgradelvl_glcode" },
+            domProps: { value: _vm.form.demography.libgradelvl.lib_glname },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.form.demography.libgradelvl,
+                  "lib_glname",
+                  $event.target.value
+                )
+              },
             },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "current_attending_libgradelvl_glcode" },
-          domProps: { value: _vm.form.demography.libgradelvl.lib_glname },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(
-                _vm.form.demography.libgradelvl,
-                "lib_glname",
-                $event.target.value
-              )
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c(
-          "label",
-          { attrs: { for: "highest_education_attainment_libgradelvl_glcode" } },
-          [_vm._v("Highest education attainment")]
-        ),
+          }),
+        ]),
         _vm._v(" "),
-        _c("input", {
-          directives: [
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c(
+            "label",
             {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.form.demography.highestgradelvl.lib_glname,
-              expression: "form.demography.highestgradelvl.lib_glname",
+              attrs: { for: "highest_education_attainment_libgradelvl_glcode" },
             },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: {
-            type: "text",
-            id: "highest_education_attainment_libgradelvl_glcode",
-          },
-          domProps: { value: _vm.form.demography.highestgradelvl.lib_glname },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(
-                _vm.form.demography.highestgradelvl,
-                "lib_glname",
-                $event.target.value
-              )
+            [_vm._v("Highest education attainment")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.demography.highestgradelvl.lib_glname,
+                expression: "form.demography.highestgradelvl.lib_glname",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: {
+              type: "text",
+              id: "highest_education_attainment_libgradelvl_glcode",
             },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "libtscshvc_id" } }, [
+            domProps: { value: _vm.form.demography.highestgradelvl.lib_glname },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.form.demography.highestgradelvl,
+                  "lib_glname",
+                  $event.target.value
+                )
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "libtscshvc_id" } }, [
+            _vm._v(
+              "Track / Strand / Course (for Senior High school / Vocational / College)"
+            ),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.demography.libtscshvc_id.lib_tscshvcname,
+                expression: "form.demography.libtscshvc_id.lib_tscshvcname",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", id: "libtscshvc_id" },
+            domProps: {
+              value: _vm.form.demography.libtscshvc_id.lib_tscshvcname,
+            },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.form.demography.libtscshvc_id,
+                  "lib_tscshvcname",
+                  $event.target.value
+                )
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c(
+            "label",
+            { attrs: { for: "can_read_write_or_atleast_hs_graduate" } },
+            [_vm._v("Can read/write or atleast highschool graduate")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value:
+                  _vm.form.demography.can_read_write_or_atleast_hs_graduate,
+                expression:
+                  "form.demography.can_read_write_or_atleast_hs_graduate",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: {
+              type: "text",
+              id: "can_read_write_or_atleast_hs_graduate",
+            },
+            domProps: {
+              value: _vm.form.demography.can_read_write_or_atleast_hs_graduate,
+            },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.form.demography,
+                  "can_read_write_or_atleast_hs_graduate",
+                  $event.target.value
+                )
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "primary_occupation" } }, [
+            _vm._v("Primary occupation"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.demography.primary_occupation,
+                expression: "form.demography.primary_occupation",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", id: "primary_occupation" },
+            domProps: { value: _vm.form.demography.primary_occupation },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.form.demography,
+                  "primary_occupation",
+                  $event.target.value
+                )
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "libmonthlyincome_id" } }, [
+            _vm._v("Monthly income"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.demography.libmonthlyincome_id.lib_miname,
+                expression: "form.demography.libmonthlyincome_id.lib_miname",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", id: "libmonthlyincome_id" },
+            domProps: {
+              value: _vm.form.demography.libmonthlyincome_id.lib_miname,
+            },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.form.demography.libmonthlyincome_id,
+                  "lib_miname",
+                  $event.target.value
+                )
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "sss_member" } }, [_vm._v("SSS Member")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.demography.sss_member,
+                expression: "form.demography.sss_member",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", id: "sss_member" },
+            domProps: { value: _vm.form.demography.sss_member },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.form.demography, "sss_member", $event.target.value)
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "gsis_member" } }, [
+            _vm._v("GSIS Member"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.demography.gsis_member,
+                expression: "form.demography.gsis_member",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", id: "gsis_member" },
+            domProps: { value: _vm.form.demography.gsis_member },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.form.demography,
+                  "gsis_member",
+                  $event.target.value
+                )
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "philhealth_member" } }, [
+            _vm._v("Philhealth member"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.demography.philhealth_member,
+                expression: "form.demography.philhealth_member",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", id: "philhealth_member" },
+            domProps: { value: _vm.form.demography.philhealth_member },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.form.demography,
+                  "philhealth_member",
+                  $event.target.value
+                )
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group mb-3" }, [
+          _c("label", { attrs: { for: "dependent_of_philheath_member" } }, [
+            _vm._v("Dependent philhealth member"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.demography.dependent_of_philheath_member,
+                expression: "form.demography.dependent_of_philheath_member",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", id: "dependent_of_philheath_member" },
+            domProps: {
+              value: _vm.form.demography.dependent_of_philheath_member,
+            },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.form.demography,
+                  "dependent_of_philheath_member",
+                  $event.target.value
+                )
+              },
+            },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "created_at" } }, [_vm._v("Date added")]),
           _vm._v(
-            "Track / Strand / Course (for Senior High school / Vocational / College)"
+            " \n            " + _vm._s(_vm.demography.created_at) + "\n        "
           ),
         ]),
         _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.form.demography.libtscshvc_id.lib_tscshvcname,
-              expression: "form.demography.libtscshvc_id.lib_tscshvcname",
-            },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "libtscshvc_id" },
-          domProps: {
-            value: _vm.form.demography.libtscshvc_id.lib_tscshvcname,
-          },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(
-                _vm.form.demography.libtscshvc_id,
-                "lib_tscshvcname",
-                $event.target.value
-              )
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c(
-          "label",
-          { attrs: { for: "can_read_write_or_atleast_hs_graduate" } },
-          [_vm._v("Can read/write or atleast highschool graduate")]
-        ),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.form.demography.can_read_write_or_atleast_hs_graduate,
-              expression:
-                "form.demography.can_read_write_or_atleast_hs_graduate",
-            },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "can_read_write_or_atleast_hs_graduate" },
-          domProps: {
-            value: _vm.form.demography.can_read_write_or_atleast_hs_graduate,
-          },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(
-                _vm.form.demography,
-                "can_read_write_or_atleast_hs_graduate",
-                $event.target.value
-              )
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "primary_occupation" } }, [
-          _vm._v("Primary occupation"),
+        _c("div", { staticClass: "form-group mb-" }, [
+          _c("label", { attrs: { for: "updated_at" } }, [
+            _vm._v("Date updated"),
+          ]),
+          _vm._v(
+            " \n            " + _vm._s(_vm.demography.updated_at) + "\n        "
+          ),
         ]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.form.demography.primary_occupation,
-              expression: "form.demography.primary_occupation",
-            },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "primary_occupation" },
-          domProps: { value: _vm.form.demography.primary_occupation },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(
-                _vm.form.demography,
-                "primary_occupation",
-                $event.target.value
-              )
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "libmonthlyincome_id" } }, [
-          _vm._v("Monthly income"),
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.form.demography.libmonthlyincome_id.lib_miname,
-              expression: "form.demography.libmonthlyincome_id.lib_miname",
-            },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "libmonthlyincome_id" },
-          domProps: {
-            value: _vm.form.demography.libmonthlyincome_id.lib_miname,
-          },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(
-                _vm.form.demography.libmonthlyincome_id,
-                "lib_miname",
-                $event.target.value
-              )
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "sss_member" } }, [_vm._v("SSS Member")]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.form.demography.sss_member,
-              expression: "form.demography.sss_member",
-            },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "sss_member" },
-          domProps: { value: _vm.form.demography.sss_member },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.form.demography, "sss_member", $event.target.value)
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "gsis_member" } }, [_vm._v("GSIS Member")]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.form.demography.gsis_member,
-              expression: "form.demography.gsis_member",
-            },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "gsis_member" },
-          domProps: { value: _vm.form.demography.gsis_member },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.form.demography, "gsis_member", $event.target.value)
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "philhealth_member" } }, [
-          _vm._v("Philhealth member"),
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.form.demography.philhealth_member,
-              expression: "form.demography.philhealth_member",
-            },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "philhealth_member" },
-          domProps: { value: _vm.form.demography.philhealth_member },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(
-                _vm.form.demography,
-                "philhealth_member",
-                $event.target.value
-              )
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-3" }, [
-        _c("label", { attrs: { for: "dependent_of_philheath_member" } }, [
-          _vm._v("Dependent philhealth member"),
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.form.demography.dependent_of_philheath_member,
-              expression: "form.demography.dependent_of_philheath_member",
-            },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "dependent_of_philheath_member" },
-          domProps: {
-            value: _vm.form.demography.dependent_of_philheath_member,
-          },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(
-                _vm.form.demography,
-                "dependent_of_philheath_member",
-                $event.target.value
-              )
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "created_at" } }, [_vm._v("Date added")]),
-        _vm._v(
-          " \n            " + _vm._s(_vm.demography.created_at) + "\n        "
-        ),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-" }, [
-        _c("label", { attrs: { for: "updated_at" } }, [_vm._v("Date updated")]),
-        _vm._v(
-          " \n            " + _vm._s(_vm.demography.updated_at) + "\n        "
-        ),
-      ]),
-    ]),
+      ]
+    ),
     _vm._v(" "),
     _c("div", { staticClass: "card-footer" }, [
       _c(
@@ -59951,213 +60012,227 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "card card-body" }, [
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "liblivelihood_id" } }, [
-          _vm._v("Type of livelihood"),
-        ]),
-        _vm._v(" "),
-        _c("textarea", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
+    _c(
+      "div",
+      {
+        staticClass: "card card-body",
+        staticStyle: { "background-color": "#343a40" },
+      },
+      [
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "liblivelihood_id" } }, [
+            _vm._v("Type of livelihood"),
+          ]),
+          _vm._v(" "),
+          _c("textarea", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.livelihood.liblivelihood.lib_livelihooddesc,
+                expression: "form.livelihood.liblivelihood.lib_livelihooddesc",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", id: "liblivelihood_id", rows: "5" },
+            domProps: {
               value: _vm.form.livelihood.liblivelihood.lib_livelihooddesc,
-              expression: "form.livelihood.liblivelihood.lib_livelihooddesc",
             },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "liblivelihood_id", rows: "5" },
-          domProps: {
-            value: _vm.form.livelihood.liblivelihood.lib_livelihooddesc,
-          },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(
-                _vm.form.livelihood.liblivelihood,
-                "lib_livelihooddesc",
-                $event.target.value
-              )
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.form.livelihood.liblivelihood,
+                  "lib_livelihooddesc",
+                  $event.target.value
+                )
+              },
             },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "products" } }, [
-          _vm._v("Name of products"),
+          }),
         ]),
         _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.form.livelihood.products,
-              expression: "form.livelihood.products",
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "products" } }, [
+            _vm._v("Name of products"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.livelihood.products,
+                expression: "form.livelihood.products",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", id: "products" },
+            domProps: { value: _vm.form.livelihood.products },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.form.livelihood, "products", $event.target.value)
+              },
             },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "products" },
-          domProps: { value: _vm.form.livelihood.products },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.form.livelihood, "products", $event.target.value)
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "market_value" } }, [
-          _vm._v("Market value"),
+          }),
         ]),
         _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.form.livelihood.market_value,
-              expression: "form.livelihood.market_value",
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "market_value" } }, [
+            _vm._v("Market value"),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.livelihood.market_value,
+                expression: "form.livelihood.market_value",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", id: "market_value" },
+            domProps: { value: _vm.form.livelihood.market_value },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.form.livelihood,
+                  "market_value",
+                  $event.target.value
+                )
+              },
             },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "market_value" },
-          domProps: { value: _vm.form.livelihood.market_value },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.form.livelihood, "market_value", $event.target.value)
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-3" }, [
-        _c("label", { attrs: { for: "total_area_volume_of_production" } }, [
-          _vm._v("Total area / volume of production "),
+          }),
         ]),
         _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
+        _c("div", { staticClass: "form-group mb-3" }, [
+          _c("label", { attrs: { for: "total_area_volume_of_production" } }, [
+            _vm._v("Total area / volume of production "),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.livelihood.total_area_volume_of_production,
+                expression: "form.livelihood.total_area_volume_of_production",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", id: "total_area_volume_of_production" },
+            domProps: {
               value: _vm.form.livelihood.total_area_volume_of_production,
-              expression: "form.livelihood.total_area_volume_of_production",
             },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "total_area_volume_of_production" },
-          domProps: {
-            value: _vm.form.livelihood.total_area_volume_of_production,
-          },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(
-                _vm.form.livelihood,
-                "total_area_volume_of_production",
-                $event.target.value
-              )
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.form.livelihood,
+                  "total_area_volume_of_production",
+                  $event.target.value
+                )
+              },
             },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-3" }, [
-        _c("label", { attrs: { for: "libhhtenuralstatu_id" } }, [
-          _vm._v("Tenural status of livelihood "),
+          }),
         ]),
         _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
+        _c("div", { staticClass: "form-group mb-3" }, [
+          _c("label", { attrs: { for: "libhhtenuralstatu_id" } }, [
+            _vm._v("Tenural status of livelihood "),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value:
+                  _vm.form.livelihood.libhhtenuralstatu.lib_ternuralstatusdesc,
+                expression:
+                  "form.livelihood.libhhtenuralstatu.lib_ternuralstatusdesc",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", id: "libhhtenuralstatu_id" },
+            domProps: {
               value:
                 _vm.form.livelihood.libhhtenuralstatu.lib_ternuralstatusdesc,
-              expression:
-                "form.livelihood.libhhtenuralstatu.lib_ternuralstatusdesc",
             },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "libhhtenuralstatu_id" },
-          domProps: {
-            value: _vm.form.livelihood.libhhtenuralstatu.lib_ternuralstatusdesc,
-          },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(
-                _vm.form.livelihood.libhhtenuralstatu,
-                "lib_ternuralstatusdesc",
-                $event.target.value
-              )
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.form.livelihood.libhhtenuralstatu,
+                  "lib_ternuralstatusdesc",
+                  $event.target.value
+                )
+              },
             },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-3" }, [
-        _c("label", { attrs: { for: "with_insurance" } }, [
-          _vm._v("With insurance "),
+          }),
         ]),
         _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.form.livelihood.with_insurance,
-              expression: "form.livelihood.with_insurance",
+        _c("div", { staticClass: "form-group mb-3" }, [
+          _c("label", { attrs: { for: "with_insurance" } }, [
+            _vm._v("With insurance "),
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.livelihood.with_insurance,
+                expression: "form.livelihood.with_insurance",
+              },
+            ],
+            staticClass: "form-control form-control-sm",
+            attrs: { type: "text", id: "with_insurance" },
+            domProps: { value: _vm.form.livelihood.with_insurance },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(
+                  _vm.form.livelihood,
+                  "with_insurance",
+                  $event.target.value
+                )
+              },
             },
-          ],
-          staticClass: "form-control form-control-sm",
-          attrs: { type: "text", id: "with_insurance" },
-          domProps: { value: _vm.form.livelihood.with_insurance },
-          on: {
-            input: function ($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(
-                _vm.form.livelihood,
-                "with_insurance",
-                $event.target.value
-              )
-            },
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "created_at" } }, [_vm._v("Date added: ")]),
-        _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(_vm.livelihood.created_at))]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group mb-1" }, [
-        _c("label", { attrs: { for: "updated_at" } }, [
-          _vm._v("Date updated: "),
+          }),
         ]),
         _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(_vm.livelihood.updated_at))]),
-      ]),
-    ]),
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "created_at" } }, [
+            _vm._v("Date added: "),
+          ]),
+          _vm._v(" "),
+          _c("p", [_vm._v(_vm._s(_vm.livelihood.created_at))]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group mb-1" }, [
+          _c("label", { attrs: { for: "updated_at" } }, [
+            _vm._v("Date updated: "),
+          ]),
+          _vm._v(" "),
+          _c("p", [_vm._v(_vm._s(_vm.livelihood.updated_at))]),
+        ]),
+      ]
+    ),
     _vm._v(" "),
     _c("div", { staticClass: "card-footer" }, [
       _c(
@@ -60191,191 +60266,176 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "section",
-    { staticClass: "content" },
-    [
-      _vm.showModal
-        ? _c(
-            "modal-component",
-            [
-              _c("h2", { attrs: { slot: "header" }, slot: "header" }, [
-                _vm._v("Household advance search"),
-              ]),
-              _vm._v(" "),
-              _c("household-search-component", {
-                attrs: {
-                  slot: "body",
-                  searchData: _vm.searchData,
-                  modalMethod: "Search",
-                },
-                on: { search: _vm.advanceSearch },
-                slot: "body",
-              }),
-            ],
-            1
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _c("div", { staticClass: "container-fluid" }, [
-        _c("div", { staticClass: "row" }, [
-          _c(
-            "div",
-            { staticClass: "col-12" },
-            [
-              _c(
-                "v-map",
-                {
-                  ref: "map",
-                  staticStyle: { height: "80vh", position: "relative" },
-                  style: _vm.setStyle,
-                  attrs: { zoom: _vm.zoom, center: _vm.centerMarker },
-                },
-                [
-                  _c("v-tilelayer-googlemutant", {
-                    attrs: { apikey: _vm.apikey, options: _vm.options },
-                  }),
-                  _vm._v(" "),
-                  _vm._l(_vm.households, function (household, i) {
-                    return _c("v-marker", {
-                      key: i,
-                      attrs: {
-                        "lat-lng": _vm.coordinates(
-                          household.latitude,
-                          household.longitude
-                        ),
-                        icon: household.icon ? household.icon : _vm.defaultIcon,
-                      },
-                      on: {
-                        click: function ($event) {
-                          return _vm.opensidebar(
-                            household.controlnumber,
-                            household
-                          )
-                        },
-                      },
-                    })
-                  }),
-                ],
-                2
-              ),
-            ],
-            1
-          ),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c(
-        "aside",
-        {
-          staticClass: "control-sidebar overflow-auto control-sidebar-light",
-          staticStyle: { width: "35% !important" },
-          attrs: { id: "toogleinformation" },
-        },
-        [
-          _c("div", { staticClass: "p-3" }, [
+  return _c("section", { staticClass: "content" }, [
+    _c("div", { staticClass: "container-fluid" }, [
+      _c("div", { staticClass: "row" }, [
+        _c(
+          "div",
+          { staticClass: "col-12" },
+          [
             _c(
-              "div",
+              "v-map",
               {
-                staticClass: "card card-primary card-outline card-outline-tabs",
+                ref: "map",
+                staticStyle: { height: "80vh", position: "relative" },
+                style: _vm.setStyle,
+                attrs: { zoom: _vm.zoom, center: _vm.centerMarker },
               },
               [
-                _vm._m(0),
+                _c("v-tilelayer-googlemutant", {
+                  attrs: { apikey: _vm.apikey, options: _vm.options },
+                }),
                 _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tab-content",
-                      attrs: { id: "custom-tabs-four-tabContent" },
+                _vm._l(_vm.households, function (household, i) {
+                  return _c("v-marker", {
+                    key: i,
+                    attrs: {
+                      "lat-lng": _vm.coordinates(
+                        household.latitude,
+                        household.longitude
+                      ),
+                      icon: household.icon ? household.icon : _vm.defaultIcon,
                     },
-                    [
-                      _c(
-                        "div",
-                        {
-                          staticClass: "tab-pane fade show active",
-                          attrs: {
-                            id: "custom-tabs-four-household-information",
-                            role: "tabpanel",
-                            "aria-labelledby":
-                              "custom-tabs-four-household-information-tab",
-                          },
-                        },
-                        [
-                          _c("household-component", {
-                            attrs: { householdData: _vm.householdInfo },
-                          }),
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "tab-pane fade",
-                          attrs: {
-                            id: "custom-tabs-four-demography",
-                            role: "tabpanel",
-                            "aria-labelledby":
-                              "custom-tabs-four-demography-tab",
-                          },
-                        },
-                        [
-                          _c("demography-component", {
-                            attrs: { demographies: _vm.setDemographies },
-                          }),
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "tab-pane fade",
-                          attrs: {
-                            id: "custom-tabs-four-availed-programs",
-                            role: "tabpanel",
-                            "aria-labelledby":
-                              "custom-tabs-four-availed-programs-tab",
-                          },
-                        },
-                        [
-                          _c("availedprogram-component", {
-                            attrs: { availedprograms: _vm.setAvailprograms },
-                          }),
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "tab-pane fade",
-                          attrs: {
-                            id: "custom-tabs-four-livelihood",
-                            role: "tabpanel",
-                            "aria-labelledby":
-                              "custom-tabs-four-livelihood-tab",
-                          },
-                        },
-                        [
-                          _c("livelihood-component", {
-                            attrs: { livelihoods: _vm.setLivelihoods },
-                          }),
-                        ],
-                        1
-                      ),
-                    ]
-                  ),
-                ]),
-              ]
+                    on: {
+                      click: function ($event) {
+                        return _vm.opensidebar(
+                          household.controlnumber,
+                          household
+                        )
+                      },
+                    },
+                  })
+                }),
+              ],
+              2
             ),
-          ]),
-        ]
-      ),
-    ],
-    1
-  )
+          ],
+          1
+        ),
+      ]),
+    ]),
+    _vm._v(" "),
+    !_vm.advanceSearch
+      ? _c(
+          "aside",
+          {
+            staticClass: "control-sidebar overflow-auto control-sidebar-dark",
+            staticStyle: { width: "35% !important" },
+            attrs: { id: "toogleinformation" },
+          },
+          [
+            _c("div", { staticClass: "p-3" }, [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "card card-primary card-outline card-outline-tabs",
+                  staticStyle: { "background-color": "#343a40" },
+                },
+                [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "tab-content",
+                        attrs: { id: "custom-tabs-four-tabContent" },
+                      },
+                      [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "tab-pane fade show active",
+                            attrs: {
+                              id: "custom-tabs-four-household-information",
+                              role: "tabpanel",
+                              "aria-labelledby":
+                                "custom-tabs-four-household-information-tab",
+                            },
+                          },
+                          [
+                            _c("household-component", {
+                              attrs: { householdData: _vm.householdInfo },
+                            }),
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "tab-pane fade",
+                            attrs: {
+                              id: "custom-tabs-four-demography",
+                              role: "tabpanel",
+                              "aria-labelledby":
+                                "custom-tabs-four-demography-tab",
+                            },
+                          },
+                          [
+                            _c("demography-component", {
+                              attrs: { demographies: _vm.setDemographies },
+                            }),
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "tab-pane fade",
+                            attrs: {
+                              id: "custom-tabs-four-availed-programs",
+                              role: "tabpanel",
+                              "aria-labelledby":
+                                "custom-tabs-four-availed-programs-tab",
+                            },
+                          },
+                          [
+                            _c("availedprogram-component", {
+                              attrs: { availedprograms: _vm.setAvailprograms },
+                            }),
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "tab-pane fade",
+                            attrs: {
+                              id: "custom-tabs-four-livelihood",
+                              role: "tabpanel",
+                              "aria-labelledby":
+                                "custom-tabs-four-livelihood-tab",
+                            },
+                          },
+                          [
+                            _c("livelihood-component", {
+                              attrs: { livelihoods: _vm.setLivelihoods },
+                            }),
+                          ],
+                          1
+                        ),
+                      ]
+                    ),
+                  ]),
+                ]
+              ),
+            ]),
+          ]
+        )
+      : _c(
+          "aside",
+          {
+            staticClass: "control-sidebar overflow-auto control-sidebar-dark",
+            staticStyle: { width: "20% !important" },
+            attrs: { id: "toogleMultipleSearch" },
+          },
+          [_vm._m(1)]
+        ),
+  ])
 }
 var staticRenderFns = [
   function () {
@@ -60464,6 +60524,30 @@ var staticRenderFns = [
         ]
       ),
     ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticStyle: { padding: "16px", height: "100%", width: "100%" } },
+      [
+        _c("h5", [_vm._v("Advance search")]),
+        _vm._v(" "),
+        _c("hr", { staticClass: "mb-2" }),
+        _vm._v(" "),
+        _c("h6", [_vm._v("Municipality")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "mb-1" }, [
+          _c("input", {
+            staticClass: "mr-1",
+            attrs: { type: "checkbox", value: "1" },
+          }),
+          _c("span", [_vm._v("R.T.R")]),
+        ]),
+      ]
+    )
   },
 ]
 render._withStripped = true
@@ -60577,7 +60661,11 @@ var render = function () {
       "button",
       {
         staticClass: "btn btn-block btn-outline-primary",
-        attrs: { type: "button" },
+        attrs: {
+          type: "button",
+          "data-widget": "control-sidebar",
+          "data-slide": "true",
+        },
         on: { click: _vm.callOpenModal },
       },
       [

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="card card-body">
+        <div class="card card-body" style="background-color: #343a40;">
             <div class="form-group mb-1">
                 <label for="surname">Surename</label>  
                 <input type="text" class="form-control form-control-sm" id="surname" v-model="form.demography.surname">

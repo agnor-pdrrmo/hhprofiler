@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="card card-body">
+        <div class="card card-body" style="background-color: #343a40;">
             <div class="form-group mb-1">
                 <label for="libtypeofprogram_id">Type of program</label>  
                 <input type="text" class="form-control form-control-sm" id="libtypeofprogram_id" v-model="form.availedprogram.libtypeofprogram.lib_topname">
