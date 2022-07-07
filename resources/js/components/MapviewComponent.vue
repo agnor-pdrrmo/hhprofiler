@@ -100,10 +100,12 @@ export default {
         //Library
         municipalities: [],
         barangays: [],
+        typeofbuildings: [],
         //For searching
         selected: {
           municipalities: [],
           barangays: [],
+          typeofbuildings: []
         },
         style:{
           width: '100%',
@@ -173,11 +175,23 @@ export default {
             console.log(error);
         });
       }, 
+      loadTypeofbuilding: function () {
+        axios.get('/api/typeofbuilding', {
+            params: _.omit(this.selected, 'typeofbuildings')
+        })
+        .then((response) => {
+            this.typeofbuildings = response.data.data;
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+      }, 
   },
   watch: {
       selected: {
           handler: function () {
               this.loadMunicipality();
+              this.loadTypeofbuilding();
           },
           deep: true
       }
@@ -271,7 +285,9 @@ export default {
         }
 
     });
+    //Call preloaded library with cout pivot table
     this.loadMunicipality();
+    this.loadTypeofbuilding();
   },
   created() {
       this.gethouseholds();   

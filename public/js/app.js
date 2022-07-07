@@ -2487,6 +2487,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Libtypeofbuilding.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Libtypeofbuilding.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['type-of-buildings', 'selected']
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LivelihoodComponent.vue?vue&type=script&lang=js&":
 /*!**************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LivelihoodComponent.vue?vue&type=script&lang=js& ***!
@@ -2603,10 +2620,12 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       //Library
       municipalities: [],
       barangays: [],
+      typeofbuildings: [],
       //For searching
       selected: {
         municipalities: [],
-        barangays: []
+        barangays: [],
+        typeofbuildings: []
       },
       style: {
         width: '100%'
@@ -2681,12 +2700,24 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       })["catch"](function (error) {
         console.log(error);
       });
+    },
+    loadTypeofbuilding: function loadTypeofbuilding() {
+      var _this3 = this;
+
+      axios.get('/api/typeofbuilding', {
+        params: _.omit(this.selected, 'typeofbuildings')
+      }).then(function (response) {
+        _this3.typeofbuildings = response.data.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
     }
   },
   watch: {
     selected: {
       handler: function handler() {
         this.loadMunicipality();
+        this.loadTypeofbuilding();
       },
       deep: true
     }
@@ -2750,52 +2781,54 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     }
   },
   mounted: function mounted() {
-    var _this3 = this;
+    var _this4 = this;
 
     Event.$on('mapInvalidate', function () {
-      _this3.advanceSearchtoggle = false;
+      _this4.advanceSearchtoggle = false;
 
       if (jquery__WEBPACK_IMPORTED_MODULE_1___default()('#toogleinformation:visible').length == 0) {
         // Call invalidateSize to update map size
-        _this3.$refs.map.mapObject.invalidateSize(); //Set width of the map 
+        _this4.$refs.map.mapObject.invalidateSize(); //Set width of the map 
 
 
-        _this3.style = {
+        _this4.style = {
           width: '65%'
         };
       } else {
         // Call invalidateSize to update map size
-        _this3.$refs.map.mapObject.invalidateSize(); //Set width of the map 
+        _this4.$refs.map.mapObject.invalidateSize(); //Set width of the map 
 
 
-        _this3.style = {
+        _this4.style = {
           width: '100%'
         };
       }
     });
     Event.$on('openSearchControl', function () {
       //this.showModal = true;
-      _this3.advanceSearchtoggle = true;
+      _this4.advanceSearchtoggle = true;
 
       if (jquery__WEBPACK_IMPORTED_MODULE_1___default()('#toogleMultipleSearch:visible').length == 0) {
         // Call invalidateSize to update map size
-        _this3.$refs.map.mapObject.invalidateSize(); //Set width of the map 
+        _this4.$refs.map.mapObject.invalidateSize(); //Set width of the map 
 
 
-        _this3.style = {
+        _this4.style = {
           width: '80%'
         };
       } else {
         // Call invalidateSize to update map size
-        _this3.$refs.map.mapObject.invalidateSize(); //Set width of the map 
+        _this4.$refs.map.mapObject.invalidateSize(); //Set width of the map 
 
 
-        _this3.style = {
+        _this4.style = {
           width: '100%'
         };
       }
-    });
+    }); //Call preloaded library with cout pivot table
+
     this.loadMunicipality();
+    this.loadTypeofbuilding();
   },
   created: function created() {
     this.gethouseholds();
@@ -5925,6 +5958,77 @@ render._withStripped = true;
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Libtypeofbuilding.vue?vue&type=template&id=033db62f&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Libtypeofbuilding.vue?vue&type=template&id=033db62f& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", [_c("h6", [_vm._v("Type of building")]), _vm._v(" "), _vm._l(_vm.typeOfBuildings, function (typeofbuilding) {
+    return _c("div", {
+      key: typeofbuilding.id,
+      staticClass: "mb-1"
+    }, [_c("input", {
+      directives: [{
+        name: "model",
+        rawName: "v-model",
+        value: _vm.selected.typeofbuildings,
+        expression: "selected.typeofbuildings"
+      }],
+      staticClass: "form-check-input",
+      attrs: {
+        type: "checkbox",
+        id: "typeofbuilding" + typeofbuilding.id
+      },
+      domProps: {
+        value: typeofbuilding.id,
+        checked: Array.isArray(_vm.selected.typeofbuildings) ? _vm._i(_vm.selected.typeofbuildings, typeofbuilding.id) > -1 : _vm.selected.typeofbuildings
+      },
+      on: {
+        change: function change($event) {
+          var $$a = _vm.selected.typeofbuildings,
+              $$el = $event.target,
+              $$c = $$el.checked ? true : false;
+
+          if (Array.isArray($$a)) {
+            var $$v = typeofbuilding.id,
+                $$i = _vm._i($$a, $$v);
+
+            if ($$el.checked) {
+              $$i < 0 && _vm.$set(_vm.selected, "typeofbuildings", $$a.concat([$$v]));
+            } else {
+              $$i > -1 && _vm.$set(_vm.selected, "typeofbuildings", $$a.slice(0, $$i).concat($$a.slice($$i + 1)));
+            }
+          } else {
+            _vm.$set(_vm.selected, "typeofbuildings", $$c);
+          }
+        }
+      }
+    }), _vm._v(" "), _c("label", {
+      staticClass: "form-check-label",
+      attrs: {
+        "for": "typeofbuilding" + typeofbuilding.id
+      }
+    }, [_vm._v("\r\n          " + _vm._s(typeofbuilding.lib_munname) + " (" + _vm._s(typeofbuilding.households_count) + ")\r\n      ")])]);
+  })], 2);
+};
+
+var staticRenderFns = [];
+render._withStripped = true;
+
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LivelihoodComponent.vue?vue&type=template&id=82c5ef46&":
 /*!*************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LivelihoodComponent.vue?vue&type=template&id=82c5ef46& ***!
@@ -6627,6 +6731,7 @@ Vue.component('modal-component', (__webpack_require__(/*! ./components/ModalComp
 
 Vue.component('lib-municipality', (__webpack_require__(/*! ./components/LibmunicipalityComponent.vue */ "./resources/js/components/LibmunicipalityComponent.vue")["default"]));
 Vue.component('lib-barangay', (__webpack_require__(/*! ./components/LibbarangayComponent.vue */ "./resources/js/components/LibbarangayComponent.vue")["default"]));
+Vue.component('lib-typeofbuilding', (__webpack_require__(/*! ./components/Libtypeofbuilding.vue */ "./resources/js/components/Libtypeofbuilding.vue")["default"]));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -59182,6 +59287,45 @@ component.options.__file = "resources/js/components/LibmunicipalityComponent.vue
 
 /***/ }),
 
+/***/ "./resources/js/components/Libtypeofbuilding.vue":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/Libtypeofbuilding.vue ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Libtypeofbuilding_vue_vue_type_template_id_033db62f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Libtypeofbuilding.vue?vue&type=template&id=033db62f& */ "./resources/js/components/Libtypeofbuilding.vue?vue&type=template&id=033db62f&");
+/* harmony import */ var _Libtypeofbuilding_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Libtypeofbuilding.vue?vue&type=script&lang=js& */ "./resources/js/components/Libtypeofbuilding.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Libtypeofbuilding_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Libtypeofbuilding_vue_vue_type_template_id_033db62f___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Libtypeofbuilding_vue_vue_type_template_id_033db62f___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Libtypeofbuilding.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/LivelihoodComponent.vue":
 /*!*********************************************************!*\
   !*** ./resources/js/components/LivelihoodComponent.vue ***!
@@ -59603,6 +59747,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Libtypeofbuilding.vue?vue&type=script&lang=js&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/components/Libtypeofbuilding.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Libtypeofbuilding_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Libtypeofbuilding.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Libtypeofbuilding.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Libtypeofbuilding_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/LivelihoodComponent.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************!*\
   !*** ./resources/js/components/LivelihoodComponent.vue?vue&type=script&lang=js& ***!
@@ -59864,6 +60024,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_LibmunicipalityComponent_vue_vue_type_template_id_61ab47e7___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_LibmunicipalityComponent_vue_vue_type_template_id_61ab47e7___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./LibmunicipalityComponent.vue?vue&type=template&id=61ab47e7& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LibmunicipalityComponent.vue?vue&type=template&id=61ab47e7&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Libtypeofbuilding.vue?vue&type=template&id=033db62f&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/Libtypeofbuilding.vue?vue&type=template&id=033db62f& ***!
+  \**************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Libtypeofbuilding_vue_vue_type_template_id_033db62f___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Libtypeofbuilding_vue_vue_type_template_id_033db62f___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Libtypeofbuilding_vue_vue_type_template_id_033db62f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Libtypeofbuilding.vue?vue&type=template&id=033db62f& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Libtypeofbuilding.vue?vue&type=template&id=033db62f&");
 
 
 /***/ }),
