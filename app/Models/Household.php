@@ -9,6 +9,12 @@ class Household extends Model
 {
     use HasFactory;
 
+    // Fillable
+    protected $fillable = [
+        'libmunicipalitie_psgccode', 
+        'libbarangay_psgccode'
+    ];
+
     // Table Name
     protected $table = 'households';
     // Disable Timestamp

@@ -18,7 +18,8 @@ class LibmunicipalitieController extends Controller
     {
         $municipalities = Libmunicipalitie::withCount(['households' =>function($query){
             $query->withFilters(
-                request()->input('municipalities',[])
+                request()->input('municipalities',[]),
+                request()->input('barangays',[])
             );
         }])
         ->get();
