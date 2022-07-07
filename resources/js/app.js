@@ -38,6 +38,7 @@ Vue.component('modal-component', require('./components/ModalComponent.vue').defa
 
 // Library component
 Vue.component('lib-municipality', require('./components/LibmunicipalityComponent.vue').default);
+Vue.component('lib-barangay', require('./components/LibbarangayComponent.vue').default);
 
 
 /**

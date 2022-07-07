@@ -23,7 +23,7 @@ class Libbarangay extends Model
      */
     public function households(): HasMany
     {
-        return $this->hasMany(Households::class, 'psgccode', 'libbarangay_psgccode');
+        return $this->hasMany(Households::class,'libbarangay_psgccode','psgccode');
     }
     
 

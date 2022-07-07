@@ -99,9 +99,11 @@ export default {
         livelihoods: [],
         //Library
         municipalities: [],
+        barangays: [],
         //For searching
         selected: {
           municipalities: [],
+          barangays: [],
         },
         style:{
           width: '100%',

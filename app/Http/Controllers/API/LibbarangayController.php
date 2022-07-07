@@ -4,10 +4,10 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Libmunicipalitie;
-use App\Http\Resources\LibmunicipalitieResource;
+use App\Models\Libbarangay;
+use App\Http\Resources\LibbarangayResource;
 
-class LibmunicipalitieController extends Controller
+class LibbarangayController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,14 +16,15 @@ class LibmunicipalitieController extends Controller
      */
     public function index()
     {
-        $municipalities = Libmunicipalitie::withCount(['households' =>function($query){
+        $barangays = Libbarangay::withCount(['households' =>function($query){
             $query->withFilters(
-                request()->input('municipalities',[])
+                request()->input('barangays',[])
             );
         }])
         ->get();
 
-        return LibmunicipalitieResource::collection($municipalities);
+        // return LibbarangayResource::collection($barangays);
+        return $barangays;
     }
 
     /**
