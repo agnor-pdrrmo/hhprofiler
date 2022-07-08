@@ -21,7 +21,27 @@ class HouseholdController extends Controller
             request()->input('typeofbuildings',[])
         )->get();
         //return LibbarangayResource::collection($barangays);
-        return $household;
+        return $household->load(
+            'libmunicipalitie',
+            'libbarangay',
+            'libhhtypeofbuilding',
+            'libhhtenuralstatu',
+            'libhhroofmaterial',
+            'libhhwatertenuralstatu',
+            'libhhlvlwatersystem',
+            'libhhevacuationarea',
+            'demography.librelationshiphead',
+            'demography.libgender',
+            'demography.libmaritalstatu',
+            'demography.libdisabilitie',
+            'demography.libnutritionalstatu',
+            'demography.libgradelvl',
+            'demography.highestgradelvl',
+            'availedprograms.libtypeofprogram',
+            'livelihoods.liblivelihood',
+            'livelihoods.libhhtenuralstatu'
+
+        );
     }
 
     /**

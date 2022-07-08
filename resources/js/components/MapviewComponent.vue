@@ -3,9 +3,9 @@
         <div class="container-fluid" >
             <div class="row">
                 <div class="col-12" >
-                    <v-map ref="map" :zoom="zoom" :center="centerMarker" :style="setStyle" style="height: 80vh; position: relative;  solid black; ">       
+                    <v-map @moveend="moveEnd" ref="map" :zoom="zoom" :center="centerMarker" :style="setStyle" style="height: 80vh; position: relative;  solid black; ">       
                       <v-tilelayer-googlemutant :apikey="apikey" :options="options"></v-tilelayer-googlemutant>
-                      <v-marker v-for="(household,i) in households" :key="i" :lat-lng="coordinates(household.latitude, household.longitude)" :icon="(household.icon) ? household.icon : defaultIcon" @click="opensidebar(household.controlnumber,household)"></v-marker>       
+                      <v-marker v-for="(household,i) in households" :key="i" :lat-lng="coordinates(household.latitude, household.longitude)" :visible="checkCurrentMarker(household.latitude, household.longitude)" :icon="(household.icon) ? household.icon : defaultIcon" @click="opensidebar(household.controlnumber,household)"></v-marker>       
                     </v-map>     
                 </div>         
             </div>
@@ -88,6 +88,10 @@ export default {
         zoom: 10,
         apikey : 'AIzaSyB2MmppHGfdrSzVXgDSPWVmOUVH-rwkI6M',
         marker: L.latLng(9.112161, 125.560837),
+        inBoundingbox: false,
+        inBounds: null,
+        neCorner: null,
+        swCorner: null,
         defaultIcon: L.icon({
           iconUrl: 'images/icons8-green-circle-48.png',
           iconSize:     [16, 16],
@@ -123,6 +127,17 @@ export default {
     
   },
   methods: {
+      moveEnd: function(){
+        var getBounds = this.$refs.map.mapObject.getBounds();
+        this.swCorner = getBounds._southWest;  
+        this.neCorner = getBounds._northEast;
+        
+      },
+      checkCurrentMarker: function(lat,long){  
+        var currentMarker = L.marker([lat, long]) 
+        var featureGroup = L.FeatureGroup = [this.swCorner,this.neCorner];
+        this.inBoundingbox = ( L.latLngBounds(featureGroup).contains(currentMarker.getLatLng()) ) ? true : false;
+      },
       loadHouseholds: function(){
           axios.get('/api/households',{
             params: _.omit(this.selected, 'households')
@@ -265,6 +280,14 @@ export default {
       },
       set(val){
         this.style = val;
+      }
+    },
+    setInboundingbox:{
+      get(){
+        return this.inBoundingbox;
+      },
+      set(val){
+        this.inBoundingbox = val;
       }
     },
     advanceSearch:{

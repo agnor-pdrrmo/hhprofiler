@@ -3307,6 +3307,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       zoom: 10,
       apikey: 'AIzaSyB2MmppHGfdrSzVXgDSPWVmOUVH-rwkI6M',
       marker: L.latLng(9.112161, 125.560837),
+      inBoundingbox: false,
+      inBounds: null,
+      neCorner: null,
+      swCorner: null,
       defaultIcon: L.icon({
         iconUrl: 'images/icons8-green-circle-48.png',
         iconSize: [16, 16],
@@ -3341,6 +3345,16 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     };
   },
   methods: {
+    moveEnd: function moveEnd() {
+      var getBounds = this.$refs.map.mapObject.getBounds();
+      this.swCorner = getBounds._southWest;
+      this.neCorner = getBounds._northEast;
+    },
+    checkCurrentMarker: function checkCurrentMarker(lat, _long) {
+      var currentMarker = L.marker([lat, _long]);
+      var featureGroup = L.FeatureGroup = [this.swCorner, this.neCorner];
+      this.inBoundingbox = L.latLngBounds(featureGroup).contains(currentMarker.getLatLng()) ? true : false;
+    },
     loadHouseholds: function loadHouseholds() {
       var _this = this;
 
@@ -3356,8 +3370,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
         console.log(error);
       });
     },
-    coordinates: function coordinates(lat, _long) {
-      return L.latLng(lat, _long);
+    coordinates: function coordinates(lat, _long2) {
+      return L.latLng(lat, _long2);
     },
     opensidebar: function opensidebar(controlnumber, hhold) {
       //Setting data to display in control sidebar
@@ -3485,6 +3499,14 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       },
       set: function set(val) {
         this.style = val;
+      }
+    },
+    setInboundingbox: {
+      get: function get() {
+        return this.inBoundingbox;
+      },
+      set: function set(val) {
+        this.inBoundingbox = val;
       }
     },
     advanceSearch: {
@@ -61126,6 +61148,7 @@ var render = function () {
                 staticStyle: { height: "80vh", position: "relative" },
                 style: _vm.setStyle,
                 attrs: { zoom: _vm.zoom, center: _vm.centerMarker },
+                on: { moveend: _vm.moveEnd },
               },
               [
                 _c("v-tilelayer-googlemutant", {
@@ -61137,6 +61160,10 @@ var render = function () {
                     key: i,
                     attrs: {
                       "lat-lng": _vm.coordinates(
+                        household.latitude,
+                        household.longitude
+                      ),
+                      visible: _vm.checkCurrentMarker(
                         household.latitude,
                         household.longitude
                       ),
