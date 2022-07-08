@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('libbarangays', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('libmunicipalitie_psgcmun');
+            $table->foreign('libmunicipalitie_psgcmun')->references('psgccode')->on('libmunicipalities')->onDelete('cascade');
             $table->string('psgccode')->unique();
             $table->string('lib_brgyname');
             $table->timestamps();
