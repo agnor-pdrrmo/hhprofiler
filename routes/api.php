@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\LibmunicipalitieController;
 use App\Http\Controllers\API\LibbarangayController;
+use App\Http\Controllers\API\LibhhtypeofbuildingController;
+use App\Http\Controllers\API\HouseholdController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,5 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('households', [HouseholdController::class,'index']);
 Route::get('municipalities', [LibmunicipalitieController::class,'index']);
 Route::get('barangays', [LibbarangayController::class,'index']);
+Route::get('hhtypeofbuildings', [LibhhtypeofbuildingController::class,'index']);

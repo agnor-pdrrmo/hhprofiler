@@ -4,10 +4,10 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Libbarangay;
-use App\Http\Resources\LibbarangayResource;
+use App\Models\Libhhtypeofbuilding;
+use App\Http\Resources\LibhhtypeofbuildingResource;
 
-class LibbarangayController extends Controller
+class LibhhtypeofbuildingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class LibbarangayController extends Controller
      */
     public function index()
     {
-        $barangays = Libbarangay::withCount(['households' =>function($query){
+        $hhtypeofbuilding = Libhhtypeofbuilding::withCount(['households' =>function($query){
             $query->withFilters(
                 request()->input('municipalities',[]),
                 request()->input('barangays',[]),
@@ -25,7 +25,7 @@ class LibbarangayController extends Controller
         }])
         ->get();
 
-        return LibbarangayResource::collection($barangays);
+        return LibhhtypeofbuildingResource::collection($hhtypeofbuilding);
     }
 
     /**

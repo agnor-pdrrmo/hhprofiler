@@ -4,10 +4,9 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Libbarangay;
-use App\Http\Resources\LibbarangayResource;
+use App\Models\Household;
 
-class LibbarangayController extends Controller
+class HouseholdController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,16 +15,13 @@ class LibbarangayController extends Controller
      */
     public function index()
     {
-        $barangays = Libbarangay::withCount(['households' =>function($query){
-            $query->withFilters(
-                request()->input('municipalities',[]),
-                request()->input('barangays',[]),
-                request()->input('typeofbuildings',[])
-            );
-        }])
-        ->get();
-
-        return LibbarangayResource::collection($barangays);
+        $household = Household::withFilters(
+            request()->input('municipalities',[]),
+            request()->input('barangays',[]),
+            request()->input('typeofbuildings',[])
+        )->get();
+        //return LibbarangayResource::collection($barangays);
+        return $household;
     }
 
     /**

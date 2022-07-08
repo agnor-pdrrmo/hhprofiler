@@ -59,6 +59,7 @@
               <h5>Filters</h5>
               <hr class="mb-2">
               <lib-municipality v-bind:municipalities="municipalities" v-bind:barangays="barangays" v-bind:selected="selected"></lib-municipality>
+              <lib-typeofbuilding v-bind:hhtypeofbuildings="hhtypeofbuildings" v-bind:selected="selected"></lib-typeofbuilding>
           </div>
         </aside>
     </section>
@@ -92,7 +93,7 @@ export default {
           iconSize:     [16, 16],
           iconAnchor:   [16, 16]
         }),
-        households: {},
+        households: [],
         household:{},
         demographies: [],
         availedprograms: [],
@@ -100,12 +101,13 @@ export default {
         //Library
         municipalities: [],
         barangays: [],
-        typeofbuildings: [],
+        hhtypeofbuildings: [],
         //For searching
         selected: {
+          households: [],
           municipalities: [],
           barangays: [],
-          typeofbuildings: []
+          hhtypeofbuildings: []
         },
         style:{
           width: '100%',
@@ -121,11 +123,19 @@ export default {
     
   },
   methods: {
-      gethouseholds: function(){
-          axios.get('/household')
+      loadHouseholds: function(){
+          axios.get('/api/households',{
+            params: _.omit(this.selected, 'households')
+          })
                 .then((response)=>{
+
                    this.households = response.data;
-                   this.$refs.map.mapObject.fitBounds(this.households.map(h => { return [h.latitude, h.longitude] }));
+
+                   (response.data.length != 0) 
+                    ? this.$refs.map.mapObject.fitBounds(this.households.map(h => { return [h.latitude, h.longitude] })) 
+                    //To do ask sir rodiel bounding box of agusan del norte
+                    : '';
+
                 })
                 .catch(function(error){
                   console.log(error);
@@ -136,12 +146,11 @@ export default {
       },
       opensidebar: function (controlnumber,hhold){
 
+        //Setting data to display in control sidebar
         this.household = this.households.filter(cn => cn.controlnumber == controlnumber);
         this.demographies = this.household[0].demography;
         this.availedprograms = this.household[0].availedprograms;
         this.livelihoods = this.household[0].livelihoods;
-        console.log(this.livelihoods);
-    
 
         // Update center of the map
         [this.center] = this.household.map(h => { return [h.latitude, h.longitude] })
@@ -187,11 +196,11 @@ export default {
         });
       }, 
       loadTypeofbuilding: function () {
-        axios.get('/api/typeofbuilding', {
-            params: _.omit(this.selected, 'typeofbuildings')
+        axios.get('/api/hhtypeofbuildings', {
+            params: _.omit(this.selected, 'hhtypeofbuildings')
         })
         .then((response) => {
-            this.typeofbuildings = response.data.data;
+            this.hhtypeofbuildings = response.data.data;
         })
         .catch(function (error) {
             console.log(error);
@@ -203,7 +212,8 @@ export default {
           handler: function () {
               this.loadMunicipality();
               this.loadBarangays();
-              //this.loadTypeofbuilding();
+              this.loadTypeofbuilding();
+              this.loadHouseholds();
           },
           deep: true
       }
@@ -300,10 +310,8 @@ export default {
     //Call preloaded library with cout pivot table
     this.loadMunicipality();
     this.loadBarangays();
-    // this.loadTypeofbuilding();
-  },
-  created() {
-      this.gethouseholds();   
+    this.loadTypeofbuilding();
+    this.loadHouseholds();
   }
 }
 </script>
