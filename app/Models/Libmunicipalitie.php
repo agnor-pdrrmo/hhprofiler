@@ -21,4 +21,14 @@ class Libmunicipalitie extends Model
     {
         return $this->hasMany(household::class,"libmunicipalitie_psgccode",'psgccode'); 
     }
+
+    /**
+     * Get all of the libbarangay for the Libmunicipalitie
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function libbarangays()
+    {
+        return $this->hasMany(Libbarangay::class, 'libmunicipalitie_psgcmun', 'psgccode');
+    }
 }

@@ -6,7 +6,7 @@
             </li>  
           </ol>
           <ol v-else>
-            <li v-if="demographies" v-for="demography in demographies" :key="demography.id">
+            <li v-for="demography in demographies" :key="demography.id"> 
               <a style="text-transform: capitalize" data-toggle="collapse" :href="'#demography-' + demography.id" aria-expanded="false" aria-controls="collapseExample">
                   {{demography.surname}} {{demography.firstname}} {{demography.middlename}}
               </a>

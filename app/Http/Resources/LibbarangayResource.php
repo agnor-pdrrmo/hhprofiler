@@ -14,6 +14,12 @@ class LibbarangayResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'psgccode' => $this->psgccode,
+            'lib_brgyname' => $this->lib_munname,
+            'user_id' => $this->user_id,  
+            'households_count' => $this->households_count,
+        ];
     }
 }

@@ -20,6 +20,7 @@ class LibmunicipalitieResource extends JsonResource
             'lib_munname' => $this->lib_munname,
             'user_id' => $this->user_id,  
             'households_count' => $this->households_count,
+            'barangays' => $this->libbarangays
         ];
     }
 }

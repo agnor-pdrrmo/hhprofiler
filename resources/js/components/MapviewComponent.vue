@@ -58,7 +58,7 @@
           <div class="p3" style="padding: 35px;height: 100%;width: 100%;">
               <h5>Filters</h5>
               <hr class="mb-2">
-              <lib-municipality v-bind:municipalities="municipalities" v-bind:selected="selected"></lib-municipality>
+              <lib-municipality v-bind:municipalities="municipalities" v-bind:barangays="barangays" v-bind:selected="selected"></lib-municipality>
           </div>
         </aside>
     </section>
@@ -175,6 +175,17 @@ export default {
             console.log(error);
         });
       }, 
+      loadBarangays: function () {
+        axios.get('/api/barangays', {
+            params: _.omit(this.selected, 'barangays')
+        })
+        .then((response) => {
+            this.barangays = response.data.data;
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+      }, 
       loadTypeofbuilding: function () {
         axios.get('/api/typeofbuilding', {
             params: _.omit(this.selected, 'typeofbuildings')
@@ -191,7 +202,8 @@ export default {
       selected: {
           handler: function () {
               this.loadMunicipality();
-              this.loadTypeofbuilding();
+              this.loadBarangays();
+              //this.loadTypeofbuilding();
           },
           deep: true
       }
@@ -287,7 +299,8 @@ export default {
     });
     //Call preloaded library with cout pivot table
     this.loadMunicipality();
-    this.loadTypeofbuilding();
+    this.loadBarangays();
+    // this.loadTypeofbuilding();
   },
   created() {
       this.gethouseholds();   

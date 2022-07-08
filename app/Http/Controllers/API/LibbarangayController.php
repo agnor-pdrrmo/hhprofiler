@@ -18,13 +18,13 @@ class LibbarangayController extends Controller
     {
         $barangays = Libbarangay::withCount(['households' =>function($query){
             $query->withFilters(
+                request()->input('municipalities',[]),
                 request()->input('barangays',[])
             );
         }])
         ->get();
 
-        // return LibbarangayResource::collection($barangays);
-        return $barangays;
+        return LibbarangayResource::collection($barangays);
     }
 
     /**

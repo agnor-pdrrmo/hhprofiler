@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\LibmunicipalitieController;
+use App\Http\Controllers\API\LibbarangayController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('municipalities', [LibmunicipalitieController::class,'index']);
+Route::get('barangays', [LibbarangayController::class,'index']);

@@ -22,9 +22,18 @@ class LibmunicipalitieController extends Controller
                 request()->input('barangays',[])
             );
         }])
+        ->with(['libbarangays' => function($q){
+            $q->withCount(['households' =>function($query){
+                $query->withFilters(
+                    request()->input('municipalities',[]),
+                    request()->input('barangays',[])
+                );
+            }]);
+        }])
         ->get();
 
         return LibmunicipalitieResource::collection($municipalities);
+        //return $municipalities;
     }
 
     /**

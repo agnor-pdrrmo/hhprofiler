@@ -21,10 +21,18 @@ class Libbarangay extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function households(): HasMany
+    public function households()
     {
-        return $this->hasMany(Households::class,'libbarangay_psgccode','psgccode');
+        return $this->hasMany(Household::class,'libbarangay_psgccode','psgccode');
     }
     
-
+    /**
+     * Get the libmunicipality that owns the Libbarangay
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function libmunicipality()
+    {
+        return $this->belongsTo(Libmunicipalitie::class, 'libmunicipalitie_psgcmun', 'psgccode');
+    }
 }
