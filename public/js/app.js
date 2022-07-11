@@ -2960,6 +2960,36 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Libhhtenuralstatu.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Libhhtenuralstatu.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['hhtenuralstatus', 'selected']
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Libhhtypeofbuilding.vue?vue&type=script&lang=js&":
 /*!**************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Libhhtypeofbuilding.vue?vue&type=script&lang=js& ***!
@@ -3287,6 +3317,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 //
 //
 //
+//
 
 
 
@@ -3325,12 +3356,14 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       municipalities: [],
       barangays: [],
       hhtypeofbuildings: [],
+      hhtenuralstatus: [],
       //For searching
       selected: {
         households: [],
         municipalities: [],
         barangays: [],
-        hhtypeofbuildings: []
+        hhtypeofbuildings: [],
+        hhtenuralstatus: []
       },
       style: {
         width: '100%'
@@ -3439,6 +3472,17 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       })["catch"](function (error) {
         console.log(error);
       });
+    },
+    loadHhtenuralstatus: function loadHhtenuralstatus() {
+      var _this5 = this;
+
+      axios.get('/api/hhtenuralstatus', {
+        params: _.omit(this.selected, 'hhtenuralstatus')
+      }).then(function (response) {
+        _this5.hhtenuralstatus = response.data.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
     }
   },
   watch: {
@@ -3448,6 +3492,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
         this.loadBarangays();
         this.loadTypeofbuilding();
         this.loadHouseholds();
+        this.loadHhtenuralstatus();
       },
       deep: true
     }
@@ -3519,47 +3564,47 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     }
   },
   mounted: function mounted() {
-    var _this5 = this;
+    var _this6 = this;
 
     Event.$on('mapInvalidate', function () {
-      _this5.advanceSearchtoggle = false;
+      _this6.advanceSearchtoggle = false;
 
       if (jquery__WEBPACK_IMPORTED_MODULE_1___default()('#toogleinformation:visible').length == 0) {
         // Call invalidateSize to update map size
-        _this5.$refs.map.mapObject.invalidateSize(); //Set width of the map 
+        _this6.$refs.map.mapObject.invalidateSize(); //Set width of the map 
 
 
-        _this5.style = {
+        _this6.style = {
           width: '65%'
         };
       } else {
         // Call invalidateSize to update map size
-        _this5.$refs.map.mapObject.invalidateSize(); //Set width of the map 
+        _this6.$refs.map.mapObject.invalidateSize(); //Set width of the map 
 
 
-        _this5.style = {
+        _this6.style = {
           width: '100%'
         };
       }
     });
     Event.$on('openSearchControl', function () {
       //this.showModal = true;
-      _this5.advanceSearchtoggle = true;
+      _this6.advanceSearchtoggle = true;
 
       if (jquery__WEBPACK_IMPORTED_MODULE_1___default()('#toogleMultipleSearch:visible').length == 0) {
         // Call invalidateSize to update map size
-        _this5.$refs.map.mapObject.invalidateSize(); //Set width of the map 
+        _this6.$refs.map.mapObject.invalidateSize(); //Set width of the map 
 
 
-        _this5.style = {
+        _this6.style = {
           width: '80%'
         };
       } else {
         // Call invalidateSize to update map size
-        _this5.$refs.map.mapObject.invalidateSize(); //Set width of the map 
+        _this6.$refs.map.mapObject.invalidateSize(); //Set width of the map 
 
 
-        _this5.style = {
+        _this6.style = {
           width: '100%'
         };
       }
@@ -3569,6 +3614,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     this.loadBarangays();
     this.loadTypeofbuilding();
     this.loadHouseholds();
+    this.loadHhtenuralstatus();
   }
 });
 
@@ -3768,6 +3814,7 @@ Vue.component('modal-component', (__webpack_require__(/*! ./components/ModalComp
 Vue.component('lib-municipality', (__webpack_require__(/*! ./components/LibmunicipalityComponent.vue */ "./resources/js/components/LibmunicipalityComponent.vue")["default"]));
 Vue.component('lib-barangay', (__webpack_require__(/*! ./components/LibbarangayComponent.vue */ "./resources/js/components/LibbarangayComponent.vue")["default"]));
 Vue.component('lib-typeofbuilding', (__webpack_require__(/*! ./components/Libhhtypeofbuilding.vue */ "./resources/js/components/Libhhtypeofbuilding.vue")["default"]));
+Vue.component('lib-hhtenuralstatus', (__webpack_require__(/*! ./components/Libhhtenuralstatu.vue */ "./resources/js/components/Libhhtenuralstatu.vue")["default"]));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -56284,6 +56331,45 @@ component.options.__file = "resources/js/components/LibbarangayComponent.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/Libhhtenuralstatu.vue":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/Libhhtenuralstatu.vue ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Libhhtenuralstatu_vue_vue_type_template_id_95dd0bf4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Libhhtenuralstatu.vue?vue&type=template&id=95dd0bf4& */ "./resources/js/components/Libhhtenuralstatu.vue?vue&type=template&id=95dd0bf4&");
+/* harmony import */ var _Libhhtenuralstatu_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Libhhtenuralstatu.vue?vue&type=script&lang=js& */ "./resources/js/components/Libhhtenuralstatu.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Libhhtenuralstatu_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Libhhtenuralstatu_vue_vue_type_template_id_95dd0bf4___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Libhhtenuralstatu_vue_vue_type_template_id_95dd0bf4___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Libhhtenuralstatu.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/Libhhtypeofbuilding.vue":
 /*!*********************************************************!*\
   !*** ./resources/js/components/Libhhtypeofbuilding.vue ***!
@@ -56767,6 +56853,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Libhhtenuralstatu.vue?vue&type=script&lang=js&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/components/Libhhtenuralstatu.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Libhhtenuralstatu_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Libhhtenuralstatu.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Libhhtenuralstatu.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Libhhtenuralstatu_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/Libhhtypeofbuilding.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************!*\
   !*** ./resources/js/components/Libhhtypeofbuilding.vue?vue&type=script&lang=js& ***!
@@ -57069,6 +57171,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LibbarangayComponent_vue_vue_type_template_id_2cdd2ce4___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LibbarangayComponent_vue_vue_type_template_id_2cdd2ce4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./LibbarangayComponent.vue?vue&type=template&id=2cdd2ce4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LibbarangayComponent.vue?vue&type=template&id=2cdd2ce4&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Libhhtenuralstatu.vue?vue&type=template&id=95dd0bf4&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/Libhhtenuralstatu.vue?vue&type=template&id=95dd0bf4& ***!
+  \**************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Libhhtenuralstatu_vue_vue_type_template_id_95dd0bf4___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Libhhtenuralstatu_vue_vue_type_template_id_95dd0bf4___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Libhhtenuralstatu_vue_vue_type_template_id_95dd0bf4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Libhhtenuralstatu.vue?vue&type=template&id=95dd0bf4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Libhhtenuralstatu.vue?vue&type=template&id=95dd0bf4&");
 
 
 /***/ }),
@@ -60453,6 +60572,130 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Libhhtenuralstatu.vue?vue&type=template&id=95dd0bf4&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Libhhtenuralstatu.vue?vue&type=template&id=95dd0bf4& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "collapse", attrs: { id: "hhtenuralstatus" } },
+      _vm._l(_vm.hhtenuralstatus, function (hhtenuralstatu) {
+        return _c("div", { key: hhtenuralstatu.id, staticClass: "mb-1" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.selected.hhtenuralstatus,
+                expression: "selected.hhtenuralstatus",
+              },
+            ],
+            staticClass: "form-check-input",
+            attrs: {
+              type: "checkbox",
+              id: "hhtenuralstatu" + hhtenuralstatu.id,
+            },
+            domProps: {
+              value: hhtenuralstatu.id,
+              checked: Array.isArray(_vm.selected.hhtenuralstatus)
+                ? _vm._i(_vm.selected.hhtenuralstatus, hhtenuralstatu.id) > -1
+                : _vm.selected.hhtenuralstatus,
+            },
+            on: {
+              change: function ($event) {
+                var $$a = _vm.selected.hhtenuralstatus,
+                  $$el = $event.target,
+                  $$c = $$el.checked ? true : false
+                if (Array.isArray($$a)) {
+                  var $$v = hhtenuralstatu.id,
+                    $$i = _vm._i($$a, $$v)
+                  if ($$el.checked) {
+                    $$i < 0 &&
+                      _vm.$set(
+                        _vm.selected,
+                        "hhtenuralstatus",
+                        $$a.concat([$$v])
+                      )
+                  } else {
+                    $$i > -1 &&
+                      _vm.$set(
+                        _vm.selected,
+                        "hhtenuralstatus",
+                        $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                      )
+                  }
+                } else {
+                  _vm.$set(_vm.selected, "hhtenuralstatus", $$c)
+                }
+              },
+            },
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            {
+              staticClass: "form-check-label",
+              attrs: { for: "hhtenuralstatu" + hhtenuralstatu.id },
+            },
+            [
+              _vm._v(
+                "\n          " +
+                  _vm._s(hhtenuralstatu.lib_ternuralstatusdesc) +
+                  " (" +
+                  _vm._s(hhtenuralstatu.households_count) +
+                  ")\n      "
+              ),
+            ]
+          ),
+        ])
+      }),
+      0
+    ),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        attrs: {
+          "data-toggle": "collapse",
+          href: "#hhtenuralstatus",
+          "aria-expanded": "false",
+        },
+      },
+      [
+        _c("h6", { staticStyle: { color: "#007bff" } }, [
+          _vm._v("Tenural statuss"),
+        ]),
+      ]
+    )
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Libhhtypeofbuilding.vue?vue&type=template&id=5c4a56af&":
 /*!*******************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Libhhtypeofbuilding.vue?vue&type=template&id=5c4a56af& ***!
@@ -61329,6 +61572,13 @@ var render = function () {
                 _c("lib-typeofbuilding", {
                   attrs: {
                     hhtypeofbuildings: _vm.hhtypeofbuildings,
+                    selected: _vm.selected,
+                  },
+                }),
+                _vm._v(" "),
+                _c("lib-hhtenuralstatus", {
+                  attrs: {
+                    hhtenuralstatus: _vm.hhtenuralstatus,
                     selected: _vm.selected,
                   },
                 }),

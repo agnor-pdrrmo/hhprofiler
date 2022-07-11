@@ -60,6 +60,7 @@
               <hr class="mb-2">
               <lib-municipality v-bind:municipalities="municipalities" v-bind:barangays="barangays" v-bind:selected="selected"></lib-municipality>
               <lib-typeofbuilding v-bind:hhtypeofbuildings="hhtypeofbuildings" v-bind:selected="selected"></lib-typeofbuilding>
+              <lib-hhtenuralstatus v-bind:hhtenuralstatus="hhtenuralstatus" v-bind:selected="selected"></lib-hhtenuralstatus>
           </div>
         </aside>
     </section>
@@ -106,12 +107,14 @@ export default {
         municipalities: [],
         barangays: [],
         hhtypeofbuildings: [],
+        hhtenuralstatus: [],
         //For searching
         selected: {
           households: [],
           municipalities: [],
           barangays: [],
-          hhtypeofbuildings: []
+          hhtypeofbuildings: [],
+          hhtenuralstatus: []
         },
         style:{
           width: '100%',
@@ -220,6 +223,17 @@ export default {
         .catch(function (error) {
             console.log(error);
         });
+      },
+      loadHhtenuralstatus: function () {
+        axios.get('/api/hhtenuralstatus', {
+            params: _.omit(this.selected, 'hhtenuralstatus')
+        })
+        .then((response) => {
+            this.hhtenuralstatus = response.data.data;
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
       }, 
   },
   watch: {
@@ -229,6 +243,7 @@ export default {
               this.loadBarangays();
               this.loadTypeofbuilding();
               this.loadHouseholds();
+              this.loadHhtenuralstatus();
           },
           deep: true
       }
@@ -335,6 +350,7 @@ export default {
     this.loadBarangays();
     this.loadTypeofbuilding();
     this.loadHouseholds();
+    this.loadHhtenuralstatus();
   }
 }
 </script>

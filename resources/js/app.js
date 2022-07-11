@@ -40,6 +40,7 @@ Vue.component('modal-component', require('./components/ModalComponent.vue').defa
 Vue.component('lib-municipality', require('./components/LibmunicipalityComponent.vue').default);
 Vue.component('lib-barangay', require('./components/LibbarangayComponent.vue').default);
 Vue.component('lib-typeofbuilding', require('./components/Libhhtypeofbuilding.vue').default);
+Vue.component('lib-hhtenuralstatus', require('./components/Libhhtenuralstatu.vue').default);
 
 
 /**

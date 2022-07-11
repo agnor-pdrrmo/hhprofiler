@@ -4,10 +4,10 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Libhhtypeofbuilding;
-use App\Http\Resources\LibhhtypeofbuildingResource;
+use App\Models\Libhhtenuralstatu;
+use App\Http\Resources\LibhhtenuralstatuResource;
 
-class LibhhtypeofbuildingController extends Controller
+class LibhhtenuralstatuController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class LibhhtypeofbuildingController extends Controller
      */
     public function index()
     {
-        $hhtypeofbuilding = Libhhtypeofbuilding::withCount(['households' =>function($query){
+        $hhtenuralstatus = Libhhtenuralstatu::withCount(['households' =>function($query){
             $query->withFilters(
                 request()->input('municipalities',[]),
                 request()->input('barangays',[]),
@@ -26,7 +26,7 @@ class LibhhtypeofbuildingController extends Controller
         }])
         ->get();
 
-        return LibhhtypeofbuildingResource::collection($hhtypeofbuilding);
+        return LibhhtenuralstatuResource::collection($hhtenuralstatus);
     }
 
     /**

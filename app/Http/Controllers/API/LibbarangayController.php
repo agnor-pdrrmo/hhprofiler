@@ -20,7 +20,8 @@ class LibbarangayController extends Controller
             $query->withFilters(
                 request()->input('municipalities',[]),
                 request()->input('barangays',[]),
-                request()->input('typeofbuildings',[])
+                request()->input('typeofbuildings',[]),
+                request()->input('hhtenuralstatus',[]),
             );
         }])
         ->get();

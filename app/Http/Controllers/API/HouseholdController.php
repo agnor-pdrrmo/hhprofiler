@@ -18,7 +18,9 @@ class HouseholdController extends Controller
         $household = Household::withFilters(
             request()->input('municipalities',[]),
             request()->input('barangays',[]),
-            request()->input('typeofbuildings',[])
+            request()->input('typeofbuildings',[]),
+            request()->input('hhtenuralstatus',[]),
+            
         )->get();
         //return LibbarangayResource::collection($barangays);
         return $household->load(

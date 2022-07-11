@@ -17,7 +17,7 @@ class Libhhtenuralstatu extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function househols()
+    public function households()
     {
         return $this->hasMany(Household::class);
     }

@@ -20,7 +20,8 @@ class LibmunicipalitieController extends Controller
             $query->withFilters(
                 request()->input('municipalities',[]),
                 request()->input('barangays',[]),
-                request()->input('typeofbuildings',[])
+                request()->input('typeofbuildings',[]),
+                request()->input('hhtenuralstatus',[]),
             );
         }])
         ->with(['libbarangays' => function($q){
@@ -28,7 +29,8 @@ class LibmunicipalitieController extends Controller
                 $query->withFilters(
                     request()->input('municipalities',[]),
                     request()->input('barangays',[]),
-                    request()->input('typeofbuildings',[])
+                    request()->input('typeofbuildings',[]),
+                    request()->input('hhtenuralstatus',[]),
                 );
             }]);
         }])
