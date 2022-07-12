@@ -47,6 +47,20 @@ class HouseholdController extends Controller
         );
     }
 
+    public function accessElectricity(){
+        
+        $household = Household::withFilters(
+            request()->input('municipalities',[]),
+            request()->input('barangays',[]),
+            request()->input('typeofbuildings',[]),
+            request()->input('hhtenuralstatus',[]),
+            request()->input('hhroofmaterials',[]),
+            request()->input('access_electricity',[]),
+        )->get();
+
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *
