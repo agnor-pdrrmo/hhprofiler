@@ -1,7 +1,11 @@
 <template>
   <section class="content">
-        <loading v-model="showLoading"
-            :is-full-page="true"></loading>
+        <loading 
+            :active='isLoading'
+            :is-full-page="true"
+            :loader='bars'
+            >
+        </loading>
         <div class="container-fluid" >
             <div class="row">
                 <div class="col-12" >
