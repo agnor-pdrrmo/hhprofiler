@@ -20,6 +20,7 @@ class HouseholdController extends Controller
             request()->input('barangays',[]),
             request()->input('typeofbuildings',[]),
             request()->input('hhtenuralstatus',[]),
+            request()->input('hhroofmaterials',[]),
             
         )->get();
         //return LibbarangayResource::collection($barangays);

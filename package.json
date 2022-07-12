@@ -30,6 +30,7 @@
         "jquery": "^3.6.0",
         "leaflet": "^1.8.0",
         "leaflet.gridlayer.googlemutant": "^0.8.0",
+        "vue-loading-overlay": "^3.4.2",
         "vue2-leaflet": "^2.7.1",
         "vue2-leaflet-googlemutant": "^2.0.0"
     }

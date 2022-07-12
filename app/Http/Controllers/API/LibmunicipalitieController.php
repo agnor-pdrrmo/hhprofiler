@@ -22,6 +22,7 @@ class LibmunicipalitieController extends Controller
                 request()->input('barangays',[]),
                 request()->input('typeofbuildings',[]),
                 request()->input('hhtenuralstatus',[]),
+                request()->input('hhroofmaterials',[]),
             );
         }])
         ->with(['libbarangays' => function($q){
@@ -31,6 +32,7 @@ class LibmunicipalitieController extends Controller
                     request()->input('barangays',[]),
                     request()->input('typeofbuildings',[]),
                     request()->input('hhtenuralstatus',[]),
+                    request()->input('hhroofmaterials',[]),
                 );
             }]);
         }])

@@ -1,5 +1,7 @@
 <template>
   <section class="content">
+        <loading v-model="showLoading"
+            :is-full-page="true"></loading>
         <div class="container-fluid" >
             <div class="row">
                 <div class="col-12" >
@@ -61,6 +63,7 @@
               <lib-municipality v-bind:municipalities="municipalities" v-bind:barangays="barangays" v-bind:selected="selected"></lib-municipality>
               <lib-typeofbuilding v-bind:hhtypeofbuildings="hhtypeofbuildings" v-bind:selected="selected"></lib-typeofbuilding>
               <lib-hhtenuralstatus v-bind:hhtenuralstatus="hhtenuralstatus" v-bind:selected="selected"></lib-hhtenuralstatus>
+              <lib-hhroofmaterials v-bind:hhroofmaterials="hhroofmaterials" v-bind:selected="selected"></lib-hhroofmaterials>
           </div>
         </aside>
     </section>
@@ -70,6 +73,8 @@
 
 import { LMap, LTileLayer, LMarker }  from 'vue2-leaflet';
 import Vue2LeafletGoogleMutant from 'vue2-leaflet-googlemutant';
+import Loading from 'vue-loading-overlay';
+import 'vue-loading-overlay/dist/vue-loading.css';
 import $ from 'jquery';
 
 export default {
@@ -77,7 +82,8 @@ export default {
     'v-map': LMap,
     'v-tilelayer' :LTileLayer,
     'v-marker': LMarker,
-    'v-tilelayer-googlemutant': Vue2LeafletGoogleMutant
+    'v-tilelayer-googlemutant': Vue2LeafletGoogleMutant,
+    Loading
   },
   data () {
     let options = {
@@ -108,13 +114,15 @@ export default {
         barangays: [],
         hhtypeofbuildings: [],
         hhtenuralstatus: [],
+        hhroofmaterials: [],
         //For searching
         selected: {
           households: [],
           municipalities: [],
           barangays: [],
           hhtypeofbuildings: [],
-          hhtenuralstatus: []
+          hhtenuralstatus: [],
+          hhroofmaterials: []
         },
         style:{
           width: '100%',
@@ -124,8 +132,9 @@ export default {
           iconSize:     [16, 16],
           iconAnchor:   [16, 16]
         }),
-        showModal : false,
-        advanceSearchtoggle : false
+        advanceSearchtoggle : false,
+        isLoading: false,
+        fullPage: true
     }
     
   },
@@ -142,6 +151,8 @@ export default {
         this.inBoundingbox = ( L.latLngBounds(featureGroup).contains(currentMarker.getLatLng()) ) ? true : false;
       },
       loadHouseholds: function(){
+          this.isLoading = true;
+          console.log(this.isLoading);
           axios.get('/api/households',{
             params: _.omit(this.selected, 'households')
           })
@@ -154,9 +165,12 @@ export default {
                     //To do ask sir rodiel bounding box of agusan del norte
                     : '';
 
+                   this.isLoading = false;
+
                 })
                 .catch(function(error){
                   console.log(error);
+                  this.isLoading = false;
                 });
       },
       coordinates: function(lat,long){
@@ -234,7 +248,18 @@ export default {
         .catch(function (error) {
             console.log(error);
         });
-      }, 
+      },
+      loadHhroofmaterials: function () {
+        axios.get('/api/hhroofmaterials', {
+            params: _.omit(this.selected, 'hhroofmaterials')
+        })
+        .then((response) => {
+            this.hhroofmaterials = response.data.data;
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+      },
   },
   watch: {
       selected: {
@@ -244,6 +269,7 @@ export default {
               this.loadTypeofbuilding();
               this.loadHouseholds();
               this.loadHhtenuralstatus();
+              this.loadHhroofmaterials();
           },
           deep: true
       }
@@ -312,6 +338,14 @@ export default {
       set(val){
         this.advanceSearchtoggle = val;
       }
+    },
+    showLoading:{
+      get(){
+        return this.isLoading;
+      },
+      set(val){
+        this.isLoading = val;
+      }
     }
   },
   mounted(){
@@ -330,7 +364,6 @@ export default {
         }
     });
     Event.$on('openSearchControl',()=>{
-      //this.showModal = true;
        this.advanceSearchtoggle =   true;
        if($('#toogleMultipleSearch:visible').length == 0){
           // Call invalidateSize to update map size
@@ -351,6 +384,7 @@ export default {
     this.loadTypeofbuilding();
     this.loadHouseholds();
     this.loadHhtenuralstatus();
+    this.loadHhroofmaterials();
   }
 }
 </script>

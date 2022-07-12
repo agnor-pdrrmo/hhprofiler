@@ -4,10 +4,10 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Libhhtypeofbuilding;
-use App\Http\Resources\LibhhtypeofbuildingResource;
+use App\Models\Libhhroofmaterial;
+use App\Http\Resources\LibhhroofmaterialResource;
 
-class LibhhtypeofbuildingController extends Controller
+class LibhhroofmaterialController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,18 +16,18 @@ class LibhhtypeofbuildingController extends Controller
      */
     public function index()
     {
-        $hhtypeofbuilding = Libhhtypeofbuilding::withCount(['households' =>function($query){
+        $hhroofmaterials = Libhhroofmaterial::withCount(['households' =>function($query){
             $query->withFilters(
                 request()->input('municipalities',[]),
                 request()->input('barangays',[]),
                 request()->input('typeofbuildings',[]),
-                request()->input('hhtenuralstatus',[]),
+                request()->input('hhroofmaterials',[]),
                 request()->input('hhroofmaterials',[]),
             );
         }])
         ->get();
 
-        return LibhhtypeofbuildingResource::collection($hhtypeofbuilding);
+        return LibhhroofmaterialResource::collection($hhroofmaterials);
     }
 
     /**

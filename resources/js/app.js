@@ -41,6 +41,7 @@ Vue.component('lib-municipality', require('./components/LibmunicipalityComponent
 Vue.component('lib-barangay', require('./components/LibbarangayComponent.vue').default);
 Vue.component('lib-typeofbuilding', require('./components/Libhhtypeofbuilding.vue').default);
 Vue.component('lib-hhtenuralstatus', require('./components/Libhhtenuralstatu.vue').default);
+Vue.component('lib-hhroofmaterials', require('./components/Libhhroofmaterial.vue').default);
 
 
 /**
