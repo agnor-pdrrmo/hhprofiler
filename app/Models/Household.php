@@ -126,21 +126,42 @@ class Household extends Model
         return $this->hasMany(Livelihood::class, 'household_controlnumber', 'controlnumber');
     }
 
-    public function scopeWithFilters($query,$municipalities,$barangays,$hhtypeofbuilding,$hhtenuralstatus,$hhroofmaterials,$accesstoelectricity){
-        return $query->when(count($municipalities), function($query) use ($municipalities){
-            $query->whereIn('libmunicipalitie_psgccode', $municipalities);
-        })
-        ->when(count($barangays), function ($query) use ($barangays){
-            $query->whereIn('libbarangay_psgccode', $barangays);
-        })->when(count($hhtypeofbuilding), function ($query) use ($hhtypeofbuilding){
-            $query->whereIn('libhhtypeofbuilding_id', $hhtypeofbuilding);
-        })->when(count($hhtenuralstatus), function ($query) use ($hhtenuralstatus){
-            $query->whereIn('libhhtenuralstatu_id', $hhtenuralstatus);
-        })->when(count($hhroofmaterials), function ($query) use ($hhroofmaterials){
-            $query->whereIn('libhhroofmaterial_id', $hhroofmaterials);
-        })->when(count($accesstoelectricity), function ($query) use ($accesstoelectricity){
-            $query->whereIn('access_electricity', $accesstoelectricity);    
-        });
-    }
-    
+    public function scopeWithFilters(
+            $query,
+            $municipalities,
+            $barangays,
+            $hhtypeofbuilding,
+            $hhtenuralstatus,
+            $hhroofmaterials,
+            $accesstoelectricity,
+            $accesstointernet,
+            $accesswatersupply,
+            $potable,
+            $hhwatertenuralstatus
+        )
+        {
+            return $query->when(count($municipalities), function($query) use ($municipalities){
+                $query->whereIn('libmunicipalitie_psgccode', $municipalities);
+            })
+            ->when(count($barangays), function ($query) use ($barangays){
+                $query->whereIn('libbarangay_psgccode', $barangays);
+            })->when(count($hhtypeofbuilding), function ($query) use ($hhtypeofbuilding){
+                $query->whereIn('libhhtypeofbuilding_id', $hhtypeofbuilding);
+            })->when(count($hhtenuralstatus), function ($query) use ($hhtenuralstatus){
+                $query->whereIn('libhhtenuralstatu_id', $hhtenuralstatus);
+            })->when(count($hhroofmaterials), function ($query) use ($hhroofmaterials){
+                $query->whereIn('libhhroofmaterial_id', $hhroofmaterials);
+            })->when(count($accesstoelectricity), function ($query) use ($accesstoelectricity){
+                $query->whereIn('access_electricity', $accesstoelectricity);    
+            })->when(count($accesstointernet), function ($query) use ($accesstointernet){
+                $query->whereIn('access_internet', $accesstointernet);    
+            })->when(count($accesswatersupply), function ($query) use ($accesswatersupply){
+                $query->whereIn('access_watersupply', $accesswatersupply);    
+            })->when(count($potable), function ($query) use ($potable){
+                $query->whereIn('potable', $potable);    
+            })->when(count($hhwatertenuralstatus), function ($query) use ($hhwatertenuralstatus){
+                $query->whereIn('libhhwatertenuralstatu_id', $hhwatertenuralstatus);    
+            });
+        }
+        
 }

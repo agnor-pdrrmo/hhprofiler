@@ -8,6 +8,7 @@ use App\Http\Controllers\API\LibbarangayController;
 use App\Http\Controllers\API\LibhhtypeofbuildingController;
 use App\Http\Controllers\API\LibhhtenuralstatuController;
 use App\Http\Controllers\API\LibhhroofmaterialController;
+use App\Http\Controllers\API\LibhhwatertenuralstatusController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +32,4 @@ Route::get('barangays', [LibbarangayController::class,'index']);
 Route::get('hhtypeofbuildings', [LibhhtypeofbuildingController::class,'index']);
 Route::get('hhtenuralstatus', [LibhhtenuralstatuController::class,'index']);
 Route::get('hhroofmaterials', [LibhhroofmaterialController::class,'index']);
+Route::get('hhwatertenuralstatus', [LibhhwatertenuralstatusController::class,'index']);

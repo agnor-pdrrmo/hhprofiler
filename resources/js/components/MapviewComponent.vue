@@ -1,7 +1,7 @@
 <template>
   <section class="content">
         <loading 
-            :active='isLoading'
+            :active='showLoading'
             :is-full-page="true"
             :loader='bars'
             :height= '128'
@@ -71,6 +71,10 @@
               <lib-hhtenuralstatus v-bind:hhtenuralstatus="hhtenuralstatus" v-bind:selected="selected"></lib-hhtenuralstatus>
               <lib-hhroofmaterials v-bind:hhroofmaterials="hhroofmaterials" v-bind:selected="selected"></lib-hhroofmaterials>
               <lib-accesstoelectricity v-bind:hasElectricity="hasElectricity" v-bind:noElectricity="noElectricity" v-bind:selected="selected"></lib-accesstoelectricity>
+              <lib-accesstointernet v-bind:hasInternet="hasInternet" v-bind:noInternet="noInternet" v-bind:selected="selected"></lib-accesstointernet>
+              <lib-accesswatersupply v-bind:hasAccesswatersupply="hasAccesswatersupply" v-bind:noAccesswatersupply="noAccesswatersupply" v-bind:selected="selected"></lib-accesswatersupply>
+              <lib-potable v-bind:ispotable="ispotable" v-bind:notpotable="notpotable" v-bind:selected="selected"></lib-potable>
+              <lib-hhwatertenuralstatus v-bind:hhwatertenuralstatus="hhwatertenuralstatus" v-bind:selected="selected"></lib-hhwatertenuralstatus>
           </div>
         </aside>
     </section>
@@ -122,8 +126,15 @@ export default {
         hhtypeofbuildings: [],
         hhtenuralstatus: [],
         hhroofmaterials: [],
+        hhwatertenuralstatus: [],
         hasElectricity: [],
         noElectricity: [],
+        hasInternet: [],
+        noInternet: [],
+        hasAccesswatersupply: [],
+        noAccesswatersupply: [],
+        ispotable: [],
+        notpotable: [],
         //For searching
         selected: {
           households: [],
@@ -133,6 +144,10 @@ export default {
           hhtenuralstatus: [],
           hhroofmaterials: [],
           accesstoelectricity: [],
+          accesstointernet: [],
+          accesswatersupply: [],
+          potable: [],
+          hhwatertenuralstatus: []
         },
         style:{
           width: '100%',
@@ -171,6 +186,12 @@ export default {
                    this.households = response.data.household;
                    this.hasElectricity = {'access': 'Yes','id':1,'households_count': response.data.has_access_electricity_count};
                    this.noElectricity = {'access': 'No','id':0,'households_count': response.data.no_access_electricity_count};
+                   this.hasInternet = {'access': 'Yes','id':1,'households_count': response.data.has_access_internet_count};
+                   this.noInternet = {'access': 'No','id':0,'households_count': response.data.no_access_internet_count};
+                   this.hasAccesswatersupply = {'access': 'Yes','id':1,'households_count': response.data.has_accesswatersupply_count};
+                   this.noAccesswatersupply = {'access': 'No','id':0,'households_count': response.data.no_accesswatersupply_count};
+                   this.ispotable = {'access': 'Yes','id':1,'households_count': response.data.is_potable_count};
+                   this.notpotable = {'access': 'No','id':0,'households_count': response.data.not_potable_count};
 
                    (response.data.length != 0) 
                     ? this.$refs.map.mapObject.fitBounds(this.households.map(h => { return [h.latitude, h.longitude] })) 
@@ -285,6 +306,20 @@ export default {
             console.log(error);
             this.isLoading = false;
         });
+      },
+      loadHhwatertenuralstatus: function () {
+        this.isLoading = true;
+        axios.get('/api/hhwatertenuralstatus', {
+            params: _.omit(this.selected, 'hhwatertenuralstatus')
+        })
+        .then((response) => {
+            this.hhwatertenuralstatus = response.data.data;
+            this.isLoading = false;
+        })
+        .catch(function (error) {
+            console.log(error);
+            this.isLoading = false;
+        });
       }
   },
   watch: {
@@ -296,6 +331,7 @@ export default {
               this.loadTypeofbuilding();
               this.loadHhtenuralstatus();
               this.loadHhroofmaterials();
+              this.loadHhwatertenuralstatus();
           },
           deep: true
       }
@@ -411,6 +447,7 @@ export default {
     this.loadHouseholds();
     this.loadHhtenuralstatus();
     this.loadHhroofmaterials();
+    this.loadHhwatertenuralstatus();
   }
 }
 </script>

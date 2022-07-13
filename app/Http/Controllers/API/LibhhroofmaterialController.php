@@ -24,6 +24,10 @@ class LibhhroofmaterialController extends Controller
                 request()->input('hhroofmaterials',[]),
                 request()->input('hhroofmaterials',[]),
                 request()->input('accesstoelectricity',[]),
+                request()->input('accesstointernet',[]),
+                request()->input('accesswatersupply',[]),
+                request()->input('potable',[]),
+                request()->input('hhwatertenuralstatus',[]),
             );
         }])
         ->get();

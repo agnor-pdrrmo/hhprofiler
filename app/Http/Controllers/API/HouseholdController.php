@@ -5,7 +5,6 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Household;
-use App\Http\Resources\HouseholdResource;
 
 class HouseholdController extends Controller
 {
@@ -23,6 +22,10 @@ class HouseholdController extends Controller
             request()->input('hhtenuralstatus',[]),
             request()->input('hhroofmaterials',[]),
             request()->input('accesstoelectricity',[]),
+            request()->input('accesstointernet',[]),
+            request()->input('accesswatersupply',[]),
+            request()->input('potable',[]),
+            request()->input('hhwatertenuralstatus',[]),
             
         )->get();
         //return LibbarangayResource::collection($barangays);
@@ -50,22 +53,14 @@ class HouseholdController extends Controller
         return array(
                  'household'=>$householdResource,
                  'has_access_electricity_count'=>$householdResource->where('access_electricity','=',1)->count(),
-                 'no_access_electricity_count'=>$householdResource->where('access_electricity','=',0)->count()
+                 'no_access_electricity_count'=>$householdResource->where('access_electricity','=',0)->count(),
+                 'has_access_internet_count'=>$householdResource->where('access_internet','=',1)->count(),
+                 'no_access_internet_count'=>$householdResource->where('access_internet','=',0)->count(),
+                 'has_accesswatersupply_count'=>$householdResource->where('access_watersupply','=',1)->count(),
+                 'no_accesswatersupply_count'=>$householdResource->where('access_watersupply','=',0)->count(),
+                 'is_potable_count'=>$householdResource->where('potable','=',1)->count(),
+                 'not_potable_count'=>$householdResource->where('potable','=',0)->count()
         );
-    }
-
-    public function accessElectricity(){
-        
-        $household = Household::withFilters(
-            request()->input('municipalities',[]),
-            request()->input('barangays',[]),
-            request()->input('typeofbuildings',[]),
-            request()->input('hhtenuralstatus',[]),
-            request()->input('hhroofmaterials',[]),
-            request()->input('accesstoelectricity',[]),
-        )->get();
-
-        return $household;       
     }
 
     /**

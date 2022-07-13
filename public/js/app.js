@@ -2189,6 +2189,40 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AccesstointernetComponent.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AccesstointernetComponent.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['hasInternet', 'noInternet', 'selected']
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AccesswatersupplyComponent.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AccesswatersupplyComponent.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['hasAccesswatersupply', 'noAccesswatersupply', 'selected']
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AvailedprogramComponent.vue?vue&type=script&lang=js&":
 /*!******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AvailedprogramComponent.vue?vue&type=script&lang=js& ***!
@@ -2538,6 +2572,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LibhhwatertenuralstatuComponent.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LibhhwatertenuralstatuComponent.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['hhwatertenuralstatus', 'selected']
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LibmunicipalityComponent.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LibmunicipalityComponent.vue?vue&type=script&lang=js& ***!
@@ -2720,8 +2771,15 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       hhtypeofbuildings: [],
       hhtenuralstatus: [],
       hhroofmaterials: [],
+      hhwatertenuralstatus: [],
       hasElectricity: [],
       noElectricity: [],
+      hasInternet: [],
+      noInternet: [],
+      hasAccesswatersupply: [],
+      noAccesswatersupply: [],
+      ispotable: [],
+      notpotable: [],
       //For searching
       selected: {
         households: [],
@@ -2730,7 +2788,11 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
         hhtypeofbuildings: [],
         hhtenuralstatus: [],
         hhroofmaterials: [],
-        accesstoelectricity: []
+        accesstoelectricity: [],
+        accesstointernet: [],
+        accesswatersupply: [],
+        potable: [],
+        hhwatertenuralstatus: []
       },
       style: {
         width: '100%'
@@ -2774,6 +2836,36 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
           'access': 'No',
           'id': 0,
           'households_count': response.data.no_access_electricity_count
+        };
+        _this.hasInternet = {
+          'access': 'Yes',
+          'id': 1,
+          'households_count': response.data.has_access_internet_count
+        };
+        _this.noInternet = {
+          'access': 'No',
+          'id': 0,
+          'households_count': response.data.no_access_internet_count
+        };
+        _this.hasAccesswatersupply = {
+          'access': 'Yes',
+          'id': 1,
+          'households_count': response.data.has_accesswatersupply_count
+        };
+        _this.noAccesswatersupply = {
+          'access': 'No',
+          'id': 0,
+          'households_count': response.data.no_accesswatersupply_count
+        };
+        _this.ispotable = {
+          'access': 'Yes',
+          'id': 1,
+          'households_count': response.data.is_potable_count
+        };
+        _this.notpotable = {
+          'access': 'No',
+          'id': 0,
+          'households_count': response.data.not_potable_count
         };
         response.data.length != 0 ? _this.$refs.map.mapObject.fitBounds(_this.households.map(function (h) {
           return [h.latitude, h.longitude];
@@ -2890,6 +2982,20 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
         console.log(error);
         this.isLoading = false;
       });
+    },
+    loadHhwatertenuralstatus: function loadHhwatertenuralstatus() {
+      var _this7 = this;
+
+      this.isLoading = true;
+      axios.get('/api/hhwatertenuralstatus', {
+        params: _.omit(this.selected, 'hhwatertenuralstatus')
+      }).then(function (response) {
+        _this7.hhwatertenuralstatus = response.data.data;
+        _this7.isLoading = false;
+      })["catch"](function (error) {
+        console.log(error);
+        this.isLoading = false;
+      });
     }
   },
   watch: {
@@ -2901,6 +3007,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
         this.loadTypeofbuilding();
         this.loadHhtenuralstatus();
         this.loadHhroofmaterials();
+        this.loadHhwatertenuralstatus();
       },
       deep: true
     }
@@ -2980,46 +3087,46 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     }
   },
   mounted: function mounted() {
-    var _this7 = this;
+    var _this8 = this;
 
     Event.$on('mapInvalidate', function () {
-      _this7.advanceSearchtoggle = false;
+      _this8.advanceSearchtoggle = false;
 
       if (jquery__WEBPACK_IMPORTED_MODULE_3___default()('#toogleinformation:visible').length == 0) {
         // Call invalidateSize to update map size
-        _this7.$refs.map.mapObject.invalidateSize(); //Set width of the map 
+        _this8.$refs.map.mapObject.invalidateSize(); //Set width of the map 
 
 
-        _this7.style = {
+        _this8.style = {
           width: '65%'
         };
       } else {
         // Call invalidateSize to update map size
-        _this7.$refs.map.mapObject.invalidateSize(); //Set width of the map 
+        _this8.$refs.map.mapObject.invalidateSize(); //Set width of the map 
 
 
-        _this7.style = {
+        _this8.style = {
           width: '100%'
         };
       }
     });
     Event.$on('openSearchControl', function () {
-      _this7.advanceSearchtoggle = true;
+      _this8.advanceSearchtoggle = true;
 
       if (jquery__WEBPACK_IMPORTED_MODULE_3___default()('#toogleMultipleSearch:visible').length == 0) {
         // Call invalidateSize to update map size
-        _this7.$refs.map.mapObject.invalidateSize(); //Set width of the map 
+        _this8.$refs.map.mapObject.invalidateSize(); //Set width of the map 
 
 
-        _this7.style = {
+        _this8.style = {
           width: '80%'
         };
       } else {
         // Call invalidateSize to update map size
-        _this7.$refs.map.mapObject.invalidateSize(); //Set width of the map 
+        _this8.$refs.map.mapObject.invalidateSize(); //Set width of the map 
 
 
-        _this7.style = {
+        _this8.style = {
           width: '100%'
         };
       }
@@ -3031,6 +3138,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     this.loadHouseholds();
     this.loadHhtenuralstatus();
     this.loadHhroofmaterials();
+    this.loadHhwatertenuralstatus();
   }
 });
 
@@ -3099,6 +3207,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PotableComponent.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PotableComponent.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['ispotable', 'notpotable', 'selected']
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SectionheaderComponent.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SectionheaderComponent.vue?vue&type=script&lang=js& ***!
@@ -3153,7 +3278,7 @@ var render = function render() {
     staticClass: "form-check-input",
     attrs: {
       type: "checkbox",
-      id: "access" + 1
+      id: "accesstoelectricity" + 1
     },
     domProps: {
       value: 1,
@@ -3182,7 +3307,7 @@ var render = function render() {
   }), _vm._v(" "), _c("label", {
     staticClass: "form-check-label",
     attrs: {
-      "for": "access" + 1
+      "for": "accesstoelectricity" + 1
     }
   }, [_vm._v("\r\n            Yes (" + _vm._s(_vm.hasElectricity.households_count) + ")\r\n        ")])]), _vm._v(" "), _c("div", {
     staticClass: "mb-1"
@@ -3196,7 +3321,7 @@ var render = function render() {
     staticClass: "form-check-input",
     attrs: {
       type: "checkbox",
-      id: "access" + 0
+      id: "accesstoelectricity" + 0
     },
     domProps: {
       value: 0,
@@ -3225,9 +3350,9 @@ var render = function render() {
   }), _vm._v(" "), _c("label", {
     staticClass: "form-check-label",
     attrs: {
-      "for": "access" + 0
+      "for": "accesstoelectricity" + 0
     }
-  }, [_vm._v("\r\n            Yes (" + _vm._s(_vm.noElectricity.households_count) + ")\r\n        ")])])])]);
+  }, [_vm._v("\r\n            No (" + _vm._s(_vm.noElectricity.households_count) + ")\r\n        ")])])])]);
 };
 
 var staticRenderFns = [function () {
@@ -3245,6 +3370,268 @@ var staticRenderFns = [function () {
       color: "#007bff"
     }
   }, [_vm._v("Has Electricity")])]);
+}];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AccesstointernetComponent.vue?vue&type=template&id=6b4b1762&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AccesstointernetComponent.vue?vue&type=template&id=6b4b1762& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", [_vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "collapse",
+    attrs: {
+      id: "accesstointernet"
+    }
+  }, [_c("div", {
+    staticClass: "mb-1"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.selected.accesstointernet,
+      expression: "selected.accesstointernet"
+    }],
+    staticClass: "form-check-input",
+    attrs: {
+      type: "checkbox",
+      id: "accesstointernet" + 1
+    },
+    domProps: {
+      value: 1,
+      checked: Array.isArray(_vm.selected.accesstointernet) ? _vm._i(_vm.selected.accesstointernet, 1) > -1 : _vm.selected.accesstointernet
+    },
+    on: {
+      change: function change($event) {
+        var $$a = _vm.selected.accesstointernet,
+            $$el = $event.target,
+            $$c = $$el.checked ? true : false;
+
+        if (Array.isArray($$a)) {
+          var $$v = 1,
+              $$i = _vm._i($$a, $$v);
+
+          if ($$el.checked) {
+            $$i < 0 && _vm.$set(_vm.selected, "accesstointernet", $$a.concat([$$v]));
+          } else {
+            $$i > -1 && _vm.$set(_vm.selected, "accesstointernet", $$a.slice(0, $$i).concat($$a.slice($$i + 1)));
+          }
+        } else {
+          _vm.$set(_vm.selected, "accesstointernet", $$c);
+        }
+      }
+    }
+  }), _vm._v(" "), _c("label", {
+    staticClass: "form-check-label",
+    attrs: {
+      "for": "accesstointernet" + 1
+    }
+  }, [_vm._v("\r\n            Yes (" + _vm._s(_vm.hasInternet.households_count) + ")\r\n        ")])]), _vm._v(" "), _c("div", {
+    staticClass: "mb-1"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.selected.accesstointernet,
+      expression: "selected.accesstointernet"
+    }],
+    staticClass: "form-check-input",
+    attrs: {
+      type: "checkbox",
+      id: "accesstointernet" + 0
+    },
+    domProps: {
+      value: 0,
+      checked: Array.isArray(_vm.selected.accesstointernet) ? _vm._i(_vm.selected.accesstointernet, 0) > -1 : _vm.selected.accesstointernet
+    },
+    on: {
+      change: function change($event) {
+        var $$a = _vm.selected.accesstointernet,
+            $$el = $event.target,
+            $$c = $$el.checked ? true : false;
+
+        if (Array.isArray($$a)) {
+          var $$v = 0,
+              $$i = _vm._i($$a, $$v);
+
+          if ($$el.checked) {
+            $$i < 0 && _vm.$set(_vm.selected, "accesstointernet", $$a.concat([$$v]));
+          } else {
+            $$i > -1 && _vm.$set(_vm.selected, "accesstointernet", $$a.slice(0, $$i).concat($$a.slice($$i + 1)));
+          }
+        } else {
+          _vm.$set(_vm.selected, "accesstointernet", $$c);
+        }
+      }
+    }
+  }), _vm._v(" "), _c("label", {
+    staticClass: "form-check-label",
+    attrs: {
+      "for": "accesstointernet" + 0
+    }
+  }, [_vm._v("\r\n            No (" + _vm._s(_vm.noInternet.households_count) + ")\r\n        ")])])])]);
+};
+
+var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("a", {
+    attrs: {
+      "data-toggle": "collapse",
+      href: "#accesstointernet",
+      "aria-expanded": "false"
+    }
+  }, [_c("h6", {
+    staticStyle: {
+      color: "#007bff"
+    }
+  }, [_vm._v("Has Internet")])]);
+}];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AccesswatersupplyComponent.vue?vue&type=template&id=81cb3134&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AccesswatersupplyComponent.vue?vue&type=template&id=81cb3134& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", [_vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "collapse",
+    attrs: {
+      id: "accesswatersupply"
+    }
+  }, [_c("div", {
+    staticClass: "mb-1"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.selected.accesswatersupply,
+      expression: "selected.accesswatersupply"
+    }],
+    staticClass: "form-check-input",
+    attrs: {
+      type: "checkbox",
+      id: "accesswatersupply" + 1
+    },
+    domProps: {
+      value: 1,
+      checked: Array.isArray(_vm.selected.accesswatersupply) ? _vm._i(_vm.selected.accesswatersupply, 1) > -1 : _vm.selected.accesswatersupply
+    },
+    on: {
+      change: function change($event) {
+        var $$a = _vm.selected.accesswatersupply,
+            $$el = $event.target,
+            $$c = $$el.checked ? true : false;
+
+        if (Array.isArray($$a)) {
+          var $$v = 1,
+              $$i = _vm._i($$a, $$v);
+
+          if ($$el.checked) {
+            $$i < 0 && _vm.$set(_vm.selected, "accesswatersupply", $$a.concat([$$v]));
+          } else {
+            $$i > -1 && _vm.$set(_vm.selected, "accesswatersupply", $$a.slice(0, $$i).concat($$a.slice($$i + 1)));
+          }
+        } else {
+          _vm.$set(_vm.selected, "accesswatersupply", $$c);
+        }
+      }
+    }
+  }), _vm._v(" "), _c("label", {
+    staticClass: "form-check-label",
+    attrs: {
+      "for": "accesswatersupply" + 1
+    }
+  }, [_vm._v("\r\n            Yes (" + _vm._s(_vm.hasAccesswatersupply.households_count) + ")\r\n        ")])]), _vm._v(" "), _c("div", {
+    staticClass: "mb-1"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.selected.accesswatersupply,
+      expression: "selected.accesswatersupply"
+    }],
+    staticClass: "form-check-input",
+    attrs: {
+      type: "checkbox",
+      id: "accesswatersupply" + 0
+    },
+    domProps: {
+      value: 0,
+      checked: Array.isArray(_vm.selected.accesswatersupply) ? _vm._i(_vm.selected.accesswatersupply, 0) > -1 : _vm.selected.accesswatersupply
+    },
+    on: {
+      change: function change($event) {
+        var $$a = _vm.selected.accesswatersupply,
+            $$el = $event.target,
+            $$c = $$el.checked ? true : false;
+
+        if (Array.isArray($$a)) {
+          var $$v = 0,
+              $$i = _vm._i($$a, $$v);
+
+          if ($$el.checked) {
+            $$i < 0 && _vm.$set(_vm.selected, "accesswatersupply", $$a.concat([$$v]));
+          } else {
+            $$i > -1 && _vm.$set(_vm.selected, "accesswatersupply", $$a.slice(0, $$i).concat($$a.slice($$i + 1)));
+          }
+        } else {
+          _vm.$set(_vm.selected, "accesswatersupply", $$c);
+        }
+      }
+    }
+  }), _vm._v(" "), _c("label", {
+    staticClass: "form-check-label",
+    attrs: {
+      "for": "accesswatersupply" + 0
+    }
+  }, [_vm._v("\r\n            No (" + _vm._s(_vm.noAccesswatersupply.households_count) + ")\r\n        ")])])])]);
+};
+
+var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("a", {
+    attrs: {
+      "data-toggle": "collapse",
+      href: "#accesswatersupply",
+      "aria-expanded": "false"
+    }
+  }, [_c("h6", {
+    staticStyle: {
+      color: "#007bff"
+    }
+  }, [_vm._v("Water supply")])]);
 }];
 render._withStripped = true;
 
@@ -6490,6 +6877,97 @@ render._withStripped = true;
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LibhhwatertenuralstatuComponent.vue?vue&type=template&id=530a01f4&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LibhhwatertenuralstatuComponent.vue?vue&type=template&id=530a01f4& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", [_vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "collapse",
+    attrs: {
+      id: "hhwatertenuralstatus"
+    }
+  }, _vm._l(_vm.hhwatertenuralstatus, function (waterhhtenuralstatu) {
+    return _c("div", {
+      key: waterhhtenuralstatu.id,
+      staticClass: "mb-1"
+    }, [_c("input", {
+      directives: [{
+        name: "model",
+        rawName: "v-model",
+        value: _vm.selected.hhwatertenuralstatus,
+        expression: "selected.hhwatertenuralstatus"
+      }],
+      staticClass: "form-check-input",
+      attrs: {
+        type: "checkbox",
+        id: "waterhhtenuralstatu" + waterhhtenuralstatu.id
+      },
+      domProps: {
+        value: waterhhtenuralstatu.id,
+        checked: Array.isArray(_vm.selected.hhwatertenuralstatus) ? _vm._i(_vm.selected.hhwatertenuralstatus, waterhhtenuralstatu.id) > -1 : _vm.selected.hhwatertenuralstatus
+      },
+      on: {
+        change: function change($event) {
+          var $$a = _vm.selected.hhwatertenuralstatus,
+              $$el = $event.target,
+              $$c = $$el.checked ? true : false;
+
+          if (Array.isArray($$a)) {
+            var $$v = waterhhtenuralstatu.id,
+                $$i = _vm._i($$a, $$v);
+
+            if ($$el.checked) {
+              $$i < 0 && _vm.$set(_vm.selected, "hhwatertenuralstatus", $$a.concat([$$v]));
+            } else {
+              $$i > -1 && _vm.$set(_vm.selected, "hhwatertenuralstatus", $$a.slice(0, $$i).concat($$a.slice($$i + 1)));
+            }
+          } else {
+            _vm.$set(_vm.selected, "hhwatertenuralstatus", $$c);
+          }
+        }
+      }
+    }), _vm._v(" "), _c("label", {
+      staticClass: "form-check-label",
+      attrs: {
+        "for": "waterhhtenuralstatu" + waterhhtenuralstatu.id
+      }
+    }, [_vm._v("\r\n            " + _vm._s(waterhhtenuralstatu.lib_wtdesc) + " (" + _vm._s(waterhhtenuralstatu.households_count) + ")\r\n        ")])]);
+  }), 0)]);
+};
+
+var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("a", {
+    attrs: {
+      "data-toggle": "collapse",
+      href: "#hhwatertenuralstatus",
+      "aria-expanded": "false"
+    }
+  }, [_c("h6", {
+    staticStyle: {
+      color: "#007bff"
+    }
+  }, [_vm._v("Water tenural status")])]);
+}];
+render._withStripped = true;
+
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LibmunicipalityComponent.vue?vue&type=template&id=61ab47e7&":
 /*!******************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LibmunicipalityComponent.vue?vue&type=template&id=61ab47e7& ***!
@@ -6939,7 +7417,7 @@ var render = function render() {
     staticClass: "content"
   }, [_c("loading", {
     attrs: {
-      active: _vm.isLoading,
+      active: _vm.showLoading,
       "is-full-page": true,
       loader: _vm.bars,
       height: 128,
@@ -7092,6 +7570,29 @@ var render = function render() {
     attrs: {
       hasElectricity: _vm.hasElectricity,
       noElectricity: _vm.noElectricity,
+      selected: _vm.selected
+    }
+  }), _vm._v(" "), _c("lib-accesstointernet", {
+    attrs: {
+      hasInternet: _vm.hasInternet,
+      noInternet: _vm.noInternet,
+      selected: _vm.selected
+    }
+  }), _vm._v(" "), _c("lib-accesswatersupply", {
+    attrs: {
+      hasAccesswatersupply: _vm.hasAccesswatersupply,
+      noAccesswatersupply: _vm.noAccesswatersupply,
+      selected: _vm.selected
+    }
+  }), _vm._v(" "), _c("lib-potable", {
+    attrs: {
+      ispotable: _vm.ispotable,
+      notpotable: _vm.notpotable,
+      selected: _vm.selected
+    }
+  }), _vm._v(" "), _c("lib-hhwatertenuralstatus", {
+    attrs: {
+      hhwatertenuralstatus: _vm.hhwatertenuralstatus,
       selected: _vm.selected
     }
   })], 1)])], 1);
@@ -7285,6 +7786,137 @@ render._withStripped = true;
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PotableComponent.vue?vue&type=template&id=5b7827f9&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PotableComponent.vue?vue&type=template&id=5b7827f9& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", [_vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "collapse",
+    attrs: {
+      id: "potable"
+    }
+  }, [_c("div", {
+    staticClass: "mb-1"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.selected.potable,
+      expression: "selected.potable"
+    }],
+    staticClass: "form-check-input",
+    attrs: {
+      type: "checkbox",
+      id: "potable" + 1
+    },
+    domProps: {
+      value: 1,
+      checked: Array.isArray(_vm.selected.potable) ? _vm._i(_vm.selected.potable, 1) > -1 : _vm.selected.potable
+    },
+    on: {
+      change: function change($event) {
+        var $$a = _vm.selected.potable,
+            $$el = $event.target,
+            $$c = $$el.checked ? true : false;
+
+        if (Array.isArray($$a)) {
+          var $$v = 1,
+              $$i = _vm._i($$a, $$v);
+
+          if ($$el.checked) {
+            $$i < 0 && _vm.$set(_vm.selected, "potable", $$a.concat([$$v]));
+          } else {
+            $$i > -1 && _vm.$set(_vm.selected, "potable", $$a.slice(0, $$i).concat($$a.slice($$i + 1)));
+          }
+        } else {
+          _vm.$set(_vm.selected, "potable", $$c);
+        }
+      }
+    }
+  }), _vm._v(" "), _c("label", {
+    staticClass: "form-check-label",
+    attrs: {
+      "for": "potable" + 1
+    }
+  }, [_vm._v("\r\n            Yes (" + _vm._s(_vm.ispotable.households_count) + ")\r\n        ")])]), _vm._v(" "), _c("div", {
+    staticClass: "mb-1"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.selected.potable,
+      expression: "selected.potable"
+    }],
+    staticClass: "form-check-input",
+    attrs: {
+      type: "checkbox",
+      id: "potable" + 0
+    },
+    domProps: {
+      value: 0,
+      checked: Array.isArray(_vm.selected.potable) ? _vm._i(_vm.selected.potable, 0) > -1 : _vm.selected.potable
+    },
+    on: {
+      change: function change($event) {
+        var $$a = _vm.selected.potable,
+            $$el = $event.target,
+            $$c = $$el.checked ? true : false;
+
+        if (Array.isArray($$a)) {
+          var $$v = 0,
+              $$i = _vm._i($$a, $$v);
+
+          if ($$el.checked) {
+            $$i < 0 && _vm.$set(_vm.selected, "potable", $$a.concat([$$v]));
+          } else {
+            $$i > -1 && _vm.$set(_vm.selected, "potable", $$a.slice(0, $$i).concat($$a.slice($$i + 1)));
+          }
+        } else {
+          _vm.$set(_vm.selected, "potable", $$c);
+        }
+      }
+    }
+  }), _vm._v(" "), _c("label", {
+    staticClass: "form-check-label",
+    attrs: {
+      "for": "potable" + 0
+    }
+  }, [_vm._v("\r\n            No (" + _vm._s(_vm.notpotable.households_count) + ")\r\n        ")])])])]);
+};
+
+var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("a", {
+    attrs: {
+      "data-toggle": "collapse",
+      href: "#potable",
+      "aria-expanded": "false"
+    }
+  }, [_c("h6", {
+    staticStyle: {
+      color: "#007bff"
+    }
+  }, [_vm._v("Water potable")])]);
+}];
+render._withStripped = true;
+
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SectionheaderComponent.vue?vue&type=template&id=5016c3d4&":
 /*!****************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SectionheaderComponent.vue?vue&type=template&id=5016c3d4& ***!
@@ -7380,6 +8012,10 @@ Vue.component('lib-typeofbuilding', (__webpack_require__(/*! ./components/Libhht
 Vue.component('lib-hhtenuralstatus', (__webpack_require__(/*! ./components/Libhhtenuralstatu.vue */ "./resources/js/components/Libhhtenuralstatu.vue")["default"]));
 Vue.component('lib-hhroofmaterials', (__webpack_require__(/*! ./components/Libhhroofmaterial.vue */ "./resources/js/components/Libhhroofmaterial.vue")["default"]));
 Vue.component('lib-accesstoelectricity', (__webpack_require__(/*! ./components/AccesstoelectricityComponent.vue */ "./resources/js/components/AccesstoelectricityComponent.vue")["default"]));
+Vue.component('lib-accesstointernet', (__webpack_require__(/*! ./components/AccesstointernetComponent.vue */ "./resources/js/components/AccesstointernetComponent.vue")["default"]));
+Vue.component('lib-accesswatersupply', (__webpack_require__(/*! ./components/AccesswatersupplyComponent.vue */ "./resources/js/components/AccesswatersupplyComponent.vue")["default"]));
+Vue.component('lib-potable', (__webpack_require__(/*! ./components/PotableComponent.vue */ "./resources/js/components/PotableComponent.vue")["default"]));
+Vue.component('lib-hhwatertenuralstatus', (__webpack_require__(/*! ./components/LibhhwatertenuralstatuComponent.vue */ "./resources/js/components/LibhhwatertenuralstatuComponent.vue")["default"]));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -59677,6 +60313,84 @@ component.options.__file = "resources/js/components/AccesstoelectricityComponent
 
 /***/ }),
 
+/***/ "./resources/js/components/AccesstointernetComponent.vue":
+/*!***************************************************************!*\
+  !*** ./resources/js/components/AccesstointernetComponent.vue ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _AccesstointernetComponent_vue_vue_type_template_id_6b4b1762___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AccesstointernetComponent.vue?vue&type=template&id=6b4b1762& */ "./resources/js/components/AccesstointernetComponent.vue?vue&type=template&id=6b4b1762&");
+/* harmony import */ var _AccesstointernetComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AccesstointernetComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/AccesstointernetComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _AccesstointernetComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AccesstointernetComponent_vue_vue_type_template_id_6b4b1762___WEBPACK_IMPORTED_MODULE_0__.render,
+  _AccesstointernetComponent_vue_vue_type_template_id_6b4b1762___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/AccesstointernetComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/AccesswatersupplyComponent.vue":
+/*!****************************************************************!*\
+  !*** ./resources/js/components/AccesswatersupplyComponent.vue ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _AccesswatersupplyComponent_vue_vue_type_template_id_81cb3134___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AccesswatersupplyComponent.vue?vue&type=template&id=81cb3134& */ "./resources/js/components/AccesswatersupplyComponent.vue?vue&type=template&id=81cb3134&");
+/* harmony import */ var _AccesswatersupplyComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AccesswatersupplyComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/AccesswatersupplyComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _AccesswatersupplyComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AccesswatersupplyComponent_vue_vue_type_template_id_81cb3134___WEBPACK_IMPORTED_MODULE_0__.render,
+  _AccesswatersupplyComponent_vue_vue_type_template_id_81cb3134___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/AccesswatersupplyComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/AvailedprogramComponent.vue":
 /*!*************************************************************!*\
   !*** ./resources/js/components/AvailedprogramComponent.vue ***!
@@ -60106,6 +60820,45 @@ component.options.__file = "resources/js/components/Libhhtypeofbuilding.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/LibhhwatertenuralstatuComponent.vue":
+/*!*********************************************************************!*\
+  !*** ./resources/js/components/LibhhwatertenuralstatuComponent.vue ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _LibhhwatertenuralstatuComponent_vue_vue_type_template_id_530a01f4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LibhhwatertenuralstatuComponent.vue?vue&type=template&id=530a01f4& */ "./resources/js/components/LibhhwatertenuralstatuComponent.vue?vue&type=template&id=530a01f4&");
+/* harmony import */ var _LibhhwatertenuralstatuComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LibhhwatertenuralstatuComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/LibhhwatertenuralstatuComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _LibhhwatertenuralstatuComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _LibhhwatertenuralstatuComponent_vue_vue_type_template_id_530a01f4___WEBPACK_IMPORTED_MODULE_0__.render,
+  _LibhhwatertenuralstatuComponent_vue_vue_type_template_id_530a01f4___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/LibhhwatertenuralstatuComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/LibmunicipalityComponent.vue":
 /*!**************************************************************!*\
   !*** ./resources/js/components/LibmunicipalityComponent.vue ***!
@@ -60383,6 +61136,45 @@ component.options.__file = "resources/js/components/NavsearchbuttonComponent.vue
 
 /***/ }),
 
+/***/ "./resources/js/components/PotableComponent.vue":
+/*!******************************************************!*\
+  !*** ./resources/js/components/PotableComponent.vue ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _PotableComponent_vue_vue_type_template_id_5b7827f9___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PotableComponent.vue?vue&type=template&id=5b7827f9& */ "./resources/js/components/PotableComponent.vue?vue&type=template&id=5b7827f9&");
+/* harmony import */ var _PotableComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PotableComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/PotableComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _PotableComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _PotableComponent_vue_vue_type_template_id_5b7827f9___WEBPACK_IMPORTED_MODULE_0__.render,
+  _PotableComponent_vue_vue_type_template_id_5b7827f9___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/PotableComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/SectionheaderComponent.vue":
 /*!************************************************************!*\
   !*** ./resources/js/components/SectionheaderComponent.vue ***!
@@ -60435,6 +61227,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AccesstoelectricityComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AccesstoelectricityComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AccesstoelectricityComponent.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AccesstoelectricityComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/AccesstointernetComponent.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/AccesstointernetComponent.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AccesstointernetComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AccesstointernetComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AccesstointernetComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AccesstointernetComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/AccesswatersupplyComponent.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/AccesswatersupplyComponent.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AccesswatersupplyComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AccesswatersupplyComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AccesswatersupplyComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AccesswatersupplyComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -60614,6 +61438,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/LibhhwatertenuralstatuComponent.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************!*\
+  !*** ./resources/js/components/LibhhwatertenuralstatuComponent.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LibhhwatertenuralstatuComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./LibhhwatertenuralstatuComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LibhhwatertenuralstatuComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LibhhwatertenuralstatuComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/LibmunicipalityComponent.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************!*\
   !*** ./resources/js/components/LibmunicipalityComponent.vue?vue&type=script&lang=js& ***!
@@ -60726,6 +61566,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/PotableComponent.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/components/PotableComponent.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PotableComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./PotableComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PotableComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PotableComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/SectionheaderComponent.vue?vue&type=script&lang=js&":
 /*!*************************************************************************************!*\
   !*** ./resources/js/components/SectionheaderComponent.vue?vue&type=script&lang=js& ***!
@@ -60755,6 +61611,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AccesstoelectricityComponent_vue_vue_type_template_id_5a2a4f56___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AccesstoelectricityComponent_vue_vue_type_template_id_5a2a4f56___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AccesstoelectricityComponent.vue?vue&type=template&id=5a2a4f56& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AccesstoelectricityComponent.vue?vue&type=template&id=5a2a4f56&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/AccesstointernetComponent.vue?vue&type=template&id=6b4b1762&":
+/*!**********************************************************************************************!*\
+  !*** ./resources/js/components/AccesstointernetComponent.vue?vue&type=template&id=6b4b1762& ***!
+  \**********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AccesstointernetComponent_vue_vue_type_template_id_6b4b1762___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AccesstointernetComponent_vue_vue_type_template_id_6b4b1762___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AccesstointernetComponent_vue_vue_type_template_id_6b4b1762___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AccesstointernetComponent.vue?vue&type=template&id=6b4b1762& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AccesstointernetComponent.vue?vue&type=template&id=6b4b1762&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/AccesswatersupplyComponent.vue?vue&type=template&id=81cb3134&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/components/AccesswatersupplyComponent.vue?vue&type=template&id=81cb3134& ***!
+  \***********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AccesswatersupplyComponent_vue_vue_type_template_id_81cb3134___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AccesswatersupplyComponent_vue_vue_type_template_id_81cb3134___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AccesswatersupplyComponent_vue_vue_type_template_id_81cb3134___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AccesswatersupplyComponent.vue?vue&type=template&id=81cb3134& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AccesswatersupplyComponent.vue?vue&type=template&id=81cb3134&");
 
 
 /***/ }),
@@ -60946,6 +61836,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/LibhhwatertenuralstatuComponent.vue?vue&type=template&id=530a01f4&":
+/*!****************************************************************************************************!*\
+  !*** ./resources/js/components/LibhhwatertenuralstatuComponent.vue?vue&type=template&id=530a01f4& ***!
+  \****************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_LibhhwatertenuralstatuComponent_vue_vue_type_template_id_530a01f4___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_LibhhwatertenuralstatuComponent_vue_vue_type_template_id_530a01f4___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_LibhhwatertenuralstatuComponent_vue_vue_type_template_id_530a01f4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./LibhhwatertenuralstatuComponent.vue?vue&type=template&id=530a01f4& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LibhhwatertenuralstatuComponent.vue?vue&type=template&id=530a01f4&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/LibmunicipalityComponent.vue?vue&type=template&id=61ab47e7&":
 /*!*********************************************************************************************!*\
   !*** ./resources/js/components/LibmunicipalityComponent.vue?vue&type=template&id=61ab47e7& ***!
@@ -61061,6 +61968,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_NavsearchbuttonComponent_vue_vue_type_template_id_3ba7a52a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_NavsearchbuttonComponent_vue_vue_type_template_id_3ba7a52a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./NavsearchbuttonComponent.vue?vue&type=template&id=3ba7a52a& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/NavsearchbuttonComponent.vue?vue&type=template&id=3ba7a52a&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/PotableComponent.vue?vue&type=template&id=5b7827f9&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/PotableComponent.vue?vue&type=template&id=5b7827f9& ***!
+  \*************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_PotableComponent_vue_vue_type_template_id_5b7827f9___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_PotableComponent_vue_vue_type_template_id_5b7827f9___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_PotableComponent_vue_vue_type_template_id_5b7827f9___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./PotableComponent.vue?vue&type=template&id=5b7827f9& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/PotableComponent.vue?vue&type=template&id=5b7827f9&");
 
 
 /***/ }),

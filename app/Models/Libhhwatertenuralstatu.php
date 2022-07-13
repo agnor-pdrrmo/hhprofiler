@@ -16,6 +16,6 @@ class Libhhwatertenuralstatu extends Model
      */
     public function households()
     {
-        return $this->hasMany(Households::class);
+        return $this->hasMany(Household::class);
     }
 }

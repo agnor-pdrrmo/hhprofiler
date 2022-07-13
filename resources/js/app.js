@@ -43,6 +43,10 @@ Vue.component('lib-typeofbuilding', require('./components/Libhhtypeofbuilding.vu
 Vue.component('lib-hhtenuralstatus', require('./components/Libhhtenuralstatu.vue').default);
 Vue.component('lib-hhroofmaterials', require('./components/Libhhroofmaterial.vue').default);
 Vue.component('lib-accesstoelectricity', require('./components/AccesstoelectricityComponent.vue').default);
+Vue.component('lib-accesstointernet', require('./components/AccesstointernetComponent.vue').default);
+Vue.component('lib-accesswatersupply', require('./components/AccesswatersupplyComponent.vue').default);
+Vue.component('lib-potable', require('./components/PotableComponent.vue').default);
+Vue.component('lib-hhwatertenuralstatus', require('./components/LibhhwatertenuralstatuComponent.vue').default);
 
 
 /**
