@@ -2172,6 +2172,23 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AccesstoelectricityComponent.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AccesstoelectricityComponent.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['hasElectricity', 'noElectricity', 'selected']
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AvailedprogramComponent.vue?vue&type=script&lang=js&":
 /*!******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AvailedprogramComponent.vue?vue&type=script&lang=js& ***!
@@ -2703,6 +2720,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       hhtypeofbuildings: [],
       hhtenuralstatus: [],
       hhroofmaterials: [],
+      hasElectricity: [],
+      noElectricity: [],
       //For searching
       selected: {
         households: [],
@@ -2710,7 +2729,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
         barangays: [],
         hhtypeofbuildings: [],
         hhtenuralstatus: [],
-        hhroofmaterials: []
+        hhroofmaterials: [],
+        accesstoelectricity: []
       },
       style: {
         width: '100%'
@@ -2722,7 +2742,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       }),
       advanceSearchtoggle: false,
       isLoading: false,
-      fullPage: true
+      fullPage: true,
+      bars: 'bars'
     };
   },
   methods: {
@@ -2740,11 +2761,20 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       var _this = this;
 
       this.isLoading = true;
-      console.log(this.isLoading);
       axios.get('/api/households', {
         params: _.omit(this.selected, 'households')
       }).then(function (response) {
-        _this.households = response.data;
+        _this.households = response.data.household;
+        _this.hasElectricity = {
+          'access': 'Yes',
+          'id': 1,
+          'households_count': response.data.has_access_electricity_count
+        };
+        _this.noElectricity = {
+          'access': 'No',
+          'id': 0,
+          'households_count': response.data.no_access_electricity_count
+        };
         response.data.length != 0 ? _this.$refs.map.mapObject.fitBounds(_this.households.map(function (h) {
           return [h.latitude, h.longitude];
         })) //To do ask sir rodiel bounding box of agusan del norte
@@ -2795,43 +2825,54 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     loadMunicipality: function loadMunicipality() {
       var _this2 = this;
 
+      this.isLoading = true;
       axios.get('/api/municipalities', {
         params: _.omit(this.selected, 'municipalities')
       }).then(function (response) {
         _this2.municipalities = response.data.data;
+        _this2.isLoading = false;
       })["catch"](function (error) {
         console.log(error);
+        this.isLoading = false;
       });
     },
     loadBarangays: function loadBarangays() {
       var _this3 = this;
 
+      this.isLoading = true;
       axios.get('/api/barangays', {
         params: _.omit(this.selected, 'barangays')
       }).then(function (response) {
         _this3.barangays = response.data.data;
+        _this3.isLoading = false;
       })["catch"](function (error) {
         console.log(error);
+        this.isLoading = false;
       });
     },
     loadTypeofbuilding: function loadTypeofbuilding() {
       var _this4 = this;
 
+      this.isLoading = true;
       axios.get('/api/hhtypeofbuildings', {
         params: _.omit(this.selected, 'hhtypeofbuildings')
       }).then(function (response) {
         _this4.hhtypeofbuildings = response.data.data;
+        _this4.isLoading = false;
       })["catch"](function (error) {
         console.log(error);
+        this.isLoading = false;
       });
     },
     loadHhtenuralstatus: function loadHhtenuralstatus() {
       var _this5 = this;
 
+      this.isLoading = true;
       axios.get('/api/hhtenuralstatus', {
         params: _.omit(this.selected, 'hhtenuralstatus')
       }).then(function (response) {
         _this5.hhtenuralstatus = response.data.data;
+        _this5.isLoading = false;
       })["catch"](function (error) {
         console.log(error);
       });
@@ -2839,22 +2880,25 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     loadHhroofmaterials: function loadHhroofmaterials() {
       var _this6 = this;
 
+      this.isLoading = true;
       axios.get('/api/hhroofmaterials', {
         params: _.omit(this.selected, 'hhroofmaterials')
       }).then(function (response) {
         _this6.hhroofmaterials = response.data.data;
+        _this6.isLoading = false;
       })["catch"](function (error) {
         console.log(error);
+        this.isLoading = false;
       });
     }
   },
   watch: {
     selected: {
       handler: function handler() {
+        this.loadHouseholds();
         this.loadMunicipality();
         this.loadBarangays();
         this.loadTypeofbuilding();
-        this.loadHouseholds();
         this.loadHhtenuralstatus();
         this.loadHhroofmaterials();
       },
@@ -3073,6 +3117,137 @@ __webpack_require__.r(__webpack_exports__);
     breadcrumbitemactive: String
   }
 });
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AccesstoelectricityComponent.vue?vue&type=template&id=5a2a4f56&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AccesstoelectricityComponent.vue?vue&type=template&id=5a2a4f56& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", [_vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "collapse",
+    attrs: {
+      id: "accesstoelectricity"
+    }
+  }, [_c("div", {
+    staticClass: "mb-1"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.selected.accesstoelectricity,
+      expression: "selected.accesstoelectricity"
+    }],
+    staticClass: "form-check-input",
+    attrs: {
+      type: "checkbox",
+      id: "access" + 1
+    },
+    domProps: {
+      value: 1,
+      checked: Array.isArray(_vm.selected.accesstoelectricity) ? _vm._i(_vm.selected.accesstoelectricity, 1) > -1 : _vm.selected.accesstoelectricity
+    },
+    on: {
+      change: function change($event) {
+        var $$a = _vm.selected.accesstoelectricity,
+            $$el = $event.target,
+            $$c = $$el.checked ? true : false;
+
+        if (Array.isArray($$a)) {
+          var $$v = 1,
+              $$i = _vm._i($$a, $$v);
+
+          if ($$el.checked) {
+            $$i < 0 && _vm.$set(_vm.selected, "accesstoelectricity", $$a.concat([$$v]));
+          } else {
+            $$i > -1 && _vm.$set(_vm.selected, "accesstoelectricity", $$a.slice(0, $$i).concat($$a.slice($$i + 1)));
+          }
+        } else {
+          _vm.$set(_vm.selected, "accesstoelectricity", $$c);
+        }
+      }
+    }
+  }), _vm._v(" "), _c("label", {
+    staticClass: "form-check-label",
+    attrs: {
+      "for": "access" + 1
+    }
+  }, [_vm._v("\r\n            Yes (" + _vm._s(_vm.hasElectricity.households_count) + ")\r\n        ")])]), _vm._v(" "), _c("div", {
+    staticClass: "mb-1"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.selected.accesstoelectricity,
+      expression: "selected.accesstoelectricity"
+    }],
+    staticClass: "form-check-input",
+    attrs: {
+      type: "checkbox",
+      id: "access" + 0
+    },
+    domProps: {
+      value: 0,
+      checked: Array.isArray(_vm.selected.accesstoelectricity) ? _vm._i(_vm.selected.accesstoelectricity, 0) > -1 : _vm.selected.accesstoelectricity
+    },
+    on: {
+      change: function change($event) {
+        var $$a = _vm.selected.accesstoelectricity,
+            $$el = $event.target,
+            $$c = $$el.checked ? true : false;
+
+        if (Array.isArray($$a)) {
+          var $$v = 0,
+              $$i = _vm._i($$a, $$v);
+
+          if ($$el.checked) {
+            $$i < 0 && _vm.$set(_vm.selected, "accesstoelectricity", $$a.concat([$$v]));
+          } else {
+            $$i > -1 && _vm.$set(_vm.selected, "accesstoelectricity", $$a.slice(0, $$i).concat($$a.slice($$i + 1)));
+          }
+        } else {
+          _vm.$set(_vm.selected, "accesstoelectricity", $$c);
+        }
+      }
+    }
+  }), _vm._v(" "), _c("label", {
+    staticClass: "form-check-label",
+    attrs: {
+      "for": "access" + 0
+    }
+  }, [_vm._v("\r\n            Yes (" + _vm._s(_vm.noElectricity.households_count) + ")\r\n        ")])])])]);
+};
+
+var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("a", {
+    attrs: {
+      "data-toggle": "collapse",
+      href: "#accesstoelectricity",
+      "aria-expanded": "false"
+    }
+  }, [_c("h6", {
+    staticStyle: {
+      color: "#007bff"
+    }
+  }, [_vm._v("Has Electricity")])]);
+}];
+render._withStripped = true;
+
 
 /***/ }),
 
@@ -6766,7 +6941,9 @@ var render = function render() {
     attrs: {
       active: _vm.isLoading,
       "is-full-page": true,
-      loader: _vm.bars
+      loader: _vm.bars,
+      height: 128,
+      width: 128
     }
   }), _vm._v(" "), _c("div", {
     staticClass: "container-fluid"
@@ -6909,6 +7086,12 @@ var render = function render() {
   }), _vm._v(" "), _c("lib-hhroofmaterials", {
     attrs: {
       hhroofmaterials: _vm.hhroofmaterials,
+      selected: _vm.selected
+    }
+  }), _vm._v(" "), _c("lib-accesstoelectricity", {
+    attrs: {
+      hasElectricity: _vm.hasElectricity,
+      noElectricity: _vm.noElectricity,
       selected: _vm.selected
     }
   })], 1)])], 1);
@@ -7196,6 +7379,7 @@ Vue.component('lib-barangay', (__webpack_require__(/*! ./components/LibbarangayC
 Vue.component('lib-typeofbuilding', (__webpack_require__(/*! ./components/Libhhtypeofbuilding.vue */ "./resources/js/components/Libhhtypeofbuilding.vue")["default"]));
 Vue.component('lib-hhtenuralstatus', (__webpack_require__(/*! ./components/Libhhtenuralstatu.vue */ "./resources/js/components/Libhhtenuralstatu.vue")["default"]));
 Vue.component('lib-hhroofmaterials', (__webpack_require__(/*! ./components/Libhhroofmaterial.vue */ "./resources/js/components/Libhhroofmaterial.vue")["default"]));
+Vue.component('lib-accesstoelectricity', (__webpack_require__(/*! ./components/AccesstoelectricityComponent.vue */ "./resources/js/components/AccesstoelectricityComponent.vue")["default"]));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -59454,6 +59638,45 @@ module.exports = function (list, options) {
 
 /***/ }),
 
+/***/ "./resources/js/components/AccesstoelectricityComponent.vue":
+/*!******************************************************************!*\
+  !*** ./resources/js/components/AccesstoelectricityComponent.vue ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _AccesstoelectricityComponent_vue_vue_type_template_id_5a2a4f56___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AccesstoelectricityComponent.vue?vue&type=template&id=5a2a4f56& */ "./resources/js/components/AccesstoelectricityComponent.vue?vue&type=template&id=5a2a4f56&");
+/* harmony import */ var _AccesstoelectricityComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AccesstoelectricityComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/AccesstoelectricityComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _AccesstoelectricityComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AccesstoelectricityComponent_vue_vue_type_template_id_5a2a4f56___WEBPACK_IMPORTED_MODULE_0__.render,
+  _AccesstoelectricityComponent_vue_vue_type_template_id_5a2a4f56___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/AccesstoelectricityComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/AvailedprogramComponent.vue":
 /*!*************************************************************!*\
   !*** ./resources/js/components/AvailedprogramComponent.vue ***!
@@ -60199,6 +60422,22 @@ component.options.__file = "resources/js/components/SectionheaderComponent.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/AccesstoelectricityComponent.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/AccesstoelectricityComponent.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AccesstoelectricityComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AccesstoelectricityComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AccesstoelectricityComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AccesstoelectricityComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/AvailedprogramComponent.vue?vue&type=script&lang=js&":
 /*!**************************************************************************************!*\
   !*** ./resources/js/components/AvailedprogramComponent.vue?vue&type=script&lang=js& ***!
@@ -60500,6 +60739,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SectionheaderComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SectionheaderComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SectionheaderComponent.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SectionheaderComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/AccesstoelectricityComponent.vue?vue&type=template&id=5a2a4f56&":
+/*!*************************************************************************************************!*\
+  !*** ./resources/js/components/AccesstoelectricityComponent.vue?vue&type=template&id=5a2a4f56& ***!
+  \*************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AccesstoelectricityComponent_vue_vue_type_template_id_5a2a4f56___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AccesstoelectricityComponent_vue_vue_type_template_id_5a2a4f56___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AccesstoelectricityComponent_vue_vue_type_template_id_5a2a4f56___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AccesstoelectricityComponent.vue?vue&type=template&id=5a2a4f56& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AccesstoelectricityComponent.vue?vue&type=template&id=5a2a4f56&");
+
 
 /***/ }),
 

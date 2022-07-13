@@ -126,7 +126,7 @@ class Household extends Model
         return $this->hasMany(Livelihood::class, 'household_controlnumber', 'controlnumber');
     }
 
-    public function scopeWithFilters($query,$municipalities,$barangays,$hhtypeofbuilding,$hhtenuralstatus,$hhroofmaterials){
+    public function scopeWithFilters($query,$municipalities,$barangays,$hhtypeofbuilding,$hhtenuralstatus,$hhroofmaterials,$accesstoelectricity){
         return $query->when(count($municipalities), function($query) use ($municipalities){
             $query->whereIn('libmunicipalitie_psgccode', $municipalities);
         })
@@ -138,6 +138,8 @@ class Household extends Model
             $query->whereIn('libhhtenuralstatu_id', $hhtenuralstatus);
         })->when(count($hhroofmaterials), function ($query) use ($hhroofmaterials){
             $query->whereIn('libhhroofmaterial_id', $hhroofmaterials);
+        })->when(count($accesstoelectricity), function ($query) use ($accesstoelectricity){
+            $query->whereIn('access_electricity', $accesstoelectricity);    
         });
     }
     

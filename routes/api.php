@@ -25,6 +25,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('households', [HouseholdController::class,'index']);
+Route::get('access_electricity', [HouseholdController::class,'accessElectricity']);
 Route::get('municipalities', [LibmunicipalitieController::class,'index']);
 Route::get('barangays', [LibbarangayController::class,'index']);
 Route::get('hhtypeofbuildings', [LibhhtypeofbuildingController::class,'index']);

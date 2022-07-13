@@ -4,6 +4,8 @@
             :active='isLoading'
             :is-full-page="true"
             :loader='bars'
+            :height= '128'
+            :width= '128'
             >
         </loading>
         <div class="container-fluid" >
@@ -68,6 +70,7 @@
               <lib-typeofbuilding v-bind:hhtypeofbuildings="hhtypeofbuildings" v-bind:selected="selected"></lib-typeofbuilding>
               <lib-hhtenuralstatus v-bind:hhtenuralstatus="hhtenuralstatus" v-bind:selected="selected"></lib-hhtenuralstatus>
               <lib-hhroofmaterials v-bind:hhroofmaterials="hhroofmaterials" v-bind:selected="selected"></lib-hhroofmaterials>
+              <lib-accesstoelectricity v-bind:hasElectricity="hasElectricity" v-bind:noElectricity="noElectricity" v-bind:selected="selected"></lib-accesstoelectricity>
           </div>
         </aside>
     </section>
@@ -119,6 +122,8 @@ export default {
         hhtypeofbuildings: [],
         hhtenuralstatus: [],
         hhroofmaterials: [],
+        hasElectricity: [],
+        noElectricity: [],
         //For searching
         selected: {
           households: [],
@@ -126,7 +131,8 @@ export default {
           barangays: [],
           hhtypeofbuildings: [],
           hhtenuralstatus: [],
-          hhroofmaterials: []
+          hhroofmaterials: [],
+          accesstoelectricity: [],
         },
         style:{
           width: '100%',
@@ -138,7 +144,8 @@ export default {
         }),
         advanceSearchtoggle : false,
         isLoading: false,
-        fullPage: true
+        fullPage: true,
+        bars: 'bars'
     }
     
   },
@@ -156,13 +163,14 @@ export default {
       },
       loadHouseholds: function(){
           this.isLoading = true;
-          console.log(this.isLoading);
           axios.get('/api/households',{
             params: _.omit(this.selected, 'households')
           })
                 .then((response)=>{
 
-                   this.households = response.data;
+                   this.households = response.data.household;
+                   this.hasElectricity = {'access': 'Yes','id':1,'households_count': response.data.has_access_electricity_count};
+                   this.noElectricity = {'access': 'No','id':0,'households_count': response.data.no_access_electricity_count};
 
                    (response.data.length != 0) 
                     ? this.$refs.map.mapObject.fitBounds(this.households.map(h => { return [h.latitude, h.longitude] })) 
@@ -210,68 +218,82 @@ export default {
         $("#my-toggle-button").ControlSidebar('show');
       },
       loadMunicipality: function () {
+        this.isLoading = true;
         axios.get('/api/municipalities', {
             params: _.omit(this.selected, 'municipalities')
         })
         .then((response) => {
             this.municipalities = response.data.data;
+            this.isLoading = false;
         })
         .catch(function (error) {
             console.log(error);
+            this.isLoading = false;
         });
       }, 
       loadBarangays: function () {
+        this.isLoading = true;
         axios.get('/api/barangays', {
             params: _.omit(this.selected, 'barangays')
         })
         .then((response) => {
             this.barangays = response.data.data;
+            this.isLoading = false;
         })
         .catch(function (error) {
             console.log(error);
+            this.isLoading = false;
         });
       }, 
       loadTypeofbuilding: function () {
+        this.isLoading = true;
         axios.get('/api/hhtypeofbuildings', {
             params: _.omit(this.selected, 'hhtypeofbuildings')
         })
         .then((response) => {
             this.hhtypeofbuildings = response.data.data;
+            this.isLoading = false;
         })
         .catch(function (error) {
             console.log(error);
+            this.isLoading = false;
         });
       },
       loadHhtenuralstatus: function () {
+        this.isLoading = true;
         axios.get('/api/hhtenuralstatus', {
             params: _.omit(this.selected, 'hhtenuralstatus')
         })
         .then((response) => {
             this.hhtenuralstatus = response.data.data;
+            this.isLoading = false;
         })
         .catch(function (error) {
             console.log(error);
         });
       },
       loadHhroofmaterials: function () {
+        this.isLoading = true;
         axios.get('/api/hhroofmaterials', {
             params: _.omit(this.selected, 'hhroofmaterials')
         })
         .then((response) => {
             this.hhroofmaterials = response.data.data;
+            this.isLoading = false;
         })
         .catch(function (error) {
             console.log(error);
+            this.isLoading = false;
         });
-      },
+      }
   },
   watch: {
       selected: {
           handler: function () {
+              this.loadHouseholds();
               this.loadMunicipality();
               this.loadBarangays();
               this.loadTypeofbuilding();
-              this.loadHouseholds();
               this.loadHhtenuralstatus();
               this.loadHhroofmaterials();
           },

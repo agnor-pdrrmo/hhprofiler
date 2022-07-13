@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Household;
+use App\Http\Resources\HouseholdResource;
 
 class HouseholdController extends Controller
 {
@@ -21,10 +22,11 @@ class HouseholdController extends Controller
             request()->input('typeofbuildings',[]),
             request()->input('hhtenuralstatus',[]),
             request()->input('hhroofmaterials',[]),
+            request()->input('accesstoelectricity',[]),
             
         )->get();
         //return LibbarangayResource::collection($barangays);
-        return $household->load(
+        $householdResource = $household->load(
             'libmunicipalitie',
             'libbarangay',
             'libhhtypeofbuilding',
@@ -43,7 +45,12 @@ class HouseholdController extends Controller
             'availedprograms.libtypeofprogram',
             'livelihoods.liblivelihood',
             'livelihoods.libhhtenuralstatu'
-
+        );
+ 
+        return array(
+                 'household'=>$householdResource,
+                 'has_access_electricity_count'=>$householdResource->where('access_electricity','=',1)->count(),
+                 'no_access_electricity_count'=>$householdResource->where('access_electricity','=',0)->count()
         );
     }
 
@@ -55,10 +62,10 @@ class HouseholdController extends Controller
             request()->input('typeofbuildings',[]),
             request()->input('hhtenuralstatus',[]),
             request()->input('hhroofmaterials',[]),
-            request()->input('access_electricity',[]),
+            request()->input('accesstoelectricity',[]),
         )->get();
 
-
+        return $household;       
     }
 
     /**

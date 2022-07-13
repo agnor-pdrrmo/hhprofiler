@@ -23,6 +23,7 @@ class LibhhtypeofbuildingController extends Controller
                 request()->input('typeofbuildings',[]),
                 request()->input('hhtenuralstatus',[]),
                 request()->input('hhroofmaterials',[]),
+                request()->input('accesstoelectricity',[]),
             );
         }])
         ->get();
