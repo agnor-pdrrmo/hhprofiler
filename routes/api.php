@@ -9,6 +9,7 @@ use App\Http\Controllers\API\LibhhtypeofbuildingController;
 use App\Http\Controllers\API\LibhhtenuralstatuController;
 use App\Http\Controllers\API\LibhhroofmaterialController;
 use App\Http\Controllers\API\LibhhwatertenuralstatusController;
+use App\Http\Controllers\API\LibhhlvlwatersystemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +34,4 @@ Route::get('hhtypeofbuildings', [LibhhtypeofbuildingController::class,'index']);
 Route::get('hhtenuralstatus', [LibhhtenuralstatuController::class,'index']);
 Route::get('hhroofmaterials', [LibhhroofmaterialController::class,'index']);
 Route::get('hhwatertenuralstatus', [LibhhwatertenuralstatusController::class,'index']);
+Route::get('libhhlvlwatersystems', [LibhhlvlwatersystemController::class,'index']);

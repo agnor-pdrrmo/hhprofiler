@@ -2521,6 +2521,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LibhhlvlwatersystemsComponent.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LibhhlvlwatersystemsComponent.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['libhhlvlwatersystems', 'selected']
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Libhhroofmaterial.vue?vue&type=script&lang=js&":
 /*!************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Libhhroofmaterial.vue?vue&type=script&lang=js& ***!
@@ -2772,6 +2789,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       hhtenuralstatus: [],
       hhroofmaterials: [],
       hhwatertenuralstatus: [],
+      libhhlvlwatersystems: [],
       hasElectricity: [],
       noElectricity: [],
       hasInternet: [],
@@ -2792,7 +2810,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
         accesstointernet: [],
         accesswatersupply: [],
         potable: [],
-        hhwatertenuralstatus: []
+        hhwatertenuralstatus: [],
+        libhhlvlwatersystems: []
       },
       style: {
         width: '100%'
@@ -2996,6 +3015,20 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
         console.log(error);
         this.isLoading = false;
       });
+    },
+    loadLibhhlvlwatersystems: function loadLibhhlvlwatersystems() {
+      var _this8 = this;
+
+      this.isLoading = true;
+      axios.get('/api/libhhlvlwatersystems', {
+        params: _.omit(this.selected, 'libhhlvlwatersystems')
+      }).then(function (response) {
+        _this8.libhhlvlwatersystems = response.data.data;
+        _this8.isLoading = false;
+      })["catch"](function (error) {
+        console.log(error);
+        this.isLoading = false;
+      });
     }
   },
   watch: {
@@ -3008,6 +3041,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
         this.loadHhtenuralstatus();
         this.loadHhroofmaterials();
         this.loadHhwatertenuralstatus();
+        this.loadLibhhlvlwatersystems();
       },
       deep: true
     }
@@ -3087,46 +3121,46 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     }
   },
   mounted: function mounted() {
-    var _this8 = this;
+    var _this9 = this;
 
     Event.$on('mapInvalidate', function () {
-      _this8.advanceSearchtoggle = false;
+      _this9.advanceSearchtoggle = false;
 
       if (jquery__WEBPACK_IMPORTED_MODULE_3___default()('#toogleinformation:visible').length == 0) {
         // Call invalidateSize to update map size
-        _this8.$refs.map.mapObject.invalidateSize(); //Set width of the map 
+        _this9.$refs.map.mapObject.invalidateSize(); //Set width of the map 
 
 
-        _this8.style = {
+        _this9.style = {
           width: '65%'
         };
       } else {
         // Call invalidateSize to update map size
-        _this8.$refs.map.mapObject.invalidateSize(); //Set width of the map 
+        _this9.$refs.map.mapObject.invalidateSize(); //Set width of the map 
 
 
-        _this8.style = {
+        _this9.style = {
           width: '100%'
         };
       }
     });
     Event.$on('openSearchControl', function () {
-      _this8.advanceSearchtoggle = true;
+      _this9.advanceSearchtoggle = true;
 
       if (jquery__WEBPACK_IMPORTED_MODULE_3___default()('#toogleMultipleSearch:visible').length == 0) {
         // Call invalidateSize to update map size
-        _this8.$refs.map.mapObject.invalidateSize(); //Set width of the map 
+        _this9.$refs.map.mapObject.invalidateSize(); //Set width of the map 
 
 
-        _this8.style = {
+        _this9.style = {
           width: '80%'
         };
       } else {
         // Call invalidateSize to update map size
-        _this8.$refs.map.mapObject.invalidateSize(); //Set width of the map 
+        _this9.$refs.map.mapObject.invalidateSize(); //Set width of the map 
 
 
-        _this8.style = {
+        _this9.style = {
           width: '100%'
         };
       }
@@ -3139,6 +3173,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     this.loadHhtenuralstatus();
     this.loadHhroofmaterials();
     this.loadHhwatertenuralstatus();
+    this.loadLibhhlvlwatersystems();
   }
 });
 
@@ -6604,6 +6639,97 @@ render._withStripped = true;
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LibhhlvlwatersystemsComponent.vue?vue&type=template&id=5429e0d8&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LibhhlvlwatersystemsComponent.vue?vue&type=template&id=5429e0d8& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", [_vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "collapse",
+    attrs: {
+      id: "libhhlvlwatersystems"
+    }
+  }, _vm._l(_vm.libhhlvlwatersystems, function (waterhhtenuralstatu) {
+    return _c("div", {
+      key: waterhhtenuralstatu.id,
+      staticClass: "mb-1"
+    }, [_c("input", {
+      directives: [{
+        name: "model",
+        rawName: "v-model",
+        value: _vm.selected.libhhlvlwatersystems,
+        expression: "selected.libhhlvlwatersystems"
+      }],
+      staticClass: "form-check-input",
+      attrs: {
+        type: "checkbox",
+        id: "waterhhtenuralstatu" + waterhhtenuralstatu.id
+      },
+      domProps: {
+        value: waterhhtenuralstatu.id,
+        checked: Array.isArray(_vm.selected.libhhlvlwatersystems) ? _vm._i(_vm.selected.libhhlvlwatersystems, waterhhtenuralstatu.id) > -1 : _vm.selected.libhhlvlwatersystems
+      },
+      on: {
+        change: function change($event) {
+          var $$a = _vm.selected.libhhlvlwatersystems,
+              $$el = $event.target,
+              $$c = $$el.checked ? true : false;
+
+          if (Array.isArray($$a)) {
+            var $$v = waterhhtenuralstatu.id,
+                $$i = _vm._i($$a, $$v);
+
+            if ($$el.checked) {
+              $$i < 0 && _vm.$set(_vm.selected, "libhhlvlwatersystems", $$a.concat([$$v]));
+            } else {
+              $$i > -1 && _vm.$set(_vm.selected, "libhhlvlwatersystems", $$a.slice(0, $$i).concat($$a.slice($$i + 1)));
+            }
+          } else {
+            _vm.$set(_vm.selected, "libhhlvlwatersystems", $$c);
+          }
+        }
+      }
+    }), _vm._v(" "), _c("label", {
+      staticClass: "form-check-label",
+      attrs: {
+        "for": "waterhhtenuralstatu" + waterhhtenuralstatu.id
+      }
+    }, [_vm._v("\r\n            " + _vm._s(waterhhtenuralstatu.lib_hhlvldesc) + " (" + _vm._s(waterhhtenuralstatu.households_count) + ")\r\n        ")])]);
+  }), 0)]);
+};
+
+var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("a", {
+    attrs: {
+      "data-toggle": "collapse",
+      href: "#libhhlvlwatersystems",
+      "aria-expanded": "false"
+    }
+  }, [_c("h6", {
+    staticStyle: {
+      color: "#007bff"
+    }
+  }, [_vm._v("Level of water supply")])]);
+}];
+render._withStripped = true;
+
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Libhhroofmaterial.vue?vue&type=template&id=734a21e5&":
 /*!***********************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Libhhroofmaterial.vue?vue&type=template&id=734a21e5& ***!
@@ -7595,6 +7721,11 @@ var render = function render() {
       hhwatertenuralstatus: _vm.hhwatertenuralstatus,
       selected: _vm.selected
     }
+  }), _vm._v(" "), _c("lib-libhhlvlwatersystems", {
+    attrs: {
+      libhhlvlwatersystems: _vm.libhhlvlwatersystems,
+      selected: _vm.selected
+    }
   })], 1)])], 1);
 };
 
@@ -8016,6 +8147,7 @@ Vue.component('lib-accesstointernet', (__webpack_require__(/*! ./components/Acce
 Vue.component('lib-accesswatersupply', (__webpack_require__(/*! ./components/AccesswatersupplyComponent.vue */ "./resources/js/components/AccesswatersupplyComponent.vue")["default"]));
 Vue.component('lib-potable', (__webpack_require__(/*! ./components/PotableComponent.vue */ "./resources/js/components/PotableComponent.vue")["default"]));
 Vue.component('lib-hhwatertenuralstatus', (__webpack_require__(/*! ./components/LibhhwatertenuralstatuComponent.vue */ "./resources/js/components/LibhhwatertenuralstatuComponent.vue")["default"]));
+Vue.component('lib-libhhlvlwatersystems', (__webpack_require__(/*! ./components/LibhhlvlwatersystemsComponent.vue */ "./resources/js/components/LibhhlvlwatersystemsComponent.vue")["default"]));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -60703,6 +60835,45 @@ component.options.__file = "resources/js/components/LibbarangayComponent.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/LibhhlvlwatersystemsComponent.vue":
+/*!*******************************************************************!*\
+  !*** ./resources/js/components/LibhhlvlwatersystemsComponent.vue ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _LibhhlvlwatersystemsComponent_vue_vue_type_template_id_5429e0d8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LibhhlvlwatersystemsComponent.vue?vue&type=template&id=5429e0d8& */ "./resources/js/components/LibhhlvlwatersystemsComponent.vue?vue&type=template&id=5429e0d8&");
+/* harmony import */ var _LibhhlvlwatersystemsComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LibhhlvlwatersystemsComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/LibhhlvlwatersystemsComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _LibhhlvlwatersystemsComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _LibhhlvlwatersystemsComponent_vue_vue_type_template_id_5429e0d8___WEBPACK_IMPORTED_MODULE_0__.render,
+  _LibhhlvlwatersystemsComponent_vue_vue_type_template_id_5429e0d8___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/LibhhlvlwatersystemsComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/Libhhroofmaterial.vue":
 /*!*******************************************************!*\
   !*** ./resources/js/components/Libhhroofmaterial.vue ***!
@@ -61390,6 +61561,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/LibhhlvlwatersystemsComponent.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/components/LibhhlvlwatersystemsComponent.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LibhhlvlwatersystemsComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./LibhhlvlwatersystemsComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LibhhlvlwatersystemsComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LibhhlvlwatersystemsComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/Libhhroofmaterial.vue?vue&type=script&lang=js&":
 /*!********************************************************************************!*\
   !*** ./resources/js/components/Libhhroofmaterial.vue?vue&type=script&lang=js& ***!
@@ -61781,6 +61968,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_LibbarangayComponent_vue_vue_type_template_id_2cdd2ce4___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_LibbarangayComponent_vue_vue_type_template_id_2cdd2ce4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./LibbarangayComponent.vue?vue&type=template&id=2cdd2ce4& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LibbarangayComponent.vue?vue&type=template&id=2cdd2ce4&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/LibhhlvlwatersystemsComponent.vue?vue&type=template&id=5429e0d8&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/components/LibhhlvlwatersystemsComponent.vue?vue&type=template&id=5429e0d8& ***!
+  \**************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_LibhhlvlwatersystemsComponent_vue_vue_type_template_id_5429e0d8___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_LibhhlvlwatersystemsComponent_vue_vue_type_template_id_5429e0d8___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_LibhhlvlwatersystemsComponent_vue_vue_type_template_id_5429e0d8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./LibhhlvlwatersystemsComponent.vue?vue&type=template&id=5429e0d8& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/LibhhlvlwatersystemsComponent.vue?vue&type=template&id=5429e0d8&");
 
 
 /***/ }),

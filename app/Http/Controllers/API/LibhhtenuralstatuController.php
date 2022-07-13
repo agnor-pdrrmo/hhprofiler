@@ -28,6 +28,7 @@ class LibhhtenuralstatuController extends Controller
                 request()->input('accesswatersupply',[]),
                 request()->input('potable',[]),
                 request()->input('hhwatertenuralstatus',[]),
+                request()->input('libhhlvlwatersystems',[]),
             );
         }])
         ->get();

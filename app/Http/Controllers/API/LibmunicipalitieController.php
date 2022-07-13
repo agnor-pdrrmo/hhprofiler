@@ -28,6 +28,7 @@ class LibmunicipalitieController extends Controller
                 request()->input('accesswatersupply',[]),
                 request()->input('potable',[]),
                 request()->input('hhwatertenuralstatus',[]),
+                request()->input('libhhlvlwatersystems',[]),
             );
         }])
         ->with(['libbarangays' => function($q){
@@ -43,6 +44,7 @@ class LibmunicipalitieController extends Controller
                     request()->input('accesswatersupply',[]),
                     request()->input('potable',[]),
                     request()->input('hhwatertenuralstatus',[]),
+                    request()->input('libhhlvlwatersystems',[]),
                 );
             }]);
         }])

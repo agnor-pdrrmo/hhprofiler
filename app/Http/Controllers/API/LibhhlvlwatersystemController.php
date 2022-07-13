@@ -4,10 +4,11 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Libbarangay;
-use App\Http\Resources\LibbarangayResource;
+use App\Models\Libhhlvlwatersystem;
+use App\Http\Resources\LibhhlvlwatersystemResource;
 
-class LibbarangayController extends Controller
+
+class LibhhlvlwatersystemController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +17,7 @@ class LibbarangayController extends Controller
      */
     public function index()
     {
-        $barangays = Libbarangay::withCount(['households' =>function($query){
+        $libhhlvlwatersystem = Libhhlvlwatersystem::withCount(['households' =>function($query){
             $query->withFilters(
                 request()->input('municipalities',[]),
                 request()->input('barangays',[]),
@@ -33,7 +34,7 @@ class LibbarangayController extends Controller
         }])
         ->get();
 
-        return LibbarangayResource::collection($barangays);
+        return LibhhlvlwatersystemResource::collection($libhhlvlwatersystem);
     }
 
     /**

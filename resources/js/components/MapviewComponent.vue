@@ -75,6 +75,7 @@
               <lib-accesswatersupply v-bind:hasAccesswatersupply="hasAccesswatersupply" v-bind:noAccesswatersupply="noAccesswatersupply" v-bind:selected="selected"></lib-accesswatersupply>
               <lib-potable v-bind:ispotable="ispotable" v-bind:notpotable="notpotable" v-bind:selected="selected"></lib-potable>
               <lib-hhwatertenuralstatus v-bind:hhwatertenuralstatus="hhwatertenuralstatus" v-bind:selected="selected"></lib-hhwatertenuralstatus>
+              <lib-libhhlvlwatersystems v-bind:libhhlvlwatersystems="libhhlvlwatersystems" v-bind:selected="selected"></lib-libhhlvlwatersystems>
           </div>
         </aside>
     </section>
@@ -127,6 +128,7 @@ export default {
         hhtenuralstatus: [],
         hhroofmaterials: [],
         hhwatertenuralstatus: [],
+        libhhlvlwatersystems: [],
         hasElectricity: [],
         noElectricity: [],
         hasInternet: [],
@@ -147,7 +149,8 @@ export default {
           accesstointernet: [],
           accesswatersupply: [],
           potable: [],
-          hhwatertenuralstatus: []
+          hhwatertenuralstatus: [],
+          libhhlvlwatersystems: []
         },
         style:{
           width: '100%',
@@ -320,6 +323,20 @@ export default {
             console.log(error);
             this.isLoading = false;
         });
+      },
+      loadLibhhlvlwatersystems: function () {
+        this.isLoading = true;
+        axios.get('/api/libhhlvlwatersystems', {
+            params: _.omit(this.selected, 'libhhlvlwatersystems')
+        })
+        .then((response) => {
+            this.libhhlvlwatersystems = response.data.data;
+            this.isLoading = false;
+        })
+        .catch(function (error) {
+            console.log(error);
+            this.isLoading = false;
+        });
       }
   },
   watch: {
@@ -332,6 +349,7 @@ export default {
               this.loadHhtenuralstatus();
               this.loadHhroofmaterials();
               this.loadHhwatertenuralstatus();
+              this.loadLibhhlvlwatersystems();
           },
           deep: true
       }
@@ -448,6 +466,7 @@ export default {
     this.loadHhtenuralstatus();
     this.loadHhroofmaterials();
     this.loadHhwatertenuralstatus();
+    this.loadLibhhlvlwatersystems();
   }
 }
 </script>

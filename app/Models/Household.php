@@ -137,7 +137,8 @@ class Household extends Model
             $accesstointernet,
             $accesswatersupply,
             $potable,
-            $hhwatertenuralstatus
+            $hhwatertenuralstatus,
+            $libhhlvlwatersystems
         )
         {
             return $query->when(count($municipalities), function($query) use ($municipalities){
@@ -161,6 +162,8 @@ class Household extends Model
                 $query->whereIn('potable', $potable);    
             })->when(count($hhwatertenuralstatus), function ($query) use ($hhwatertenuralstatus){
                 $query->whereIn('libhhwatertenuralstatu_id', $hhwatertenuralstatus);    
+            })->when(count($libhhlvlwatersystems), function ($query) use ($libhhlvlwatersystems){
+                $query->whereIn('libhhlvlwatersystem_id', $libhhlvlwatersystems);    
             });
         }
         

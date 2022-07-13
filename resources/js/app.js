@@ -47,6 +47,7 @@ Vue.component('lib-accesstointernet', require('./components/AccesstointernetComp
 Vue.component('lib-accesswatersupply', require('./components/AccesswatersupplyComponent.vue').default);
 Vue.component('lib-potable', require('./components/PotableComponent.vue').default);
 Vue.component('lib-hhwatertenuralstatus', require('./components/LibhhwatertenuralstatuComponent.vue').default);
+Vue.component('lib-libhhlvlwatersystems', require('./components/LibhhlvlwatersystemsComponent.vue').default);
 
 
 /**
