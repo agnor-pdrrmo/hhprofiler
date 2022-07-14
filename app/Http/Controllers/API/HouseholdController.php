@@ -27,6 +27,9 @@ class HouseholdController extends Controller
             request()->input('potable',[]),
             request()->input('hhwatertenuralstatus',[]),
             request()->input('libhhlvlwatersystems',[]),
+            request()->input('floodsoccur',[]),
+            request()->input('evacuateduringcalamity',[]),
+            request()->input('accesstohealthmedicalfacilities',[]),
             
         )->get();
         //return LibbarangayResource::collection($barangays);
@@ -60,7 +63,13 @@ class HouseholdController extends Controller
                  'has_accesswatersupply_count'=>$householdResource->where('access_watersupply','=',1)->count(),
                  'no_accesswatersupply_count'=>$householdResource->where('access_watersupply','=',0)->count(),
                  'is_potable_count'=>$householdResource->where('potable','=',1)->count(),
-                 'not_potable_count'=>$householdResource->where('potable','=',0)->count()
+                 'not_potable_count'=>$householdResource->where('potable','=',0)->count(),
+                 'has_floodsoccur_count'=>$householdResource->where('floods_occur','=',1)->count(),
+                 'not_floodsoccur_count'=>$householdResource->where('floods_occur','=',0)->count(),
+                 'evacuate_during_calamity_count'=>$householdResource->where('experience_evacuationduringcalamity','=',1)->count(),
+                 'not_evacuate_during_calamity_count'=>$householdResource->where('experience_evacuationduringcalamity','=',0)->count(),
+                 'has_accesstohealthmedicalfacilities_count'=>$householdResource->where('has_accesstohealthmedicalfacilities','=',1)->count(),
+                 'no_accesstohealthmedicalfacilities_count'=>$householdResource->where('has_accesstohealthmedicalfacilities','=',0)->count()
         );
     }
 

@@ -138,7 +138,10 @@ class Household extends Model
             $accesswatersupply,
             $potable,
             $hhwatertenuralstatus,
-            $libhhlvlwatersystems
+            $libhhlvlwatersystems,
+            $floodsoccur,
+            $evacuateduringcalamity,
+            $accesstohealthmedicalfacilities
         )
         {
             return $query->when(count($municipalities), function($query) use ($municipalities){
@@ -164,6 +167,12 @@ class Household extends Model
                 $query->whereIn('libhhwatertenuralstatu_id', $hhwatertenuralstatus);    
             })->when(count($libhhlvlwatersystems), function ($query) use ($libhhlvlwatersystems){
                 $query->whereIn('libhhlvlwatersystem_id', $libhhlvlwatersystems);    
+            })->when(count($floodsoccur), function ($query) use ($floodsoccur){
+                $query->whereIn('floods_occur', $floodsoccur);    
+            })->when(count($evacuateduringcalamity), function ($query) use ($evacuateduringcalamity){
+                $query->whereIn('experience_evacuationduringcalamity', $evacuateduringcalamity);    
+            })->when(count($accesstohealthmedicalfacilities), function ($query) use ($accesstohealthmedicalfacilities){
+                $query->whereIn('has_accesstohealthmedicalfacilities', $accesstohealthmedicalfacilities);    
             });
         }
         

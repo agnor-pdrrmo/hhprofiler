@@ -76,6 +76,9 @@
               <lib-potable v-bind:ispotable="ispotable" v-bind:notpotable="notpotable" v-bind:selected="selected"></lib-potable>
               <lib-hhwatertenuralstatus v-bind:hhwatertenuralstatus="hhwatertenuralstatus" v-bind:selected="selected"></lib-hhwatertenuralstatus>
               <lib-libhhlvlwatersystems v-bind:libhhlvlwatersystems="libhhlvlwatersystems" v-bind:selected="selected"></lib-libhhlvlwatersystems>
+              <lib-floods-occur v-bind:hasfloodsoccur="hasfloodsoccur" v-bind:nofloodsoccur="nofloodsoccur" v-bind:selected="selected"></lib-floods-occur>
+              <lib-evacuated v-bind:isEvacuate="isEvacuate" v-bind:notEvacuate="notEvacuate" v-bind:selected="selected"></lib-evacuated>
+              <lib-access-medical-facilities v-bind:hasAccesstohealthmedicalfacilities="hasAccesstohealthmedicalfacilities" v-bind:noAccesstohealthmedicalfacilities="noAccesstohealthmedicalfacilities" v-bind:selected="selected"></lib-access-medical-facilities>
           </div>
         </aside>
     </section>
@@ -137,6 +140,12 @@ export default {
         noAccesswatersupply: [],
         ispotable: [],
         notpotable: [],
+        hasfloodsoccur: [],
+        nofloodsoccur: [],
+        isEvacuate: [],
+        notEvacuate: [],
+        hasAccesstohealthmedicalfacilities: [],
+        noAccesstohealthmedicalfacilities: [],
         //For searching
         selected: {
           households: [],
@@ -150,7 +159,10 @@ export default {
           accesswatersupply: [],
           potable: [],
           hhwatertenuralstatus: [],
-          libhhlvlwatersystems: []
+          libhhlvlwatersystems: [],
+          floodsoccur: [],
+          evacuateduringcalamity: [],
+          accesstohealthmedicalfacilities: [],
         },
         style:{
           width: '100%',
@@ -195,6 +207,13 @@ export default {
                    this.noAccesswatersupply = {'access': 'No','id':0,'households_count': response.data.no_accesswatersupply_count};
                    this.ispotable = {'access': 'Yes','id':1,'households_count': response.data.is_potable_count};
                    this.notpotable = {'access': 'No','id':0,'households_count': response.data.not_potable_count};
+                   this.hasfloodsoccur = {'access': 'Yes','id':1,'households_count': response.data.has_floodsoccur_count};
+                   this.nofloodsoccur = {'access': 'No','id':0,'households_count': response.data.not_floodsoccur_count};
+                   this.isEvacuate = {'access': 'Yes','id':1,'households_count': response.data.evacuate_during_calamity_count};
+                   this.notEvacuate = {'access': 'No','id':0,'households_count': response.data.not_evacuate_during_calamity_count};
+                   this.hasAccesstohealthmedicalfacilities = {'access': 'Yes','id':1,'households_count': response.data.has_accesstohealthmedicalfacilities_count};
+                   this.noAccesstohealthmedicalfacilities = {'access': 'No','id':0,'households_count': response.data.no_accesstohealthmedicalfacilities_count};
+                   
 
                    (response.data.length != 0) 
                     ? this.$refs.map.mapObject.fitBounds(this.households.map(h => { return [h.latitude, h.longitude] })) 

@@ -29,6 +29,9 @@ class LibhhtypeofbuildingController extends Controller
                 request()->input('potable',[]),
                 request()->input('hhwatertenuralstatus',[]),
                 request()->input('libhhlvlwatersystems',[]),
+                request()->input('floodsoccur',[]),
+                request()->input('evacuateduringcalamity',[]),
+                request()->input('accesstohealthmedicalfacilities',[]),
             );
         }])
         ->get();

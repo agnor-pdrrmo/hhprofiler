@@ -48,6 +48,9 @@ Vue.component('lib-accesswatersupply', require('./components/AccesswatersupplyCo
 Vue.component('lib-potable', require('./components/PotableComponent.vue').default);
 Vue.component('lib-hhwatertenuralstatus', require('./components/LibhhwatertenuralstatuComponent.vue').default);
 Vue.component('lib-libhhlvlwatersystems', require('./components/LibhhlvlwatersystemsComponent.vue').default);
+Vue.component('lib-floods-occur', require('./components/FloodoccurComponent.vue').default);
+Vue.component('lib-evacuated', require('./components/EvacuatedduringcalamityComponent.vue').default);
+Vue.component('lib-access-medical-facilities', require('./components/AccesstohealthmedicalfacilitiesComponent.vue').default);
 
 
 /**
