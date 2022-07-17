@@ -30,6 +30,7 @@ class HouseholdController extends Controller
             request()->input('floodsoccur',[]),
             request()->input('evacuateduringcalamity',[]),
             request()->input('accesstohealthmedicalfacilities',[]),
+            request()->input('accesstotelecommunications',[]),
             
         )->get();
         //return LibbarangayResource::collection($barangays);
@@ -69,7 +70,9 @@ class HouseholdController extends Controller
                  'evacuate_during_calamity_count'=>$householdResource->where('experience_evacuationduringcalamity','=',1)->count(),
                  'not_evacuate_during_calamity_count'=>$householdResource->where('experience_evacuationduringcalamity','=',0)->count(),
                  'has_accesstohealthmedicalfacilities_count'=>$householdResource->where('has_accesstohealthmedicalfacilities','=',1)->count(),
-                 'no_accesstohealthmedicalfacilities_count'=>$householdResource->where('has_accesstohealthmedicalfacilities','=',0)->count()
+                 'no_accesstohealthmedicalfacilities_count'=>$householdResource->where('has_accesstohealthmedicalfacilities','=',0)->count(),
+                 'has_accesstotelecommunications_count'=>$householdResource->where('has_accesstotelecommunications','=',1)->count(),
+                 'no_accesstotelecommunications_count'=>$householdResource->where('has_accesstotelecommunications','=',0)->count()
         );
     }
 

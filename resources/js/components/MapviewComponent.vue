@@ -79,6 +79,7 @@
               <lib-floods-occur v-bind:hasfloodsoccur="hasfloodsoccur" v-bind:nofloodsoccur="nofloodsoccur" v-bind:selected="selected"></lib-floods-occur>
               <lib-evacuated v-bind:isEvacuate="isEvacuate" v-bind:notEvacuate="notEvacuate" v-bind:selected="selected"></lib-evacuated>
               <lib-access-medical-facilities v-bind:hasAccesstohealthmedicalfacilities="hasAccesstohealthmedicalfacilities" v-bind:noAccesstohealthmedicalfacilities="noAccesstohealthmedicalfacilities" v-bind:selected="selected"></lib-access-medical-facilities>
+              <lib-access-telecommunication v-bind:hasAccesstotelecommunications="hasAccesstotelecommunications" v-bind:noAccesstotelecommunications="noAccesstotelecommunications" v-bind:selected="selected"></lib-access-telecommunication>
           </div>
         </aside>
     </section>
@@ -146,6 +147,8 @@ export default {
         notEvacuate: [],
         hasAccesstohealthmedicalfacilities: [],
         noAccesstohealthmedicalfacilities: [],
+        hasAccesstotelecommunications: [],
+        noAccesstotelecommunications: [],
         //For searching
         selected: {
           households: [],
@@ -163,6 +166,7 @@ export default {
           floodsoccur: [],
           evacuateduringcalamity: [],
           accesstohealthmedicalfacilities: [],
+          accesstotelecommunications: [],
         },
         style:{
           width: '100%',
@@ -213,6 +217,8 @@ export default {
                    this.notEvacuate = {'access': 'No','id':0,'households_count': response.data.not_evacuate_during_calamity_count};
                    this.hasAccesstohealthmedicalfacilities = {'access': 'Yes','id':1,'households_count': response.data.has_accesstohealthmedicalfacilities_count};
                    this.noAccesstohealthmedicalfacilities = {'access': 'No','id':0,'households_count': response.data.no_accesstohealthmedicalfacilities_count};
+                   this.hasAccesstotelecommunications = {'access': 'Yes','id':1,'households_count': response.data.has_accesstotelecommunications_count};
+                   this.noAccesstotelecommunications = {'access': 'No','id':0,'households_count': response.data.no_accesstotelecommunications_count};
                    
 
                    (response.data.length != 0) 

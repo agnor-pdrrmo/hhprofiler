@@ -2223,6 +2223,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AccesstotelecommunicationsComponent.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AccesstotelecommunicationsComponent.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['hasAccesstotelecommunications', 'noAccesstotelecommunications', 'selected']
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AccesswatersupplyComponent.vue?vue&type=script&lang=js&":
 /*!*********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AccesswatersupplyComponent.vue?vue&type=script&lang=js& ***!
@@ -2855,6 +2872,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       notEvacuate: [],
       hasAccesstohealthmedicalfacilities: [],
       noAccesstohealthmedicalfacilities: [],
+      hasAccesstotelecommunications: [],
+      noAccesstotelecommunications: [],
       //For searching
       selected: {
         households: [],
@@ -2871,7 +2890,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
         libhhlvlwatersystems: [],
         floodsoccur: [],
         evacuateduringcalamity: [],
-        accesstohealthmedicalfacilities: []
+        accesstohealthmedicalfacilities: [],
+        accesstotelecommunications: []
       },
       style: {
         width: '100%'
@@ -2975,6 +2995,16 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
           'access': 'No',
           'id': 0,
           'households_count': response.data.no_accesstohealthmedicalfacilities_count
+        };
+        _this.hasAccesstotelecommunications = {
+          'access': 'Yes',
+          'id': 1,
+          'households_count': response.data.has_accesstotelecommunications_count
+        };
+        _this.noAccesstotelecommunications = {
+          'access': 'No',
+          'id': 0,
+          'households_count': response.data.no_accesstotelecommunications_count
         };
         response.data.length != 0 ? _this.$refs.map.mapObject.fitBounds(_this.households.map(function (h) {
           return [h.latitude, h.longitude];
@@ -3757,6 +3787,137 @@ var staticRenderFns = [function () {
       color: "#007bff"
     }
   }, [_vm._v("Has Internet")])]);
+}];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AccesstotelecommunicationsComponent.vue?vue&type=template&id=8fc06d48&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AccesstotelecommunicationsComponent.vue?vue&type=template&id=8fc06d48& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", [_vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "collapse",
+    attrs: {
+      id: "accesstotelecommunicationsComponent"
+    }
+  }, [_c("div", {
+    staticClass: "mb-1"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.selected.accesstotelecommunications,
+      expression: "selected.accesstotelecommunications"
+    }],
+    staticClass: "form-check-input",
+    attrs: {
+      type: "checkbox",
+      id: "accesstotelecommunicationsComponent" + 1
+    },
+    domProps: {
+      value: 1,
+      checked: Array.isArray(_vm.selected.accesstotelecommunications) ? _vm._i(_vm.selected.accesstotelecommunications, 1) > -1 : _vm.selected.accesstotelecommunications
+    },
+    on: {
+      change: function change($event) {
+        var $$a = _vm.selected.accesstotelecommunications,
+            $$el = $event.target,
+            $$c = $$el.checked ? true : false;
+
+        if (Array.isArray($$a)) {
+          var $$v = 1,
+              $$i = _vm._i($$a, $$v);
+
+          if ($$el.checked) {
+            $$i < 0 && _vm.$set(_vm.selected, "accesstotelecommunications", $$a.concat([$$v]));
+          } else {
+            $$i > -1 && _vm.$set(_vm.selected, "accesstotelecommunications", $$a.slice(0, $$i).concat($$a.slice($$i + 1)));
+          }
+        } else {
+          _vm.$set(_vm.selected, "accesstotelecommunications", $$c);
+        }
+      }
+    }
+  }), _vm._v(" "), _c("label", {
+    staticClass: "form-check-label",
+    attrs: {
+      "for": "accesstotelecommunicationsComponent" + 1
+    }
+  }, [_vm._v("\r\n            Yes (" + _vm._s(_vm.hasAccesstotelecommunications.households_count) + ")\r\n        ")])]), _vm._v(" "), _c("div", {
+    staticClass: "mb-1"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.selected.accesstotelecommunications,
+      expression: "selected.accesstotelecommunications"
+    }],
+    staticClass: "form-check-input",
+    attrs: {
+      type: "checkbox",
+      id: "accesstotelecommunicationsComponent" + 0
+    },
+    domProps: {
+      value: 0,
+      checked: Array.isArray(_vm.selected.accesstotelecommunications) ? _vm._i(_vm.selected.accesstotelecommunications, 0) > -1 : _vm.selected.accesstotelecommunications
+    },
+    on: {
+      change: function change($event) {
+        var $$a = _vm.selected.accesstotelecommunications,
+            $$el = $event.target,
+            $$c = $$el.checked ? true : false;
+
+        if (Array.isArray($$a)) {
+          var $$v = 0,
+              $$i = _vm._i($$a, $$v);
+
+          if ($$el.checked) {
+            $$i < 0 && _vm.$set(_vm.selected, "accesstotelecommunications", $$a.concat([$$v]));
+          } else {
+            $$i > -1 && _vm.$set(_vm.selected, "accesstotelecommunications", $$a.slice(0, $$i).concat($$a.slice($$i + 1)));
+          }
+        } else {
+          _vm.$set(_vm.selected, "accesstotelecommunications", $$c);
+        }
+      }
+    }
+  }), _vm._v(" "), _c("label", {
+    staticClass: "form-check-label",
+    attrs: {
+      "for": "accesstotelecommunicationsComponent" + 0
+    }
+  }, [_vm._v("\r\n            No (" + _vm._s(_vm.noAccesstotelecommunications.households_count) + ")\r\n        ")])])])]);
+};
+
+var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("a", {
+    attrs: {
+      "data-toggle": "collapse",
+      href: "#accesstotelecommunicationsComponent",
+      "aria-expanded": "false"
+    }
+  }, [_c("h6", {
+    staticStyle: {
+      color: "#007bff"
+    }
+  }, [_vm._v("Access telecommunication")])]);
 }];
 render._withStripped = true;
 
@@ -8227,6 +8388,12 @@ var render = function render() {
       noAccesstohealthmedicalfacilities: _vm.noAccesstohealthmedicalfacilities,
       selected: _vm.selected
     }
+  }), _vm._v(" "), _c("lib-access-telecommunication", {
+    attrs: {
+      hasAccesstotelecommunications: _vm.hasAccesstotelecommunications,
+      noAccesstotelecommunications: _vm.noAccesstotelecommunications,
+      selected: _vm.selected
+    }
   })], 1)])], 1);
 };
 
@@ -8652,6 +8819,7 @@ Vue.component('lib-libhhlvlwatersystems', (__webpack_require__(/*! ./components/
 Vue.component('lib-floods-occur', (__webpack_require__(/*! ./components/FloodoccurComponent.vue */ "./resources/js/components/FloodoccurComponent.vue")["default"]));
 Vue.component('lib-evacuated', (__webpack_require__(/*! ./components/EvacuatedduringcalamityComponent.vue */ "./resources/js/components/EvacuatedduringcalamityComponent.vue")["default"]));
 Vue.component('lib-access-medical-facilities', (__webpack_require__(/*! ./components/AccesstohealthmedicalfacilitiesComponent.vue */ "./resources/js/components/AccesstohealthmedicalfacilitiesComponent.vue")["default"]));
+Vue.component('lib-access-telecommunication', (__webpack_require__(/*! ./components/AccesstotelecommunicationsComponent.vue */ "./resources/js/components/AccesstotelecommunicationsComponent.vue")["default"]));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -61027,6 +61195,45 @@ component.options.__file = "resources/js/components/AccesstointernetComponent.vu
 
 /***/ }),
 
+/***/ "./resources/js/components/AccesstotelecommunicationsComponent.vue":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/AccesstotelecommunicationsComponent.vue ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _AccesstotelecommunicationsComponent_vue_vue_type_template_id_8fc06d48___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AccesstotelecommunicationsComponent.vue?vue&type=template&id=8fc06d48& */ "./resources/js/components/AccesstotelecommunicationsComponent.vue?vue&type=template&id=8fc06d48&");
+/* harmony import */ var _AccesstotelecommunicationsComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AccesstotelecommunicationsComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/AccesstotelecommunicationsComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _AccesstotelecommunicationsComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AccesstotelecommunicationsComponent_vue_vue_type_template_id_8fc06d48___WEBPACK_IMPORTED_MODULE_0__.render,
+  _AccesstotelecommunicationsComponent_vue_vue_type_template_id_8fc06d48___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/AccesstotelecommunicationsComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/AccesswatersupplyComponent.vue":
 /*!****************************************************************!*\
   !*** ./resources/js/components/AccesswatersupplyComponent.vue ***!
@@ -62054,6 +62261,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/AccesstotelecommunicationsComponent.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/components/AccesstotelecommunicationsComponent.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AccesstotelecommunicationsComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AccesstotelecommunicationsComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AccesstotelecommunicationsComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AccesstotelecommunicationsComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/AccesswatersupplyComponent.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************!*\
   !*** ./resources/js/components/AccesswatersupplyComponent.vue?vue&type=script&lang=js& ***!
@@ -62501,6 +62724,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AccesstointernetComponent_vue_vue_type_template_id_6b4b1762___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AccesstointernetComponent_vue_vue_type_template_id_6b4b1762___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AccesstointernetComponent.vue?vue&type=template&id=6b4b1762& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AccesstointernetComponent.vue?vue&type=template&id=6b4b1762&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/AccesstotelecommunicationsComponent.vue?vue&type=template&id=8fc06d48&":
+/*!********************************************************************************************************!*\
+  !*** ./resources/js/components/AccesstotelecommunicationsComponent.vue?vue&type=template&id=8fc06d48& ***!
+  \********************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AccesstotelecommunicationsComponent_vue_vue_type_template_id_8fc06d48___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AccesstotelecommunicationsComponent_vue_vue_type_template_id_8fc06d48___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AccesstotelecommunicationsComponent_vue_vue_type_template_id_8fc06d48___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AccesstotelecommunicationsComponent.vue?vue&type=template&id=8fc06d48& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AccesstotelecommunicationsComponent.vue?vue&type=template&id=8fc06d48&");
 
 
 /***/ }),

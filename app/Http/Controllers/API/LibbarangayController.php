@@ -32,6 +32,7 @@ class LibbarangayController extends Controller
                 request()->input('floodsoccurs',[]),
                 request()->input('evacuateduringcalamity',[]),
                 request()->input('accesstohealthmedicalfacilities',[]),
+                request()->input('accesstotelecommunications',[]),
             );
         }])
         ->get();

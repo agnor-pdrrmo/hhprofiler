@@ -51,6 +51,7 @@ Vue.component('lib-libhhlvlwatersystems', require('./components/Libhhlvlwatersys
 Vue.component('lib-floods-occur', require('./components/FloodoccurComponent.vue').default);
 Vue.component('lib-evacuated', require('./components/EvacuatedduringcalamityComponent.vue').default);
 Vue.component('lib-access-medical-facilities', require('./components/AccesstohealthmedicalfacilitiesComponent.vue').default);
+Vue.component('lib-access-telecommunication', require('./components/AccesstotelecommunicationsComponent.vue').default);
 
 
 /**

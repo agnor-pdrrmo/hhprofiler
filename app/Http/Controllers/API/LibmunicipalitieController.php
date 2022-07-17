@@ -32,6 +32,7 @@ class LibmunicipalitieController extends Controller
                 request()->input('floods_occur',[]),
                 request()->input('evacuateduringcalamity',[]),
                 request()->input('accesstohealthmedicalfacilities',[]),
+                request()->input('accesstotelecommunications',[]),
             );
         }])
         ->with(['libbarangays' => function($q){
@@ -51,6 +52,7 @@ class LibmunicipalitieController extends Controller
                     request()->input('floodsoccur',[]),
                     request()->input('evacuateduringcalamity',[]),
                     request()->input('accesstohealthmedicalfacilities',[]),
+                    request()->input('accesstotelecommunications',[]),
                 );
             }]);
         }])

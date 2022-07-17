@@ -32,6 +32,7 @@ class LibhhtenuralstatuController extends Controller
                 request()->input('floodsoccur',[]),
                 request()->input('evacuateduringcalamity',[]),
                 request()->input('accesstohealthmedicalfacilities',[]),
+                request()->input('accesstotelecommunications',[]),
             );
         }])
         ->get();
