@@ -8,7 +8,9 @@
             :width= '128'
             >
         </loading>
-        <div class="container-fluid" >
+        
+  <families-population-pivot></families-population-pivot>
+  
             <div class="row">
                 <div class="col-12" >
                     <v-map @moveend="moveEnd" ref="map" :zoom="zoom" :center="centerMarker" :style="setStyle" style="height: 80vh; position: relative;  solid black; ">       
@@ -80,6 +82,7 @@
               <lib-evacuated v-bind:isEvacuate="isEvacuate" v-bind:notEvacuate="notEvacuate" v-bind:selected="selected"></lib-evacuated>
               <lib-access-medical-facilities v-bind:hasAccesstohealthmedicalfacilities="hasAccesstohealthmedicalfacilities" v-bind:noAccesstohealthmedicalfacilities="noAccesstohealthmedicalfacilities" v-bind:selected="selected"></lib-access-medical-facilities>
               <lib-access-telecommunication v-bind:hasAccesstotelecommunications="hasAccesstotelecommunications" v-bind:noAccesstotelecommunications="noAccesstotelecommunications" v-bind:selected="selected"></lib-access-telecommunication>
+              <lib-access-drillandsimulations v-bind:hasAccesstodrillsandsimulations="hasAccesstodrillsandsimulations" v-bind:noAccesstodrillsandsimulations="noAccesstodrillsandsimulations" v-bind:selected="selected"></lib-access-drillandsimulations>
           </div>
         </aside>
     </section>
@@ -149,6 +152,8 @@ export default {
         noAccesstohealthmedicalfacilities: [],
         hasAccesstotelecommunications: [],
         noAccesstotelecommunications: [],
+        hasAccesstodrillsandsimulations: [],
+        noAccesstodrillsandsimulations: [],
         //For searching
         selected: {
           households: [],
@@ -167,6 +172,7 @@ export default {
           evacuateduringcalamity: [],
           accesstohealthmedicalfacilities: [],
           accesstotelecommunications: [],
+          accesstodrillsandsimulations: []
         },
         style:{
           width: '100%',
@@ -219,6 +225,8 @@ export default {
                    this.noAccesstohealthmedicalfacilities = {'access': 'No','id':0,'households_count': response.data.no_accesstohealthmedicalfacilities_count};
                    this.hasAccesstotelecommunications = {'access': 'Yes','id':1,'households_count': response.data.has_accesstotelecommunications_count};
                    this.noAccesstotelecommunications = {'access': 'No','id':0,'households_count': response.data.no_accesstotelecommunications_count};
+                   this.hasAccesstodrillsandsimulations = {'access': 'Yes','id':1,'households_count': response.data.has_accesstodrillsandsimulations_count};
+                   this.noAccesstodrillsandsimulations = {'access': 'No','id':0,'households_count': response.data.no_accesstodrillsandsimulations_count};
                    
 
                    (response.data.length != 0) 
