@@ -31,6 +31,7 @@ class HouseholdController extends Controller
             request()->input('evacuateduringcalamity',[]),
             request()->input('accesstohealthmedicalfacilities',[]),
             request()->input('accesstotelecommunications',[]),
+            request()->input('accesstodrillsandsimulations',[]),
             
         )->get();
         //return LibbarangayResource::collection($barangays);
@@ -72,7 +73,9 @@ class HouseholdController extends Controller
                  'has_accesstohealthmedicalfacilities_count'=>$householdResource->where('has_accesstohealthmedicalfacilities','=',1)->count(),
                  'no_accesstohealthmedicalfacilities_count'=>$householdResource->where('has_accesstohealthmedicalfacilities','=',0)->count(),
                  'has_accesstotelecommunications_count'=>$householdResource->where('has_accesstotelecommunications','=',1)->count(),
-                 'no_accesstotelecommunications_count'=>$householdResource->where('has_accesstotelecommunications','=',0)->count()
+                 'no_accesstotelecommunications_count'=>$householdResource->where('has_accesstotelecommunications','=',0)->count(),
+                 'has_accesstodrillsandsimulations_count'=>$householdResource->where('has_accesstodrillsandsimulations','=',1)->count(),
+                 'no_accesstodrillsandsimulations_count'=>$householdResource->where('has_accesstodrillsandsimulations','=',0)->count()
         );
     }
 

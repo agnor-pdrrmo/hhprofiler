@@ -34,6 +34,7 @@ class LibhhlvlwatersystemController extends Controller
                 request()->input('evacuateduringcalamity',[]),
                 request()->input('accesstohealthmedicalfacilities',[]),
                 request()->input('accesstotelecommunications',[]),
+                request()->input('accesstodrillsandsimulations',[]),
             );
         }])
         ->get();

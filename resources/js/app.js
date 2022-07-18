@@ -21,6 +21,7 @@ import * as Vue2Leaflet from 'vue2-leaflet';
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
+Vue.component('families-population-pivot', require('./components/FamiliesandPopulationComponent.vue').default);
 Vue.component('map-view-component', require('./components/MapviewComponent.vue').default);
 Vue.component('household-component', require('./components/HouseholdComponent.vue').default);
 Vue.component('household-form-component', require('./components/HouseholdformComponent.vue').default);
@@ -52,6 +53,7 @@ Vue.component('lib-floods-occur', require('./components/FloodoccurComponent.vue'
 Vue.component('lib-evacuated', require('./components/EvacuatedduringcalamityComponent.vue').default);
 Vue.component('lib-access-medical-facilities', require('./components/AccesstohealthmedicalfacilitiesComponent.vue').default);
 Vue.component('lib-access-telecommunication', require('./components/AccesstotelecommunicationsComponent.vue').default);
+Vue.component('lib-access-drillandsimulations', require('./components/AccesstodrillsandsimulationsComponent.vue').default);
 
 
 /**

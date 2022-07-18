@@ -33,6 +33,7 @@ class LibmunicipalitieController extends Controller
                 request()->input('evacuateduringcalamity',[]),
                 request()->input('accesstohealthmedicalfacilities',[]),
                 request()->input('accesstotelecommunications',[]),
+                request()->input('accesstodrillsandsimulations',[]),
             );
         }])
         ->with(['libbarangays' => function($q){
@@ -53,6 +54,7 @@ class LibmunicipalitieController extends Controller
                     request()->input('evacuateduringcalamity',[]),
                     request()->input('accesstohealthmedicalfacilities',[]),
                     request()->input('accesstotelecommunications',[]),
+                    request()->input('accesstodrillsandsimulations',[]),
                 );
             }]);
         }])

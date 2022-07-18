@@ -2172,6 +2172,23 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AccesstodrillsandsimulationsComponent.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AccesstodrillsandsimulationsComponent.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['hasAccesstodrillsandsimulations', 'noAccesstodrillsandsimulations', 'selected']
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AccesstoelectricityComponent.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AccesstoelectricityComponent.vue?vue&type=script&lang=js& ***!
@@ -2423,6 +2440,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['isEvacuate', 'notEvacuate', 'selected']
 });
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FamiliesandPopulationComponent.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FamiliesandPopulationComponent.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
 
@@ -2874,6 +2906,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       noAccesstohealthmedicalfacilities: [],
       hasAccesstotelecommunications: [],
       noAccesstotelecommunications: [],
+      hasAccesstodrillsandsimulations: [],
+      noAccesstodrillsandsimulations: [],
       //For searching
       selected: {
         households: [],
@@ -2891,7 +2925,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
         floodsoccur: [],
         evacuateduringcalamity: [],
         accesstohealthmedicalfacilities: [],
-        accesstotelecommunications: []
+        accesstotelecommunications: [],
+        accesstodrillsandsimulations: []
       },
       style: {
         width: '100%'
@@ -3005,6 +3040,16 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
           'access': 'No',
           'id': 0,
           'households_count': response.data.no_accesstotelecommunications_count
+        };
+        _this.hasAccesstodrillsandsimulations = {
+          'access': 'Yes',
+          'id': 1,
+          'households_count': response.data.has_accesstodrillsandsimulations_count
+        };
+        _this.noAccesstodrillsandsimulations = {
+          'access': 'No',
+          'id': 0,
+          'households_count': response.data.no_accesstodrillsandsimulations_count
         };
         response.data.length != 0 ? _this.$refs.map.mapObject.fitBounds(_this.households.map(function (h) {
           return [h.latitude, h.longitude];
@@ -3397,6 +3442,137 @@ __webpack_require__.r(__webpack_exports__);
     breadcrumbitemactive: String
   }
 });
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AccesstodrillsandsimulationsComponent.vue?vue&type=template&id=535a0e96&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AccesstodrillsandsimulationsComponent.vue?vue&type=template&id=535a0e96& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", [_vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "collapse",
+    attrs: {
+      id: "accesstodrillsandsimulations"
+    }
+  }, [_c("div", {
+    staticClass: "mb-1"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.selected.accesstodrillsandsimulations,
+      expression: "selected.accesstodrillsandsimulations"
+    }],
+    staticClass: "form-check-input",
+    attrs: {
+      type: "checkbox",
+      id: "accesstodrillsandsimulations" + 1
+    },
+    domProps: {
+      value: 1,
+      checked: Array.isArray(_vm.selected.accesstodrillsandsimulations) ? _vm._i(_vm.selected.accesstodrillsandsimulations, 1) > -1 : _vm.selected.accesstodrillsandsimulations
+    },
+    on: {
+      change: function change($event) {
+        var $$a = _vm.selected.accesstodrillsandsimulations,
+            $$el = $event.target,
+            $$c = $$el.checked ? true : false;
+
+        if (Array.isArray($$a)) {
+          var $$v = 1,
+              $$i = _vm._i($$a, $$v);
+
+          if ($$el.checked) {
+            $$i < 0 && _vm.$set(_vm.selected, "accesstodrillsandsimulations", $$a.concat([$$v]));
+          } else {
+            $$i > -1 && _vm.$set(_vm.selected, "accesstodrillsandsimulations", $$a.slice(0, $$i).concat($$a.slice($$i + 1)));
+          }
+        } else {
+          _vm.$set(_vm.selected, "accesstodrillsandsimulations", $$c);
+        }
+      }
+    }
+  }), _vm._v(" "), _c("label", {
+    staticClass: "form-check-label",
+    attrs: {
+      "for": "accesstodrillsandsimulations" + 1
+    }
+  }, [_vm._v("\r\n            Yes (" + _vm._s(_vm.hasAccesstodrillsandsimulations.households_count) + ")\r\n        ")])]), _vm._v(" "), _c("div", {
+    staticClass: "mb-1"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.selected.accesstodrillsandsimulations,
+      expression: "selected.accesstodrillsandsimulations"
+    }],
+    staticClass: "form-check-input",
+    attrs: {
+      type: "checkbox",
+      id: "accesstodrillsandsimulations" + 0
+    },
+    domProps: {
+      value: 0,
+      checked: Array.isArray(_vm.selected.accesstodrillsandsimulations) ? _vm._i(_vm.selected.accesstodrillsandsimulations, 0) > -1 : _vm.selected.accesstodrillsandsimulations
+    },
+    on: {
+      change: function change($event) {
+        var $$a = _vm.selected.accesstodrillsandsimulations,
+            $$el = $event.target,
+            $$c = $$el.checked ? true : false;
+
+        if (Array.isArray($$a)) {
+          var $$v = 0,
+              $$i = _vm._i($$a, $$v);
+
+          if ($$el.checked) {
+            $$i < 0 && _vm.$set(_vm.selected, "accesstodrillsandsimulations", $$a.concat([$$v]));
+          } else {
+            $$i > -1 && _vm.$set(_vm.selected, "accesstodrillsandsimulations", $$a.slice(0, $$i).concat($$a.slice($$i + 1)));
+          }
+        } else {
+          _vm.$set(_vm.selected, "accesstodrillsandsimulations", $$c);
+        }
+      }
+    }
+  }), _vm._v(" "), _c("label", {
+    staticClass: "form-check-label",
+    attrs: {
+      "for": "accesstodrillsandsimulations" + 0
+    }
+  }, [_vm._v("\r\n            No (" + _vm._s(_vm.noAccesstodrillsandsimulations.households_count) + ")\r\n        ")])])])]);
+};
+
+var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("a", {
+    attrs: {
+      "data-toggle": "collapse",
+      href: "#accesstodrillsandsimulations",
+      "aria-expanded": "false"
+    }
+  }, [_c("h6", {
+    staticStyle: {
+      color: "#007bff"
+    }
+  }, [_vm._v("Access Drills and Simulations")])]);
+}];
+render._withStripped = true;
+
 
 /***/ }),
 
@@ -5381,6 +5557,196 @@ var staticRenderFns = [function () {
       color: "#007bff"
     }
   }, [_vm._v("Evacuated during calamities")])]);
+}];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FamiliesandPopulationComponent.vue?vue&type=template&id=61737e06&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FamiliesandPopulationComponent.vue?vue&type=template&id=61737e06& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _vm._m(0);
+};
+
+var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("section", {
+    staticClass: "content"
+  }, [_c("div", {
+    staticClass: "container-fluid"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-12"
+  }, [_c("div", {
+    staticClass: "card"
+  }, [_c("div", {
+    staticClass: "card-header"
+  }, [_c("h3", {
+    staticClass: "card-title"
+  }, [_vm._v("Number of families and population vulnerable in hazard")])]), _vm._v(" "), _c("div", {
+    staticClass: "card-body"
+  }, [_c("table", {
+    staticClass: "table table-bordered"
+  }, [_c("thead", {
+    staticClass: "thead-light"
+  }, [_c("tr", [_c("th", {
+    staticClass: "align-middle text-center",
+    staticStyle: {
+      width: "10px"
+    },
+    attrs: {
+      rowspan: "2"
+    }
+  }, [_vm._v("MUNICIPALITY"), _c("br"), _vm._v("NAME")]), _vm._v(" "), _c("th", {
+    staticClass: "align-middle text-center",
+    staticStyle: {
+      width: "10px"
+    },
+    attrs: {
+      rowspan: "2"
+    }
+  }, [_vm._v("BARANGAY"), _c("br"), _vm._v("NAME")]), _vm._v(" "), _c("th", {
+    staticClass: "align-middle text-center",
+    staticStyle: {
+      width: "10px"
+    },
+    attrs: {
+      rowspan: "2"
+    }
+  }, [_vm._v("PUROK NAME")]), _vm._v(" "), _c("th", {
+    staticClass: "align-middle text-center",
+    attrs: {
+      rowspan: "2"
+    }
+  }, [_vm._v("NO. OF"), _c("br"), _vm._v("FAMILY")]), _vm._v(" "), _c("th", {
+    staticClass: "align-middle text-center",
+    attrs: {
+      colspan: "2"
+    }
+  }, [_vm._v("NO. OF "), _c("br"), _vm._v("INDIVIDUALS")]), _vm._v(" "), _c("th", {
+    staticClass: "align-middle text-center",
+    attrs: {
+      colspan: "2"
+    }
+  }, [_vm._v("INFANT"), _c("br"), _vm._v("(0-11 mos)")]), _vm._v(" "), _c("th", {
+    staticClass: "align-middle text-center",
+    attrs: {
+      colspan: "2"
+    }
+  }, [_vm._v("CHILDREN"), _c("br"), _vm._v("(17 y/o & below)")]), _vm._v(" "), _c("th", {
+    staticClass: "align-middle text-center",
+    attrs: {
+      colspan: "2"
+    }
+  }, [_vm._v("ADULT"), _c("br"), _vm._v("(18-59 y/o)")]), _vm._v(" "), _c("th", {
+    staticClass: "align-middle text-center",
+    attrs: {
+      colspan: "2"
+    }
+  }, [_vm._v("ELDERLY"), _c("br"), _vm._v("60 y/o & above")]), _vm._v(" "), _c("th", {
+    staticClass: "align-middle text-center",
+    attrs: {
+      colspan: "2"
+    }
+  }, [_vm._v("PWD")]), _vm._v(" "), _c("th", {
+    staticClass: "align-middle text-center",
+    attrs: {
+      colspan: "2"
+    }
+  }, [_vm._v("WITH"), _c("br"), _vm._v("SICKNESS"), _c("br"), _vm._v("(ALL AGES)")]), _vm._v(" "), _c("th", {
+    staticClass: "align-middle text-center",
+    attrs: {
+      colspan: "2"
+    }
+  }, [_vm._v("INDIGENOUS"), _c("br"), _vm._v("PEOPLES")]), _vm._v(" "), _c("th", {
+    staticClass: "align-middle text-center",
+    attrs: {
+      rowspan: "2"
+    }
+  }, [_vm._v("PREGNANT WOMEN")])]), _vm._v(" "), _c("tr", [_c("th", {
+    staticClass: "align-middle text-center"
+  }, [_vm._v("M")]), _vm._v(" "), _c("th", {
+    staticClass: "align-middle text-center"
+  }, [_vm._v("F")]), _vm._v(" "), _c("th", {
+    staticClass: "align-middle text-center"
+  }, [_vm._v("M")]), _vm._v(" "), _c("th", {
+    staticClass: "align-middle text-center"
+  }, [_vm._v("F")]), _vm._v(" "), _c("th", {
+    staticClass: "align-middle text-center"
+  }, [_vm._v("M")]), _vm._v(" "), _c("th", {
+    staticClass: "align-middle text-center"
+  }, [_vm._v("F")]), _vm._v(" "), _c("th", {
+    staticClass: "align-middle text-center"
+  }, [_vm._v("M")]), _vm._v(" "), _c("th", {
+    staticClass: "align-middle text-center"
+  }, [_vm._v("F")]), _vm._v(" "), _c("th", {
+    staticClass: "align-middle text-center"
+  }, [_vm._v("M")]), _vm._v(" "), _c("th", {
+    staticClass: "align-middle text-center"
+  }, [_vm._v("F")]), _vm._v(" "), _c("th", {
+    staticClass: "align-middle text-center"
+  }, [_vm._v("M")]), _vm._v(" "), _c("th", {
+    staticClass: "align-middle text-center"
+  }, [_vm._v("F")]), _vm._v(" "), _c("th", {
+    staticClass: "align-middle text-center"
+  }, [_vm._v("M")]), _vm._v(" "), _c("th", {
+    staticClass: "align-middle text-center"
+  }, [_vm._v("F")]), _vm._v(" "), _c("th", {
+    staticClass: "align-middle text-center"
+  }, [_vm._v("M")]), _vm._v(" "), _c("th", {
+    staticClass: "align-middle text-center"
+  }, [_vm._v("F")])])]), _vm._v(" "), _c("tbody", [_c("tr", [_c("td"), _vm._v(" "), _c("td"), _vm._v(" "), _c("td"), _vm._v(" "), _c("td"), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  })])])])])])])])])]);
 }];
 render._withStripped = true;
 
@@ -8193,9 +8559,7 @@ var render = function render() {
       height: 128,
       width: 128
     }
-  }), _vm._v(" "), _c("div", {
-    staticClass: "container-fluid"
-  }, [_c("div", {
+  }), _vm._v(" "), _c("families-population-pivot"), _vm._v(" "), _c("div", {
     staticClass: "row"
   }, [_c("div", {
     staticClass: "col-12"
@@ -8232,7 +8596,7 @@ var render = function render() {
         }
       }
     });
-  })], 2)], 1)])]), _vm._v(" "), !_vm.advanceSearch ? _c("aside", {
+  })], 2)], 1)]), _vm._v(" "), !_vm.advanceSearch ? _c("aside", {
     staticClass: "control-sidebar overflow-auto control-sidebar-dark",
     staticStyle: {
       width: "35% !important"
@@ -8392,6 +8756,12 @@ var render = function render() {
     attrs: {
       hasAccesstotelecommunications: _vm.hasAccesstotelecommunications,
       noAccesstotelecommunications: _vm.noAccesstotelecommunications,
+      selected: _vm.selected
+    }
+  }), _vm._v(" "), _c("lib-access-drillandsimulations", {
+    attrs: {
+      hasAccesstodrillsandsimulations: _vm.hasAccesstodrillsandsimulations,
+      noAccesstodrillsandsimulations: _vm.noAccesstodrillsandsimulations,
       selected: _vm.selected
     }
   })], 1)])], 1);
@@ -8790,6 +9160,7 @@ window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
+Vue.component('families-population-pivot', (__webpack_require__(/*! ./components/FamiliesandPopulationComponent.vue */ "./resources/js/components/FamiliesandPopulationComponent.vue")["default"]));
 Vue.component('map-view-component', (__webpack_require__(/*! ./components/MapviewComponent.vue */ "./resources/js/components/MapviewComponent.vue")["default"]));
 Vue.component('household-component', (__webpack_require__(/*! ./components/HouseholdComponent.vue */ "./resources/js/components/HouseholdComponent.vue")["default"]));
 Vue.component('household-form-component', (__webpack_require__(/*! ./components/HouseholdformComponent.vue */ "./resources/js/components/HouseholdformComponent.vue")["default"]));
@@ -8820,6 +9191,7 @@ Vue.component('lib-floods-occur', (__webpack_require__(/*! ./components/Floodocc
 Vue.component('lib-evacuated', (__webpack_require__(/*! ./components/EvacuatedduringcalamityComponent.vue */ "./resources/js/components/EvacuatedduringcalamityComponent.vue")["default"]));
 Vue.component('lib-access-medical-facilities', (__webpack_require__(/*! ./components/AccesstohealthmedicalfacilitiesComponent.vue */ "./resources/js/components/AccesstohealthmedicalfacilitiesComponent.vue")["default"]));
 Vue.component('lib-access-telecommunication', (__webpack_require__(/*! ./components/AccesstotelecommunicationsComponent.vue */ "./resources/js/components/AccesstotelecommunicationsComponent.vue")["default"]));
+Vue.component('lib-access-drillandsimulations', (__webpack_require__(/*! ./components/AccesstodrillsandsimulationsComponent.vue */ "./resources/js/components/AccesstodrillsandsimulationsComponent.vue")["default"]));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -61078,6 +61450,45 @@ module.exports = function (list, options) {
 
 /***/ }),
 
+/***/ "./resources/js/components/AccesstodrillsandsimulationsComponent.vue":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/AccesstodrillsandsimulationsComponent.vue ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _AccesstodrillsandsimulationsComponent_vue_vue_type_template_id_535a0e96___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AccesstodrillsandsimulationsComponent.vue?vue&type=template&id=535a0e96& */ "./resources/js/components/AccesstodrillsandsimulationsComponent.vue?vue&type=template&id=535a0e96&");
+/* harmony import */ var _AccesstodrillsandsimulationsComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AccesstodrillsandsimulationsComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/AccesstodrillsandsimulationsComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _AccesstodrillsandsimulationsComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AccesstodrillsandsimulationsComponent_vue_vue_type_template_id_535a0e96___WEBPACK_IMPORTED_MODULE_0__.render,
+  _AccesstodrillsandsimulationsComponent_vue_vue_type_template_id_535a0e96___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/AccesstodrillsandsimulationsComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/AccesstoelectricityComponent.vue":
 /*!******************************************************************!*\
   !*** ./resources/js/components/AccesstoelectricityComponent.vue ***!
@@ -61464,6 +61875,45 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 /* hot reload */
 if (false) { var api; }
 component.options.__file = "resources/js/components/EvacuatedduringcalamityComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/FamiliesandPopulationComponent.vue":
+/*!********************************************************************!*\
+  !*** ./resources/js/components/FamiliesandPopulationComponent.vue ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _FamiliesandPopulationComponent_vue_vue_type_template_id_61737e06___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FamiliesandPopulationComponent.vue?vue&type=template&id=61737e06& */ "./resources/js/components/FamiliesandPopulationComponent.vue?vue&type=template&id=61737e06&");
+/* harmony import */ var _FamiliesandPopulationComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FamiliesandPopulationComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/FamiliesandPopulationComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _FamiliesandPopulationComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _FamiliesandPopulationComponent_vue_vue_type_template_id_61737e06___WEBPACK_IMPORTED_MODULE_0__.render,
+  _FamiliesandPopulationComponent_vue_vue_type_template_id_61737e06___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/FamiliesandPopulationComponent.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -62213,6 +62663,22 @@ component.options.__file = "resources/js/components/SectionheaderComponent.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/AccesstodrillsandsimulationsComponent.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************!*\
+  !*** ./resources/js/components/AccesstodrillsandsimulationsComponent.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AccesstodrillsandsimulationsComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AccesstodrillsandsimulationsComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AccesstodrillsandsimulationsComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AccesstodrillsandsimulationsComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/AccesstoelectricityComponent.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************************!*\
   !*** ./resources/js/components/AccesstoelectricityComponent.vue?vue&type=script&lang=js& ***!
@@ -62370,6 +62836,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EvacuatedduringcalamityComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./EvacuatedduringcalamityComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/EvacuatedduringcalamityComponent.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EvacuatedduringcalamityComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/FamiliesandPopulationComponent.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/components/FamiliesandPopulationComponent.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FamiliesandPopulationComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FamiliesandPopulationComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FamiliesandPopulationComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FamiliesandPopulationComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -62677,6 +63159,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/AccesstodrillsandsimulationsComponent.vue?vue&type=template&id=535a0e96&":
+/*!**********************************************************************************************************!*\
+  !*** ./resources/js/components/AccesstodrillsandsimulationsComponent.vue?vue&type=template&id=535a0e96& ***!
+  \**********************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AccesstodrillsandsimulationsComponent_vue_vue_type_template_id_535a0e96___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AccesstodrillsandsimulationsComponent_vue_vue_type_template_id_535a0e96___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AccesstodrillsandsimulationsComponent_vue_vue_type_template_id_535a0e96___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AccesstodrillsandsimulationsComponent.vue?vue&type=template&id=535a0e96& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/AccesstodrillsandsimulationsComponent.vue?vue&type=template&id=535a0e96&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/AccesstoelectricityComponent.vue?vue&type=template&id=5a2a4f56&":
 /*!*************************************************************************************************!*\
   !*** ./resources/js/components/AccesstoelectricityComponent.vue?vue&type=template&id=5a2a4f56& ***!
@@ -62843,6 +63342,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EvacuatedduringcalamityComponent_vue_vue_type_template_id_0013ffdf___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EvacuatedduringcalamityComponent_vue_vue_type_template_id_0013ffdf___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./EvacuatedduringcalamityComponent.vue?vue&type=template&id=0013ffdf& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/EvacuatedduringcalamityComponent.vue?vue&type=template&id=0013ffdf&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/FamiliesandPopulationComponent.vue?vue&type=template&id=61737e06&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/components/FamiliesandPopulationComponent.vue?vue&type=template&id=61737e06& ***!
+  \***************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FamiliesandPopulationComponent_vue_vue_type_template_id_61737e06___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FamiliesandPopulationComponent_vue_vue_type_template_id_61737e06___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FamiliesandPopulationComponent_vue_vue_type_template_id_61737e06___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FamiliesandPopulationComponent.vue?vue&type=template&id=61737e06& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/FamiliesandPopulationComponent.vue?vue&type=template&id=61737e06&");
 
 
 /***/ }),
