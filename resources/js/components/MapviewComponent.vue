@@ -8,9 +8,8 @@
             :width= '128'
             >
         </loading>
-        
-  <families-population-pivot></families-population-pivot>
-  
+  <families-population-pivot v-bind:households="households"></families-population-pivot>
+        <div class="container-fluid" >
             <div class="row">
                 <div class="col-12" >
                     <v-map @moveend="moveEnd" ref="map" :zoom="zoom" :center="centerMarker" :style="setStyle" style="height: 80vh; position: relative;  solid black; ">       

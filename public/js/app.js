@@ -2454,7 +2454,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+/* harmony import */ var _components_pivot_tableDataComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/pivot/tableDataComponent.vue */ "./resources/js/components/pivot/tableDataComponent.vue");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['households'],
+  components: {
+    Table: _components_pivot_tableDataComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }
+});
 
 /***/ }),
 
@@ -3440,6 +3447,28 @@ __webpack_require__.r(__webpack_exports__);
     title: String,
     breadcrumbitem: String,
     breadcrumbitemactive: String
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pivot/tableDataComponent.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pivot/tableDataComponent.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['data'],
+  data: function data() {
+    return {
+      data: this.data
+    };
   }
 });
 
@@ -5579,13 +5608,6 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _vm._m(0);
-};
-
-var staticRenderFns = [function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
   return _c("section", {
     staticClass: "content"
   }, [_c("div", {
@@ -5596,15 +5618,65 @@ var staticRenderFns = [function () {
     staticClass: "col-md-12"
   }, [_c("div", {
     staticClass: "card"
-  }, [_c("div", {
-    staticClass: "card-header"
-  }, [_c("h3", {
-    staticClass: "card-title"
-  }, [_vm._v("Number of families and population vulnerable in hazard")])]), _vm._v(" "), _c("div", {
+  }, [_vm._m(0), _vm._v(" "), _c("div", {
     staticClass: "card-body"
   }, [_c("table", {
     staticClass: "table table-bordered"
-  }, [_c("thead", {
+  }, [_vm._m(1), _vm._v(" "), _c("tbody", [_c("tr", [_c("td"), _vm._v(" "), _c("td"), _vm._v(" "), _c("td"), _vm._v(" "), _c("Table", {
+    attrs: {
+      data: _vm.households
+    }
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  })], 1)])])])])])])])]);
+};
+
+var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "card-header"
+  }, [_c("h3", {
+    staticClass: "card-title"
+  }, [_vm._v("Number of families and population vulnerable in hazard")])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("thead", {
     staticClass: "thead-light"
   }, [_c("tr", [_c("th", {
     staticClass: "align-middle text-center",
@@ -5712,41 +5784,7 @@ var staticRenderFns = [function () {
     staticClass: "align-middle text-center"
   }, [_vm._v("M")]), _vm._v(" "), _c("th", {
     staticClass: "align-middle text-center"
-  }, [_vm._v("F")])])]), _vm._v(" "), _c("tbody", [_c("tr", [_c("td"), _vm._v(" "), _c("td"), _vm._v(" "), _c("td"), _vm._v(" "), _c("td"), _vm._v(" "), _c("td", {
-    staticClass: "align-middle text-center"
-  }), _vm._v(" "), _c("td", {
-    staticClass: "align-middle text-center"
-  }), _vm._v(" "), _c("td", {
-    staticClass: "align-middle text-center"
-  }), _vm._v(" "), _c("td", {
-    staticClass: "align-middle text-center"
-  }), _vm._v(" "), _c("td", {
-    staticClass: "align-middle text-center"
-  }), _vm._v(" "), _c("td", {
-    staticClass: "align-middle text-center"
-  }), _vm._v(" "), _c("td", {
-    staticClass: "align-middle text-center"
-  }), _vm._v(" "), _c("td", {
-    staticClass: "align-middle text-center"
-  }), _vm._v(" "), _c("td", {
-    staticClass: "align-middle text-center"
-  }), _vm._v(" "), _c("td", {
-    staticClass: "align-middle text-center"
-  }), _vm._v(" "), _c("td", {
-    staticClass: "align-middle text-center"
-  }), _vm._v(" "), _c("td", {
-    staticClass: "align-middle text-center"
-  }), _vm._v(" "), _c("td", {
-    staticClass: "align-middle text-center"
-  }), _vm._v(" "), _c("td", {
-    staticClass: "align-middle text-center"
-  }), _vm._v(" "), _c("td", {
-    staticClass: "align-middle text-center"
-  }), _vm._v(" "), _c("td", {
-    staticClass: "align-middle text-center"
-  }), _vm._v(" "), _c("td", {
-    staticClass: "align-middle text-center"
-  })])])])])])])])])]);
+  }, [_vm._v("F")])])]);
 }];
 render._withStripped = true;
 
@@ -8559,7 +8597,13 @@ var render = function render() {
       height: 128,
       width: 128
     }
-  }), _vm._v(" "), _c("families-population-pivot"), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _c("families-population-pivot", {
+    attrs: {
+      households: _vm.households
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "container-fluid"
+  }, [_c("div", {
     staticClass: "row"
   }, [_c("div", {
     staticClass: "col-12"
@@ -8596,7 +8640,7 @@ var render = function render() {
         }
       }
     });
-  })], 2)], 1)]), _vm._v(" "), !_vm.advanceSearch ? _c("aside", {
+  })], 2)], 1)])]), _vm._v(" "), !_vm.advanceSearch ? _c("aside", {
     staticClass: "control-sidebar overflow-auto control-sidebar-dark",
     staticStyle: {
       width: "35% !important"
@@ -9125,6 +9169,31 @@ var render = function render() {
   }, [_vm._v(_vm._s(_vm.breadcrumbitem))])]), _vm._v(" "), _c("li", {
     staticClass: "breadcrumb-item active"
   }, [_vm._v(_vm._s(_vm.breadcrumbitemactive))])])])])])]);
+};
+
+var staticRenderFns = [];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pivot/tableDataComponent.vue?vue&type=template&id=e1e24706&":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pivot/tableDataComponent.vue?vue&type=template&id=e1e24706& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("td", [_vm._v("Test")]);
 };
 
 var staticRenderFns = [];
@@ -62663,6 +62732,45 @@ component.options.__file = "resources/js/components/SectionheaderComponent.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/pivot/tableDataComponent.vue":
+/*!**************************************************************!*\
+  !*** ./resources/js/components/pivot/tableDataComponent.vue ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _tableDataComponent_vue_vue_type_template_id_e1e24706___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tableDataComponent.vue?vue&type=template&id=e1e24706& */ "./resources/js/components/pivot/tableDataComponent.vue?vue&type=template&id=e1e24706&");
+/* harmony import */ var _tableDataComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tableDataComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/pivot/tableDataComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _tableDataComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _tableDataComponent_vue_vue_type_template_id_e1e24706___WEBPACK_IMPORTED_MODULE_0__.render,
+  _tableDataComponent_vue_vue_type_template_id_e1e24706___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/pivot/tableDataComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/AccesstodrillsandsimulationsComponent.vue?vue&type=script&lang=js&":
 /*!****************************************************************************************************!*\
   !*** ./resources/js/components/AccesstodrillsandsimulationsComponent.vue?vue&type=script&lang=js& ***!
@@ -63156,6 +63264,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SectionheaderComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SectionheaderComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SectionheaderComponent.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SectionheaderComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/pivot/tableDataComponent.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/components/pivot/tableDataComponent.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_tableDataComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./tableDataComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pivot/tableDataComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_tableDataComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -63682,6 +63806,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SectionheaderComponent_vue_vue_type_template_id_5016c3d4___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_SectionheaderComponent_vue_vue_type_template_id_5016c3d4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SectionheaderComponent.vue?vue&type=template&id=5016c3d4& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SectionheaderComponent.vue?vue&type=template&id=5016c3d4&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pivot/tableDataComponent.vue?vue&type=template&id=e1e24706&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/components/pivot/tableDataComponent.vue?vue&type=template&id=e1e24706& ***!
+  \*********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_tableDataComponent_vue_vue_type_template_id_e1e24706___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_tableDataComponent_vue_vue_type_template_id_e1e24706___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_tableDataComponent_vue_vue_type_template_id_e1e24706___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./tableDataComponent.vue?vue&type=template&id=e1e24706& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pivot/tableDataComponent.vue?vue&type=template&id=e1e24706&");
 
 
 /***/ }),

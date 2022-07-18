@@ -75,7 +75,7 @@ class HouseholdController extends Controller
                  'has_accesstotelecommunications_count'=>$householdResource->where('has_accesstotelecommunications','=',1)->count(),
                  'no_accesstotelecommunications_count'=>$householdResource->where('has_accesstotelecommunications','=',0)->count(),
                  'has_accesstodrillsandsimulations_count'=>$householdResource->where('has_accesstodrillsandsimulations','=',1)->count(),
-                 'no_accesstodrillsandsimulations_count'=>$householdResource->where('has_accesstodrillsandsimulations','=',0)->count()
+                 'no_accesstodrillsandsimulations_count'=>$householdResource->where('has_accesstodrillsandsimulations','=',0)->count() 
         );
     }
 
