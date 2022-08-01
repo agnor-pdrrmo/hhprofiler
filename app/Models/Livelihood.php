@@ -34,8 +34,8 @@ class Livelihood extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function libhhtenuralstatu()
+    public function libtenuralstatu()
     {
-        return $this->belongsTo(Libhhtenuralstatu::class);
+        return $this->belongsTo(Libtenuralstatu::class);
     }
 }

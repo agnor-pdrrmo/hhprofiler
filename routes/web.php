@@ -30,6 +30,7 @@ Auth::routes();
 
 Route::get('/home',[HouseholdController::class,'index'])->name('home');
 Route::get('/household',[HouseholdController::class,'index'])->name('gethouseholds');
+Route::get('/pivot',[HouseholdController::class,'pivot'])->name('pivot');
 Route::get('/test',function(){
     $household = App\Models\Household::with('librelationshiphead')->get();
     return json_encode($household);

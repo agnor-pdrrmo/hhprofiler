@@ -21,7 +21,7 @@ return new class extends Migration
             $table->double('market_value')->nullable();
             $table->string('total_area_volume_of_production')->nullable();
             $table->string('products');
-            $table->foreignId('libhhtenuralstatu_id')->constrained()->onDelete('cascade');
+            $table->foreignId('libtenuralstatu_id')->constrained()->onDelete('cascade');
             $table->boolean('with_insurance');
             $table->timestamps();
         });

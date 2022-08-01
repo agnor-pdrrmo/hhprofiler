@@ -61,6 +61,13 @@ class HouseholdController extends Controller
         return response()->json($households);
     }
 
+    public function pivot()
+    {
+        return view('household.pivot',[
+            'households' => Household::all()
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

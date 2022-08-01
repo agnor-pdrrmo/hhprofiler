@@ -8,7 +8,7 @@
             :width= '128'
             >
         </loading>
-  <families-population-pivot v-bind:households="households"></families-population-pivot>
+  <!-- {<families-population-pivot v-bind:households="households"></families-population-pivot>} -->
         <div class="container-fluid" >
             <div class="row">
                 <div class="col-12" >
@@ -494,7 +494,7 @@ export default {
     this.loadMunicipality();
     this.loadBarangays();
     this.loadTypeofbuilding();
-    this.loadHouseholds();
+    //this.loadHouseholds();
     this.loadHhtenuralstatus();
     this.loadHhroofmaterials();
     this.loadHhwatertenuralstatus();

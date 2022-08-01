@@ -50,7 +50,7 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <Table v-bind:data="households"/>
+                                <td></td>
                                 <td class="align-middle text-center"></td>
                                 <td class="align-middle text-center"></td>
                                 <td class="align-middle text-center"></td>
@@ -82,14 +82,13 @@
 </template>
 
 <script>
-import Table from '../components/pivot/tableDataComponent.vue';
+import TableData from '../components/pivot/tableDataComponent.vue';
 export default {
 
   props : ['households'],
   components: {
-    Table
-  },
-
+    TableData
+  }
   
 }
 

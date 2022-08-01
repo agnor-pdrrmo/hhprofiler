@@ -5,21 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Libhhtenuralstatu extends Model
+class Libtenuralstatu extends Model
 {
     use HasFactory;
 
-    // Table Name
-    protected $table = 'libhhtenuralstatus';
-
     /**
-     * Get all of the househols for the Libhhtenuralstatu
+     * Get all of the livelihoods for the Libhhtenuralstatu
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function households()
+    public function livelihoods()
     {
-        return $this->hasMany(Household::class);
+        return $this->hasMany(Livelihood::class);
     }
-
 }

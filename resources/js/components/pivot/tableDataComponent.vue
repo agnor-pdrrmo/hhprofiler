@@ -1,14 +1,9 @@
 <template>
-    <td>Test</td>
+    <td>{{computedDatas}}</td>
 </template>
 
 <script>
 export default {
-  props: ['data'],
-  data () {
-    return {
-      data : this.data,
-    }
-  }
+  props: ['households'],
 }
 </script>

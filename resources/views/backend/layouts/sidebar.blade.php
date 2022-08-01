@@ -43,6 +43,14 @@
                     </a>
                 </li>
                 <li class="nav-item menu-open">
+                    <a href="/pivot" class="nav-link {{ (Illuminate\Support\Facades\Route::is('pivot')) ? "active" : "" }}">
+                        <i class="nav-icon fa fa-table"></i>
+                        <p>
+                            Pivot table
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item menu-open">
                     <a href="/maps" class="nav-link {{ (Illuminate\Support\Facades\Route::is('maps')) ? "active" : "" }}">
                         <i class="nav-icon fa fa-globe"></i>
                         <p>

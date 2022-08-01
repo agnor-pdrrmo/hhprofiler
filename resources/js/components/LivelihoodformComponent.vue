@@ -18,8 +18,8 @@
                 <input type="text" class="form-control form-control-sm" id="total_area_volume_of_production" v-model="form.livelihood.total_area_volume_of_production">
             </div> 
             <div class="form-group mb-3">
-                <label for="libhhtenuralstatu_id">Tenural status of livelihood </label> 
-                <input type="text" class="form-control form-control-sm" id="libhhtenuralstatu_id" v-model="form.livelihood.libhhtenuralstatu.lib_ternuralstatusdesc">
+                <label for="libtenuralstatu_id">Tenural status of livelihood </label> 
+                <input type="text" class="form-control form-control-sm" id="libtenuralstatu_id" v-model="form.livelihood.libtenuralstatu.lib_tsname">
             </div> 
             <div class="form-group mb-3">
                 <label for="with_insurance">With insurance </label> 
@@ -55,8 +55,8 @@ export default {
             products: this.livelihood.products,
             market_value: this.livelihood.market_value,
             total_area_volume_of_production: this.livelihood.total_area_volume_of_production,
-            libhhtenuralstatu:{
-                lib_ternuralstatusdesc: this.livelihood.libhhtenuralstatu.lib_ternuralstatusdesc
+            libtenuralstatu:{
+                lib_tsname: this.livelihood.libtenuralstatu.lib_tsname
             },
             with_insurance: (this.livelihood.with_insurance) ? 'Yes' : 'No'
           }

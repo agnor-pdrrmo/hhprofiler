@@ -2459,7 +2459,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['households'],
   components: {
-    Table: _components_pivot_tableDataComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    TableData: _components_pivot_tableDataComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
 });
 
@@ -2807,8 +2807,8 @@ __webpack_require__.r(__webpack_exports__);
           products: this.livelihood.products,
           market_value: this.livelihood.market_value,
           total_area_volume_of_production: this.livelihood.total_area_volume_of_production,
-          libhhtenuralstatu: {
-            lib_ternuralstatusdesc: this.livelihood.libhhtenuralstatu.lib_ternuralstatusdesc
+          libtenuralstatu: {
+            lib_tsname: this.livelihood.libtenuralstatu.lib_tsname
           },
           with_insurance: this.livelihood.with_insurance ? 'Yes' : 'No'
         }
@@ -3340,8 +3340,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
     this.loadMunicipality();
     this.loadBarangays();
-    this.loadTypeofbuilding();
-    this.loadHouseholds();
+    this.loadTypeofbuilding(); //this.loadHouseholds();
+
     this.loadHhtenuralstatus();
     this.loadHhroofmaterials();
     this.loadHhwatertenuralstatus();
@@ -3464,12 +3464,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['data'],
-  data: function data() {
-    return {
-      data: this.data
-    };
-  }
+  props: ['households']
 });
 
 /***/ }),
@@ -5608,6 +5603,13 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
+  return _vm._m(0);
+};
+
+var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
   return _c("section", {
     staticClass: "content"
   }, [_c("div", {
@@ -5618,65 +5620,15 @@ var render = function render() {
     staticClass: "col-md-12"
   }, [_c("div", {
     staticClass: "card"
-  }, [_vm._m(0), _vm._v(" "), _c("div", {
-    staticClass: "card-body"
-  }, [_c("table", {
-    staticClass: "table table-bordered"
-  }, [_vm._m(1), _vm._v(" "), _c("tbody", [_c("tr", [_c("td"), _vm._v(" "), _c("td"), _vm._v(" "), _c("td"), _vm._v(" "), _c("Table", {
-    attrs: {
-      data: _vm.households
-    }
-  }), _vm._v(" "), _c("td", {
-    staticClass: "align-middle text-center"
-  }), _vm._v(" "), _c("td", {
-    staticClass: "align-middle text-center"
-  }), _vm._v(" "), _c("td", {
-    staticClass: "align-middle text-center"
-  }), _vm._v(" "), _c("td", {
-    staticClass: "align-middle text-center"
-  }), _vm._v(" "), _c("td", {
-    staticClass: "align-middle text-center"
-  }), _vm._v(" "), _c("td", {
-    staticClass: "align-middle text-center"
-  }), _vm._v(" "), _c("td", {
-    staticClass: "align-middle text-center"
-  }), _vm._v(" "), _c("td", {
-    staticClass: "align-middle text-center"
-  }), _vm._v(" "), _c("td", {
-    staticClass: "align-middle text-center"
-  }), _vm._v(" "), _c("td", {
-    staticClass: "align-middle text-center"
-  }), _vm._v(" "), _c("td", {
-    staticClass: "align-middle text-center"
-  }), _vm._v(" "), _c("td", {
-    staticClass: "align-middle text-center"
-  }), _vm._v(" "), _c("td", {
-    staticClass: "align-middle text-center"
-  }), _vm._v(" "), _c("td", {
-    staticClass: "align-middle text-center"
-  }), _vm._v(" "), _c("td", {
-    staticClass: "align-middle text-center"
-  }), _vm._v(" "), _c("td", {
-    staticClass: "align-middle text-center"
-  }), _vm._v(" "), _c("td", {
-    staticClass: "align-middle text-center"
-  })], 1)])])])])])])])]);
-};
-
-var staticRenderFns = [function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
+  }, [_c("div", {
     staticClass: "card-header"
   }, [_c("h3", {
     staticClass: "card-title"
-  }, [_vm._v("Number of families and population vulnerable in hazard")])]);
-}, function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("thead", {
+  }, [_vm._v("Number of families and population vulnerable in hazard")])]), _vm._v(" "), _c("div", {
+    staticClass: "card-body"
+  }, [_c("table", {
+    staticClass: "table table-bordered"
+  }, [_c("thead", {
     staticClass: "thead-light"
   }, [_c("tr", [_c("th", {
     staticClass: "align-middle text-center",
@@ -5784,7 +5736,41 @@ var staticRenderFns = [function () {
     staticClass: "align-middle text-center"
   }, [_vm._v("M")]), _vm._v(" "), _c("th", {
     staticClass: "align-middle text-center"
-  }, [_vm._v("F")])])]);
+  }, [_vm._v("F")])])]), _vm._v(" "), _c("tbody", [_c("tr", [_c("td"), _vm._v(" "), _c("td"), _vm._v(" "), _c("td"), _vm._v(" "), _c("td"), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  }), _vm._v(" "), _c("td", {
+    staticClass: "align-middle text-center"
+  })])])])])])])])])]);
 }];
 render._withStripped = true;
 
@@ -8491,28 +8477,28 @@ var render = function render() {
     staticClass: "form-group mb-3"
   }, [_c("label", {
     attrs: {
-      "for": "libhhtenuralstatu_id"
+      "for": "libtenuralstatu_id"
     }
   }, [_vm._v("Tenural status of livelihood ")]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.form.livelihood.libhhtenuralstatu.lib_ternuralstatusdesc,
-      expression: "form.livelihood.libhhtenuralstatu.lib_ternuralstatusdesc"
+      value: _vm.form.livelihood.libtenuralstatu.lib_tsname,
+      expression: "form.livelihood.libtenuralstatu.lib_tsname"
     }],
     staticClass: "form-control form-control-sm",
     attrs: {
       type: "text",
-      id: "libhhtenuralstatu_id"
+      id: "libtenuralstatu_id"
     },
     domProps: {
-      value: _vm.form.livelihood.libhhtenuralstatu.lib_ternuralstatusdesc
+      value: _vm.form.livelihood.libtenuralstatu.lib_tsname
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
 
-        _vm.$set(_vm.form.livelihood.libhhtenuralstatu, "lib_ternuralstatusdesc", $event.target.value);
+        _vm.$set(_vm.form.livelihood.libtenuralstatu, "lib_tsname", $event.target.value);
       }
     }
   })]), _vm._v(" "), _c("div", {
@@ -8596,10 +8582,6 @@ var render = function render() {
       loader: _vm.bars,
       height: 128,
       width: 128
-    }
-  }), _vm._v(" "), _c("families-population-pivot", {
-    attrs: {
-      households: _vm.households
     }
   }), _vm._v(" "), _c("div", {
     staticClass: "container-fluid"
@@ -9193,7 +9175,7 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("td", [_vm._v("Test")]);
+  return _c("td", [_vm._v(_vm._s(_vm.computedDatas))]);
 };
 
 var staticRenderFns = [];
