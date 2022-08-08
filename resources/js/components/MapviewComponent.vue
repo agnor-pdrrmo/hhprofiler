@@ -494,7 +494,7 @@ export default {
     this.loadMunicipality();
     this.loadBarangays();
     this.loadTypeofbuilding();
-    //this.loadHouseholds();
+    this.loadHouseholds();
     this.loadHhtenuralstatus();
     this.loadHhroofmaterials();
     this.loadHhwatertenuralstatus();

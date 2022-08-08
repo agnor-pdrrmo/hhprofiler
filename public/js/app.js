@@ -3340,8 +3340,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
     this.loadMunicipality();
     this.loadBarangays();
-    this.loadTypeofbuilding(); //this.loadHouseholds();
-
+    this.loadTypeofbuilding();
+    this.loadHouseholds();
     this.loadHhtenuralstatus();
     this.loadHhroofmaterials();
     this.loadHhwatertenuralstatus();

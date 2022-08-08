@@ -63,10 +63,7 @@ class HouseholdController extends Controller
 
     public function pivot()
     {
-        $households = Household::selectRaw('id,libbarangay_psgccode')
-            //->with('libbarangay')
-            ->withCount('demography')
-            ->get()
+        $households = Household::get()
             ->groupBy('libbarangay_psgccode');
         
         return view('household.pivot',[

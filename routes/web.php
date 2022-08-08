@@ -15,26 +15,29 @@ use App\Http\Controllers\HouseholdController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get(
+    '/',
+    [HouseholdController::class,'index']
+)
+->name('home')
+->middleware('auth');
 
 // Temporary Route for development only 
 Route::get('/template', function () {
     return view('adminlte');
-})->name('template');
-Route::get('/maps',[HouseholdController::class,'maps'])->name('maps');
+})->name('template')
+->middleware('auth');
+Route::get('/maps',[HouseholdController::class,'maps'])->name('maps')->middleware('auth');
 // Temporary Route for development only 
 
 Auth::routes();
 
-Route::get('/home',[HouseholdController::class,'index'])->name('home');
-Route::get('/household',[HouseholdController::class,'index'])->name('gethouseholds');
-Route::get('/pivot',[HouseholdController::class,'pivot'])->name('pivot');
+Route::get('/household',[HouseholdController::class,'index'])->name('gethouseholds')->middleware('auth');
+Route::get('/pivot',[HouseholdController::class,'pivot'])->name('pivot')->middleware('auth');
 Route::get('/test',function(){
     $household = App\Models\Household::with('librelationshiphead')->get();
     return json_encode($household);
-});
+})->middleware('auth');
 
 
 
